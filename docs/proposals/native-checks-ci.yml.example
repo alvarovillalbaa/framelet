@@ -1,0 +1,93 @@
+# INACTIVE. Requires explicit Framelet native-build/test/temporary-CI approval.
+# Install only on qa/native-acceptance; remove the active workflow afterward.
+name: Temporary Framelet native acceptance
+on:
+  push:
+    branches: [qa/native-acceptance]
+    paths:
+      - .github/workflows/native-acceptance.yml
+      - Package.swift
+      - Sources/**
+      - Tests/**
+      - Resources/Info.plist
+      - script/build_and_run.sh
+permissions:
+  contents: read
+jobs:
+  native-build:
+    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/native-acceptance'
+    runs-on: macos-15
+    timeout-minutes: 20
+    env:
+      CI: "true"
+      DO_NOT_TRACK: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Verify the owned source and installed Apple toolchain
+        run: |
+          git rev-parse HEAD
+          swift --version
+          xcrun --sdk macosx --show-sdk-version
+          uname -m
+          git ls-files -z Package.swift Sources Tests Resources script .codex/environments/environment.toml docs/proposals/native-checks-ci.yml.example | xargs -0 shasum -a 256
+          python3 <<'PY'
+          import pathlib, re, subprocess
+          sdk = subprocess.check_output(['xcrun', '--sdk', 'macosx', '--show-sdk-version'], text=True).strip()
+          if int(sdk.split('.')[0]) < 15:
+              raise SystemExit('The reviewed capture API requires SDK 15 or later.')
+          if subprocess.check_output(['uname', '-m'], text=True).strip() != 'arm64':
+              raise SystemExit('Re-review the changed standard runner architecture.')
+          package = pathlib.Path('Package.swift').read_text()
+          if '.package(' in package:
+              raise SystemExit('Re-review a new external package dependency before this job runs.')
+          for name, count in [('RecordingTimelineTests.swift', 13), ('RecordingCompletionTests.swift', 5)]:
+              source = (pathlib.Path('Tests/FrameletCoreTests') / name).read_text()
+              if len(re.findall(r'func test\w+\(', source)) != count:
+                  raise SystemExit('Re-review the changed core case count: ' + name)
+          if pathlib.Path('dist').exists():
+              raise SystemExit('Refusing pre-existing output in this disposable checkout.')
+          PY
+      - name: Compile the native executable and package a locally ad-hoc signed app without launching
+        run: ./script/build_and_run.sh --build-only
+      - name: Run exactly eighteen authored core model and acknowledgement cases
+        run: |
+          swift test --filter 'Recording(Timeline|Completion)Tests' --xunit-output "$RUNNER_TEMP/framelet-core.xml"
+          python3 <<'PY'
+          import os, pathlib, xml.etree.ElementTree as ET
+          root = ET.parse(pathlib.Path(os.environ['RUNNER_TEMP']) / 'framelet-core.xml').getroot()
+          cases = list(root.iter('testcase'))
+          if len(cases) != 18:
+              raise SystemExit('Expected exactly eighteen selected XCTest cases.')
+          if len({(case.get('classname'), case.get('name')) for case in cases}) != 18:
+              raise SystemExit('A selected case was duplicated.')
+          if any(case.find(tag) is not None for case in cases for tag in ('failure', 'error', 'skipped')):
+              raise SystemExit('A selected test failed, errored or skipped; inspect the XCTest output.')
+          print('Eighteen authored core cases passed. No capture, device access or UI was exercised.')
+          PY
+      - name: Verify only packaged metadata and a local ad-hoc signature
+        run: |
+          plutil -lint dist/Framelet.app/Contents/Info.plist
+          codesign --verify --strict dist/Framelet.app
+          test -x dist/Framelet.app/Contents/MacOS/Framelet
+          git diff --exit-code -- Package.swift Sources Tests Resources script .codex/environments/environment.toml
+      - name: Remove only this disposable job's reproducible build and report outputs
+        if: always()
+        run: |
+          python3 <<'PY'
+          import os, pathlib, shutil
+          workspace = pathlib.Path(os.environ['GITHUB_WORKSPACE']).resolve()
+          if pathlib.Path.cwd().resolve() != workspace or workspace.name != 'framelet':
+              raise SystemExit('Unexpected checkout; refusing cleanup.')
+          for name in ('.build', '.swiftpm', 'dist'):
+              path = workspace / name
+              if path.is_symlink():
+                  raise SystemExit('Refusing a symlinked task output.')
+              if path.is_dir():
+                  shutil.rmtree(path)
+          report = pathlib.Path(os.environ['RUNNER_TEMP']) / 'framelet-core.xml'
+          if report.is_file():
+              report.unlink()
+          print('Owned disposable build/report outputs removed.')
+          PY

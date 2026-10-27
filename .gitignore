@@ -1,0 +1,12 @@
+.build/
+.swiftpm/
+dist/
+.DS_Store
+*.xcuserstate
+*.framelet/
+*.mp4
+*.mov
+*.m4a
+.env
+.env.*
+!.env.example

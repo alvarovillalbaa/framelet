@@ -1,0 +1,28 @@
+# Framelet
+
+Last updated: 2026-10-27
+
+A local Mac screen recorder with a recording library and clip editor. Choose a display or window, optionally include camera and audio, pause between takes, edit the clips, and export an MP4 with your canvas layout. Recordings stay on your Mac.
+
+**Source in development. Native build and capture/edit/export acceptance are not yet verified.** This is a native macOS app, not a Vercel website or a Supabase service. The [product contract](docs/specs/recorder.md) records the owning brief, exact scope and open acceptance boundaries.
+
+## Local build
+
+macOS 15 or later and a Swift 5.9+ toolchain with a macOS 15+ SDK are required. There are no external package dependencies. Use a toolchain whose installed SDK contains the ScreenCaptureKit recording and microphone APIs.
+
+```sh
+./script/build_and_run.sh --build-only
+./script/build_and_run.sh
+```
+
+The script builds SwiftPM, packages `dist/Framelet.app`, and applies a local ad-hoc signature. Its no-flag mode opens that real app bundle. It respects an installed Codex Storage Guard policy and never force-kills an active recording. The Codex Run action uses this same script. Debug, logs, telemetry and process-only verification modes are available; `--verify` proves only that a process launched, not successful capture or UI behavior.
+
+The first Choose source action opens macOS's content-sharing picker. Camera and microphone default off and are requested only when enabled for a recording. Source selection does not start recording. System permission refusals are surfaced; the app does not bypass them. No permission or device access is needed just to review source or run the proposed isolated core tests.
+
+The library lives in the app's Application Support folder as UUID-named `.framelet` packages. The manifest preserves source segments, camera offsets, clip edits and canvas settings. Originals and partial media remain after failures. Removing a clip edits the timeline; moving a recording to Trash requires confirmation. Export creates a new file and leaves source media intact. Unfinished packages are shown as interrupted on the next launch.
+
+## Verification and delivery
+
+Eighteen authored XCTest cases cover timeline ordering, pause-gap omission, positive/negative camera offsets, trims, unsafe paths, identity integrity, canvas bounds, manifest round-tripping and asynchronous acknowledgement/cancellation recovery. They are source only until execution is approved. See [the compile proposal](docs/proposals/native-checks.md) and [source evidence](docs/results/2026/10-27/initial-source.md).
+
+No account, cloud hosting, model call, paid plan or Apple enrollment is required for local source/build. Trusted external distribution requires its own Developer ID signing/notarization process and acceptance. This repository does not claim a notarized download or App Store release. Captioning, transcription, region selection, custom camera masks and cloud sharing are not implemented features.
