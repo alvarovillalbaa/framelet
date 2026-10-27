@@ -1,6 +1,6 @@
 # Framelet initial source
 
-Status: source implemented and statically reviewed. Source publication, native compilation and runtime acceptance are not yet established.
+Status: source published and statically reviewed. Native compilation and runtime acceptance remain pending.
 
 The [owning personal queue](https://app.notion.com/p/311a1ee8bd06805caa21c5306dd315ac), fetched on 2026-10-27, explicitly requests a local Mac screen recorder replacing Tella/popular recording tools. The entry has no attached prerequisite; three omitted embeds elsewhere bound the read. See [the product contract](../../../specs/recorder.md) for the full interpretation and exact interface/timing rules.
 
@@ -17,3 +17,5 @@ Final static checks passed for all **28 Swift files** (package, implementation a
 The [compile-only proposal](../../../proposals/native-checks.md) remains inactive. Real capture/edit/export and distribution need separate evidence. No screen/window enumeration, camera/microphone access, permission grant, user-file mutation, account, model call, backend, Vercel/Supabase resource, CI activation or signing occurred during source preparation.
 
 Capture source review preserves an explicit media-timing gap: the first valid complete ScreenCaptureKit sample is used as an API-informed screen anchor, but equality with the first encoded video frame is not established by the inspected header/documentation. Actual synchronization remains required acceptance; no frame-accuracy claim follows from source or core arithmetic. Camera output uses the native sample-accurate callback and both clocks are converted to host time.
+
+Publication: [alvarovillalbaa/framelet](https://github.com/alvarovillalbaa/framelet) is public with default branch `main`. Initial source commit [`bd25ebc122a0f9ce26af3014117de9691013928c`](https://github.com/alvarovillalbaa/framelet/commit/bd25ebc122a0f9ce26af3014117de9691013928c) was read back through GitHub and matched the local/remote main SHA. GitHub's immutable package read returned blob `dac9d5dab4d930382b68f18b9737758ab005142a`, matching the local package bytes; it declares no external package dependency. Documentation-only follow-ups retain these product/test bytes. No active workflow is tracked; the native proposal remains an example. No Vercel or Supabase resource is needed or was created for this local native app. Source hosting is not a compiled, downloadable or notarized release.
