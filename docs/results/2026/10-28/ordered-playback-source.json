@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "authored source; all30 cases, native compilation and media/player execution unexecuted",
+  "status": "approved native acceptance in progress; actual attempts are recorded in ordered-playback-checks.md",
   "baselineCommit": "9bb8e8399da3f713d2371037f7f33c05843b7644",
   "proposedEnvironment": {
     "runner": "macos-15",
@@ -131,8 +131,8 @@
     "Tests/FrameletPlaybackTests/PlaybackMediaFixture.swift": "398472938ec1d18cc5fbaa3a289bc072c4ac109437ec52f473770e684b935ea0",
     "Tests/FrameletPlaybackTests/RecordingCompositionTests.swift": "856f833748b762fa5ce5005de416d7229f6e6af26ec180fdb2121996446e7d8a",
     "Tests/FrameletPlaybackTests/UIPlaybackModelTests.swift": "a16a29293e949ecc8ff25b049a2f3efcb3b31f35df42f2b04b32124901c1ceb0",
-    "docs/proposals/ordered-playback-checks.md": "663fb17d487edaf445429fddf301ff4c93300c46e35b97de18ce268335a851a9",
-    "docs/proposals/ordered-playback-ci.yml.example": "4bdf96e5617ee83ad4a8c30c804a81a04f61a5dbc13bf322bd85e2a977632e66",
+    "docs/proposals/ordered-playback-checks.md": "0968c8d8698cf0fe339dc70ada875e94cfd590009023412c38bebddd108427c1",
+    "docs/proposals/ordered-playback-ci.yml.example": "8ec710b1a1759d0ec52f3cbd191ef904b73d98cf2cf87b78a81e3a69bf511b00",
     "docs/results/2026/10-28/ordered-playback.md": "549f18603d7d560ace94f8303fe20459d2ab454941ea0be829ec0163c07fd147",
     "docs/specs/recorder.md": "f9646de54a466f7f3976f65c74c518cedaca39a68b3252980e567ba36a851e0b",
     "script/build_and_run.sh": "bdba84eea7e875eac860fc54b18b3f952f380ee445dcf20f4143c8f18469556e",

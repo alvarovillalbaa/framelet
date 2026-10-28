@@ -28,6 +28,19 @@ defines the complete boundary.
    preset/protocol declarations and the selected-clip load's async seek call.
    Bounded source compatibility repairs preserve the capture timing contract
    and fence the awaited seek acknowledgement before continuing setup.
+3. [Run 40781450459](https://github.com/alvarovillalbaa/framelet/actions/runs/40781450459),
+   branch `60de8eee89658aae73f86b5b16eb6268159075b2`, job `123143874327`:
+   native build and local ad-hoc packaging succeeded. XCTest executed all thirty
+   selected cases with zero failures; each actual case has an individual pass
+   record. The job then failed because the expected xUnit file was absent, so
+   final package verification was skipped. Owned cleanup passed. Decoded log
+   SHA-256: `d4a34e4733d7d68011c6eda97109454d1f44fc183281265d8245059a532a5759`.
+   This is a test pass and a reporting failure, not a green acceptance job.
+   Pinned [SwiftPM 6.1.2 source](https://github.com/swiftlang/swift-package-manager/blob/swift-6.1.2-RELEASE/Sources/Commands/SwiftTestCommand.swift#L284-L334)
+   emits XCTest xUnit only through its parallel runner. The corrected invocation
+   uses that path with exactly one worker, keeps the same thirty cases and all
+   verdict checks, and disables the unused Swift Testing runner. It also logs
+   actual XML-derived case identities and the XML hash before cleanup.
 
 The active workflow is confined to `qa/ordered-playback`; local `main` has no
 active workflow. It must be removed after the focused acceptance run. Preserve
