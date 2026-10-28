@@ -1,6 +1,6 @@
 # App-icon source and bundle wiring
 
-28 October 2026. Original icon source and packaging references are prepared;
+28 October 2026. Original icon source and packaging references are published;
 no native Framelet build or exported app bundle was produced for this check.
 
 The [editable SVG](../../../../artwork/app-icon.svg) uses a recording screen,
@@ -60,3 +60,23 @@ inclusion, OS appearance, native behavior and distribution remain pending.
 | `script/render_app_icon.sh` | `de9fda2d9e2e0977e88600dab9041cbbb88579ab1de902e8e48c85a6c1460886` |
 | `script/render_app_icon.py` | `6f1e5461f072b25267ded787691b6023a891fccfe33d108c21c4284153d66eb8` |
 | `script/build_and_run.sh` | `bdba84eea7e875eac860fc54b18b3f952f380ee445dcf20f4143c8f18469556e` |
+
+## Source publication
+
+Published [source commit e25b854](https://github.com/alvarovillalbaa/framelet/commit/e25b85482d15c74b0898001df0841453b02035fb).
+Immutable GitHub readback matched the local Git blobs below; `main` was identical
+to that source commit at readback. Independent final checks confirmed all ten
+ICNS mappings, embedded PNG checksums and reference bytes, unchanged original
+plist values/packaging commands after removing the icon additions, six local
+documentation links and the nine-file change scope. `git diff --check` passed.
+These are publication and source-format checks; native acceptance remains open.
+
+| Published file | Git blob |
+| --- | --- |
+| SVG | `2984300b48318b1652c86b735c66b8693a71df95` |
+| PNG | `93b8376a6e4b73088bf5fabb72d274a2474eb145` |
+| ICNS | `fb6d57c5b71406b282cb50b06961a3b8f33919bf` |
+| Info.plist | `33173c2cd8b03ab583cf75d254263b5b1e7c5b44` |
+| Packaging helper | `485b97fa2afa9449a80e9d609dcd9c8728c0126b` |
+| Python exporter | `927b3f981fcbc64ff15581f192a04401e5c48305` |
+| Shell exporter | `df3942b80b56d400155734f9245d7e5cb6eff235` |
