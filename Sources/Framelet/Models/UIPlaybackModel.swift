@@ -62,8 +62,14 @@ final class UIPlaybackModel {
             observe(item: item, token: token,
                     failureMessage: "This clip could not be played. Its original files have been retained.")
             screenPlayer.replaceCurrentItem(with: item)
-            screenPlayer.seek(to: CMTime(seconds: sourceStart, preferredTimescale: 600),
-                              toleranceBefore: .zero, toleranceAfter: .zero)
+            let positioned = await screenPlayer.seek(to: CMTime(seconds: sourceStart, preferredTimescale: 600),
+                                                     toleranceBefore: .zero, toleranceAfter: .zero)
+            guard generation == token, !Task.isCancelled else { return }
+            guard positioned else {
+                failPlayback(item: item, token: token,
+                    message: "This clip could not be positioned. Reload the preview to try again. Originals have been retained.")
+                return
+            }
             if let path = slice.segment.cameraPath {
                 do {
                     let cameraURL = try library.mediaURL(projectID: project.id, path: path)

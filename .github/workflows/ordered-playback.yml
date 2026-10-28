@@ -1,3 +1,4 @@
+# Reviewed source: ef3041a16fc9501d19ca1cf14dc31c061a78282f
 # INACTIVE. Requires explicit ordered-playback native checks and temporary-CI approval.
 # Activate only on qa/ordered-playback; remove the active workflow after checks.
 name: Temporary Framelet ordered playback acceptance
