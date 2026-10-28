@@ -62,10 +62,10 @@ final class CameraRecorder: NSObject, AVCaptureFileOutputDelegate, AVCaptureFile
                         throw CaptureError.message("The selected camera cannot create a video-only recording.")
                     }
                     self.session.addConnection(connection)
-                    guard self.session.canSetSessionPreset(.inputPriority) else {
+                    guard self.session.canSetSessionPreset(.high) else {
                         throw CaptureError.message("The camera cannot use a bounded recording format.")
                     }
-                    self.session.sessionPreset = .inputPriority
+                    self.session.sessionPreset = .high
                     let formats = device.formats.filter { format in
                         let dimensions = CMVideoFormatDescriptionGetDimensions(format.formatDescription)
                         return dimensions.width > 0 && dimensions.height > 0 && dimensions.width <= 1280 && dimensions.height <= 720
@@ -125,9 +125,9 @@ final class CameraRecorder: NSObject, AVCaptureFileOutputDelegate, AVCaptureFile
         return host
     }
 
-    func captureOutputShouldProvideSampleAccurateRecordingStart(_ output: AVCaptureOutput) -> Bool { true }
+    func fileOutputShouldProvideSampleAccurateRecordingStart(_ output: AVCaptureFileOutput) -> Bool { true }
 
-    func captureOutput(_ output: AVCaptureFileOutput, didOutputSampleBuffer sampleBuffer: CMSampleBuffer,
+    func fileOutput(_ output: AVCaptureFileOutput, didOutputSampleBuffer sampleBuffer: CMSampleBuffer,
                        from connection: AVCaptureConnection) {
         guard sampleBuffer.isValid,
               let format = CMSampleBufferGetFormatDescription(sampleBuffer),
@@ -156,14 +156,14 @@ final class CameraRecorder: NSObject, AVCaptureFileOutputDelegate, AVCaptureFile
         }
     }
 
-    func captureOutput(_ output: AVCaptureFileOutput, didStartRecordingTo fileURL: URL,
+    func fileOutput(_ output: AVCaptureFileOutput, didStartRecordingTo fileURL: URL,
                        from connections: [AVCaptureConnection]) {
         recordingStarted.resolve(.success(()))
         lock.lock(); let shouldStop = stopRequested; lock.unlock()
         if shouldStop { queue.async { output.stopRecording() } }
     }
 
-    func captureOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL,
+    func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL,
                        from connections: [AVCaptureConnection], error: Error?) {
         lock.lock(); finishAcknowledged = true; let expected = stopRequested; lock.unlock()
         // AVFoundation may attach a nonfatal error to an otherwise valid file.
