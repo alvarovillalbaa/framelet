@@ -1,8 +1,9 @@
 # Ordered recording playback acceptance
 
-28 October 2026. Status: authored, inactive and unexecuted. This is a new exact
-scope under the supplied workspace AGENTS.md §§7 and 14. It does not treat the
-earlier Framelet compile proposal or another app's approval as authorization.
+28 October 2026. Alvaro approved this exact scope under the supplied workspace
+AGENTS.md §§7 and 14. [Actual attempts](../results/2026/10-28/ordered-playback-checks.md)
+record execution and remaining proof. The earlier Framelet compile proposal or
+another app's approval did not authorize it.
 
 ## Scope
 
@@ -23,6 +24,11 @@ dependency.
    `RecordingCompositionTests` and six new `UIPlaybackModelTests`. The source
    seal lists every exact name; the xUnit result must match that complete set,
    with zero failures, errors, skips or duplicate cases.
+   Use SwiftPM's XCTest runner with `--parallel --num-workers 1`, explicitly
+   enabling XCTest and disabling the unused Swift Testing library. This runs
+   one case worker at a time while producing the actual xUnit report; the
+   pinned SwiftPM 6.1.2 serial path does not emit XCTest xUnit. Log the verified
+   actual case identities and report hash before removing the report.
 3. Verify tracked product/test bytes remain unchanged. Remove the temporary
    active workflow after the approved focused run. Preserve failures and exact
    source identities in the owning results receipt; bounded fixes and reruns of
