@@ -15,7 +15,6 @@ jobs:
     env:
       CI: "true"
       DO_NOT_TRACK: "1"
-      FRAMELET_PLAYBACK_ROOT: ${{ runner.temp }}/framelet-playback-${{ github.run_id }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -55,7 +54,9 @@ jobs:
           if actual != seal['authoredCases'] or sum(map(len, actual.values())) != 30:
               raise SystemExit('The exact thirty-case scope changed.')
           parent = pathlib.Path(os.environ['RUNNER_TEMP']).resolve()
-          target = pathlib.Path(os.environ['FRAMELET_PLAYBACK_ROOT'])
+          if not re.fullmatch(r'[0-9]{1,24}', os.environ['GITHUB_RUN_ID']) or any(c in str(parent) for c in '\r\n'):
+              raise SystemExit('Unexpected runner identity.')
+          target = parent / ('framelet-playback-' + os.environ['GITHUB_RUN_ID'])
           if target.parent != parent or target.name != 'framelet-playback-' + os.environ['GITHUB_RUN_ID']:
               raise SystemExit('Unexpected fixture ownership.')
           report = parent / 'framelet-ordered-playback.xml'
@@ -63,6 +64,8 @@ jobs:
               raise SystemExit('Refusing pre-existing output.')
           if any(pathlib.Path(name).exists() or pathlib.Path(name).is_symlink() for name in ('.build', '.swiftpm', 'dist')):
               raise SystemExit('Refusing pre-existing build output.')
+          with open(os.environ['GITHUB_ENV'], 'a') as environment:
+              environment.write('FRAMELET_PLAYBACK_ROOT=' + str(target) + '\n')
           target.mkdir(mode=0o700)
           PY
       - name: Compile and package without launching
