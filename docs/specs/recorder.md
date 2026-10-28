@@ -1,6 +1,6 @@
 # Framelet recorder contract
 
-Last updated: 2026-10-27
+Last updated: 2026-10-28
 
 The [personal project queue](https://app.notion.com/p/311a1ee8bd06805caa21c5306dd315ac), fetched on 2026-10-27, explicitly requests “desktop app for screen recording (locally-hosted app for macbook that substitutes Tella and other most popular screen recording apps”. No prerequisite attaches to this New-list entry. Three unknown embeds elsewhere make the parent fetch globally truncated; this is a bounded entry interpretation, not an exhaustive queue audit. No separate child brief was found. Framelet is a working product name chosen for this implementation.
 
@@ -19,6 +19,18 @@ Sealed segments use actual screen video duration. Required camera alignment is s
 **Open timing proof:** the current ScreenCaptureKit implementation observes the first valid `.complete` screen sample as its anchor, following Apple's sample pattern. Attaching `SCRecordingOutput` before capture guarantees the first captured sample is written, but the inspected documentation does not explicitly equate first `.complete` with the first encoded video sample. The camera uses sample-accurate file output. Correct correspondence between the screen anchor and encoded timeline remains an unverified implementation assumption; measure it with authored capture/export before claiming synchronized PiP. If it differs, fix the anchor/writer mapping before closing this requirement. Pure offset tests cannot settle it.
 
 Clips identify sealed segments and finite `0 ≤ trimStart < trimEnd ≤ segmentDuration` ranges. Ordered clips concatenate, and edits leave original files intact. The core computes camera overlap in segment coordinates, correctly handling negative offsets, late starts, trims and absent camera. Normalized layout rectangles use a top-left origin. The exporter converts coordinates centrally, respects each video track's preferred transform, fits screen content and fills camera content without stretching, and carries every source audio track into the composition. Output is staged at a new destination and never replaces an existing file. Cancel/failure removes only the operation's owned staging output and retains project sources.
+
+Playback defaults to the whole ordered recording. A shared composition builder
+assembles the same clip ranges, canvas instructions, camera gaps and audio mix
+for preview and export; preview retains its source assets and writes no media.
+The global cursor seeks through clip boundaries. Selected Clip remains a
+separate audition scope. A project/edit/canvas/scope change clears the old
+snapshot and never automatically resumes playback. Capture suspension clears
+the item and invalidates pending loads. Load, status and seek callbacks must
+belong to the current generation/item; failed seeks or media expose an explicit
+Reload Preview action. Original media and the existing screen-anchor timing
+assumption are unaffected by this source change. Native playback/export proof
+is still required.
 
 ## Integration interfaces
 

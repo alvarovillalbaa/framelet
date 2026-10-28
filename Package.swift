@@ -12,5 +12,6 @@ let package = Package(
         .target(name: "FrameletCore"),
         .executableTarget(name: "Framelet", dependencies: ["FrameletCore"]),
         .testTarget(name: "FrameletCoreTests", dependencies: ["FrameletCore"]),
+        .testTarget(name: "FrameletPlaybackTests", dependencies: ["Framelet", "FrameletCore"]),
     ]
 )

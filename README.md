@@ -35,8 +35,22 @@ The first Choose source action opens macOS's content-sharing picker. Camera and 
 
 The library lives in the app's Application Support folder as UUID-named `.framelet` packages. The manifest preserves source segments, camera offsets, clip edits and canvas settings. Originals and partial media remain after failures. Removing a clip edits the timeline; moving a recording to Trash requires confirmation. Export creates a new file and leaves source media intact. Unfinished packages are shown as interrupted on the next launch.
 
+Preview defaults to **Recording**, with one playback cursor across the ordered,
+trimmed edit. It shares the export composition's canvas, camera gaps and source
+audio. Choose **Selected Clip** to audition a single clip. Changing the edit or
+preview scope stops and reloads playback; active capture clears the preview.
+Playback failures expose **Reload Preview** without changing original files.
+These native playback behaviors are implemented in source and await the
+[focused media acceptance](docs/proposals/ordered-playback-checks.md).
+
 ## Verification and delivery
 
 Eighteen authored XCTest cases cover timeline ordering, pause-gap omission, positive/negative camera offsets, trims, unsafe paths, identity integrity, canvas bounds, manifest round-tripping and asynchronous acknowledgement/cancellation recovery. They are source only until execution is approved. See [the compile proposal](docs/proposals/native-checks.md) and [source evidence](docs/results/2026/10-27/initial-source.md).
+
+Twelve additional authored native cases cover the shared composition and player
+using small generated media in a disposable custom library. The separate
+[30-case proposal](docs/proposals/ordered-playback-checks.md) combines them with
+the original eighteen and a compile/package check. None has executed. The new
+test target uses only modules already in this package and system frameworks.
 
 No account, cloud hosting, model call, paid plan or Apple enrollment is required for local source/build. Trusted external distribution requires its own Developer ID signing/notarization process and acceptance. This repository does not claim a notarized download or App Store release. Captioning, transcription, region selection, custom camera masks and cloud sharing are not implemented features.
