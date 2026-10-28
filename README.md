@@ -1,6 +1,6 @@
 # Framelet
 
-Last updated: 2026-10-27
+Last updated: 2026-10-28
 
 A local Mac screen recorder with a recording library and clip editor. Choose a display or window, optionally include camera and audio, pause between takes, edit the clips, and export an MP4 with your canvas layout. Recordings stay on your Mac.
 
@@ -16,6 +16,20 @@ macOS 15 or later and a Swift 5.9+ toolchain with a macOS 15+ SDK are required. 
 ```
 
 The script builds SwiftPM, packages `dist/Framelet.app`, and applies a local ad-hoc signature. Its no-flag mode opens that real app bundle. It respects an installed Codex Storage Guard policy and never force-kills an active recording. The Codex Run action uses this same script. Debug, logs, telemetry and process-only verification modes are available; `--verify` proves only that a process launched, not successful capture or UI behavior.
+
+Original icon artwork is in `artwork/app-icon.svg`, with a flat PNG reference
+and a ten-representation `Resources/AppIcon.icns`. The bundle metadata names
+the icon, and packaging copies it before the existing signing step. The actual
+built bundle, Dock appearance and signed distribution remain unverified.
+
+```sh
+./script/render_app_icon.sh --check
+```
+
+The optional artwork exporter uses Bash and Python 3's standard library; it
+does not build, sign or launch Framelet. Omit `--check` to regenerate the PNG
+and ICNS. The comparison checks current-host output bytes, which can vary with
+Python/zlib versions on other machines. See [icon-source evidence](docs/results/2026/10-28/app-icon.md).
 
 The first Choose source action opens macOS's content-sharing picker. Camera and microphone default off and are requested only when enabled for a recording. Source selection does not start recording. System permission refusals are surfaced; the app does not bypass them. No permission or device access is needed just to review source or run the proposed isolated core tests.
 

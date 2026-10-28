@@ -56,8 +56,10 @@ cleanup_framelet_stage() {
 }
 trap cleanup_framelet_stage EXIT
 mkdir -p "$FRAMELET_STAGE/Framelet.app/Contents/MacOS"
+mkdir -p "$FRAMELET_STAGE/Framelet.app/Contents/Resources"
 cp "$FRAMELET_BINARY" "$FRAMELET_STAGE/Framelet.app/Contents/MacOS/Framelet"
 cp "$FRAMELET_ROOT/Resources/Info.plist" "$FRAMELET_STAGE/Framelet.app/Contents/Info.plist"
+cp "$FRAMELET_ROOT/Resources/AppIcon.icns" "$FRAMELET_STAGE/Framelet.app/Contents/Resources/AppIcon.icns"
 chmod +x "$FRAMELET_STAGE/Framelet.app/Contents/MacOS/Framelet"
 /usr/bin/plutil -lint "$FRAMELET_STAGE/Framelet.app/Contents/Info.plist"
 # Local ad-hoc signing uses no certificate, account, network, or paid enrollment.
