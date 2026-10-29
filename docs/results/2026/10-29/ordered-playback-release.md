@@ -27,3 +27,11 @@ Actual app UI/accessibility, screen/window capture and permissions, encoded
 screen timing, camera/audio synchronization, real export playback and trusted
 distribution remain open. No user media, device capture, app launch, UI
 automation or model call was part of these checks.
+
+Source and evidence were published at
+[`aa6ddebb7e2514cf484d7070a0c83725a03e8faf`](https://github.com/alvarovillalbaa/framelet/commit/aa6ddebb7e2514cf484d7070a0c83725a03e8faf).
+Connected GitHub ref/tree readback matched all 56 file paths, modes, types and
+blob SHAs without truncation; main has no active workflow. This receipt-only
+follow-up changes no build input. The operation-owned local decoded logs were
+removed after their hashes and direct job provenance were published and no
+process held them open. No source, user media or unrelated cache was removed.
