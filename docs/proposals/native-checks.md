@@ -2,7 +2,12 @@
 
 Last updated: 2026-10-27
 
-The [workflow example](native-checks-ci.yml.example) is inactive outside `.github/workflows`. No native build, test execution, app launch, device enumeration, permission prompt, capture or signing has been performed. The supplied AGENTS.md §14 requires explicit approval for temporary CI; local builds are blocked by the workspace Storage Guard reserve. This reviewable job includes native compilation, core tests and local ad-hoc packaging/signature verification, following the repository's [execution rules](../../AGENTS.md). No dependency installation, provider, paid plan, account enrollment or production configuration is proposed.
+**Superseded on 29 October 2026.** The same eighteen core cases passed alongside
+twelve native cases under the [approved ordered-playback scope](ordered-playback-checks.md).
+Use its [actual results](../results/2026/10-28/ordered-playback-checks.md);
+do not activate this historical workflow.
+
+The [workflow example](native-checks-ci.yml.example) is historical and inactive outside `.github/workflows`. At its initial preparation no native build, test execution, app launch, device enumeration, permission prompt, capture or signing had been performed. The supplied AGENTS.md §14 requires explicit approval for temporary CI; local builds are blocked by the workspace Storage Guard reserve. The original proposed job included native compilation, core tests and local ad-hoc packaging/signature verification, following the repository's [execution rules](../../AGENTS.md). No dependency installation, provider, paid plan, account enrollment or production configuration was proposed.
 
 After approval, copy this reviewed workflow only to `.github/workflows/native-acceptance.yml` on the exact temporary branch `qa/native-acceptance` in the public personal repository `alvarovillalbaa/framelet`. Remove the active workflow afterward. Log the immutable source SHA and inspect every outcome. Source/case/tool changes require re-review. No other project's browser, backend or native approval authorizes this job.
 

@@ -41,9 +41,31 @@ defines the complete boundary.
    uses that path with exactly one worker, keeps the same thirty cases and all
    verdict checks, and disables the unused Swift Testing runner. It also logs
    actual XML-derived case identities and the XML hash before cleanup.
+4. [Run 40783077968](https://github.com/alvarovillalbaa/framelet/actions/runs/40783077968),
+   branch `735d0bcacdbdf97d47274e3cd09abecbb9be6f5b`, job `123149376063`:
+   **success**. Native compile/package, all thirty cases, exact XML verdict,
+   bundle metadata/ad-hoc signature, unchanged source and owned cleanup passed.
+   Environment: macOS 15.7.9 arm64, Swift 6.1.2, SDK 15.5. The XML-derived
+   record contains thirty unique passing cases, zero failures/errors/skips,
+   5,012 XML bytes and SHA-256
+   `7e99084a5cf940ac2f0644e92584f6860b7f39f700b465fd0b292fcd608c18f6`.
+   Decoded log: 60,348 bytes, SHA-256
+   `a35c60114d00ff136f8cf195a4c5f0880e2ee052f0dcb00719e05db270af8dc8`.
+   Independent log review matched the actual XML-derived identities, all thirty
+   numbered native cases, source hashes and success/cleanup markers. Raw XML
+   was deliberately cleaned up; its digest was emitted by the in-job validator,
+   not independently rehashed afterward.
 
-The active workflow is confined to `qa/ordered-playback`; local `main` has no
-active workflow. It must be removed after the focused acceptance run. Preserve
-terminal failures and actual native output before claiming success. Local
-builds remain stopped by Storage Guard; no app, capture, device access or UI has
-been invoked by this work.
+The complete [machine-readable report](ordered-playback-checks.json) preserves
+the exact cases, run/step identities, attempted failures, decoded-log hashes,
+checked source seal and limitations. The accepted source is personal main
+`59b3c30d13f10c5e624c3abf717e71a04a173ba6`, represented in CI by that commit's
+equivalent tree plus the temporary workflow. Subsequent closure edits change
+only documentation and evidence, with all thirty-eight build inputs unchanged.
+
+On 29 October the active workflow was removed from `qa/ordered-playback` at
+`104a7aa89eefc30fd55571b950dc3ce6e81769ab`. Recursive GitHub tree readback
+confirmed no workflow files remain there. Personal `main` never gained an
+active workflow. Source/runner logs establish the scoped native proof; app UI,
+live capture, timing correspondence, audio quality, real export and trusted
+distribution remain unverified. No app, capture, device access or UI was invoked.

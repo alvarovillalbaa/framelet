@@ -1,6 +1,6 @@
 # Framelet recorder contract
 
-Last updated: 2026-10-28
+Last updated: 2026-10-29
 
 The [personal project queue](https://app.notion.com/p/311a1ee8bd06805caa21c5306dd315ac), fetched on 2026-10-27, explicitly requests “desktop app for screen recording (locally-hosted app for macbook that substitutes Tella and other most popular screen recording apps”. No prerequisite attaches to this New-list entry. Three unknown embeds elsewhere make the parent fetch globally truncated; this is a bounded entry interpretation, not an exhaustive queue audit. No separate child brief was found. Framelet is a working product name chosen for this implementation.
 
@@ -44,6 +44,13 @@ UI lane owns `FrameletApp`, Views, Settings and menu commands. It uses the above
 
 ## Acceptance still required
 
-Source/syntax review cannot prove native compilation, permission handling, real capture, audio quality, camera synchronization, pause fidelity, export playback, UI accessibility, crash recovery, signing, or notarization. A compile-only temporary macOS CI proposal is prepared separately and remains inactive until explicit approval. Real capture checks need an authored disposable window and an explicit bounded permission/data scope. No real user screen/device content is to be captured for testing by default.
+The approved [native check run](../results/2026/10-28/ordered-playback-checks.md)
+establishes compilation, packaging, a local ad-hoc signature and thirty exact
+core/synthetic-media cases. Its temporary workflow has been removed. It does
+not establish permission handling, real capture, audio quality, camera
+synchronization, pause fidelity, real export playback, UI accessibility, crash
+recovery, trusted signing or notarization. Real capture checks need an authored
+disposable window and an explicit bounded permission/data scope. No real user
+screen/device content is to be captured for testing by default.
 
 The brief does not explicitly define cloud sharing, captions, transcription, AI editing, HDR/4K or a store release. These are not claimed features. Region selection and custom drawn camera masks are not yet implemented; the source uses native display/window selection and rectangular PiP. Full Tella feature parity is not established by the core recorder flow. Keep the overall project goal open until its actual source, build, capture/edit/export, publication and distribution boundaries have been verified.

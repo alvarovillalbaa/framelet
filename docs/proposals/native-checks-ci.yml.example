@@ -1,3 +1,4 @@
+# HISTORICAL; superseded by ordered-playback-ci.yml.example. Do not activate.
 # INACTIVE. Requires explicit Framelet native-build/test/temporary-CI approval.
 # Install only on qa/native-acceptance; remove the active workflow afterward.
 name: Temporary Framelet native acceptance

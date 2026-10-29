@@ -1,8 +1,11 @@
 # Ordered recording preview source
 
-28 October 2026. Source-only progress from clean Framelet
-`9bb8e8399da3f713d2371037f7f33c05843b7644`. Native compilation, playback,
-media generation, tests and app execution remain unverified.
+28 October 2026. Initial source-preparation receipt from clean Framelet
+`9bb8e8399da3f713d2371037f7f33c05843b7644`. The account below describes that
+initial source checkpoint, when native execution was unverified. The subsequent
+[approved native results](ordered-playback-checks.md) record successful
+compilation/package checks, thirty passing cases and workflow cleanup. App UI
+and live capture remain separate acceptance.
 
 ## Requirement and change
 

@@ -1,0 +1,324 @@
+{
+  "schemaVersion": 1,
+  "project": "Framelet",
+  "scope": "ordered recording playback; 18 core and 12 synthetic native cases",
+  "approvedProposal": "https://github.com/alvarovillalbaa/framelet/blob/76e7ced4ecfc4fd147d07273f3490746ab69d4db/docs/proposals/ordered-playback-checks.md",
+  "approval": "Approve Framelet’s 30 checks and CI",
+  "source": {
+    "mainCommit": "59b3c30d13f10c5e624c3abf717e71a04a173ba6",
+    "checkedCICommit": "735d0bcacdbdf97d47274e3cd09abecbb9be6f5b",
+    "testedSealUrl": "https://github.com/alvarovillalbaa/framelet/blob/59b3c30d13f10c5e624c3abf717e71a04a173ba6/docs/results/2026/10-28/ordered-playback-source.json",
+    "testedSealSha256": "0ee36531eb898b4c5ac131cd046ac1b4ef18e9daf62d6b14d90c319d0f4e6c44",
+    "buildInputs": 38,
+    "reviewedInputs": 44
+  },
+  "run": {
+    "id": 40783077968,
+    "jobId": 123149376063,
+    "url": "https://github.com/alvarovillalbaa/framelet/actions/runs/40783077968",
+    "status": "completed",
+    "conclusion": "success",
+    "startedAt": "2026-10-28T22:51:12Z",
+    "completedAt": "2026-10-28T22:52:18Z",
+    "jobTimeoutMinutes": 20,
+    "workerCount": 1
+  },
+  "environment": {
+    "runner": "macos-15-arm64",
+    "os": "macOS 15.7.9",
+    "swift": "6.1.2",
+    "sdk": "15.5",
+    "architecture": "arm64",
+    "externalPackageDependencies": 0
+  },
+  "acceptance": {
+    "kind": "framelet-native-acceptance",
+    "cases": [
+      {
+        "class": "RecordingCompletionTests",
+        "name": "testAcknowledgementBeforeWaitIsRetainedAndFirstResolutionWins",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingCompletionTests",
+        "name": "testCancellingOneWaiterDoesNotCancelTheFileAcknowledgement",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingCompletionTests",
+        "name": "testIndependentWaitersReceiveTheSameAcknowledgement",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingCompletionTests",
+        "name": "testRealDelegateFailureIsRetainedForLaterWaiters",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingCompletionTests",
+        "name": "testTimeoutDoesNotPoisonALateRealFileAcknowledgement",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingCompositionTests",
+        "name": "testCancellingAnInFlightNativeBuildCannotReturnACompletedCompositionOrLateProgress",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingCompositionTests",
+        "name": "testNativeCompositorDecodesDifferentAuthoredColorsAcrossTheEditedBoundary",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingCompositionTests",
+        "name": "testNegativeCameraOffsetUsesLaterSourceFramesAndLeavesTheActualEndingGap",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingCompositionTests",
+        "name": "testOrderedTrimmedAndDuplicatedClipsBecomeActualNativeSegmentMappings",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingCompositionTests",
+        "name": "testPositiveCameraOffsetCreatesAnActualLeadingGapAndThenAnOverlay",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingCompositionTests",
+        "name": "testUnsafeMissingAndInvalidSourcesFailWithoutDeletingTheOwnedOriginals",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingTimelineTests",
+        "name": "testCameraOutsideClipProducesNoStalePicture",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingTimelineTests",
+        "name": "testCameraPathRequiresARealFiniteTimingOffset",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingTimelineTests",
+        "name": "testCanvasRectanglesRemainInsideEveryOutputPreset",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingTimelineTests",
+        "name": "testEarlyCameraSkipsItsLeadingFramesAndStopsAtItsRealEnd",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingTimelineTests",
+        "name": "testEmptyTimelineIsRecoverableButCannotExport",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingTimelineTests",
+        "name": "testInvalidCanvasValuesAndUnknownSchemaFailClosed",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingTimelineTests",
+        "name": "testInvalidTrimsNeverReachTheExportTimeline",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingTimelineTests",
+        "name": "testLateCameraStartsOnlyDuringItsOverlapAfterTrimming",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingTimelineTests",
+        "name": "testMalformedAndEscapingMediaPathsAreRejected",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingTimelineTests",
+        "name": "testManifestRoundTripPreservesSourcesEditsAndSignedOffset",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingTimelineTests",
+        "name": "testOrphanedAndDuplicateIdentitiesAreRejected",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingTimelineTests",
+        "name": "testPausedGapsAreNotInsertedAndTrimmedClipsStayOrdered",
+        "status": "passed"
+      },
+      {
+        "class": "RecordingTimelineTests",
+        "name": "testReorderedDuplicateClipsReferenceOriginalMediaWithoutCopying",
+        "status": "passed"
+      },
+      {
+        "class": "UIPlaybackModelTests",
+        "name": "testCaptureSuspensionClearsMediaAndRequiresAnExplicitReload",
+        "status": "passed"
+      },
+      {
+        "class": "UIPlaybackModelTests",
+        "name": "testClearAndClipReloadFenceTheOldNativeSeekCompletion",
+        "status": "passed"
+      },
+      {
+        "class": "UIPlaybackModelTests",
+        "name": "testGlobalSeekCrossesTheClipBoundaryAndCanReturnToTheFirstClip",
+        "status": "passed"
+      },
+      {
+        "class": "UIPlaybackModelTests",
+        "name": "testLoadsFullOrderedCompositionAndRetainsPlayableItem",
+        "status": "passed"
+      },
+      {
+        "class": "UIPlaybackModelTests",
+        "name": "testMissingSourceFailureRecoversOnlyAfterRestoreAndExplicitReload",
+        "status": "passed"
+      },
+      {
+        "class": "UIPlaybackModelTests",
+        "name": "testNativeEndStopsPlaybackAndPlayRestartsFromTheBeginning",
+        "status": "passed"
+      }
+    ],
+    "total": 30,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "xunitBytes": 5012,
+    "xunitSha256": "7e99084a5cf940ac2f0644e92584f6860b7f39f700b465fd0b292fcd608c18f6"
+  },
+  "steps": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Verify source, toolchain and exact disposable ownership",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Compile and package without launching",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Run exactly thirty core and synthetic-media cases",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Verify package metadata, signature and unchanged source",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Remove only owned disposable outputs",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Complete job",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "attempts": [
+    {
+      "runId": 40779669465,
+      "commit": "099279e1766a751694cc91c815560caee5b7cb46",
+      "conclusion": "failure",
+      "nativeCasesExecuted": 0,
+      "reason": "workflow rejected runner context at job-level env; no job created"
+    },
+    {
+      "runId": 40780096039,
+      "jobId": 123139298687,
+      "commit": "887cbd90498a3ed2f205ebbbdb31adf90371d82e",
+      "conclusion": "failure",
+      "nativeCasesExecuted": 0,
+      "reason": "native camera protocol/preset and unawaited seek compile errors; cleanup passed"
+    },
+    {
+      "runId": 40781450459,
+      "jobId": 123143874327,
+      "commit": "60de8eee89658aae73f86b5b16eb6268159075b2",
+      "conclusion": "failure",
+      "nativeCasesExecuted": 30,
+      "passed": 30,
+      "reason": "all cases passed; serial SwiftPM omitted xUnit; cleanup passed"
+    },
+    {
+      "runId": 40783077968,
+      "jobId": 123149376063,
+      "commit": "735d0bcacdbdf97d47274e3cd09abecbb9be6f5b",
+      "conclusion": "success",
+      "nativeCasesExecuted": 30,
+      "passed": 30
+    }
+  ],
+  "decodedLogs": [
+    {
+      "jobId": 123139298687,
+      "bytes": 121653,
+      "sha256": "85eee13aac623f9e16c1383494c444cea60327928f8ea09dfe058ff37a941132"
+    },
+    {
+      "jobId": 123143874327,
+      "bytes": 62875,
+      "sha256": "d4a34e4733d7d68011c6eda97109454d1f44fc183281265d8245059a532a5759"
+    },
+    {
+      "jobId": 123149376063,
+      "bytes": 60348,
+      "sha256": "a35c60114d00ff136f8cf195a4c5f0880e2ee052f0dcb00719e05db270af8dc8"
+    }
+  ],
+  "workflowCleanup": {
+    "commit": "104a7aa89eefc30fd55571b950dc3ce6e81769ab",
+    "branch": "qa/ordered-playback",
+    "path": ".github/workflows/ordered-playback.yml",
+    "activeWorkflowFiles": 0,
+    "remoteTreeReadback": true
+  },
+  "independentReview": {
+    "exactNativeCasesAndProgressRecords": true,
+    "decodedLogDigest": true,
+    "rawXMLRetained": false,
+    "note": "XML digest and case identities came from the successful in-job validator; raw XML was removed during approved cleanup."
+  },
+  "constraints": {
+    "appLaunched": false,
+    "userMedia": false,
+    "captureOrDeviceAccess": false,
+    "uiAutomation": false,
+    "modelCalls": 0,
+    "providerOrAccountChange": false,
+    "paidEnrollment": false,
+    "uploadedMediaOrBuildArtifacts": false
+  },
+  "notEstablished": [
+    "app UI/accessibility",
+    "live screen/window capture and permissions",
+    "encoded-screen anchor correspondence",
+    "camera/audio synchronization and audio quality",
+    "real export playback",
+    "trusted distribution/notarization"
+  ]
+}
