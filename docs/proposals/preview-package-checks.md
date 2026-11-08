@@ -57,3 +57,20 @@ Storage Guard currently reports 9.9 GiB free against 34.0 GiB required. No local
 build/install/app/test/CLI/capture exception exists. Local work is source editing,
 static Bash/Python checks and bounded evidence/archive inspection only. The
 [distribution notes](../distribution.md) own user-facing limits and installation.
+
+## Changed metadata control 2
+
+The [first invocation](../results/2026/11-08/preview-package-attempt-1.md) failed
+before any command/build because Mac Python lacks `os.listxattr`; its own
+cleanup remains unverified. Preserve the exact originals and do not carry any
+new packaging acceptance. QA2 uses `qa/framelet-preview-20261108-2`, directly
+based on the first checked source, with the same builder and all application/
+package/resource/test inputs unchanged.
+
+Replace only metadata inspection with bounded read-only macOS `listxattr`/
+`getxattr` calls through standard-library `ctypes` and the system libSystem.
+Use exact native argument/return types, no-follow options, finite allocation
+and errno/change refusals; no write/remove-attribute API or dependency. Preserve
+actual attributes and quarantine data. Record the created owner/root identity
+before its first snapshot so even an admission failure retains exact scope.
+Run the whole new build/package/round-trip scope afresh under the same limits.

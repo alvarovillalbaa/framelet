@@ -2,6 +2,7 @@
 """Fixed public macOS packaging control; never launch Framelet or run tests."""
 
 import base64
+import ctypes
 import gzip
 import hashlib
 import json
@@ -22,10 +23,14 @@ import time
 import zipfile
 
 REPOSITORY = "alvarovillalbaa/framelet"
-BRANCH = "refs/heads/qa/framelet-preview-20261108-1"
+BRANCH = "refs/heads/qa/framelet-preview-20261108-2"
 WORKFLOW = ".github/workflows/preview-package.yml"
 CONTROLLER = "Tests/ci/run-preview-package.py"
-BASE = "7188847d6657eed67212e719aad445d0a27fc096"
+BASE = "259b9e3803080bda1aa8a7c7f32ab53f0426d655"
+APPBASE = "7188847d6657eed67212e719aad445d0a27fc096"
+PRIOR = "docs/results/2026/11-08/preview-package-attempt-1"
+PRIOR_PINS = {".json": (13168, "bf2c52f98db533ffcc739d96a1df368e6e54d79b4195bf561360fafe16acd7e8"),
+              ".log": (30248, "364225733db36ab0dda1f7c43f4cdfff752a1685ed81215fbfe2022eb0bf0951")}
 ARCHIVE = "Framelet-0.1.0-macos-universal.zip"
 PREFIX = b"FRAMELET_PREVIEW_PACKAGE_RESULT="
 MIB = 1024 ** 2
@@ -63,6 +68,50 @@ def file_sha(path):
         for part in iter(lambda: source.read(MIB), b""):
             digest.update(part)
     return digest.hexdigest()
+
+
+class NativeXAttrs:
+    """Darwin listxattr/getxattr ABI; every read is bounded and leaf-nofollow."""
+    def __init__(self):
+        library = ctypes.CDLL("/usr/lib/libSystem.B.dylib", use_errno=True)
+        self.list = library.listxattr
+        self.list.argtypes = [ctypes.c_char_p, ctypes.c_void_p, ctypes.c_size_t, ctypes.c_int]
+        self.list.restype = ctypes.c_ssize_t
+        self.get = library.getxattr
+        self.get.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_void_p, ctypes.c_size_t, ctypes.c_uint32, ctypes.c_int]
+        self.get.restype = ctypes.c_ssize_t
+
+    def two_pass(self, function, prefix, suffix, maximum, label):
+        ctypes.set_errno(0)
+        required = function(*prefix, None, 0, *suffix)
+        if required < 0:
+            raise RuntimeError("native_xattr_" + label + ":errno=" + str(ctypes.get_errno()))
+        need(required <= maximum, "native_xattr_" + label + "_bound")
+        buffer = ctypes.create_string_buffer(max(1, required))
+        ctypes.set_errno(0)
+        actual = function(*prefix, buffer, required, *suffix)
+        if actual < 0:
+            raise RuntimeError("native_xattr_" + label + ":errno=" + str(ctypes.get_errno()))
+        need(actual == required, "native_xattr_" + label + "_changed")
+        return buffer.raw[:actual]
+
+    def names(self, path):
+        raw = self.two_pass(self.list, (path,), (1,), 65536, "names")
+        need(not raw or raw.endswith(b"\0"), "native_xattr_names_termination")
+        names = raw[:-1].split(b"\0") if raw else []
+        need(len(names) <= 256 and len(set(names)) == len(names) and all(names), "native_xattr_names_structure")
+        return sorted(names)
+
+    def read(self, path):
+        before = path.lstat(); encoded = os.fsencode(path); names = self.names(encoded); result = {}; total = sum(map(len, names))
+        for name in names:
+            value = self.two_pass(self.get, (encoded, name), (0, 1), 256 * 1024, "value")
+            total += len(value); need(total <= 512 * 1024, "native_xattr_cumulative_bound")
+            result[name.decode("utf-8", errors="strict")] = value
+        final_names = self.names(encoded); after = path.lstat()
+        stamp = lambda row: (row.st_dev, row.st_ino, row.st_mode, row.st_uid, row.st_size, row.st_mtime_ns, row.st_ctime_ns)
+        need(final_names == names and stamp(before) == stamp(after), "native_xattr_path_or_names_changed")
+        return result
 
 
 class Check:
@@ -112,12 +161,35 @@ class Check:
         if first:
             need(self.git("rev-list", "--parents", "-n", "1", self.commit).decode().split() == [self.commit, BASE], "source_parent")
             need(WORKFLOW not in vector and sum(row["bytes"] for row in vector.values()) < 8 * MIB, "inert_source_scope")
-            need(set(self.git("diff", "--name-only", BASE, self.commit, "--", "Package.swift", "Sources", "Resources", "Tests", "script", ".codex/environments/environment.toml").decode().splitlines())
+            need(set(self.git("diff", "--name-only", APPBASE, self.commit, "--", "Package.swift", "Sources", "Resources", "Tests", "script", ".codex/environments/environment.toml").decode().splitlines())
                  == {"script/build_and_run.sh", CONTROLLER}, "accepted_app_inputs_changed")
+            need(self.git("diff", "--name-only", BASE, self.commit, "--", "Package.swift", "Sources", "Resources", "Tests/FrameletCoreTests", "Tests/FrameletPlaybackTests", "script", ".codex/environments/environment.toml") == b"", "prior_app_inputs_changed")
             self.source, self.index_sha = vector, index_sha
-            self.report.update(sourceCommit=self.commit, canonicalBaseCommit=BASE, sourceVector=vector, indexSha256=index_sha)
+            self.report.update(sourceCommit=self.commit, canonicalBaseCommit=BASE, acceptedApplicationBaseCommit=APPBASE, sourceVector=vector, indexSha256=index_sha)
+            self.prior_attempt()
         else:
             need(vector == self.source and index_sha == self.index_sha, "source_or_index_changed")
+
+    def prior_attempt(self):
+        originals = {}
+        for suffix, (size, digest) in PRIOR_PINS.items():
+            path = self.checkout / (PRIOR + suffix)
+            need(not path.is_symlink() and path.is_file() and path.stat().st_size == size, "prior_original_type_or_size")
+            raw = path.read_bytes(); need(sha(raw) == digest, "prior_original_sha256"); originals[suffix] = raw
+        prior = json.loads(originals[".json"])
+        frames = [line.split(PREFIX, 1)[1] for line in originals[".log"].splitlines() if PREFIX in line]
+        need(len(frames) == 1 and json.loads(frames[0]) == prior, "prior_log_receipt_parity")
+        need(prior["repository"] == REPOSITORY and prior["sourceCommit"] == BASE and prior["canonicalBaseCommit"] == APPBASE
+             and prior["status"] == "failed" and prior["error"] == "module 'os' has no attribute 'listxattr'"
+             and prior["commands"] == [] and prior["testsExecuted"] is False and prior["applicationLaunched"] is False
+             and prior["capturePerformed"] is False and prior["cleanup"] == {"verified": False, "error": prior["error"]}, "prior_failed_boundary")
+        need(len(prior["sourceVector"]) == 60, "prior_source_count")
+        for name, row in prior["sourceVector"].items():
+            raw = self.git("show", BASE + ":" + safe(name))
+            need(len(raw) == row["bytes"] and sha(raw) == row["sha256"]
+                 and hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest() == row["blob"], "prior_source_binding")
+        self.report["priorAttempt"] = {"importedEvidenceOnly": True, "executedHere": False, "sourceCommit": BASE,
+                                       "pins": PRIOR_PINS, "status": "failed", "commandsExecuted": 0, "cleanupVerified": False}
 
     def admit(self):
         need(sys.platform == "darwin" and os.environ.get("CI") == "true" and os.environ.get("GITHUB_ACTIONS") == "true", "public_macos_ci_only")
@@ -133,12 +205,16 @@ class Check:
         elapsed = time.time() - int(os.environ["FRAMELET_JOB_STARTED_MS"]) / 1000
         need(0 <= elapsed < 120 and 1200 - elapsed - 30 >= 1050, "job_budget")
         self.guard(first=True)
+        self.xattrs = NativeXAttrs()
+        self.xattrs.read(self.checkout)  # Refuse unsupported native reads before creating disposable output.
+        self.report["nativeXattrs"] = {"library": "/usr/lib/libSystem.B.dylib", "options": 1, "position": 0, "sourceDirectoryProbePassed": True}
         runner = Path(os.environ["RUNNER_TEMP"]).resolve()
         need(runner.is_dir() and not runner.is_relative_to(self.checkout), "runner_temp_scope")
         os.umask(0o077)
         self.root = Path(tempfile.mkdtemp(prefix="framelet-preview-", dir=runner)); self.root_id = identity(self.root)
         self.nonce = secrets.token_hex(24)
         (self.root / "owner").write_text(self.nonce); self.owner_id = identity(self.root / "owner")
+        self.report["ownedRoot"] = {"path": str(self.root), "rootIdentity": self.root_id, "ownerIdentity": self.owner_id}
         for name in ("export", "cache", "cache/swiftpm", "tmp", "extract"):
             (self.root / name).mkdir(mode=0o700)
         self.env.update(FRAMELET_PREVIEW_OWNER=self.nonce, TMPDIR=str(self.root / "tmp") + "/",
@@ -150,13 +226,14 @@ class Check:
     def snapshot(self):
         need(identity(self.root) == self.root_id and identity(self.root / "owner") == self.owner_id
              and (self.root / "owner").read_text() == self.nonce, "owned_root_changed")
-        rows, total = {}, 0
+        rows, total, attribute_bytes = {}, 0, 0
         for parent, dirs, files in os.walk(self.root, followlinks=False):
             for name in dirs + files:
                 path = Path(parent) / name; rel = path.relative_to(self.root).as_posix(); value = path.lstat()
                 need(value.st_uid == os.getuid() and (stat.S_ISLNK(value.st_mode) or not stat.S_IMODE(value.st_mode) & 0o022), "owned_mode:" + rel)
-                row = {"identity": identity(path), "xattrs": {key: sha(os.getxattr(path, key, follow_symlinks=False))
-                                                             for key in sorted(os.listxattr(path, follow_symlinks=False))}}
+                attrs = self.xattrs.read(path); attribute_bytes += sum(len(key.encode()) + len(value) for key, value in attrs.items())
+                need(attribute_bytes <= 8 * MIB, "snapshot_xattr_cumulative_bound")
+                row = {"identity": identity(path), "xattrs": {key: sha(value) for key, value in attrs.items()}}
                 if stat.S_ISLNK(value.st_mode):
                     need(path.resolve().is_relative_to(self.root), "owned_symlink_escape:" + rel)
                     row.update(type="symlink", target=os.readlink(path))
@@ -316,8 +393,8 @@ class Check:
             for path in [bundle, *bundle.rglob("*")]:
                 need(not path.is_symlink() and (path.is_file() or path.is_dir()), "bundle_entry")
                 attrs = {}
-                for key in sorted(os.listxattr(path, follow_symlinks=False)):
-                    value = os.getxattr(path, key, follow_symlinks=False); attribute_bytes += len(value)
+                for key, value in self.xattrs.read(path).items():
+                    attribute_bytes += len(value)
                     need(attribute_bytes <= 256 * 1024, "bundle_xattr_bound")
                     attrs[key] = {"bytes": len(value), "sha256": sha(value), "base64": base64.b64encode(value).decode()}
                 row = {"type": "file" if path.is_file() else "directory", "mode": stat.S_IMODE(path.stat().st_mode), "xattrs": attrs}

@@ -24,3 +24,10 @@ Storage Guard failed at 9.9 GiB free/34.0 GiB required. No local environment,
 build, app/test/CLI/server or capture execution. Static syntax/source inspection
 and bounded evidence handling only. Own and verify CI exports, caches, children,
 archives and cleanup; preserve failures and retire the temporary execution path.
+
+The [first preview control](docs/results/2026/11-08/preview-package-attempt-1.md)
+failed before any build because Mac Python lacks `os.listxattr`. Its cleanup
+is unverified. Standing approval covers a changed control using bounded
+read-only macOS native attribute APIs via standard-library `ctypes`, with the
+same builder/application source and fresh packaging checks. Preserve the first
+failure; no new dependency, attribute mutation, app launch or test rerun.

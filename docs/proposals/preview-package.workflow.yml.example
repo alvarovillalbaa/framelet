@@ -4,19 +4,19 @@
 name: Temporary Framelet ad-hoc preview package
 on:
   push:
-    branches: [qa/framelet-preview-20261108-1]
+    branches: [qa/framelet-preview-20261108-2]
     paths: [.github/workflows/preview-package.yml]
 permissions:
   contents: read
 concurrency:
-  group: framelet-preview-20261108-1
+  group: framelet-preview-20261108-2
   cancel-in-progress: false
 jobs:
   package:
     if: >-
       github.repository == 'alvarovillalbaa/framelet' &&
       github.event.repository.private == false &&
-      github.ref == 'refs/heads/qa/framelet-preview-20261108-1'
+      github.ref == 'refs/heads/qa/framelet-preview-20261108-2'
     runs-on: macos-15
     timeout-minutes: 20
     env:
@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           ref: ${{ env.SOURCE_COMMIT }}
-          fetch-depth: 2
+          fetch-depth: 3
           persist-credentials: false
           clean: false
       - name: Package and inspect without launching the application or tests

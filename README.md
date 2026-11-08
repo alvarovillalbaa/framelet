@@ -28,6 +28,11 @@ flow. The new profile has its own [packaging scope](docs/proposals/preview-packa
 actual universal archive/distribution acceptance is pending. The earlier 30-case
 run retains its ARM64/debug source/profile. See [distribution notes](docs/distribution.md).
 
+The [first packaging invocation](docs/results/2026/11-08/preview-package-attempt-1.md)
+stopped before build because the metadata observer used a Linux-only Python
+API. Cleanup could not be verified. A changed Mac-native metadata control is
+prepared; no universal preview download is claimed yet.
+
 The script builds SwiftPM, packages `dist/Framelet.app`, and applies a local ad-hoc signature. Its no-flag mode opens that real app bundle. It respects an installed Codex Storage Guard policy and never force-kills an active recording. The Codex Run action uses this same script. Debug, logs, telemetry and process-only verification modes are available; `--verify` proves only that a process launched, not successful capture or UI behavior.
 
 Original icon artwork is in `artwork/app-icon.svg`, with a flat PNG reference
