@@ -1,6 +1,6 @@
 # Framelet
 
-Last updated: 2026-10-29
+Last updated: 2026-11-08
 
 A local Mac screen recorder with a recording library and clip editor. Choose a display or window, optionally include camera and audio, pause between takes, edit the clips, and export an MP4 with your canvas layout. Recordings stay on your Mac.
 
@@ -14,6 +14,19 @@ macOS 15 or later and a Swift 5.9+ toolchain with a macOS 15+ SDK are required. 
 ./script/build_and_run.sh --build-only
 ./script/build_and_run.sh
 ```
+
+For a Release preview archive containing both Apple silicon and Intel slices:
+
+```sh
+./script/build_and_run.sh --build-preview
+```
+
+This mode never launches or quits Framelet. It refuses existing preview ZIP/
+checksum leaves and produces `dist/Framelet-0.1.0-macos-universal.zip` plus its
+`.zip.sha256` checksum. It uses the same icon, bundle metadata and ad-hoc signing
+flow. The new profile has its own [packaging scope](docs/proposals/preview-package-checks.md);
+actual universal archive/distribution acceptance is pending. The earlier 30-case
+run retains its ARM64/debug source/profile. See [distribution notes](docs/distribution.md).
 
 The script builds SwiftPM, packages `dist/Framelet.app`, and applies a local ad-hoc signature. Its no-flag mode opens that real app bundle. It respects an installed Codex Storage Guard policy and never force-kills an active recording. The Codex Run action uses this same script. Debug, logs, telemetry and process-only verification modes are available; `--verify` proves only that a process launched, not successful capture or UI behavior.
 
