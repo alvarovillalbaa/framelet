@@ -46,3 +46,9 @@ the closed packaging or old 30-test scopes. Publish unchanged retained assets;
 record actual release/tag/digest readback. The archived controller guards its
 original checked source, not later status-only main. App/device/trust gates
 remain open, and temporary controls must stay disabled/retired.
+
+The [preview is public](docs/results/2026/11-08/preview-package-publication.json)
+at `v0.1.0-preview.1`, with all three unchanged asset server digests verified.
+Main has no active workflow files; both provider workflow records are disabled
+and all three QA controls retired. Do not turn public metadata into a fresh-Mac
+launch or Gatekeeper/capture acceptance claim.

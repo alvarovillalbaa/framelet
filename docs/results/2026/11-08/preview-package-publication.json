@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "kind": "framelet.universal-preview-publication",
+  "observedAt": "2026-11-08T10:17:49Z",
+  "executedSourceCommit": "161214ab3d34314ecf9a52a5a2aef79e502a8480",
+  "evidenceCommit": "05074098c1053a1d47e69ee9117b8338e1bcc8c2",
+  "evidenceTree": "3fc19f90ef6ce080b9930fafe1d3fc18e6bd7859",
+  "release": {
+    "assets": [
+      {
+        "browser_download_url": "https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.0-preview.1/Framelet-0.1.0-macos-universal.zip",
+        "digest": "sha256:c84865b23c93113114f44d7cbff17f19ca661905f2a1ca0f8f18a2b02ef1e76a",
+        "id": 723581535,
+        "name": "Framelet-0.1.0-macos-universal.zip",
+        "size": 1157438,
+        "state": "uploaded"
+      },
+      {
+        "browser_download_url": "https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.0-preview.1/Framelet-0.1.0-macos-universal.zip.sha256",
+        "digest": "sha256:1435dfc7a21632d75242cdc0a87c0ed226cafb40e0c0ac2907ad824e94fc6ffa",
+        "id": 723581604,
+        "name": "Framelet-0.1.0-macos-universal.zip.sha256",
+        "size": 101,
+        "state": "uploaded"
+      },
+      {
+        "browser_download_url": "https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.0-preview.1/Framelet-preview-manifest.json",
+        "digest": "sha256:3f899233af08cb19567100fa9a0cd5c47d7d652bf8f8f3ac957771a6b29750f2",
+        "id": 723581621,
+        "name": "Framelet-preview-manifest.json",
+        "size": 1735,
+        "state": "uploaded"
+      }
+    ],
+    "draft": false,
+    "html_url": "https://github.com/alvarovillalbaa/framelet/releases/tag/v0.1.0-preview.1",
+    "id": 438167998,
+    "prerelease": true,
+    "published_at": "2026-11-08T10:17:48Z",
+    "tag_name": "v0.1.0-preview.1",
+    "target_commitish": "05074098c1053a1d47e69ee9117b8338e1bcc8c2"
+  },
+  "tag": {
+    "object": {
+      "sha": "05074098c1053a1d47e69ee9117b8338e1bcc8c2",
+      "type": "commit",
+      "url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/commits/05074098c1053a1d47e69ee9117b8338e1bcc8c2"
+    },
+    "ref": "refs/tags/v0.1.0-preview.1"
+  },
+  "artifactsUnchangedFromPassingCI": true,
+  "ci": {
+    "run": 42470246801,
+    "job": 128699096316,
+    "workflowCommit": "784d7adb80e5ce862905a600b8d7fe4ada0dd080",
+    "status": "passed",
+    "commands": 18,
+    "completeStreams": 36,
+    "testsExecuted": false,
+    "applicationLaunched": false,
+    "capturePerformed": false,
+    "cleanupVerified": true
+  },
+  "temporaryControls": {
+    "previewWorkflowId": 411036460,
+    "previewWorkflowState": "disabled_manually",
+    "priorWorkflowId": 399969674,
+    "priorWorkflowState": "disabled_manually",
+    "activeWorkflowFilesInMain": 0,
+    "retiredQA1": "84eda588ae8ec532fa4bf7c9e8f6e0121ec3aa04",
+    "retiredQA2": "81f118281086dad95ac4736cbd2d82cff18df166",
+    "retiredQA3": "daf42621543c9ea8e71e5b2f6e14a62d1ee2735e"
+  },
+  "priorFailuresPreserved": true,
+  "limits": [
+    "GitHub public/tag and server asset digests verified; no fresh anonymous installation",
+    "Ad-hoc signature without identity/notarization/Gatekeeper or clean-Mac launch acceptance",
+    "No native UI/live capture/camera/audio/export playback acceptance",
+    "Actual xattr maps were empty; no nonempty resource-fork preservation experiment",
+    "First failed control cleanup remains unverified",
+    "No local app/build/test/native-library execution, paid enrollment, provider/model call or new hosted service"
+  ]
+}

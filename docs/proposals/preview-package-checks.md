@@ -113,3 +113,8 @@ This packaging scope is closed; do not rerun it or the old 30 cases as routine
 follow-up. Publish the exact retained ZIP/checksum/manifest, then record the
 actual public release/tag/digests. No native UI/capture or trusted-distribution
 acceptance is implied by the completed packaging checks.
+
+The [publication record](../results/2026/11-08/preview-package-publication.json)
+now verifies public prerelease `438167998` / `v0.1.0-preview.1`, its exact
+source tag and all three unchanged server asset digests. Distribution is an
+ad-hoc preview; fresh downloaded-app/native/trust gates stay open.

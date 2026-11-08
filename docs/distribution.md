@@ -1,7 +1,8 @@
 # Framelet developer preview distribution
 
 8 November 2026. Target: `v0.1.0-preview.1`. Fresh Release/universal build and
-ZIP round-trip [passed](results/2026/11-08/preview-package-attempt-3.md); publication is pending. App UI, live capture,
+ZIP round-trip [passed](results/2026/11-08/preview-package-attempt-3.md); the
+[unchanged preview assets are public](https://github.com/alvarovillalbaa/framelet/releases/tag/v0.1.0-preview.1). App UI, live capture,
 camera/audio synchronization and real export acceptance remain open.
 
 ## Preview contents and trust
@@ -29,7 +30,7 @@ Gatekeeper acceptance of a downloaded preview is not established; see Apple's
 
 ## Download and inspect
 
-After publication, obtain all three assets from the exact preview release.
+Obtain all three assets from the exact preview release linked above.
 Compare the ZIP's SHA-256 with the published checksum and manifest:
 
 ```sh
@@ -82,3 +83,7 @@ unchanged; this preview intentionally changes the builder. The new bounded
 macOS CI scope builds/packages/round-trips Release universal output without
 rerunning those 30 cases. It does not prove capture, UI, export acceptance or
 runtime operation of either new Release slice.
+
+The [publication record](results/2026/11-08/preview-package-publication.json)
+verifies the public tag and server asset digests. A fresh anonymous installation
+and downloaded-app launch were not performed.

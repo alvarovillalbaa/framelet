@@ -68,7 +68,14 @@ Workflow `411036460` is disabled and QA3 retired at
 `daf42621543c9ea8e71e5b2f6e14a62d1ee2735e`; the older completed workflow is
 separately disabled. No active workflow exists in main. The
 [distribution guide](../../../distribution.md) owns installation and trust
-limits. Publish only the exact retained assets as `v0.1.0-preview.1`.
+limits. The exact retained assets are public as `v0.1.0-preview.1`.
+
+The [publication record](preview-package-publication.json) verifies public
+prerelease `438167998`, published 10:17:48 UTC, tag `v0.1.0-preview.1` at
+`05074098c1053a1d47e69ee9117b8338e1bcc8c2`, and all three server asset sizes/
+SHA-256 digests. This is GitHub artifact publication proof, without a fresh
+anonymous installation or downloaded-app launch. Later status docs preserve
+every checked runtime/build/controller input.
 
 | Immutable original | Bytes | SHA-256 |
 | --- | ---: | --- |

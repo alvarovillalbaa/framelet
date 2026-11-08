@@ -4,7 +4,18 @@ Last updated: 2026-11-08
 
 A local Mac screen recorder with a recording library and clip editor. Choose a display or window, optionally include camera and audio, pause between takes, edit the clips, and export an MP4 with your canvas layout. Recordings stay on your Mac.
 
-**Native build/package and 30 focused checks passed. App UI, live capture and export acceptance remain open.** This is a native macOS app, not a Vercel website or a Supabase service. The [product contract](docs/specs/recorder.md) records the owning brief, exact scope and open acceptance boundaries.
+**A universal developer preview is available. App UI, live capture and export acceptance remain open.** This is a native macOS app, not a Vercel website or a Supabase service. The [product contract](docs/specs/recorder.md) records the owning brief, exact scope and open acceptance boundaries.
+
+## Download the preview
+
+[Download Framelet for Apple silicon and Intel Macs](https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.0-preview.1/Framelet-0.1.0-macos-universal.zip)
+(macOS 15+), with its [SHA-256 checksum](https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.0-preview.1/Framelet-0.1.0-macos-universal.zip.sha256)
+and [source/toolchain manifest](https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.0-preview.1/Framelet-preview-manifest.json).
+The [preview release](https://github.com/alvarovillalbaa/framelet/releases/tag/v0.1.0-preview.1)
+contains the exact ZIP that passed fresh extraction and both-slice signature/
+packaging checks. It is ad-hoc signed, without Developer ID or notarization;
+downloaded-app Gatekeeper acceptance is unverified. See [installation and trust
+limits](docs/distribution.md). No recording permissions were granted by these checks.
 
 ## Local build
 
@@ -26,7 +37,7 @@ checksum leaves and produces `dist/Framelet-0.1.0-macos-universal.zip` plus its
 `.zip.sha256` checksum. It uses the same icon, bundle metadata and ad-hoc signing
 flow. The new profile has its own [packaging scope](docs/proposals/preview-package-checks.md);
 actual universal [archive packaging passed](docs/results/2026/11-08/preview-package-attempt-3.md),
-with download publication pending. The earlier 30-case
+and the unchanged archive is published above. The earlier 30-case
 run retains its ARM64/debug source/profile. See [distribution notes](docs/distribution.md).
 
 The [first packaging invocation](docs/results/2026/11-08/preview-package-attempt-1.md)
@@ -35,7 +46,7 @@ API. Cleanup could not be verified. The [second invocation](docs/results/2026/11
 verified Mac-native metadata and cleanup, then encountered an Xcode build-service
 crash before Swift compilation. The third native per-architecture build and full
 ZIP round-trip passed. Both failures remain preserved; download publication is
-pending.
+recorded with the [public release/tag/digest readback](docs/results/2026/11-08/preview-package-publication.json).
 
 The script builds SwiftPM, packages `dist/Framelet.app`, and applies a local ad-hoc signature. Its no-flag mode opens that real app bundle. It respects an installed Codex Storage Guard policy and never force-kills an active recording. The Codex Run action uses this same script. Debug, logs, telemetry and process-only verification modes are available; `--verify` proves only that a process launched, not successful capture or UI behavior.
 
