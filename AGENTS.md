@@ -38,3 +38,11 @@ compilation. Standing approval covers the changed native single-architecture
 Release builds plus `lipo`, preserving the full universal output/checks and
 both failed originals. No unchanged Xcode retry, weaker architecture target,
 old-test rerun, app/device action or new dependency is authorized by this fix.
+
+[Attempt 3](docs/results/2026/11-08/preview-package-attempt-3.md) now passed the
+full universal Release packaging/ZIP round-trip and owned cleanup. Both earlier
+failures remain immutable with their false/true cleanup outcomes. Do not repeat
+the closed packaging or old 30-test scopes. Publish unchanged retained assets;
+record actual release/tag/digest readback. The archived controller guards its
+original checked source, not later status-only main. App/device/trust gates
+remain open, and temporary controls must stay disabled/retired.

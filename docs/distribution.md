@@ -1,7 +1,7 @@
 # Framelet developer preview distribution
 
-8 November 2026. Target: `v0.1.0-preview.1`. Fresh Release/universal build,
-ZIP round-trip and publication evidence are **pending**. App UI, live capture,
+8 November 2026. Target: `v0.1.0-preview.1`. Fresh Release/universal build and
+ZIP round-trip [passed](results/2026/11-08/preview-package-attempt-3.md); publication is pending. App UI, live capture,
 camera/audio synchronization and real export acceptance remain open.
 
 ## Preview contents and trust

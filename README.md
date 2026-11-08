@@ -25,15 +25,17 @@ This mode never launches or quits Framelet. It refuses existing preview ZIP/
 checksum leaves and produces `dist/Framelet-0.1.0-macos-universal.zip` plus its
 `.zip.sha256` checksum. It uses the same icon, bundle metadata and ad-hoc signing
 flow. The new profile has its own [packaging scope](docs/proposals/preview-package-checks.md);
-actual universal archive/distribution acceptance is pending. The earlier 30-case
+actual universal [archive packaging passed](docs/results/2026/11-08/preview-package-attempt-3.md),
+with download publication pending. The earlier 30-case
 run retains its ARM64/debug source/profile. See [distribution notes](docs/distribution.md).
 
 The [first packaging invocation](docs/results/2026/11-08/preview-package-attempt-1.md)
 stopped before build because the metadata observer used a Linux-only Python
 API. Cleanup could not be verified. The [second invocation](docs/results/2026/11-08/preview-package-attempt-2.md)
 verified Mac-native metadata and cleanup, then encountered an Xcode build-service
-crash before Swift compilation. A changed native per-architecture build control
-is prepared; no universal preview download is claimed yet.
+crash before Swift compilation. The third native per-architecture build and full
+ZIP round-trip passed. Both failures remain preserved; download publication is
+pending.
 
 The script builds SwiftPM, packages `dist/Framelet.app`, and applies a local ad-hoc signature. Its no-flag mode opens that real app bundle. It respects an installed Codex Storage Guard policy and never force-kills an active recording. The Codex Run action uses this same script. Debug, logs, telemetry and process-only verification modes are available; `--verify` proves only that a process launched, not successful capture or UI behavior.
 

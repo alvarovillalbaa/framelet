@@ -103,3 +103,13 @@ The third source is based on the second checked commit; fetch four commits to
 reach the original app-input base. Pin both prior originals and preserve their
 zero packaging acceptance and distinct cleanup status. Run all new packaging
 work afresh, with no old test rerun or new dependency/account/payment.
+
+## Terminal packaging result
+
+[Attempt 3](../results/2026/11-08/preview-package-attempt-3.md) passed both native
+Release builds, all 18 commands, per-slice inspection, signatures and fresh ZIP
+round-trip. Owned cleanup passed; both failures retain their separate limits.
+This packaging scope is closed; do not rerun it or the old 30 cases as routine
+follow-up. Publish the exact retained ZIP/checksum/manifest, then record the
+actual public release/tag/digests. No native UI/capture or trusted-distribution
+acceptance is implied by the completed packaging checks.
