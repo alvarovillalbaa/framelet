@@ -74,3 +74,32 @@ and errno/change refusals; no write/remove-attribute API or dependency. Preserve
 actual attributes and quarantine data. Record the created owner/root identity
 before its first snapshot so even an admission failure retains exact scope.
 Run the whole new build/package/round-trip scope afresh under the same limits.
+
+## Changed native build control 3
+
+[Attempt 2](../results/2026/11-08/preview-package-attempt-2.md) verified native
+metadata and owned cleanup, but the automatic Xcode build service crashed at
+0% before Swift compilation. The internal cause is unknown. Preserve that
+failure and change the build path rather than repeat it unchanged.
+
+QA3 (`qa/framelet-preview-20261108-3`) uses two sequential single-architecture
+SwiftPM Release builds with explicit `--build-system native` and separate
+`.build/preview-arm64` / `.build/preview-x86_64` scratch paths. Query each actual
+binary path with matching flags, then `lipo -create` directly into the owned
+staged bundle. Keep the same universal macOS 15 target, source, signatures,
+exclusive ZIP/checksum, metadata and full round-trip checks. App/resource/
+package/old-test inputs remain unchanged. No partial architecture or weaker
+acceptance replaces the original universal deliverable.
+
+Use SwiftPM's `--disable-local-rpath` deployment option in the same preview-only
+build/path flags. This app has no adjacent private dynamic libraries; suppress
+the native engine's default `@loader_path` search path rather than weakening
+the per-slice system-runtime checks. The
+[official 6.1.2 linker implementation](https://github.com/swiftlang/swift-package-manager/blob/swift-6.1.2-RELEASE/Sources/Build/BuildDescription/ProductBuildDescription.swift#L247)
+owns this option's effect. Actual linked libraries and search paths still need
+fresh inspection; the flag alone supplies no runtime-compatibility proof.
+
+The third source is based on the second checked commit; fetch four commits to
+reach the original app-input base. Pin both prior originals and preserve their
+zero packaging acceptance and distinct cleanup status. Run all new packaging
+work afresh, with no old test rerun or new dependency/account/payment.

@@ -17,7 +17,7 @@ FRAMELET_APP="$FRAMELET_DIST/Framelet.app"
 FRAMELET_PREVIEW_NAME="Framelet-0.1.0-macos-universal.zip"
 FRAMELET_PREVIEW_COMPLETE=0
 if [[ "$FRAMELET_MODE" == --build-preview ]]; then
-  FRAMELET_BUILD_FLAGS=(--configuration release --arch arm64 --arch x86_64)
+  FRAMELET_BUILD_FLAGS=(--configuration release --build-system native --disable-local-rpath)
   if [[ -n "${FRAMELET_SWIFTPM_CACHE:-}" ]]; then
     if [[ "$FRAMELET_SWIFTPM_CACHE" != /* || ! -d "$FRAMELET_SWIFTPM_CACHE" || -L "$FRAMELET_SWIFTPM_CACHE" ]]; then
       echo "FRAMELET_SWIFTPM_CACHE must be an existing absolute directory, not a symlink." >&2
@@ -64,8 +64,10 @@ if pgrep -x Framelet >/dev/null; then
 fi
 
 if [[ "$FRAMELET_MODE" == --build-preview ]]; then
-  swift build --product Framelet "${FRAMELET_BUILD_FLAGS[@]}"
-  FRAMELET_BINARY="$(swift build "${FRAMELET_BUILD_FLAGS[@]}" --show-bin-path)/Framelet"
+  swift build --product Framelet "${FRAMELET_BUILD_FLAGS[@]}" --arch arm64 --scratch-path "$FRAMELET_ROOT/.build/preview-arm64"
+  FRAMELET_ARM64_BINARY="$(swift build "${FRAMELET_BUILD_FLAGS[@]}" --arch arm64 --scratch-path "$FRAMELET_ROOT/.build/preview-arm64" --show-bin-path)/Framelet"
+  swift build --product Framelet "${FRAMELET_BUILD_FLAGS[@]}" --arch x86_64 --scratch-path "$FRAMELET_ROOT/.build/preview-x86_64"
+  FRAMELET_X86_64_BINARY="$(swift build "${FRAMELET_BUILD_FLAGS[@]}" --arch x86_64 --scratch-path "$FRAMELET_ROOT/.build/preview-x86_64" --show-bin-path)/Framelet"
 else
   swift build --product Framelet
   FRAMELET_BINARY="$(swift build --show-bin-path)/Framelet"
@@ -116,7 +118,11 @@ PY
 trap cleanup_framelet_stage EXIT
 mkdir -p "$FRAMELET_STAGE/Framelet.app/Contents/MacOS"
 mkdir -p "$FRAMELET_STAGE/Framelet.app/Contents/Resources"
-cp "$FRAMELET_BINARY" "$FRAMELET_STAGE/Framelet.app/Contents/MacOS/Framelet"
+if [[ "$FRAMELET_MODE" == --build-preview ]]; then
+  /usr/bin/lipo -create "$FRAMELET_ARM64_BINARY" "$FRAMELET_X86_64_BINARY" -output "$FRAMELET_STAGE/Framelet.app/Contents/MacOS/Framelet"
+else
+  cp "$FRAMELET_BINARY" "$FRAMELET_STAGE/Framelet.app/Contents/MacOS/Framelet"
+fi
 cp "$FRAMELET_ROOT/Resources/Info.plist" "$FRAMELET_STAGE/Framelet.app/Contents/Info.plist"
 cp "$FRAMELET_ROOT/Resources/AppIcon.icns" "$FRAMELET_STAGE/Framelet.app/Contents/Resources/AppIcon.icns"
 chmod +x "$FRAMELET_STAGE/Framelet.app/Contents/MacOS/Framelet"

@@ -31,3 +31,10 @@ is unverified. Standing approval covers a changed control using bounded
 read-only macOS native attribute APIs via standard-library `ctypes`, with the
 same builder/application source and fresh packaging checks. Preserve the first
 failure; no new dependency, attribute mutation, app launch or test rerun.
+
+The [second preview control](docs/results/2026/11-08/preview-package-attempt-2.md)
+verified native metadata/cleanup but Xcode's build service crashed before
+compilation. Standing approval covers the changed native single-architecture
+Release builds plus `lipo`, preserving the full universal output/checks and
+both failed originals. No unchanged Xcode retry, weaker architecture target,
+old-test rerun, app/device action or new dependency is authorized by this fix.

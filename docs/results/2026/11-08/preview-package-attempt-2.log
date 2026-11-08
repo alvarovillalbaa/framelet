@@ -1,0 +1,185 @@
+﻿2026-11-08T10:01:23.4789100Z Current runner version: '2.338.2'
+2026-11-08T10:01:23.4802440Z ##[group]Runner Image Provisioner
+2026-11-08T10:01:23.4803390Z Hosted Compute Agent
+2026-11-08T10:01:23.4803760Z Version: 20261103.629
+2026-11-08T10:01:23.4804160Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-08T10:01:23.4804620Z Build Date: 2026-11-03T17:26:59Z
+2026-11-08T10:01:23.4805050Z Worker ID: {8a5ce745-11ec-40ec-92ca-e787e24336a9}
+2026-11-08T10:01:23.4805490Z Region: westus
+2026-11-08T10:01:23.4805830Z Cloud: MacCloud
+2026-11-08T10:01:23.4806170Z ##[endgroup]
+2026-11-08T10:01:23.4806990Z ##[group]Operating System
+2026-11-08T10:01:23.4807360Z macOS
+2026-11-08T10:01:23.4807680Z 15.8.2
+2026-11-08T10:01:23.4807990Z 24H232
+2026-11-08T10:01:23.4808310Z ##[endgroup]
+2026-11-08T10:01:23.4808650Z ##[group]Runner Image
+2026-11-08T10:01:23.4809010Z Image: macos-15-arm64
+2026-11-08T10:01:23.4809370Z Version: 20261104.0514.1
+2026-11-08T10:01:23.4810150Z Included Software: https://github.com/actions/runner-images/blob/macos-15-arm64/20261104.0514/images/macos/macos-15-arm64-Readme.md
+2026-11-08T10:01:23.4811170Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-15-arm64%2F20261104.0514
+2026-11-08T10:01:23.4811820Z ##[endgroup]
+2026-11-08T10:01:23.4812520Z ##[group]GITHUB_TOKEN Permissions
+2026-11-08T10:01:23.4813460Z Contents: read
+2026-11-08T10:01:23.4813810Z Metadata: read
+2026-11-08T10:01:23.4814150Z ##[endgroup]
+2026-11-08T10:01:23.4815380Z Secret source: Actions
+2026-11-08T10:01:23.4815980Z Cache mode: write
+2026-11-08T10:01:23.4816400Z Prepare workflow directory
+2026-11-08T10:01:23.5067420Z Prepare all required actions
+2026-11-08T10:01:23.5112510Z Getting action download info
+2026-11-08T10:01:23.6663790Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-08T10:01:24.2306710Z Complete job name: package
+2026-11-08T10:01:24.2704460Z ##[group]Run echo "FRAMELET_JOB_STARTED_MS=$(date +%s)000" >> "$GITHUB_ENV"
+2026-11-08T10:01:24.2705250Z [36;1mecho "FRAMELET_JOB_STARTED_MS=$(date +%s)000" >> "$GITHUB_ENV"[0m
+2026-11-08T10:01:24.2742700Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T10:01:24.2743400Z env:
+2026-11-08T10:01:24.2743790Z   CI: true
+2026-11-08T10:01:24.2744190Z   SOURCE_COMMIT: 7f2f9864f15f8be1a2e0197bbdcdc8fe583b6ff6
+2026-11-08T10:01:24.2745220Z ##[endgroup]
+2026-11-08T10:01:24.4291210Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-11-08T10:01:24.4291770Z with:
+2026-11-08T10:01:24.4292120Z   ref: 7f2f9864f15f8be1a2e0197bbdcdc8fe583b6ff6
+2026-11-08T10:01:24.4292540Z   fetch-depth: 3
+2026-11-08T10:01:24.4292870Z   persist-credentials: false
+2026-11-08T10:01:24.4293230Z   clean: false
+2026-11-08T10:01:24.4293560Z   repository: alvarovillalbaa/framelet
+2026-11-08T10:01:24.4296180Z   token: ***
+2026-11-08T10:01:24.4296500Z   ssh-strict: true
+2026-11-08T10:01:24.4296800Z   ssh-user: git
+2026-11-08T10:01:24.4297140Z   sparse-checkout-cone-mode: true
+2026-11-08T10:01:24.4297550Z   fetch-tags: false
+2026-11-08T10:01:24.4297880Z   show-progress: true
+2026-11-08T10:01:24.4298200Z   lfs: false
+2026-11-08T10:01:24.4298510Z   submodules: false
+2026-11-08T10:01:24.4298850Z   set-safe-directory: true
+2026-11-08T10:01:24.4299210Z   allow-unsafe-pr-checkout: false
+2026-11-08T10:01:24.4299570Z env:
+2026-11-08T10:01:24.4299850Z   CI: true
+2026-11-08T10:01:24.4300240Z   SOURCE_COMMIT: 7f2f9864f15f8be1a2e0197bbdcdc8fe583b6ff6
+2026-11-08T10:01:24.4300690Z   FRAMELET_JOB_STARTED_MS: 1794132084000
+2026-11-08T10:01:24.4301070Z ##[endgroup]
+2026-11-08T10:01:24.8998340Z Syncing repository: alvarovillalbaa/framelet
+2026-11-08T10:01:24.9000160Z ##[group]Getting Git version info
+2026-11-08T10:01:24.9000740Z Working directory is '/Users/runner/work/framelet/framelet'
+2026-11-08T10:01:24.9001660Z [command]/opt/homebrew/bin/git version
+2026-11-08T10:01:24.9319160Z git version 2.56.0
+2026-11-08T10:01:24.9331020Z ##[endgroup]
+2026-11-08T10:01:24.9341080Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/91df1d38-eeb2-4ed7-a039-811f54aafe50/.gitconfig'
+2026-11-08T10:01:24.9344260Z Temporarily overriding HOME='/Users/runner/work/_temp/91df1d38-eeb2-4ed7-a039-811f54aafe50' before making global git config changes
+2026-11-08T10:01:24.9345460Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T10:01:24.9348030Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/framelet/framelet
+2026-11-08T10:01:24.9482820Z Deleting the contents of '/Users/runner/work/framelet/framelet'
+2026-11-08T10:01:24.9484730Z ##[group]Determining repository object format
+2026-11-08T10:01:24.9485750Z ##[endgroup]
+2026-11-08T10:01:24.9511970Z ##[group]Initializing the repository
+2026-11-08T10:01:24.9512730Z [command]/opt/homebrew/bin/git init /Users/runner/work/framelet/framelet
+2026-11-08T10:01:24.9832860Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-08T10:01:24.9836370Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-08T10:01:24.9839540Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-08T10:01:24.9840440Z hint: call:
+2026-11-08T10:01:24.9840990Z hint:
+2026-11-08T10:01:24.9841520Z hint: 	git config --global init.defaultBranch <name>
+2026-11-08T10:01:24.9842780Z hint:
+2026-11-08T10:01:24.9843510Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-08T10:01:24.9844510Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-08T10:01:24.9845250Z hint:
+2026-11-08T10:01:24.9845690Z hint: 	git branch -m <name>
+2026-11-08T10:01:24.9846200Z hint:
+2026-11-08T10:01:24.9846930Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-08T10:01:24.9847940Z Initialized empty Git repository in /Users/runner/work/framelet/framelet/.git/
+2026-11-08T10:01:24.9858180Z [command]/opt/homebrew/bin/git remote add origin https://github.com/alvarovillalbaa/framelet
+2026-11-08T10:01:24.9985010Z ##[endgroup]
+2026-11-08T10:01:24.9985790Z ##[group]Disabling automatic garbage collection
+2026-11-08T10:01:24.9987640Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+2026-11-08T10:01:25.0087550Z ##[endgroup]
+2026-11-08T10:01:25.0088130Z ##[group]Setting up auth
+2026-11-08T10:01:25.0088620Z Removing SSH command configuration
+2026-11-08T10:01:25.0093670Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T10:01:25.0167220Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T10:01:25.1364340Z Removing HTTP extra header
+2026-11-08T10:01:25.1368700Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T10:01:25.1421300Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T10:01:25.2161240Z Removing includeIf entries pointing to credentials config files
+2026-11-08T10:01:25.2164300Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T10:01:25.2225000Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T10:01:25.2909470Z [command]/opt/homebrew/bin/git config --file /Users/runner/work/_temp/git-credentials-559320f6-2c85-4330-b963-b469b3df3dd7.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-08T10:01:25.2968580Z [command]/opt/homebrew/bin/git config --local includeIf.gitdir:/Users/runner/work/framelet/framelet/.git.path /Users/runner/work/_temp/git-credentials-559320f6-2c85-4330-b963-b469b3df3dd7.config
+2026-11-08T10:01:25.3014460Z [command]/opt/homebrew/bin/git config --local includeIf.gitdir:/Users/runner/work/framelet/framelet/.git/worktrees/*.path /Users/runner/work/_temp/git-credentials-559320f6-2c85-4330-b963-b469b3df3dd7.config
+2026-11-08T10:01:25.3064710Z [command]/opt/homebrew/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-559320f6-2c85-4330-b963-b469b3df3dd7.config
+2026-11-08T10:01:25.3116410Z [command]/opt/homebrew/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-559320f6-2c85-4330-b963-b469b3df3dd7.config
+2026-11-08T10:01:25.3160240Z ##[endgroup]
+2026-11-08T10:01:25.3160790Z ##[group]Fetching the repository
+2026-11-08T10:01:25.3164310Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=3 origin 7f2f9864f15f8be1a2e0197bbdcdc8fe583b6ff6
+2026-11-08T10:01:26.0138420Z From https://github.com/alvarovillalbaa/framelet
+2026-11-08T10:01:26.0139830Z  * branch            7f2f9864f15f8be1a2e0197bbdcdc8fe583b6ff6 -> FETCH_HEAD
+2026-11-08T10:01:26.0146020Z [command]/opt/homebrew/bin/git rev-parse --verify --quiet 7f2f9864f15f8be1a2e0197bbdcdc8fe583b6ff6^{object}
+2026-11-08T10:01:26.0236920Z 7f2f9864f15f8be1a2e0197bbdcdc8fe583b6ff6
+2026-11-08T10:01:26.0240950Z ##[endgroup]
+2026-11-08T10:01:26.0247350Z ##[group]Determining the checkout info
+2026-11-08T10:01:26.0252530Z ##[endgroup]
+2026-11-08T10:01:26.0253470Z [command]/opt/homebrew/bin/git sparse-checkout disable
+2026-11-08T10:01:26.0352590Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-08T10:01:26.0428100Z ##[group]Checking out the ref
+2026-11-08T10:01:26.0429900Z [command]/opt/homebrew/bin/git checkout --progress --force 7f2f9864f15f8be1a2e0197bbdcdc8fe583b6ff6
+2026-11-08T10:01:26.0703790Z HEAD is now at 7f2f986 Preserve preview failure and use native Mac attribute inspection [skip ci]
+2026-11-08T10:01:26.0854570Z ##[endgroup]
+2026-11-08T10:01:26.1021840Z [command]/opt/homebrew/bin/git log -1 --format=%H
+2026-11-08T10:01:26.1025440Z 7f2f9864f15f8be1a2e0197bbdcdc8fe583b6ff6
+2026-11-08T10:01:26.1036100Z ##[group]Removing auth
+2026-11-08T10:01:26.1037590Z Removing SSH command configuration
+2026-11-08T10:01:26.1041060Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T10:01:26.1451740Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T10:01:26.2490760Z Removing HTTP extra header
+2026-11-08T10:01:26.2492590Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T10:01:26.2570540Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T10:01:26.3382240Z Removing includeIf entries pointing to credentials config files
+2026-11-08T10:01:26.3386680Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T10:01:26.3438220Z includeif.gitdir:/Users/runner/work/framelet/framelet/.git.path
+2026-11-08T10:01:26.3442320Z includeif.gitdir:/Users/runner/work/framelet/framelet/.git/worktrees/*.path
+2026-11-08T10:01:26.3444210Z includeif.gitdir:/github/workspace/.git.path
+2026-11-08T10:01:26.3445610Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-08T10:01:26.3449870Z [command]/opt/homebrew/bin/git config --local --get-all includeif.gitdir:/Users/runner/work/framelet/framelet/.git.path
+2026-11-08T10:01:26.3506330Z /Users/runner/work/_temp/git-credentials-559320f6-2c85-4330-b963-b469b3df3dd7.config
+2026-11-08T10:01:26.3516610Z [command]/opt/homebrew/bin/git config --local --unset includeif.gitdir:/Users/runner/work/framelet/framelet/.git.path \/Users\/runner\/work\/_temp\/git\-credentials\-559320f6\-2c85\-4330\-b963\-b469b3df3dd7\.config
+2026-11-08T10:01:26.3581170Z [command]/opt/homebrew/bin/git config --local --get-all includeif.gitdir:/Users/runner/work/framelet/framelet/.git/worktrees/*.path
+2026-11-08T10:01:26.3640530Z /Users/runner/work/_temp/git-credentials-559320f6-2c85-4330-b963-b469b3df3dd7.config
+2026-11-08T10:01:26.3651740Z [command]/opt/homebrew/bin/git config --local --unset includeif.gitdir:/Users/runner/work/framelet/framelet/.git/worktrees/*.path \/Users\/runner\/work\/_temp\/git\-credentials\-559320f6\-2c85\-4330\-b963\-b469b3df3dd7\.config
+2026-11-08T10:01:26.3860380Z [command]/opt/homebrew/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-08T10:01:26.3893200Z /github/runner_temp/git-credentials-559320f6-2c85-4330-b963-b469b3df3dd7.config
+2026-11-08T10:01:26.3897720Z [command]/opt/homebrew/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-559320f6\-2c85\-4330\-b963\-b469b3df3dd7\.config
+2026-11-08T10:01:26.3901960Z [command]/opt/homebrew/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-08T10:01:26.3917790Z /github/runner_temp/git-credentials-559320f6-2c85-4330-b963-b469b3df3dd7.config
+2026-11-08T10:01:26.3933070Z [command]/opt/homebrew/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-559320f6\-2c85\-4330\-b963\-b469b3df3dd7\.config
+2026-11-08T10:01:26.3985440Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T10:01:26.4821390Z Removing credentials config '/Users/runner/work/_temp/git-credentials-559320f6-2c85-4330-b963-b469b3df3dd7.config'
+2026-11-08T10:01:26.4834970Z ##[endgroup]
+2026-11-08T10:01:26.4989060Z ##[group]Run python3 -I -B -S Tests/ci/run-preview-package.py --source-commit "$SOURCE_COMMIT"
+2026-11-08T10:01:26.4990040Z [36;1mpython3 -I -B -S Tests/ci/run-preview-package.py --source-commit "$SOURCE_COMMIT"[0m
+2026-11-08T10:01:26.5043630Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-08T10:01:26.5044140Z env:
+2026-11-08T10:01:26.5044490Z   CI: true
+2026-11-08T10:01:26.5044840Z   SOURCE_COMMIT: 7f2f9864f15f8be1a2e0197bbdcdc8fe583b6ff6
+2026-11-08T10:01:26.5045290Z   FRAMELET_JOB_STARTED_MS: 1794132084000
+2026-11-08T10:01:26.5045650Z ##[endgroup]
+2026-11-08T10:01:26.8106010Z /Users/runner/work/framelet/framelet/Tests/ci/run-preview-package.py:512: SyntaxWarning: 'return' in a 'finally' block
+2026-11-08T10:01:26.8117420Z   return 1
+2026-11-08T10:01:39.1206630Z FRAMELET_PREVIEW_PACKAGE_RESULT={"acceptedApplicationBaseCommit":"7188847d6657eed67212e719aad445d0a27fc096","applicationLaunched":false,"canonicalBaseCommit":"259b9e3803080bda1aa8a7c7f32ab53f0426d655","capturePerformed":false,"cleanup":{"attributedProcessGroups":[20957,20977,20994,21010,21303,21319,21327,21330,21337,21343,21348,21350,21370,21371,21378,21399,21410,21420,21431,21441,21442,21450,21451],"attributedProcessIdentities":41,"created":true,"ownedProcessesRemaining":0,"removedEntries":132,"rootAbsent":true,"verified":true},"commands":[{"argv":["/usr/bin/uname","-m"],"exitCode":0,"id":"host","stderr":{"bytes":0,"complete":true,"descriptorClosed":true,"eof":true,"gzipBase64":"H4sIAAAAAAAA/wMAAAAAAAAAAAA=","observedBytes":0,"observedSha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},"stdout":{"bytes":6,"complete":true,"descriptorClosed":true,"eof":true,"gzipBase64":"H4sIAAAAAAAA/0ssyjUz4QIA5mItQwYAAAA=","observedBytes":6,"observedSha256":"c1669e1d8edca98769c37d494b76442a1d6e5ffffd7b4da1fb63aef8ebaf6f01","sha256":"c1669e1d8edca98769c37d494b76442a1d6e5ffffd7b4da1fb63aef8ebaf6f01"}},{"argv":["/usr/bin/sw_vers","-productVersion"],"exitCode":0,"id":"macos","stderr":{"bytes":0,"complete":true,"descriptorClosed":true,"eof":true,"gzipBase64":"H4sIAAAAAAAA/wMAAAAAAAAAAAA=","observedBytes":0,"observedSha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},"stdout":{"bytes":7,"complete":true,"descriptorClosed":true,"eof":true,"gzipBase64":"H4sIAAAAAAAA/zM01bPQM+ICAChw17MHAAAA","observedBytes":7,"observedSha256":"1723ca07975400b3c5e51f55b40b1799e93da5974a483559021f309bbbd0a62c","sha256":"1723ca07975400b3c5e51f55b40b1799e93da5974a483559021f309bbbd0a62c"}},{"argv":["/usr/bin/xcodebuild","-version"],"exitCode":0,"id":"xcode","stderr":{"bytes":0,"complete":true,"descriptorClosed":true,"eof":true,"gzipBase64":"H4sIAAAAAAAA/wMAAAAAAAAAAAA=","observedBytes":0,"observedSha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},"stdout":{"bytes":30,"complete":true,"descriptorClosed":true,"eof":true,"gzipBase64":"H4sIAAAAAAAA/4tIzk9JVTA00zPhcirNzElRKEstKs7MzwMKuZlxAQD7rfKHHgAAAA==","observedBytes":30,"observedSha256":"a8be4f9af0a29137fe7e59b9928056d4a0df297bb46ba40f80eaa6b0ae982f12","sha256":"a8be4f9af0a29137fe7e59b9928056d4a0df297bb46ba40f80eaa6b0ae982f12"}},{"argv":["/usr/bin/xcrun","swift","--version"],"exitCode":0,"id":"swift","stderr":{"bytes":30,"complete":true,"descriptorClosed":true,"eof":true,"gzipBase64":"H4sIAAAAAAAA/ysuz0wr0U0pyixLLVIA4uLM/DwrBUM9QyMDPVMFAL2vaNUeAAAA","observedBytes":30,"observedSha256":"c7ad56a9c04acf7eb234f7875b4638c0572f5cd5c6b96bc2a18297489dc922b6","sha256":"c7ad56a9c04acf7eb234f7875b4638c0572f5cd5c6b96bc2a18297489dc922b6"},"stdout":{"bytes":97,"complete":true,"descriptorClosed":true,"eof":true,"gzipBase64":"H4sIAAAAAAAA/3MsKMhJVQguz0wrUShLLSrOzM9TMNMz1DNS0CgGCeYk5qXrggXAgslgvqG5gYGegZ6hsZ6pJldIYlF6aomVQmJRrpmJbiLIPN3cxOT84gpDUz0DLgDqRFU2YQAAAA==","observedBytes":97,"observedSha256":"397d818de37b7a684ba905c1b92230e4534ff4cda0daf8a6eabc2a1fcfd50390","sha256":"397d818de37b7a684ba905c1b92230e4534ff4cda0daf8a6eabc2a1fcfd50390"}},{"argv":["/usr/bin/xcrun","--sdk","macosx","--show-sdk-version"],"exitCode":0,"id":"sdk","stderr":{"bytes":0,"complete":true,"descriptorClosed":true,"eof":true,"gzipBase64":"H4sIAAAAAAAA/wMAAAAAAAAAAAA=","observedBytes":0,"observedSha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},"stdout":{"bytes":5,"complete":true,"descriptorClosed":true,"eof":true,"gzipBase64":"H4sIAAAAAAAA/zM01TPlAgD6LqHtBQAAAA==","observedBytes":5,"observedSha256":"521fbd942d19d4f08ee3ac22fe5e1fee54d05fb48db0d8d179461b8195d210eb","sha256":"521fbd942d19d4f08ee3ac22fe5e1fee54d05fb48db0d8d179461b8195d210eb"}},{"argv":["./script/build_and_run.sh","--build-preview"],"error":"command_failed_or_left_processes:preview-build","exitCode":1,"id":"preview-build","stderr":{"bytes":0,"complete":true,"descriptorClosed":true,"eof":true,"gzipBase64":"H4sIAAAAAAAA/wMAAAAAAAAAAAA=","observedBytes":0,"observedSha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},"stdout":{"bytes":622,"complete":true,"descriptorClosed":true,"eof":true,"gzipBase64":"H4sIAAAAAAAA/4VSPU/DMBDd8ytuQYKhcRqFUjLSSoi9SN3QYV+Sg8S2zk4//j1u2kodkDp5uPfufZyLhxpWbvBjJIgoLUUw5MkasvoIraDvsreRe8O2vQACsL0FOTEk2eZ/MjyWV9pTViSxd4wdCXhxOw7s7Gkv26QfpvFKCJOV75NkWha0sI8JNg3XHLTbkZw46TnRE7dx0DiBsOcm6vs43aNt78N6c859awICtxbjKFTDnF5LUxWol1XxUmJl5ssKzfOi0FhWWJTZP3SfstegPkMSUzJaS6L2Tn7VV6TBq0ZwoJ7izAvtmPaz+aDd8CMLRQfvJKp8qkWh9z2pDxtJBjKc+gq5dZxqP6jtapJdY0R1z2J+0NNCk8BZNtqkQjqSgeRvx5qARJzUsOkIttqZ61nCMSS/0GEALRg6Mjmcw2KL6W9EB9rZyHak/NJCg9yTyf4Aj8x0vG4CAAA=","observedBytes":622,"observedSha256":"d91265f577dac15640bf1bcc4b11ec77719d7a47a72a428a4986782ec2bc9898","sha256":"d91265f577dac15640bf1bcc4b11ec77719d7a47a72a428a4986782ec2bc9898"}}],"error":"command_failed_or_left_processes:preview-build","github":{"GITHUB_RUN_ATTEMPT":"1","GITHUB_RUN_ID":"42469620595","GITHUB_SHA":"b14ffd42075d5e92fa6b4d622b99320860280f16","GITHUB_WORKFLOW_REF":"alvarovillalbaa/framelet/.github/workflows/preview-package.yml@refs/heads/qa/framelet-preview-20261108-2","GITHUB_WORKFLOW_SHA":"b14ffd42075d5e92fa6b4d622b99320860280f16"},"indexSha256":"c8b7218d7391c8b9444c97742cedb9359208a1268d2e73a83de1bde294379d2a","nativeXattrs":{"library":"/usr/lib/libSystem.B.dylib","options":1,"position":0,"sourceDirectoryProbePassed":true},"ownedRoot":{"ownerIdentity":[16777231,3557939,501,384],"path":"/Users/runner/work/_temp/framelet-preview-1mcomjr6","rootIdentity":[16777231,3557938,501,448]},"ownedSignals":[],"ownedSnapshot":{"entries":132,"sha256":"047d5017d909a393b7907f5eeeadfcd9a14be0665944f71d14d63b777e683c1b"},"priorAttempt":{"cleanupVerified":false,"commandsExecuted":0,"executedHere":false,"importedEvidenceOnly":true,"pins":{".json":[13168,"bf2c52f98db533ffcc739d96a1df368e6e54d79b4195bf561360fafe16acd7e8"],".log":[30248,"364225733db36ab0dda1f7c43f4cdfff752a1685ed81215fbfe2022eb0bf0951"]},"sourceCommit":"259b9e3803080bda1aa8a7c7f32ab53f0426d655","status":"failed"},"repository":"alvarovillalbaa/framelet","resources":{"cleanupBudgetSeconds":150,"compressedOriginalBytes":728,"elapsedSeconds":12.178,"maxOwnedBytes":1749670,"maxOwnedProcesses":7,"maxOwnedRSSBytes":178405376,"processScope":"Attributed children, inherited owner markers and process groups; excludes unrelated Apple/Xcode services.","sampledRSSBound":4294967296,"storageBound":4294967296,"workBudgetSeconds":900},"schemaVersion":1,"sourceCommit":"7f2f9864f15f8be1a2e0197bbdcdc8fe583b6ff6","sourceVector":{".codex/environments/environment.toml":{"blob":"e86c2cf63d614949bf1259dce9a564469a39c79c","bytes":174,"mode":"100644","sha256":"8d541ff998ce7f24ce9ddd43885e13fffdd5e059b904a8dde46da3cef7be4f8c"},".gitignore":{"blob":"56c548f0406073b022f85ec1245c83628b36eace","bytes":104,"mode":"100644","sha256":"13af75e838d4b60b70ed4710e3549030335c9c8131e66851600c3b51d0bbc6a0"},"AGENTS.md":{"blob":"87b174754ab2f9026af8f6f1953df26c12df0b87","bytes":2817,"mode":"100644","sha256":"ed6910a77241ab08a23a42006f95af1ba906f57d211d561cfeab2d277c0afce2"},"LICENSE":{"blob":"7694388483b2d169819b727c2484e0e748498f4c","bytes":1078,"mode":"100644","sha256":"6e3ae862a0f98e9f377f98f71fd86160932dad7186416f5509a335703c6fe3b5"},"Package.swift":{"blob":"97c40322c3b825a6d4c4533ca9008b0afe41fb66","bytes":600,"mode":"100644","sha256":"ebd5918afb416efcc7c30063b0b5e3701910b9290270c8dfaab47cf4afa0db25"},"README.md":{"blob":"df25cd76b2e6fe37468a2ef6f99a7ea0748509fb","bytes":5654,"mode":"100644","sha256":"bbca7586b9828d091a8aa25f2b9944389c74e32a8c1e11de37e1a2c7049d4584"},"Resources/AppIcon.icns":{"blob":"fb6d57c5b71406b282cb50b06961a3b8f33919bf","bytes":37623,"mode":"100644","sha256":"ed7f2e175531299ab2a9a13f9f7aafc75df97d1bce82b0cfc0a383f71f07ba08"},"Resources/Info.plist":{"blob":"33173c2cd8b03ab583cf75d254263b5b1e7c5b44","bytes":1090,"mode":"100644","sha256":"972084508967dcb5fe992aa6b88143e470bdcb0403e80e02ed833f87cb6d6d4d"},"Sources/Framelet/App/FrameletApp.swift":{"blob":"ac153e66ecdd5a9bba88b66e1fc71801fa2c4097","bytes":4342,"mode":"100644","sha256":"d8034be25f7f42435230ada47795ff61e7dec0b67f2fc9e932e6f427364a998d"},"Sources/Framelet/App/RecordingCommands.swift":{"blob":"84460272391f4c707e0a37c64b658d8ddab7628f","bytes":1196,"mode":"100644","sha256":"621d5ce4b446bbf2b50cff9295871fdcd50d294b63962597be81b88faad35cc3"},"Sources/Framelet/Models/CapturePhase.swift":{"blob":"141664aba5ad585ff347b62f5b8ebd9426bda90b","bytes":171,"mode":"100644","sha256":"ee0474a2a354687dbb236083e3dab3ab987da51acb3f802be058833e42821499"},"Sources/Framelet/Models/UIPlaybackModel.swift":{"blob":"c2bbbb2d886eadb8a0a56da0d4417e8ca5a1bc53","bytes":14756,"mode":"100644","sha256":"d66abb0b569e64abcdf563fefddee1db38e078159c8a38626e52b417c4f33d40"},"Sources/Framelet/Models/UIRecordingState.swift":{"blob":"20842a7de46f79cca90dc3bfc7fa59c67b3cbeff","bytes":2787,"mode":"100644","sha256":"825044fff0217a890810570859fd8da80a23f883674df9c632f57657bf40c535"},"Sources/Framelet/Models/UIWindowRegistry.swift":{"blob":"dd9fc1ec2d3f487117e5bf46a794e3853ab7d727","bytes":965,"mode":"100644","sha256":"0f84c4fbf14c73b66076eb0c98c312b2e63355a379fff687f3f757119f393a52"},"Sources/Framelet/Services/CameraRecorder.swift":{"blob":"6d8787130d634bc609f5f89bda2c1b0b6ebc6007","bytes":11187,"mode":"100644","sha256":"ea2002d17cb13ca8acbc93ddb72970635c8953b2e4bb46ecc19957dbbb7163e5"},"Sources/Framelet/Services/CaptureCoordinator.swift":{"blob":"52af4a24228b2a33b6d9cae468b852b4e64b98a6","bytes":19362,"mode":"100644","sha256":"a6c7fbbc3c6a0394bfbe52e4fb70addffa7cf541bc7de146e1756fcbf45c2801"},"Sources/Framelet/Services/ExportCoordinator.swift":{"blob":"11f6a9a77cca8d3dc68e01a9c3125bf18af4c873","bytes":9989,"mode":"100644","sha256":"8e55a8ce5f40c2cd55ee4b752b23eef62b1a1545b7c5759a78af0b6148846a68"},"Sources/Framelet/Services/ExportGeometry.swift":{"blob":"5257ce0e6117ddefde55174b029178ae0a194dcf","bytes":3397,"mode":"100644","sha256":"d8e14bfdc6b83f04b0b288f057d55977295a279d67eb41b3890a742a734a6468"},"Sources/Framelet/Services/RecordingCompletion.swift":{"blob":"ad5b766efd59fd5c6ae4cd191eea5ba590508421","bytes":8946,"mode":"100644","sha256":"68678a6ea8099285811b3ab9c15e99e57b238eb1bfa33501983e8d7ef5650edd"},"Sources/Framelet/Services/RecordingComposition.swift":{"blob":"f1069d71d729b73161e85419be9e3cf17a8e017b","bytes":12274,"mode":"100644","sha256":"d7e9f8947fe0905d5108a913e20200fa66e4f277a1f1bb3b3eedf90f5797e0fc"},"Sources/Framelet/Stores/RecordingLibrary.swift":{"blob":"eb0361f61728e1efda9db6d88aba31b72968eb58","bytes":8408,"mode":"100644","sha256":"e3fa6fc7000f66315dabd06a0f1af62230ca05b3aea8e149157a248477b5d6ff"},"Sources/Framelet/Support/UIFormatters.swift":{"blob":"b05fbb53fdafc8ce4fb3ddd1f7afdab0f70afca7","bytes":1234,"mode":"100644","sha256":"cc9446568708289bf944c4aa2a4eb98a94721f265f9604deb8642aa5e2b1df59"},"Sources/Framelet/Views/CanvasSettingsView.swift":{"blob":"5a45490b070402b76886285b535b41a233aaa904","bytes":2921,"mode":"100644","sha256":"c86a4f3588859dcb7e64f3ce4a70eb70880905cb211bff519f7095132a3ccce0"},"Sources/Framelet/Views/CapturePanel.swift":{"blob":"8e5c4802de69207a86c96735083e7759655f3d82","bytes":6173,"mode":"100644","sha256":"6da5686be8f868ffbe100a0335c6b51f20d2b1faaef900be14a5617b9820e1f7"},"Sources/Framelet/Views/ClipListEditor.swift":{"blob":"79576d97fbd813b27ab928460cec1d6bd79d8b52","bytes":8163,"mode":"100644","sha256":"178185732454f092c136ffd810719976726a1c7f4833739d91c15f4f94caf929"},"Sources/Framelet/Views/LibraryView.swift":{"blob":"c032ce8c8593ff5f7b3b5bc6f27acc7436856cf8","bytes":4479,"mode":"100644","sha256":"2aab2a5968116444d949f559cb1bb8f43a7ebb0d1f1ce4291b016d692a710621"},"Sources/Framelet/Views/PlaybackCanvasView.swift":{"blob":"1176b5280b816873ab55cc1403fdebf4bcef7b87","bytes":10003,"mode":"100644","sha256":"f743416dfb35ca4ff554e49e5ba69ebc97e0845ebe2df7ac7a9a1a339b055a13"},"Sources/Framelet/Views/RecordingDetailView.swift":{"blob":"1c4a4dab62e6d39b4d0328e9d3f820c0d73e9e0b","bytes":10474,"mode":"100644","sha256":"888cfabe8707a4bf2a81145894e5185a1726f7d843315116e6c3a2b7cdf94962"},"Sources/Framelet/Views/RecordingMenuView.swift":{"blob":"98578caf3e4651ea9abbae0e41d7e403110fb48a","bytes":1766,"mode":"100644","sha256":"6bf6ce2d40b81f7b4b958eb5e9451142617b977a1017b4a021abdb40fdd53998"},"Sources/Framelet/Views/RecordingSettingsView.swift":{"blob":"40ab1931c305dde466545bf1604cfff97ec8ef9f","bytes":2145,"mode":"100644","sha256":"03292a6646eef5e532ef0ec033469eb663db3760635c02cab3fadca21e4bad81"},"Sources/Framelet/Views/WindowRegistrationView.swift":{"blob":"52377e372379b2e2e883dd54e0114d1bba188b47","bytes":726,"mode":"100644","sha256":"d3ba3711f8c7b2a28541722cea31d83dc548f7b3b2d721f71cef78b76839ea78"},"Sources/FrameletCore/RecordingCompletion.swift":{"blob":"2241bdf54db756fb02a75a5fe36fb1005c3ad768","bytes":2486,"mode":"100644","sha256":"7d677b99bca1fe7f400bea940bf27ebe1384324e2c91445e6d2818f9516ed02d"},"Sources/FrameletCore/RecordingModels.swift":{"blob":"a80c487d3288ed79dd654143d5d3da7c93355561","bytes":5885,"mode":"100644","sha256":"a19b4c9d726a594ec69b8f0b9fd691a617630871af34e0cc78529e9d003a2cd6"},"Sources/FrameletCore/RecordingValidation.swift":{"blob":"010e67ffb454a39eddb15292a70ff302f54076d2","bytes":4686,"mode":"100644","sha256":"2b5f7c722a83bbde42d8cc2f4b1617d78a3dc91efe8d57b556b0dbee96e69fa9"},"Tests/FrameletCoreTests/RecordingCompletionTests.swift":{"blob":"04a1b5e12f666398fae192345464c0553269c9c9","bytes":2996,"mode":"100644","sha256":"caee4089b830024b433d75dac3a9b5d34999cdd4dde9887fc0ab2c2ac99f86a8"},"Tests/FrameletCoreTests/RecordingTimelineTests.swift":{"blob":"d96d634bf4d5f4104a8d44d3d8fa8d72b0a454e4","bytes":6825,"mode":"100644","sha256":"8243d12299dbbc4f07b707673ff546e7c19b645b257ace2ddf4edd537d438cda"},"Tests/FrameletPlaybackTests/PlaybackMediaFixture.swift":{"blob":"4b2709e085ac639dea6a3203e3cdfa2796511989","bytes":12791,"mode":"100644","sha256":"398472938ec1d18cc5fbaa3a289bc072c4ac109437ec52f473770e684b935ea0"},"Tests/FrameletPlaybackTests/RecordingCompositionTests.swift":{"blob":"18c0557827ac484607fdd60d1b72cc4cf5863cab","bytes":11630,"mode":"100644","sha256":"856f833748b762fa5ce5005de416d7229f6e6af26ec180fdb2121996446e7d8a"},"Tests/FrameletPlaybackTests/UIPlaybackModelTests.swift":{"blob":"56034bbcf929250661f1bcdcf54de8c37b9dac4c","bytes":12737,"mode":"100644","sha256":"a16a29293e949ecc8ff25b049a2f3efcb3b31f35df42f2b04b32124901c1ceb0"},"Tests/ci/run-preview-package.py":{"blob":"0df0866e96acabaf1db30d414854d058afcb4d92","bytes":34739,"mode":"100644","sha256":"aadbb6950e3f26839798b1b0266f7d44623fccd48a396a9c120f40ceb1246498"},"artwork/app-icon.png":{"blob":"93b8376a6e4b73088bf5fabb72d274a2474eb145","bytes":16440,"mode":"100644","sha256":"19bbad57e1b92356e6b5057555d90522a68951239c8aecf9a75753b47eccf23e"},"artwork/app-icon.svg":{"blob":"2984300b48318b1652c86b735c66b8693a71df95","bytes":799,"mode":"100644","sha256":"0aeca7b6a52c16db527051695febe5e5e18f5bce85ef259e12978474ff079c79"},"docs/distribution.md":{"blob":"31af701a39166fffdf45e26f79a769dbac99a23d","bytes":4510,"mode":"100644","sha256":"eb13f01aed40dcdc6cc8295c3119030ee4784dffe1450e94282003ca2ca5afe0"},"docs/proposals/native-checks-ci.yml.example":{"blob":"f2393f243cfbf49c019cfa771a9a94eacbbf95cd","bytes":4973,"mode":"100644","sha256":"67ffd7b307de64bbcf94201b74b65321e85115bf9a1f55912cf7f62bbcc19db2"},"docs/proposals/native-checks.md":{"blob":"ac24854856e44908ff65679968b85534a399a750","bytes":4921,"mode":"100644","sha256":"431d7d25dc2be993fe891967e2b12b1df21afd2819f20d64108964941d37356a"},"docs/proposals/ordered-playback-checks.md":{"blob":"1c38cd762d6823276255bb5cc3b7e415fe5f2f5f","bytes":5840,"mode":"100644","sha256":"0968c8d8698cf0fe339dc70ada875e94cfd590009023412c38bebddd108427c1"},"docs/proposals/ordered-playback-ci.yml.example":{"blob":"1686dc28d5a5813a63ae8f6691a48e422174ad19","bytes":7775,"mode":"100644","sha256":"8ec710b1a1759d0ec52f3cbd191ef904b73d98cf2cf87b78a81e3a69bf511b00"},"docs/proposals/preview-package-checks.md":{"blob":"5cbfa11711f0d91f955c3df6cd1dd098369d05c1","bytes":4699,"mode":"100644","sha256":"f5d143a7c98b1820b2b687da76c9886d7e7386c04effbe14a7bb0038a78769a8"},"docs/proposals/preview-package.workflow.yml.example":{"blob":"73cc4a48d590ba61853ca4de0bb5d7c6a49ade57","bytes":1376,"mode":"100644","sha256":"6af83335be7a8b46c9322033a02c25526293aafde61fa270fc169c4fb9426cb3"},"docs/results/2026/10-27/initial-source.md":{"blob":"d6cbd8b6af4078c696891da3347e0bd3997c491d","bytes":4988,"mode":"100644","sha256":"6daf2c558bf901b743b682c7a3f6a5d88f9139985980297c2c5d6628211b4ef2"},"docs/results/2026/10-28/app-icon.md":{"blob":"de1e58c713bfd29c2d199cc4d4f8e241a12a832e","bytes":5087,"mode":"100644","sha256":"bf75f96d205a682f88f2f60c5151965870c08189e04067a88d0b0275fa901d9c"},"docs/results/2026/10-28/ordered-playback-checks.json":{"blob":"55460dfdec645c8f6a564ea4eb8134fa163e118c","bytes":10300,"mode":"100644","sha256":"5d7f8e22f624dc0c42ee22592aae301b7eba2c560bcdcc67e641a77f367b0b21"},"docs/results/2026/10-28/ordered-playback-checks.md":{"blob":"c9fdf763eb0edd9255bde33fed6a062669db4f4e","bytes":4984,"mode":"100644","sha256":"5e9af294b06d1593227b0a61b44566e5104a159a6947bd9d389e0499da6b71c4"},"docs/results/2026/10-28/ordered-playback-source.json":{"blob":"c643db72c8b55a12d7c8f84c7715ff3a3b22e91a","bytes":10629,"mode":"100644","sha256":"1508226bf4489371a3a6bb89b83fd88cd7091b4fea018864a78de9ddd1ce8332"},"docs/results/2026/10-28/ordered-playback.md":{"blob":"4b986212e5a45866dac5f19b28d1a7c0a1baef9a","bytes":5310,"mode":"100644","sha256":"0e6d4860b0e1ca835ed05fbed65bd1f72cc99fd1227076040c06a97a59a6bd05"},"docs/results/2026/10-29/ordered-playback-release.md":{"blob":"e5b12dc2e21c8b19123823b03beebd7395de5b9f","bytes":2287,"mode":"100644","sha256":"0567c73025b181faec0c09ed316e57042d12fe84916b8ea1ef8418dbe4657e8a"},"docs/results/2026/11-08/preview-package-attempt-1.json":{"blob":"75bb4c66b471fe43e8ed7a47bf151aebfd468725","bytes":13168,"mode":"100644","sha256":"bf2c52f98db533ffcc739d96a1df368e6e54d79b4195bf561360fafe16acd7e8"},"docs/results/2026/11-08/preview-package-attempt-1.log":{"blob":"13548b83c65f41cd17d157929737f804a39c7bb4","bytes":30248,"mode":"100644","sha256":"364225733db36ab0dda1f7c43f4cdfff752a1685ed81215fbfe2022eb0bf0951"},"docs/results/2026/11-08/preview-package-attempt-1.md":{"blob":"7a017c72cd4e0887890e8415041274ad72b54dc1","bytes":3058,"mode":"100644","sha256":"b3ace517bfec33a0cd248d4fdea06744d9070b1547d284debc16a3055a939d8e"},"docs/specs/recorder.md":{"blob":"e459fb46fb20742e88ecf72622275467846eecb0","bytes":8935,"mode":"100644","sha256":"e842b49f07f1a5b734523ab118957cfb93d3bc7052a91973555a682babcaff2c"},"script/build_and_run.sh":{"blob":"7bac316328a8e96e5d1b92044b337307bbf01f1d","bytes":10340,"mode":"100755","sha256":"dba86b8e82597d062a576d5fb8f2c41e8c9d603ed0079c4e4e353f053cedb5bb"},"script/render_app_icon.py":{"blob":"927b3f981fcbc64ff15581f192a04401e5c48305","bytes":6346,"mode":"100644","sha256":"6f1e5461f072b25267ded787691b6023a891fccfe33d108c21c4284153d66eb8"},"script/render_app_icon.sh":{"blob":"df3942b80b56d400155734f9245d7e5cb6eff235","bytes":2233,"mode":"100755","sha256":"de9fda2d9e2e0977e88600dab9041cbbb88579ab1de902e8e48c85a6c1460886"}},"status":"failed","testsExecuted":false}
+2026-11-08T10:01:39.1381490Z ##[error]Process completed with exit code 1.
+2026-11-08T10:01:39.1549340Z Post job cleanup.
+2026-11-08T10:01:39.2857780Z [command]/opt/homebrew/bin/git version
+2026-11-08T10:01:39.2915560Z git version 2.56.0
+2026-11-08T10:01:39.2931060Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/dcf06565-17a3-4ac9-ad76-813f7f87f29d/.gitconfig'
+2026-11-08T10:01:39.2937040Z Temporarily overriding HOME='/Users/runner/work/_temp/dcf06565-17a3-4ac9-ad76-813f7f87f29d' before making global git config changes
+2026-11-08T10:01:39.2937990Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-08T10:01:39.2939630Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/framelet/framelet
+2026-11-08T10:01:39.2989880Z Removing SSH command configuration
+2026-11-08T10:01:39.2993120Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-08T10:01:39.3042930Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-08T10:01:39.3668000Z Removing HTTP extra header
+2026-11-08T10:01:39.3670740Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-08T10:01:39.3716620Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-08T10:01:39.4323160Z Removing includeIf entries pointing to credentials config files
+2026-11-08T10:01:39.4327210Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-08T10:01:39.4371090Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-08T10:01:39.5008860Z Cleaning up orphan processes

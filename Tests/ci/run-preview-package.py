@@ -5,6 +5,7 @@ import base64
 import ctypes
 import gzip
 import hashlib
+import io
 import json
 import os
 from pathlib import Path, PurePosixPath
@@ -23,14 +24,18 @@ import time
 import zipfile
 
 REPOSITORY = "alvarovillalbaa/framelet"
-BRANCH = "refs/heads/qa/framelet-preview-20261108-2"
+BRANCH = "refs/heads/qa/framelet-preview-20261108-3"
 WORKFLOW = ".github/workflows/preview-package.yml"
 CONTROLLER = "Tests/ci/run-preview-package.py"
-BASE = "259b9e3803080bda1aa8a7c7f32ab53f0426d655"
+BASE = "7f2f9864f15f8be1a2e0197bbdcdc8fe583b6ff6"
+FIRST_SOURCE = "259b9e3803080bda1aa8a7c7f32ab53f0426d655"
 APPBASE = "7188847d6657eed67212e719aad445d0a27fc096"
 PRIOR = "docs/results/2026/11-08/preview-package-attempt-1"
 PRIOR_PINS = {".json": (13168, "bf2c52f98db533ffcc739d96a1df368e6e54d79b4195bf561360fafe16acd7e8"),
               ".log": (30248, "364225733db36ab0dda1f7c43f4cdfff752a1685ed81215fbfe2022eb0bf0951")}
+SECOND_PRIOR = "docs/results/2026/11-08/preview-package-attempt-2"
+SECOND_PINS = {".json": (19582, "20d5a210f028c7f5c8df54561e97249b4a50070d87c3acf968f46fa959c2164c"),
+               ".log": (36675, "8e4e0671dc6ef26190caf55ecced4fc5a6caefe72ce8b738c34ae0e97131a27d")}
 ARCHIVE = "Framelet-0.1.0-macos-universal.zip"
 PREFIX = b"FRAMELET_PREVIEW_PACKAGE_RESULT="
 MIB = 1024 ** 2
@@ -163,7 +168,8 @@ class Check:
             need(WORKFLOW not in vector and sum(row["bytes"] for row in vector.values()) < 8 * MIB, "inert_source_scope")
             need(set(self.git("diff", "--name-only", APPBASE, self.commit, "--", "Package.swift", "Sources", "Resources", "Tests", "script", ".codex/environments/environment.toml").decode().splitlines())
                  == {"script/build_and_run.sh", CONTROLLER}, "accepted_app_inputs_changed")
-            need(self.git("diff", "--name-only", BASE, self.commit, "--", "Package.swift", "Sources", "Resources", "Tests/FrameletCoreTests", "Tests/FrameletPlaybackTests", "script", ".codex/environments/environment.toml") == b"", "prior_app_inputs_changed")
+            need(self.git("diff", "--name-only", BASE, self.commit, "--", "Package.swift", "Sources", "Resources", "Tests/FrameletCoreTests", "Tests/FrameletPlaybackTests", "script", ".codex/environments/environment.toml").decode().splitlines()
+                 == ["script/build_and_run.sh"], "prior_app_inputs_changed")
             self.source, self.index_sha = vector, index_sha
             self.report.update(sourceCommit=self.commit, canonicalBaseCommit=BASE, acceptedApplicationBaseCommit=APPBASE, sourceVector=vector, indexSha256=index_sha)
             self.prior_attempt()
@@ -171,25 +177,49 @@ class Check:
             need(vector == self.source and index_sha == self.index_sha, "source_or_index_changed")
 
     def prior_attempt(self):
-        originals = {}
-        for suffix, (size, digest) in PRIOR_PINS.items():
-            path = self.checkout / (PRIOR + suffix)
-            need(not path.is_symlink() and path.is_file() and path.stat().st_size == size, "prior_original_type_or_size")
-            raw = path.read_bytes(); need(sha(raw) == digest, "prior_original_sha256"); originals[suffix] = raw
-        prior = json.loads(originals[".json"])
-        frames = [line.split(PREFIX, 1)[1] for line in originals[".log"].splitlines() if PREFIX in line]
-        need(len(frames) == 1 and json.loads(frames[0]) == prior, "prior_log_receipt_parity")
-        need(prior["repository"] == REPOSITORY and prior["sourceCommit"] == BASE and prior["canonicalBaseCommit"] == APPBASE
-             and prior["status"] == "failed" and prior["error"] == "module 'os' has no attribute 'listxattr'"
-             and prior["commands"] == [] and prior["testsExecuted"] is False and prior["applicationLaunched"] is False
-             and prior["capturePerformed"] is False and prior["cleanup"] == {"verified": False, "error": prior["error"]}, "prior_failed_boundary")
-        need(len(prior["sourceVector"]) == 60, "prior_source_count")
-        for name, row in prior["sourceVector"].items():
-            raw = self.git("show", BASE + ":" + safe(name))
-            need(len(raw) == row["bytes"] and sha(raw) == row["sha256"]
-                 and hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest() == row["blob"], "prior_source_binding")
-        self.report["priorAttempt"] = {"importedEvidenceOnly": True, "executedHere": False, "sourceCommit": BASE,
-                                       "pins": PRIOR_PINS, "status": "failed", "commandsExecuted": 0, "cleanupVerified": False}
+        summaries = []
+        for source, parent, prefix, pins, count in ((FIRST_SOURCE, APPBASE, PRIOR, PRIOR_PINS, 60),
+                                                   (BASE, FIRST_SOURCE, SECOND_PRIOR, SECOND_PINS, 63)):
+            need(self.git("rev-list", "--parents", "-n", "1", source).decode().split() == [source, parent], "prior_native_parent")
+            originals = {}
+            for suffix, (size, digest) in pins.items():
+                path = self.checkout / (prefix + suffix)
+                need(not path.is_symlink() and path.is_file() and path.stat().st_size == size, "prior_original_type_or_size")
+                raw = path.read_bytes(); need(sha(raw) == digest, "prior_original_sha256"); originals[suffix] = raw
+            prior = json.loads(originals[".json"])
+            frames = [line.split(PREFIX, 1)[1] for line in originals[".log"].splitlines() if PREFIX in line]
+            need(len(frames) == 1 and json.loads(frames[0]) == prior, "prior_log_receipt_parity")
+            need(prior["repository"] == REPOSITORY and prior["sourceCommit"] == source and prior["canonicalBaseCommit"] == parent
+                 and prior["status"] == "failed" and prior["testsExecuted"] is False and prior["applicationLaunched"] is False
+                 and prior["capturePerformed"] is False and not prior["ownedSignals"] and "retainedOriginals" not in prior, "prior_failed_boundary")
+            if source == FIRST_SOURCE:
+                need(prior["error"] == "module 'os' has no attribute 'listxattr'" and prior["commands"] == []
+                     and prior["cleanup"] == {"verified": False, "error": prior["error"]}, "prior_first_failure")
+            else:
+                need(prior["error"] == "command_failed_or_left_processes:preview-build" and prior["acceptedApplicationBaseCommit"] == APPBASE
+                     and prior["cleanup"]["verified"] is True and prior["cleanup"]["rootAbsent"] is True
+                     and prior["cleanup"]["ownedProcessesRemaining"] == 0, "prior_second_failure_or_cleanup")
+                need([(row["id"], row["exitCode"]) for row in prior["commands"]]
+                     == [(key, 0) for key in ("host", "macos", "xcode", "swift", "sdk")] + [("preview-build", 1)], "prior_second_commands")
+                need(prior["commands"][-1]["argv"] == ["./script/build_and_run.sh", "--build-preview"], "prior_second_build_mode")
+                for command in prior["commands"]:
+                    for key in ("stdout", "stderr"):
+                        row = command[key]; packed = base64.b64decode(row["gzipBase64"], validate=True)
+                        need(len(packed) <= MAX_STREAM + 4096, "prior_stream_gzip_bound")
+                        with gzip.GzipFile(fileobj=io.BytesIO(packed)) as stream:
+                            raw = stream.read(MAX_STREAM + 1)
+                        need(len(raw) <= MAX_STREAM and row["bytes"] == row["observedBytes"] == len(raw)
+                             and row["sha256"] == row["observedSha256"] == sha(raw) and row["complete"] is True
+                             and row["eof"] is True and row["descriptorClosed"] is True, "prior_stream_integrity")
+            need(len(prior["sourceVector"]) == count, "prior_source_count")
+            for name, row in prior["sourceVector"].items():
+                raw = self.git("show", source + ":" + safe(name))
+                need(len(raw) == row["bytes"] and sha(raw) == row["sha256"]
+                     and hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest() == row["blob"], "prior_source_binding")
+            summaries.append({"importedEvidenceOnly": True, "executedHere": False, "sourceCommit": source, "pins": pins,
+                              "status": "failed", "commandsExecuted": len(prior["commands"]), "cleanupVerified": prior["cleanup"]["verified"],
+                              "acceptedPackagingArtifacts": 0})
+        self.report["priorAttempts"] = summaries
 
     def admit(self):
         need(sys.platform == "darwin" and os.environ.get("CI") == "true" and os.environ.get("GITHUB_ACTIONS") == "true", "public_macos_ci_only")

@@ -53,12 +53,16 @@ Guard first where configured; a failed reserve check remains a refusal.
 ```
 
 This mode must build/package only, without opening or quitting the app. It
-uses SwiftPM Release configuration with `--arch arm64 --arch x86_64`, and
-emits the app, ZIP and checksum under `dist/`. SwiftPM documents
+uses separate SwiftPM native Release builds for arm64 and x86_64, combines the
+two actual binaries with `lipo`, and emits the app, ZIP and checksum under
+`dist/`. SwiftPM documents
 [Release builds and binary paths](https://www.swift.org/documentation/server/guides/building.html);
-its [official option definitions](https://github.com/swiftlang/swift-package-manager/blob/swift-6.0.3-RELEASE/Sources/CoreCommands/Options.swift)
-define repeatable architecture selection. A local source build remains an
+its [official 6.1.2 option definitions](https://github.com/swiftlang/swift-package-manager/blob/swift-6.1.2-RELEASE/Sources/CoreCommands/Options.swift)
+define native/single-architecture selection and separate scratch paths. A local source build remains an
 ad-hoc development build and does not close the product acceptance gaps.
+
+Preview flags also disable SwiftPM's local loader-path search entry; the
+per-slice runtime-library inspection remains a separate packaging check.
 
 ## Packaging and evidence boundary
 
