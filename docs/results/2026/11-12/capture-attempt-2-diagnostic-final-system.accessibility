@@ -1,0 +1,13 @@
+Attributes: Application, 0x7f8b9da25b80, pid: 346, title: 'Control Center', Disabled
+Element subtree:
+ →Application, 0x7f8b9da25b80, pid: 346, title: 'Control Center', Disabled
+    MenuBar, 0x7f8b9da26720, {{1736.0, 1.0}, {138.0, 22.0}}
+      StatusItem, 0x7f8b9da260e0, {{1774.0, 1.0}, {138.0, 22.0}}, identifier: 'com.apple.menuextra.clock', label: 'Clock', value: Thu Nov 12  1:06 PM
+      StatusItem, 0x7f8b9da27cf0, {{1736.0, 1.0}, {26.0, 22.0}}, identifier: 'com.apple.menuextra.controlcenter', label: 'Control Center'
+Path to element:
+ →Application, 0x7f8b9da25b80, pid: 346, title: 'Control Center', Disabled
+Query chain:
+ →Find: Application 'com.apple.controlcenter'
+  Output: {
+    Application, 0x7f8b9d923fd0, pid: 346, title: 'Control Center', Disabled
+  }
