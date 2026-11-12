@@ -52,7 +52,9 @@ relaunch, unchanged original hashes and an independently decoded 1.2-second
 human accessibility or narrow-window layout. The 1024-pixel VM's reopened
 window clips edges. The separate [FUI02 profile](../results/2026/11-12/window-sizing-attempt-3.md)
 qualified a display-aware placement repair on that same small VM, with original
-fixtures unchanged. Its new versioned package/delivery is pending. Physical/
+fixtures unchanged. Its [0.1.2 package](../results/2026/11-12/window-preview-attempt-1.md)
+and [public delivery](../results/2026/11-12/window-preview-publication.md) passed
+separately without replaying the native case. Physical/
 multiple/rotated displays and old-install migration remain unverified.
 The separate [preview refresh](../results/2026/11-12/preview-refresh-attempt-1.md)
 passed rendered Sand corner pixels on that retained export and new non-launching

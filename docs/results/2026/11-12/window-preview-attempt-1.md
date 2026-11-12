@@ -41,6 +41,8 @@ so this is not a nonempty resource-fork/quarantine preservation experiment.
 Workflow 415903945 is disabled and its unchanged QA ref independently absent.
 
 These unchanged assets are ready for separate `v0.1.2-preview.1` publication.
+The subsequent [publication and anonymous downloads](window-preview-publication.md)
+passed for these exact retained bytes.
 Do not repeat the closed build, FUI02, FUI01, earlier thirty cases or retained-
 export pixel checks routinely. Release runtime on either CPU, old-install
 migration, physical/multiple/rotated displays, human accessibility, actual

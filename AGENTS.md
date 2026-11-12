@@ -120,3 +120,12 @@ closed; publish only the three retained assets through the prepared bounded
 data-only helper. Preserve both older previews, their seven total assets with
 the failed-evidence archive, and original native/allocation failures. Verify
 anonymous byte/digest delivery and retire the exact publication control.
+
+[0.1.2 is public](docs/results/2026/11-12/window-preview-publication.md), with
+three matching server digests and anonymous downloaded bytes. Native window,
+Release packaging and publication scopes are closed; do not replay them as
+routine follow-up. All temporary window/allocation/package/publication controls
+are retired. Preserve older releases and all failed originals. The separate
+[actual authored-window capture draft](docs/proposals/authored-window-capture.md)
+is next; materialize its bounded fixture/case/teardown before activation and
+do not substitute synthetic input media for real capture acceptance.

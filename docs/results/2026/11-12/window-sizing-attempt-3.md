@@ -53,3 +53,7 @@ rotated/multiple displays, human accessibility, Release runtime, actual capture,
 camera/audio timing or trusted downloaded-app launch. FUI01, earlier thirty
 cases, retained-export pixels and old packaging were not replayed. The public
 download remains 0.1.1 until the separate 0.1.2 package and delivery qualify.
+
+Follow-up: the [0.1.2 universal package](window-preview-attempt-1.md) and
+[unchanged public delivery](window-preview-publication.md) passed separately.
+The original native result and its proof limits remain unchanged.

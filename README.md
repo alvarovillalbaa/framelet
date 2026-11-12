@@ -8,22 +8,22 @@ A local Mac screen recorder with a recording library and clip editor. Choose a d
 
 ## Download the preview
 
-[Download Framelet for Apple silicon and Intel Macs](https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.1-preview.1/Framelet-0.1.1-macos-universal.zip)
-(macOS 15+), with its [SHA-256 checksum](https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.1-preview.1/Framelet-0.1.1-macos-universal.zip.sha256)
-and [source/toolchain manifest](https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.1-preview.1/Framelet-preview-manifest.json).
-The [preview release](https://github.com/alvarovillalbaa/framelet/releases/tag/v0.1.1-preview.1)
+[Download Framelet for Apple silicon and Intel Macs](https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.2-preview.1/Framelet-0.1.2-macos-universal.zip)
+(macOS 15+), with its [SHA-256 checksum](https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.2-preview.1/Framelet-0.1.2-macos-universal.zip.sha256)
+and [source/toolchain manifest](https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.2-preview.1/Framelet-preview-manifest.json).
+The [preview release](https://github.com/alvarovillalbaa/framelet/releases/tag/v0.1.2-preview.1)
 contains the exact ZIP that passed fresh extraction and both-slice signature/
 packaging checks. It is ad-hoc signed, without Developer ID or notarization;
 downloaded-app Gatekeeper acceptance is unverified. See [installation and trust
 limits](docs/distribution.md). No recording permissions were granted by these checks.
 
-The public download is 0.1.1/build 2, with accessible clip ranges and named
-canvas controls. Its [refresh qualification](docs/results/2026/11-12/preview-refresh-attempt-1.md)
-and [anonymous asset delivery](docs/results/2026/11-12/preview-refresh-publication.md)
-passed. The 0.1.1 binary has a reopened-window sizing defect on the 1024-pixel
-CI display. Source now prepares 0.1.2/build 3 with a
-[qualified native placement repair](docs/results/2026/11-12/window-sizing-attempt-3.md);
-its new universal package and public delivery remain pending.
+The public download is 0.1.2/build 3, with accessible clip ranges, named canvas
+controls and display-aware window placement. The
+[native window repair](docs/results/2026/11-12/window-sizing-attempt-3.md),
+[new universal package](docs/results/2026/11-12/window-preview-attempt-1.md), and
+[anonymous delivery](docs/results/2026/11-12/window-preview-publication.md) passed
+their separate scopes. The complete window check covered first launch,
+relaunch and additional windows on a 1024×768 VM without clipped window edges.
 
 ## Local build
 
@@ -43,8 +43,8 @@ For a Release preview archive containing both Apple silicon and Intel slices:
 This mode never launches or quits Framelet. It refuses existing preview ZIP/
 checksum leaves and produces `dist/Framelet-0.1.2-macos-universal.zip` plus its
 `.zip.sha256` checksum. It uses the same icon, bundle metadata and ad-hoc signing
-flow. The new profile has its own [packaging scope](docs/proposals/preview-refresh-checks.md);
-actual universal [archive packaging passed](docs/results/2026/11-12/preview-refresh-attempt-1.md),
+flow. The new profile has its own [packaging scope](docs/proposals/window-preview-checks.md);
+actual universal [archive packaging passed](docs/results/2026/11-12/window-preview-attempt-1.md),
 and the unchanged checked archive is published above. The earlier 30-case
 run retains its ARM64/debug source/profile. See [distribution notes](docs/distribution.md).
 
