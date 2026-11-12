@@ -10,9 +10,11 @@ final class FrameletAcceptance: XCTestCase {
         let configURL = try XCTUnwrap(Bundle(for: Self.self).url(forResource: "FixtureConfig", withExtension: "json"))
         let config = try XCTUnwrap(JSONSerialization.jsonObject(with: Data(contentsOf: configURL)) as? [String: String])
         let root = URL(fileURLWithPath: try XCTUnwrap(config["root"]), isDirectory: true)
-        let library = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("Framelet", isDirectory: true)
-        XCTAssertEqual(library.path, config["library"])
+        // The XCTest runner has its own container. Use only the controller's
+        // admitted app-library path and nonce, without changing either app's rights.
+        let library = URL(fileURLWithPath: try XCTUnwrap(config["library"]), isDirectory: true)
+        XCTAssertEqual(library.lastPathComponent, "Framelet")
+        XCTAssertEqual(library.deletingLastPathComponent().lastPathComponent, "Application Support")
         XCTAssertEqual(try String(contentsOf: library.appendingPathComponent(".acceptance-owner"), encoding: .utf8), config["nonce"])
         XCTAssertTrue(try FileManager.default.contentsOfDirectory(atPath: library.path).sorted() == [".acceptance-owner"])
         let recordingID = UUID(), redID = UUID(), blueID = UUID()

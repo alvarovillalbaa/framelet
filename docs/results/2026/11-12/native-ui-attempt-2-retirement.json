@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "run": 43154485278,
+  "workflow": 415519365,
+  "path": ".github/workflows/framelet-ui-20261112-2.yml",
+  "disabledState": "disabled_manually",
+  "branch": "qa/framelet-ui-20261112-2",
+  "deletedHead": "bd5044c31151f1de6746d9eb79b9b5e6a26e2033",
+  "exactRefAbsent": true,
+  "uploadedEvidenceRemoved": true,
+  "artifactId": "13914783922",
+  "requests": [
+    {
+      "route": "actions/runs/43154485278",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "263d0dbe9661a23159f4d18021b74fb28998f7ca392bf92dce93efffc9f6e5a3"
+    },
+    {
+      "route": "actions/workflows/415519365",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "b9489d3e52b28fa2dbea487d86f6795eb07097ac3e165af78b3d54f6b7f8083b"
+    },
+    {
+      "route": "actions/artifacts/13914783922",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "68fbaf22b67ddf53e16bb04680ad3e0b72672ef9a854b0ee365c0e7de669e30d"
+    },
+    {
+      "route": "actions/workflows/415519365/disable",
+      "method": "PUT",
+      "status": 204,
+      "responseSHA256": "d4876ac51dd5775cd812a12c216f7b7c18e7a2ad2b71efa09109f613dbc34fff"
+    },
+    {
+      "route": "actions/workflows/415519365",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "1b89c59505f6fa567f634928fbcc7241f1711d1698b1220b54c11f60a97f4ff6"
+    },
+    {
+      "route": "git/ref/heads/qa/framelet-ui-20261112-2",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "7b2d4420ba9fcb8a53210ecb1d3bc50f5114505217273ed2f0715c62074ab647"
+    },
+    {
+      "route": "git/refs/heads/qa/framelet-ui-20261112-2",
+      "method": "DELETE",
+      "status": 204,
+      "responseSHA256": "98cb4a822ac0fbd52f345ff413f6c5b13d8a349d69f7576d5e9bf3bf66270e5f"
+    },
+    {
+      "route": "git/matching-refs/heads/qa/framelet-ui-20261112-2",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "c933880758736e95d4ef6205da50809cab7b39ea575ae1ade7da954b16411e26"
+    }
+  ]
+}

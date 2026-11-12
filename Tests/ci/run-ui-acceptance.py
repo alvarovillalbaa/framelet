@@ -22,7 +22,7 @@ source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "arm64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-ui-20261112-2"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-ui-20261112-3"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-ui-", dir=parent)).resolve()
@@ -232,6 +232,19 @@ finally:
             assert not library.is_symlink() and stat.S_ISDIR(current.st_mode)
             assert (current.st_dev, current.st_ino) == (library_identity.st_dev, library_identity.st_ino)
             assert (library / ".acceptance-owner").read_text() == nonce
+            # Preserve the generated manifest/media before removing this fresh
+            # library, including when the UI case stops after a partial edit.
+            fixture_files = []
+            fixture_bytes = 0
+            for path in sorted(library.rglob("*")):
+                assert not path.is_symlink()
+                if not path.is_file(): continue
+                raw = path.read_bytes(); fixture_bytes += len(raw)
+                assert len(fixture_files) < 16 and len(raw) <= 4 * 1024 ** 2 and fixture_bytes <= 8 * 1024 ** 2
+                fixture_files.append({"path": str(path.relative_to(library)), "bytes": len(raw), "sha256": sha(raw),
+                    "gzipBase64": base64.b64encode(gzip.compress(raw, mtime=0)).decode()})
+            report["ownedFixtureFiles"] = fixture_files
+            (evidence / "owned-fixture-state.json").write_text(json.dumps(fixture_files, indent=2) + "\n")
             output = root / "authored-ui-export.mp4"
             if output.exists():
                 raw = output.read_bytes(); assert len(raw) <= 8 * 1024 ** 2
