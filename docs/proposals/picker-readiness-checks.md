@@ -58,3 +58,12 @@ and [user-controlled content selection](https://developer.apple.com/documentatio
 Neither API documentation nor this plan proves live capture or trusted
 distribution. Materialize the full recording case and safe teardown separately
 after the actual picker evidence is reviewed.
+
+Source-review correction after scheduling candidate 1: `RecordingLibrary.init`
+creates the empty `Recordings` directory. The first immutable controller's
+postcheck incorrectly allowed only the owner marker; its original execution
+and verdict must remain unchanged. A corrected controller allows exactly the
+marker plus that empty nonsymlink directory. This is a file-check correction,
+not permission, app-source or capture expansion. Do not launch another native
+job merely to replay an already observed UI phase; inspect and preserve the
+first run's actual native/file/cleanup boundaries before choosing further work.

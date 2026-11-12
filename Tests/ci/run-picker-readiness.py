@@ -198,7 +198,11 @@ try:
     report["fixtureHashesAfter"] = fixture_snapshot()
     assert report["fixtureHashesAfter"] == report["fixtureHashesBefore"]
     report["fixtureReadOnlyUnchanged"] = True
-    assert list(library.iterdir()) == [library / ".acceptance-owner"]
+    # Opening the real app creates its empty Recordings directory. It is not
+    # a captured project; only the owned marker and that empty folder may exist.
+    assert sorted(p.name for p in library.iterdir()) == [".acceptance-owner", "Recordings"]
+    recordings = library / "Recordings"
+    assert recordings.is_dir() and not recordings.is_symlink() and not list(recordings.iterdir())
     report["noRecordingCreated"] = True
 except BaseException:
     report["errors"].append(traceback.format_exc())
