@@ -395,3 +395,10 @@ Keep publication inactive. Standing approval covers a separate bounded data-
 only packet preservation/exact-control closeout using the current run-artifacts
 collection, then a new output-buffer/presentation diagnostic before product edits.
 No native rerun, rejected-endpoint retry, broader rights or GPU inference.
+
+The [data-only failed-packet/control closeout](docs/proposals/compatible-closeout-checks.md)
+is materialized with inactive exact-source controls: one bounded public Ubuntu
+job, exact original raw packet preserved as a separate failed-evidence prerelease,
+server/anonymous hashes and exact target/self retirement. No app binary release,
+native replay, old asset mutation, permission change or rejected metadata retry.
+Keep original pixel/retirement failures and ended-VM scratch gap explicit.
