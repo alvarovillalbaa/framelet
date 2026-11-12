@@ -25,7 +25,7 @@ source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "x86_64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-release-playback-20261112-2"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-release-playback-20261112-3"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-release-playback-", dir=parent)).resolve()
@@ -61,6 +61,16 @@ baseline = None
 fixture_before = None
 bundle_before = None
 sha = lambda data: hashlib.sha256(data).hexdigest()
+SPARSE_CACHE_LIMITS = {
+    "derived/CompilationCache.noindex/generic/v1.1/v8.data": 16 * 1024 ** 3,
+    "derived/CompilationCache.noindex/generic/v1.1/v8.index": 8 * 1024 ** 3,
+    "derived/CompilationCache.noindex/generic/v1.1/v3.actions": 1024 ** 3,
+}
+report["storagePolicy"] = {"allocatedBytesMaximum": 4 * 1024 ** 3,
+    "otherApparentBytesMaximum": 4 * 1024 ** 3, "namespaceApparentBytesMaximum": 29 * 1024 ** 3,
+    "entriesMaximum": 32768, "onlyMeasuredSparseCachePaths": SPARSE_CACHE_LIMITS,
+    "evidence": "docs/results/2026/11-12/release-playback-attempt-2.json",
+    "localStorageGuardException": False}
 
 
 def sample_runtime():
@@ -120,25 +130,37 @@ def fixture_snapshot():
 def sample_storage(enforce):
     paths = list(root.rglob("*"))
     rows = []
+    nonregular_cache = []
     for path in paths:
         try: value = path.lstat()
         except FileNotFoundError: continue  # A compiler may atomically replace a temporary.
+        if str(path.relative_to(root)) in SPARSE_CACHE_LIMITS and not stat.S_ISREG(value.st_mode):
+            nonregular_cache.append({"path": str(path.relative_to(root)), "mode": value.st_mode})
         if stat.S_ISREG(value.st_mode):
             rows.append({"path": str(path.relative_to(root)), "logicalBytes": value.st_size,
                 "allocatedBytes": value.st_blocks * 512, "device": value.st_dev,
-                "inode": value.st_ino, "links": value.st_nlink})
+                "inode": value.st_ino, "links": value.st_nlink,
+                "canonicalPath": path.resolve() == path})
     unique = {(row["device"], row["inode"]): row for row in rows}
+    sparse = [row for row in rows if row["path"] in SPARSE_CACHE_LIMITS]
+    invalid_sparse = [row for row in sparse if row["logicalBytes"] > SPARSE_CACHE_LIMITS[row["path"]]
+        or row["links"] != 1 or not row["canonicalPath"]] + nonregular_cache
     snapshot = {"monotonic": time.monotonic(), "entries": len(paths),
         "logicalBytes": sum(row["logicalBytes"] for row in rows),
         "allocatedBytes": sum(row["allocatedBytes"] for row in unique.values()),
         "uniqueLogicalBytes": sum(row["logicalBytes"] for row in unique.values()),
         "uniqueRegularFiles": len(unique),
+        "nonCacheLogicalBytes": sum(row["logicalBytes"] for row in rows if row["path"] not in SPARSE_CACHE_LIMITS),
+        "measuredSparseCacheFiles": sparse, "invalidSparseCacheFiles": invalid_sparse,
         "largest": sorted(rows, key=lambda row: row["logicalBytes"], reverse=True)[:16]}
     snapshots = report.setdefault("storageSnapshots", [])
-    assert len(snapshots) < 210
+    assert len(snapshots) < 256
     snapshots.append(snapshot)
     report["maximumOwnedBytes"] = max(report.get("maximumOwnedBytes", 0), snapshot["logicalBytes"])
-    if enforce and (len(paths) > 32768 or snapshot["logicalBytes"] > 4 * 1024 ** 3):
+    report["maximumOwnedAllocatedBytes"] = max(report.get("maximumOwnedAllocatedBytes", 0), snapshot["allocatedBytes"])
+    if enforce and (len(paths) > 32768 or snapshot["logicalBytes"] > 29 * 1024 ** 3
+            or snapshot["allocatedBytes"] > 4 * 1024 ** 3 or snapshot["nonCacheLogicalBytes"] > 4 * 1024 ** 3
+            or invalid_sparse):
         (evidence / "storage-bound-state.json").write_text(json.dumps(snapshot, indent=2))
         raise RuntimeError("owned storage bound: apparent=" + str(snapshot["logicalBytes"])
             + ", allocated=" + str(snapshot["allocatedBytes"]) + ", entries=" + str(len(paths)))
@@ -253,11 +275,13 @@ try:
     baseline = source_guard()
     index_before = sha((repo / ".git/index").read_bytes())
     changes = run("qualified-input-diff", ["/usr/bin/git", "diff", "--name-only",
-        "ca6f921b4e894e6d30927de4be9b35d27bec8731", "HEAD", "--", "Package.swift", "Sources", "Resources", "script",
+        "4afda39b954b8416127f1619e0d94e9285a7d243", "HEAD", "--", "Package.swift", "Sources", "Resources", "script",
         "Tests/FrameletCoreTests", "Tests/FrameletPlaybackTests", "Tests/FrameletAcceptance.xcodeproj",
         "Tests/e2e/FrameletAcceptance.swift", "Tests/e2e/FrameletWindowAcceptance.swift",
-        "Tests/e2e/FrameletPickerReadiness.swift", "Tests/e2e/FrameletCaptureAcceptance.swift"])
+        "Tests/e2e/FrameletPickerReadiness.swift", "Tests/e2e/FrameletCaptureAcceptance.swift",
+        "Tests/e2e/FrameletReleasePlaybackAcceptance.swift", "Tests/ci/ReleasePlaybackPixels.swift"])
     assert not changes.strip()
+    report["runtimeCaseAndVerifierUnchangedFromMeasuredCandidate2"] = True
     raw = (repo / "docs/results/2026/11-12/capture-preview-attempt-1.json").read_bytes()
     assert sha(raw) == "b61e3306694747232570b93862d2d46154d3c32936c1c7a32c18ee2cbe940d07"
     package = json.loads(raw)

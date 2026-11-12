@@ -62,8 +62,9 @@ guards. A green native case alone is insufficient.
 Use the inactive `release-playback.workflow.yml.example` with one fixed public
 `macos-15-intel` VM, maximum 20 minutes and 17-minute controller step. Controller
 work budget is 900 seconds with command cleanup ending by 990 seconds,
-native case allowances 360/420 seconds and owned
-storage at most 4 GiB/32,768 entries; command streams at most 2 MiB each,
+native case allowances 360/420 seconds and owned storage at most 4 GiB of
+unique allocated blocks/32,768 entries. The measured sparse-cache exception
+below additionally bounds apparent bytes; command streams at most 2 MiB each,
 inline attachments 16 MiB, receipt 48 MiB and uploaded packet 256 MiB/2 days.
 Build only the new pixel verifier and harness; do not execute old native/core/
 pixel cases. No account, payment, model call, dependency or cloud database.
@@ -95,3 +96,20 @@ are read-only and may run after a storage refusal; only verified task-root
 compiler/app/runner processes may receive ordinary termination after safe
 no-native/actual shutdown admission. No inferred cache setting, larger cap,
 product change, reduced playback scope or old-case replay is introduced.
+
+[Candidate 2](../results/2026/11-12/release-playback-attempt-2.md) identified the
+specific sparse preallocations and verified complete command/source/index/
+fixture/bundle/owned cleanup, while its native scope still never launched.
+Candidate 3 explicitly amends the earlier apparent-size cap only for
+`derived/CompilationCache.noindex/generic/v1.1/v8.data` (at most 16 GiB),
+`v8.index` (8 GiB) and `v3.actions` (1 GiB). Require regular canonical files,
+one link and the observed per-file maxima. Total namespace is capped at 29 GiB;
+all other files together remain capped at 4 GiB apparent size, and all unique
+allocated disk blocks together remain capped at 4 GiB. Record both measures
+and the exact exception in every receipt; do not apply it to other paths,
+future tasks, local Storage Guard, source/media, or a changed cache format.
+No compiler-cache toggle, app/runner setting, entitlement or product source
+changes. The entire unchanged FUI04 native case and pixel verifier are guarded
+against measured source `4afda39b954b8416127f1619e0d94e9285a7d243`; all original
+runtime/process/media assertions remain required together. Preserve both
+failed verdicts; neither compiled helpers nor storage cleanup closes playback.

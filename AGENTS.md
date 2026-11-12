@@ -250,3 +250,13 @@ allowing read-only source/ownership cleanup inspection after refusal. Preserve
 the same 4 GiB cap, released product, native case, all pixel/runtime/file
 assertions and no-capture boundaries; diagnose actual storage before choosing
 any further correction. No unchanged retry or closed-scope replay.
+
+[Candidate 2 measured](docs/results/2026/11-12/release-playback-attempt-2.md)
+three exact Xcode sparse-cache leaves totaling 25 GiB logical but zero allocated
+blocks at refusal, with only 129,843,200 allocated bytes across the whole root.
+Standing approval covers the proposal's explicit candidate-3 exception for
+those three canonical single-link files and measured size maxima only, capped
+at 29 GiB namespace, 4 GiB all-other apparent bytes and 4 GiB unique allocated
+blocks. No local Guard exception, larger physical allowance, cache toggle,
+runtime-case/verifier/product change or relaxed behavioral assertion. Preserve
+both failures and require full native/pixel/process/unchanged-file/cleanup proof.
