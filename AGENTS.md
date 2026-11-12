@@ -129,3 +129,11 @@ are retired. Preserve older releases and all failed originals. The separate
 [actual authored-window capture draft](docs/proposals/authored-window-capture.md)
 is next; materialize its bounded fixture/case/teardown before activation and
 do not substitute synthetic input media for real capture acceptance.
+
+Standing approval covers the separate [FUI03A picker readiness probe](docs/proposals/picker-readiness-checks.md)
+in one fresh bounded Mac CI job: authored AppKit fixture, unchanged recorder,
+native picker presentation/Escape and original VM screen/AX evidence. No source
+selection, Share, Start, permission/device acceptance or actual recording occurs.
+Review the real picker evidence before materializing capture selectors. Its
+no-Start teardown is not suitable for live writers; actual capture still needs
+Stop/finalization acknowledgment before termination or library removal.

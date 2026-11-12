@@ -1,7 +1,9 @@
 # Next recorder requirement: actual authored-window capture
 
-Draft dependency scope, 12 November 2026. Do not activate while FUI02 and its
-new downloadable preview are pending. The original [recorder contract](../specs/recorder.md)
+Draft dependency scope, 12 November 2026. FUI02 and its downloadable 0.1.2
+preview have closed. The separate [picker readiness probe](picker-readiness-checks.md)
+first materializes the authored fixture and observes native presentation/cancel;
+it never selects a source or starts capture. The original [recorder contract](../specs/recorder.md)
 requires actual capture/pause/resume/export proof; the existing authored-media
 edit/export, window and packaging profiles do not supply it.
 
