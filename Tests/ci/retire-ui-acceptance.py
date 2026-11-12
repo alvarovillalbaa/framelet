@@ -8,8 +8,8 @@ import shutil
 import subprocess
 
 repo = "alvarovillalbaa/framelet"
-branch = "qa/framelet-ui-20261112-3"
-path = ".github/workflows/framelet-ui-20261112-3.yml"
+branch = "qa/framelet-ui-20261112-4"
+path = ".github/workflows/framelet-ui-20261112-4.yml"
 assert os.environ["GITHUB_REPOSITORY"] == repo and os.environ["GITHUB_REF"] == "refs/heads/" + branch
 head = os.environ["GITHUB_SHA"]
 assert re.fullmatch(r"[0-9a-f]{40}", head)

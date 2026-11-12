@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "run": 43181140478,
+  "workflow": 415727018,
+  "path": ".github/workflows/framelet-ui-20261112-3.yml",
+  "disabledState": "disabled_manually",
+  "branch": "qa/framelet-ui-20261112-3",
+  "deletedHead": "3598b02d309dd3878a4a63d998241747d48538c0",
+  "exactRefAbsent": true,
+  "uploadedEvidenceRemoved": true,
+  "artifactId": "13926357086",
+  "requests": [
+    {
+      "route": "actions/runs/43181140478",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "676da44a8d486a7cd76234d76940fe69d3dbe89eb39f32fe8fde6d7af60114f0"
+    },
+    {
+      "route": "actions/workflows/415727018",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "ef8d763807b3b96c4e7500a1f3577865aa96148f6a1d0cbc687cbd464508681f"
+    },
+    {
+      "route": "actions/artifacts/13926357086",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "cc43efbbf5efce890c64b9478819b216aa890dcbe8933e8741abf9e2e5a0c816"
+    },
+    {
+      "route": "actions/workflows/415727018/disable",
+      "method": "PUT",
+      "status": 204,
+      "responseSHA256": "32e055c7097975d3ea3be9b3adfef7f2e48223f5afb2d87a3f98bed744f17a18"
+    },
+    {
+      "route": "actions/workflows/415727018",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "7c8126b1913d813df8012ecb1489305dabfdd0343d6a6050e93ac376a271b733"
+    },
+    {
+      "route": "git/ref/heads/qa/framelet-ui-20261112-3",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "cc3d0ece56df32ddc725a8fe2bce427eab7e80be1e13f39ba36339cc15eaaebb"
+    },
+    {
+      "route": "git/refs/heads/qa/framelet-ui-20261112-3",
+      "method": "DELETE",
+      "status": 204,
+      "responseSHA256": "9ecce30ef4cf4458acc24f90aa01b44948a44f507fbb91e47326288122b0b082"
+    },
+    {
+      "route": "git/matching-refs/heads/qa/framelet-ui-20261112-3",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "1b58e89ad07995efa83e87a58805d51f4748d8e0e15f9d1b1613690fbf9d7b89"
+    }
+  ]
+}

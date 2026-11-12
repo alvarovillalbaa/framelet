@@ -22,7 +22,7 @@ source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "arm64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-ui-20261112-3"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-ui-20261112-4"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-ui-", dir=parent)).resolve()
@@ -129,7 +129,7 @@ try:
     baseline = source_guard()
     for row in baseline:
         name = row["path"]
-        if name != "Package.swift" and not name.startswith(("Sources/", "Resources/", "Tests/e2e/", "Tests/FrameletAcceptance.xcodeproj/", "Tests/FrameletCoreTests/", "Tests/FrameletPlaybackTests/")):
+        if name not in ("Package.swift", "Tests/ci/MediaFixture.swift") and not name.startswith(("Sources/", "Resources/", "Tests/e2e/", "Tests/FrameletAcceptance.xcodeproj/", "Tests/FrameletCoreTests/", "Tests/FrameletPlaybackTests/")):
             continue
         target = export / name
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -139,8 +139,17 @@ try:
     library_identity = library.stat()
     (library / ".acceptance-owner").write_text(nonce)
     config = {"root": str(root), "library": str(library), "nonce": nonce}
-    (export / "Tests/e2e/FixtureConfig.json").write_text(json.dumps(config))
+    fixture_config = root / "fixture-config.json"
+    fixture_config.write_text(json.dumps(config))
+    (export / "Tests/e2e/FixtureConfig.json").write_text(json.dumps({"root": str(root)}))
     report["fixtureBinding"] = config
+    fixture_tool = root / "media-fixture"
+    core_files = sorted(str(path) for path in (export / "Sources/FrameletCore").glob("*.swift"))
+    run("fixture-compile", ["/usr/bin/xcrun", "swiftc", "-parse-as-library", "-swift-version", "5",
+        "-module-cache-path", str(root / "cache/fixture-modules"), *core_files,
+        str(export / "Tests/ci/MediaFixture.swift"), "-o", str(fixture_tool)], seconds=120)
+    report["fixturePreparation"] = json.loads(run("fixture-prepare", [str(fixture_tool), "prepare", str(fixture_config)], seconds=45))
+    assert report["fixturePreparation"]["prepared"] is True
     common = ["/usr/bin/xcodebuild", "-project", "Tests/FrameletAcceptance.xcodeproj", "-scheme", "FrameletAcceptance",
         "-configuration", "Debug", "-destination", "platform=macOS,arch=arm64", "-derivedDataPath", str(root / "derived")]
     run("build-for-testing", common + ["build-for-testing"], seconds=300, cwd=export)
@@ -169,6 +178,8 @@ try:
         "-parallel-testing-enabled", "NO", "-test-timeouts-enabled", "YES", "-default-test-execution-time-allowance", "240",
         "-maximum-test-execution-time-allowance", "300"], seconds=480, cwd=export)
     report["nativeTestCommandPassed"] = True
+    report["mediaVerification"] = json.loads(run("fixture-verify", [str(fixture_tool), "verify", str(fixture_config)], seconds=45))
+    assert report["mediaVerification"]["verified"] is True and report["mediaVerification"]["caseId"] == "FUI01"
 except BaseException:
     report["errors"].append(traceback.format_exc())
 finally:
@@ -258,7 +269,7 @@ finally:
         report["cleanup"]["ownedRootAbsent"] = True
     except BaseException: report["errors"].append(traceback.format_exc())
     report["elapsedSeconds"] = time.monotonic() - started
-    if report.get("nativeTestCommandPassed") and report.get("uiObservations") and not report["errors"]:
+    if report.get("nativeTestCommandPassed") and report.get("uiObservations") and report.get("mediaVerification", {}).get("verified") and not report["errors"]:
         report["status"] = "passed"
     data = json.dumps(report, separators=(",", ":")).encode()
     assert len(data) <= 16 * 1024 ** 2
