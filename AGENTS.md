@@ -350,3 +350,12 @@ passed controls/cleanup and failed native compositor compilation. Standing
 approval covers only its corrected crop/opacity Swift labels and Sendable
 dictionary types, with unchanged model/algorithm/six pixel cases. Preserve all
 three failures; require the full six-case same-source result before Release work.
+
+[Software-preview attempt 4](docs/results/2026/11-12/software-preview-attempt-4.md)
+passed all six cases/eight original frames and source/input/group/root checks.
+Both compilers emitted no stderr; exact control retirement passed. This
+component scope is closed; do not replay it routinely. Preserve all failures
+and the public 0.1.3 assets. Standing approval covers a distinct 0.1.4/build 5
+universal package followed by full unchanged FUI04 native/nine-color/process
+qualification of that exact Release app, materialized before each execution.
+Component images alone are not app/UI/Release acceptance or publication proof.
