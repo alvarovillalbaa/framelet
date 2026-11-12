@@ -14,7 +14,7 @@ FRAMELET_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$FRAMELET_ROOT"
 FRAMELET_DIST="$FRAMELET_ROOT/dist"
 FRAMELET_APP="$FRAMELET_DIST/Framelet.app"
-FRAMELET_PREVIEW_NAME="Framelet-0.1.3-macos-universal.zip"
+FRAMELET_PREVIEW_NAME="Framelet-0.1.4-macos-universal.zip"
 FRAMELET_PREVIEW_COMPLETE=0
 if [[ "$FRAMELET_MODE" == --build-preview ]]; then
   FRAMELET_BUILD_FLAGS=(--configuration release --build-system native --disable-local-rpath)
@@ -131,7 +131,7 @@ chmod +x "$FRAMELET_STAGE/Framelet.app/Contents/MacOS/Framelet"
 /usr/bin/codesign --force --sign - "$FRAMELET_STAGE/Framelet.app"
 /usr/bin/codesign --verify --strict "$FRAMELET_STAGE/Framelet.app"
 if [[ "$FRAMELET_MODE" == --build-preview ]]; then
-  [[ "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$FRAMELET_STAGE/Framelet.app/Contents/Info.plist")" == 0.1.3 ]] || { echo "Preview archive version does not match its bundle." >&2; exit 1; }
+  [[ "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$FRAMELET_STAGE/Framelet.app/Contents/Info.plist")" == 0.1.4 ]] || { echo "Preview archive version does not match its bundle." >&2; exit 1; }
   python3 - "$FRAMELET_STAGE/Framelet.app" <<'PY'
 from pathlib import Path
 import stat

@@ -359,3 +359,9 @@ and the public 0.1.3 assets. Standing approval covers a distinct 0.1.4/build 5
 universal package followed by full unchanged FUI04 native/nine-color/process
 qualification of that exact Release app, materialized before each execution.
 Component images alone are not app/UI/Release acceptance or publication proof.
+
+The [0.1.4 non-launching package](docs/proposals/compatible-preview-checks.md)
+is materialized with inactive exact-source controls. Run only its new universal
+build/round-trip scope, preserving the accepted component source and all closed
+cases. After it passes, prepare full exact-Release playback before activation;
+do not publish a new binary from packaging or component images alone.
