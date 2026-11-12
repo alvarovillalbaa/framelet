@@ -51,19 +51,21 @@ final class FrameletCaptureAcceptance: XCTestCase {
             let image = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
             image.name = phase; image.lifetime = .keepAlways; add(image)
         }
-        func openRecordingMenu() {
+        func openRecordingMenu() -> XCUIElement {
             app.activate()
-            app.menuBars.menuBarItems["Recording"].click()
+            let item = app.menuBars.menuBarItems["Recording"]
+            item.click()
+            return item.menus.firstMatch
         }
         func action(_ name: String) {
-            openRecordingMenu()
-            XCTAssertTrue(app.menuItems[name].waitForExistence(timeout: 15))
-            XCTAssertTrue(app.menuItems[name].isEnabled)
-            app.menuItems[name].click()
+            let menu = openRecordingMenu()
+            XCTAssertTrue(menu.menuItems[name].waitForExistence(timeout: 15))
+            XCTAssertTrue(menu.menuItems[name].isEnabled)
+            menu.menuItems[name].click()
         }
         func expectMenuAction(_ name: String) {
-            openRecordingMenu()
-            XCTAssertTrue(wait { app.menuItems[name].exists && app.menuItems[name].isEnabled })
+            let menu = openRecordingMenu()
+            XCTAssertTrue(wait { menu.menuItems[name].exists && menu.menuItems[name].isEnabled })
             app.typeKey(.escape, modifierFlags: [])
         }
         func show(_ element: XCUIElement) {
@@ -135,8 +137,9 @@ final class FrameletCaptureAcceptance: XCTestCase {
         XCTAssertTrue(wait { libraryHidden() })
         // Keep the fixture unobscured and avoid Expose's transformed thumbnails.
         // This foreground command opens the picker without restoring the library.
-        app.menuBars.menuBarItems["Recording"].click()
-        app.menuItems["Choose Display or Window…"].click()
+        let recordingItem = app.menuBars.menuBarItems["Recording"]
+        recordingItem.click()
+        recordingItem.menus.firstMatch.menuItems["Choose Display or Window…"].click()
         let picker = system.dialogs["Shared Content Picker Controls"]
         XCTAssertTrue(picker.buttons["Show All Windows"].waitForExistence(timeout: 15))
         XCTAssertTrue(libraryHidden())
@@ -169,7 +172,9 @@ final class FrameletCaptureAcceptance: XCTestCase {
             shareWindow.firstMatch.click()
         }
         XCTAssertTrue(wait { !picker.exists })
-        app.activate(); app.menuBars.menuBarItems["Window"].click(); app.menuItems["Library"].click()
+        app.activate()
+        let windowItem = app.menuBars.menuBarItems["Window"]
+        windowItem.click(); windowItem.menus.firstMatch.menuItems["Library"].click()
         // The callback's selected-filter metadata, not geometry alone, is the
         // final source guard. Never press Start for a generic/display source.
         XCTAssertTrue(app.staticTexts[sourceLabel].firstMatch.waitForExistence(timeout: 15))

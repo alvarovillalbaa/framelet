@@ -181,3 +181,10 @@ hover/click, and unchanged selected-filter nonce guard before Start. No Expose
 geometry, raw coordinate guesses, display fallback, permission change or
 capture/file/assertion relaxation. All later Stop/export acknowledgments and
 retention limits remain mandatory; do not claim actual recording from a build.
+
+[FUI03 attempt 2](docs/results/2026/11-12/capture-attempt-2.md) failed the duplicate
+Choose menu query before opening the picker. Keep it failed with its original
+no-Start/ordinary-cleanup boundary. Standing approval covers the changed menu
+scoping: use the foreground Recording menu's own children for capture commands
+and Window's own child for Library; no first global duplicate or relaxed
+capture/file/acknowledgment assertion. Shipping/verifier/fixture inputs stay exact.

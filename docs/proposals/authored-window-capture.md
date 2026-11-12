@@ -158,6 +158,18 @@ uses the reachable immutable attempt-1 source
 The full actual two-take/media/stop/export case and independent verifier still
 have to pass together; no narrower substitute closes FUI03.
 
+Candidate 2 then failed before picker opening because its global Choose menu
+query matched both native menus. [Original attempt 2](../results/2026/11-12/capture-attempt-2.md)
+retains the exact ambiguity, minimized-window PNG, no-Start status and verified
+ordinary cleanup. Candidate 3 binds Choose/Pause/Resume/Stop to the foreground
+Recording menu's own Menu child, and restores Library through Window's own
+Menu child. This preserves the intended real user path instead of accepting
+the first global duplicate. The runtime/fixture/verifier inputs remain exact
+against the reachable compiled candidate-2 source
+`02b244e570c42c5f40e1687e499d5944276e6761`; no compilation-only result supplies
+the missing capture proof. All identity, media, pause, shutdown and cleanup
+assertions remain mandatory, with the same single-job/deadline/scope bounds.
+
 This would prove the basic real screen-window path only. The correspondence of
 the first `.complete` screen callback to the first encoded sample remains a
 separate measured timing requirement; no camera/PiP synchronization inference

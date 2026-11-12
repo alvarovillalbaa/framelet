@@ -22,7 +22,7 @@ source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "x86_64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-capture-20261112-2"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-capture-20261112-3"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-capture-", dir=parent)).resolve()
@@ -149,12 +149,12 @@ try:
     assert not run("status", ["/usr/bin/git", "status", "--porcelain"]).strip()
     run("toolchain", ["/usr/bin/xcodebuild", "-version"])
     baseline = source_guard()
-    changes = run("qualified-input-diff", ["/usr/bin/git", "diff", "--name-only", "f74a28bbbc74d6cfb123bbb4834cc7b6d886995c",
+    changes = run("qualified-input-diff", ["/usr/bin/git", "diff", "--name-only", "02b244e570c42c5f40e1687e499d5944276e6761",
         "HEAD", "--", "Package.swift", "Sources", "Resources", "script", "Tests/FrameletCoreTests",
         "Tests/FrameletPlaybackTests", "Tests/e2e/FrameletAcceptance.swift", "Tests/e2e/FrameletWindowAcceptance.swift", "Tests/e2e/FrameletPickerReadiness.swift",
         "Tests/ci/MediaFixture.swift"])
     assert not changes.strip()
-    report["runtimeInputsUnchangedFromCompiledAttempt1"] = True
+    report["runtimeInputsUnchangedFromCompiledAttempt2"] = True
     for row in baseline:
         name = row["path"]
         if name not in ("Package.swift", "Tests/ci/MediaFixture.swift", "Tests/ci/WindowDisplay.swift", "Tests/ci/PickerFixture.swift", "Tests/ci/CapturedWindowFiles.swift") and not name.startswith(("Sources/", "Resources/", "Tests/e2e/", "Tests/FrameletAcceptance.xcodeproj/", "Tests/FrameletCoreTests/", "Tests/FrameletPlaybackTests/")):
