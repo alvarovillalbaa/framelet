@@ -141,3 +141,12 @@ If the first picker job never acquires an executor and becomes terminal, use
 only its [conditional diagnostic/retirement scope](docs/proposals/picker-allocation-checks.md).
 It must remain inactive while that native attempt is queued/running; no native
 acceptance follows from a data-only cleanup or a changed runner profile.
+
+The [first picker execution](docs/results/2026/11-12/picker-readiness-attempt-2.md)
+built/launched the actual Intel app/fixture and visibly opened the system
+picker, then failed on an overly strict process-inventory cap. Keep it failed
+and its unexecuted cancellation/after-hash assertions open. Standing approval
+covers the changed bounded diagnostic case in the same proposal: metadata
+first, at most eight relevant system AX snapshots, unchanged picker/Escape/
+ready behavior and no source/Share/Start or consent action. Do not weaken the
+behavioral assertions or turn these screenshots into actual capture proof.

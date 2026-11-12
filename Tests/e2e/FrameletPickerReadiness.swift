@@ -54,13 +54,24 @@ final class FrameletPickerReadiness: XCTestCase {
         let running = NSWorkspace.shared.runningApplications.filter {
             $0.activationPolicy != .prohibited && $0.bundleIdentifier != nil && !$0.isTerminated
         }
-        XCTAssertLessThanOrEqual(running.count, 16)
-        var applications: [[String: Any]] = []
-        for (index, process) in running.enumerated() {
-            let bundle = try XCTUnwrap(process.bundleIdentifier)
-            let application = XCUIApplication(bundleIdentifier: bundle)
-            applications.append(["bundleIdentifier": bundle, "pid": process.processIdentifier,
-                "activationPolicy": process.activationPolicy.rawValue, "state": application.state.rawValue])
+        let applications: [[String: Any]] = running.map { process in
+            ["bundleIdentifier": process.bundleIdentifier ?? "", "pid": process.processIdentifier,
+                "name": process.localizedName ?? "", "activationPolicy": process.activationPolicy.rawValue,
+                "active": process.isActive]
+        }
+        let inventory = XCTAttachment(data: try JSONSerialization.data(withJSONObject: applications,
+            options: [.sortedKeys, .prettyPrinted]), uniformTypeIdentifier: "public.json")
+        inventory.name = "03-process-inventory"; inventory.lifetime = .keepAlways; add(inventory)
+        XCTAssertLessThanOrEqual(running.count, 64)
+        // Accessory/background agents are not a product failure. Query only
+        // processes whose public names identify picker/capture system UI.
+        let targets = running.filter { process in
+            let name = ((process.bundleIdentifier ?? "") + " " + (process.localizedName ?? "")).lowercased()
+            return ["picker", "capture", "sharing", "controlcenter", "systemuiserver"].contains { name.contains($0) }
+        }
+        XCTAssertLessThanOrEqual(targets.count, 8)
+        for (index, process) in targets.enumerated() {
+            let application = XCUIApplication(bundleIdentifier: try XCTUnwrap(process.bundleIdentifier))
             attach(String(format: "03-system-%02d", index), application: application)
         }
         screen("03-native-picker")
@@ -73,6 +84,7 @@ final class FrameletPickerReadiness: XCTestCase {
             "fixtureTitle": title, "sourceSelected": false, "startClicked": false,
             "capturePerformed": false, "cameraMicrophoneSystemAudioOff": true,
             "readyAfterCancel": true, "runningApplications": applications,
+            "systemTreesQueried": targets.compactMap(\.bundleIdentifier),
             "scope": "Picker screenshots and AX originals require review; no source-selection or capture proof."]
         let attachment = XCTAttachment(data: try JSONSerialization.data(withJSONObject: observed,
             options: [.sortedKeys, .prettyPrinted]), uniformTypeIdentifier: "public.json")

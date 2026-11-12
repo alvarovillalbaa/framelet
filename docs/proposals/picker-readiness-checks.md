@@ -92,3 +92,27 @@ unchanged shipping inputs and the exact FUI03A body to
 checkout). The original candidate remains immutable at `97036fc9864dafe183d3d2500a919512d08678df`.
 Same authored/no-Start scope, screenshots, file bounds, ordinary no-writer
 teardown, 20-minute job cap, failure retention and exact self-retirement apply.
+
+## Changed candidate 3: bounded picker-process snapshots
+
+Candidate 2 built/launched successfully and showed the system picker, but its
+complete native case failed before cancellation because the VM has 24 running
+UI/accessory applications, exceeding the assumed sixteen. Preserve that failed
+original and all actual source/profile/cleanup boundaries. Its three PNGs were
+viewed, 42 full streams and eight inline attachments hash-checked; no source,
+Share or Start action occurred. Do not infer later assertions or fixture
+after-hashes that did not execute.
+
+The changed case keeps initial ready/options-off/disabled-Start assertions and
+picker/Escape/unselected-ready behavior. It now retains bundle/name/PID/policy/
+active metadata before its limit assertion (at most 64 entries) and queries at
+most eight actual picker/capture/sharing/Control Center/SystemUIServer processes.
+No unrelated application tree is queried. This narrows accessibility inspection;
+the count is an execution budget, not a Framelet product invariant. Original
+PNG/AX review is still required. Same authored fresh Intel VM/no-Start scope,
+deadlines/retention/teardown, no consent/device acceptance and no paid service.
+Only the new probe diagnostics/controller/template change. Shipping and closed
+FUI01/FUI02 inputs stay exact against `a8a0d2e8fcc512cc16a6bb77855093a48c6ce5a6`;
+the new probe itself is pinned by its published source and full source vector.
+Activate only the exact new candidate once after candidate 2's verified cleanup
+and workflow/ref retirement. Do not replay it solely for coverage or a green CI.
