@@ -73,7 +73,7 @@ final class FrameletAcceptance: XCTestCase {
 
         let disclosure = app.disclosureTriangles["Canvas and camera layout"]
         show(disclosure)
-        disclosure.coordinate(withNormalizedOffset: CGVector(dx: 0.03, dy: 0.5)).click()
+        disclosure.coordinate(withNormalizedOffset: CGVector(dx: 0.14, dy: 0.5)).click()
         wait {
             if let number = disclosure.value as? NSNumber { return number.intValue == 1 }
             return disclosure.value as? String == "1"

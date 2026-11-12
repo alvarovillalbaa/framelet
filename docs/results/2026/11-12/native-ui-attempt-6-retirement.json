@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "run": 43188747885,
+  "workflow": 415778511,
+  "path": ".github/workflows/framelet-ui-20261112-6.yml",
+  "disabledState": "disabled_manually",
+  "branch": "qa/framelet-ui-20261112-6",
+  "deletedHead": "ba85826a2a6f4621d43d419432faa8797bd774ff",
+  "exactRefAbsent": true,
+  "uploadedEvidenceRemoved": true,
+  "artifactId": "13929747915",
+  "requests": [
+    {
+      "route": "actions/runs/43188747885",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "320bf22ae12a37a7d5b95ad054c89eb65af76281ed45c9452bc77b5b7d2fe42a"
+    },
+    {
+      "route": "actions/workflows/415778511",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "5428dc7c0e8206ead3e7b54d12616f30d73be2ba98d8ff6b26e62f54aca2eb8c"
+    },
+    {
+      "route": "actions/artifacts/13929747915",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "a126cf5c5ac2815776b34f963889ff7ec8535ac54c1db6b3410c4d35a545aa3c"
+    },
+    {
+      "route": "actions/workflows/415778511/disable",
+      "method": "PUT",
+      "status": 204,
+      "responseSHA256": "9fef13067c87959098b32a0ecc07c0148cc3f7a8868110e78434d95c2e4d4604"
+    },
+    {
+      "route": "actions/workflows/415778511",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "0d0f364446e87a4927d8db5ea8f3f1e815c02c0cbc6d228fe2f292b0b9560eb4"
+    },
+    {
+      "route": "git/ref/heads/qa/framelet-ui-20261112-6",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "232bfb06aef680f30fde17224d2f944fb5742a1b32b85e6944bbe987c4a7000e"
+    },
+    {
+      "route": "git/refs/heads/qa/framelet-ui-20261112-6",
+      "method": "DELETE",
+      "status": 204,
+      "responseSHA256": "69b0f8c67c36d044ff042c2cd33a1a6cf42adb8dba9f65bcdd364f000a3c63ff"
+    },
+    {
+      "route": "git/matching-refs/heads/qa/framelet-ui-20261112-6",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "2f501b37098513f23c7dab891d2857e28c9d66a98eab9188cb91ca97ae4bf724"
+    }
+  ]
+}
