@@ -1,0 +1,357 @@
+Attributes: Application, 0x12b0285f0, pid: 3588, title: 'Framelet', Disabled
+Element subtree:
+ →Application, 0x12b0285f0, pid: 3588, title: 'Framelet', Disabled
+    Window (Main), 0x12b02b7c0, {{0.0, 25.0}, {1024.0, 684.0}}, identifier: 'library-AppWindow-2', title: 'Authored UI recording', Disabled
+      Group, 0x12b02b900, {{0.0, 25.0}, {1024.0, 684.0}}, Disabled
+        SplitGroup, 0x12b02ba40, {{0.0, 25.0}, {1024.0, 684.0}}, identifier: 'library-AppWindow-2, SidebarNavigationSplitView', Disabled
+          Group, 0x12b02bb80, {{0.0, 25.0}, {260.0, 684.0}}, Disabled
+            ScrollView, 0x12b02bcc0, {{0.0, 77.0}, {260.0, 632.0}}, Disabled
+              Outline, 0x12b02c0a0, {{-1.0, 76.0}, {262.0, 634.0}}, label: 'Sidebar', Keyboard Focused
+                OutlineRow, 0x12b02c1e0, {{0.0, 77.0}, {260.0, 40.0}}, Selected, Disabled
+                  Cell, 0x12b02c320, {{10.0, 77.0}, {240.0, 40.0}}, Keyboard Focused, Selected
+                    StaticText, 0x12b02c460, {{44.0, 81.0}, {134.0, 16.0}}, value: Authored UI record...
+                    Image, 0x12b02be00, {{18.0, 91.0}, {15.0, 12.0}}, identifier: 'film', label: 'Movie'
+                    StaticText, 0x12b02bf40, {{44.0, 100.0}, {60.0, 13.0}}, value: 0:01 · Ready
+                TableColumn, 0x12b02ca20, {{10.0, 77.0}, {240.0, 632.0}}, identifier: 'ListColumn', Disabled
+          Splitter, 0x12b02c5a0, {{260.0, 77.0}, {1.0, 632.0}}, value: 260, Disabled
+          Group, 0x12b02c6e0, {{261.0, 25.0}, {763.0, 684.0}}, Disabled
+            Group, 0x12b02c820, {{277.0, 93.0}, {731.0, 36.0}}
+              StaticText, 0x12b02cb60, {{277.0, 93.0}, {103.0, 16.0}}, value: Ready to record
+              StaticText, 0x12b02cca0, {{277.0, 113.0}, {185.0, 16.0}}, value: No display or wind...
+              Button, 0x12b02cde0, {{777.0, 97.0}, {146.0, 28.0}}, label: 'Choose Source…'
+              Button, 0x12b02cf20, {{939.0, 97.0}, {69.0, 28.0}}, label: 'Start', Disabled
+            DisclosureTriangle, 0x12b02d060, {{255.0, 145.0}, {144.5, 16.0}}, label: 'Recording options', value: 1
+            CheckBox, 0x12b02d1a0, {{410.0, 173.0}, {101.0, 16.0}}, label: 'System audio', value: 0
+            CheckBox, 0x12b02d2e0, {{576.0, 173.0}, {112.0, 16.0}}, label: 'Default camera', value: 0
+            StaticText, 0x12b02d420, {{715.5, 175.0}, {70.0, 16.0}}, value: Countdown
+            PopUpButton, 0x12b02d560, {{793.0, 172.0}, {84.0, 22.0}}, value: 3 sec
+            CheckBox, 0x12b02d6a0, {{410.0, 198.0}, {138.0, 16.0}}, label: 'Default microphone', value: 0
+            CheckBox, 0x12b02d7e0, {{576.0, 198.0}, {99.0, 16.0}}, label: 'Show pointer', value: 1
+            StaticText, 0x12b02d920, {{277.0, 226.0}, {366.0, 13.0}}, value: Choose Source open...
+            ScrollView, 0x12b02da60, {{261.0, 256.0}, {763.0, 453.0}}, Disabled
+              StaticText, 0x12b02dba0, {{284.0, 279.0}, {183.0, 23.0}}, value: Authored UI record...
+              PopUpButton, 0x12b02dce0, {{835.0, 279.0}, {151.0, 18.0}}, title: 'Recording Actions'
+              StaticText, 0x12b02de20, {{285.0, 306.0}, {225.0, 15.0}}, value: Nov 12, 2026 at 10...
+              StaticText, 0x12b02df60, {{285.0, 346.0}, {48.0, 16.0}}, value: Preview
+              RadioGroup, 0x12b02e0a0, {{340.0, 342.0}, {646.0, 24.0}}, label: 'Preview scope'
+                RadioButton, 0x12b02e1e0, {{339.0, 342.0}, {324.0, 24.0}}, label: 'Recording', value: 1
+                RadioButton, 0x12b02e320, {{663.0, 342.0}, {323.0, 24.0}}, label: 'Selected Clip', value: 0
+              Button, 0x12b02e460, {{285.0, 705.0}, {127.0, 20.0}}, label: 'Play Recording'
+              Slider, 0x12b02e5a0, {{423.0, 704.0}, {497.0, 22.0}}, label: 'Recording playback position', value: 0
+                ValueIndicator, 0x12b02e6e0, {{422.0, 703.0}, {24.0, 28.0}}, value: 0, Disabled
+              StaticText, 0x12b02e820, {{931.0, 708.5}, {54.0, 13.0}}, value: 0:00 / 0:01
+              StaticText, 0x12b02e960, {{285.0, 735.0}, {356.0, 13.0}}, value: Previewing the rec...
+              StaticText, 0x12b02eaa0, {{285.0, 772.0}, {33.0, 16.0}}, value: Clips
+              StaticText, 0x12b02ebe0, {{326.0, 772.5}, {42.0, 15.0}}, value: 2 · 0:01
+              PopUpButton, 0x12b02ed20, {{375.0, 769.0}, {611.0, 22.0}}, title: 'Add Original Segment'
+              Button, 0x12b02ee60, {{295.0, 812.0}, {515.0, 32.0}}, label: 'Select clip 1', value: 0.10–0.70 seconds;..., Selected
+              Button, 0x12b02efa0, {{820.0, 818.0}, {30.0, 20.0}}, label: 'Move clip 1 earlier', Disabled
+              Button, 0x12b02f0e0, {{860.0, 818.0}, {30.0, 20.0}}, label: 'Move clip 1 later'
+              Button, 0x12b02f220, {{900.0, 818.0}, {34.0, 20.0}}, label: 'Duplicate clip 1'
+              Button, 0x12b02f360, {{944.0, 818.0}, {31.0, 20.0}}, label: 'Remove clip 1 from edit'
+              Button, 0x12b02f4a0, {{295.0, 876.0}, {515.0, 32.0}}, label: 'Select clip 2', value: 0.20–1.00 seconds;...
+              Button, 0x12b02f5e0, {{820.0, 882.0}, {30.0, 20.0}}, label: 'Move clip 2 earlier'
+              Button, 0x12b02f720, {{860.0, 882.0}, {30.0, 20.0}}, label: 'Move clip 2 later', Disabled
+              Button, 0x12b02f860, {{900.0, 882.0}, {34.0, 20.0}}, label: 'Duplicate clip 2'
+              Button, 0x12b02f9a0, {{944.0, 882.0}, {31.0, 20.0}}, label: 'Remove clip 2 from edit'
+              StaticText, 0x12b02fae0, {{285.0, 930.0}, {75.0, 13.0}}, value: Start (seconds)
+              StaticText, 0x12b02fc20, {{397.0, 930.0}, {70.0, 13.0}}, value: End (seconds)
+              TextField, 0x12b02fd60, {{284.0, 949.0}, {102.0, 23.0}}, placeholderValue: 'Start (seconds)', value: 0.1
+              TextField, 0x12b02fea0, {{396.0, 949.0}, {102.0, 23.0}}, placeholderValue: 'End (seconds)', value: 0.7
+              Button, 0x12b02ffe0, {{509.0, 951.0}, {81.0, 20.0}}, label: 'Apply Trim'
+              Button, 0x12b030270, {{602.0, 951.0}, {90.0, 20.0}}, label: 'Reset Fields'
+              StaticText, 0x12b0303b0, {{285.0, 978.7}, {362.0, 13.0}}, value: Use a decimal poin...
+              StaticText, 0x12b0304f0, {{285.0, 1003.7}, {503.0, 13.0}}, value: Clips play and exp...
+              DisclosureTriangle, 0x12b030630, {{263.0, 1042.7}, {192.5, 16.0}}, label: 'Canvas and camera layout', value: 0
+              StaticText, 0x12b030770, {{285.0, 1107.7}, {116.0, 16.0}}, value: Export a new MP4
+              StaticText, 0x12b0308b0, {{285.0, 1127.7}, {393.0, 13.0}}, value: Joins the current ...
+              Button, 0x12b0309f0, {{901.0, 1113.0}, {84.0, 22.0}}, label: 'Export…'
+              ScrollBar, 0x12b030b30, {{1008.0, 255.0}, {17.0, 455.0}}, value: 0
+                ValueIndicator, 0x12b030c70, {{1009.0, 258.0}, {15.0, 218.0}}, value: 0, Disabled
+                IncrementArrow, 0x12b030db0, {{1009.0, 256.0}, {0.0, 0.0}}, Disabled
+                DecrementArrow, 0x12b030ef0, {{1009.0, 256.0}, {0.0, 0.0}}, Disabled
+                Button, 0x12b031030, {{1009.0, 477.0}, {15.0, 232.0}}, Disabled
+                Button, 0x12b031170, {{1009.0, 256.0}, {15.0, 2.0}}, Disabled
+      Toolbar, 0x12b0314b0, {{0.0, 25.0}, {1024.0, 52.0}}, Disabled
+        Button, 0x12b0315f0, {{87.0, 25.0}, {42.0, 52.0}}, label: 'Hide Sidebar'
+          Button, 0x12b031730, {{91.0, 37.0}, {34.0, 28.0}}, label: 'Hide Sidebar'
+        Button, 0x12b031870, {{607.0, 25.0}, {35.0, 52.0}}, label: 'Refresh Library'
+          Button, 0x12b0319b0, {{611.0, 37.0}, {27.0, 28.0}}, label: 'Refresh Library'
+        Button, 0x12b031af0, {{642.0, 25.0}, {41.0, 52.0}}, label: 'Show Library Folder'
+          Button, 0x12b031c30, {{646.0, 37.0}, {33.0, 28.0}}, label: 'Show Library Folder'
+        Group, 0x12b031d70, {{683.0, 25.0}, {333.0, 52.0}}, Disabled
+          SearchField, 0x12b031eb0, {{686.0, 37.0}, {327.0, 30.0}}, placeholderValue: 'Find a recording'
+            Button, 0x12b031ff0, {{688.0, 41.0}, {25.0, 22.0}}, label: 'Search'
+      Button, 0x12b032130, {{18.0, 43.0}, {16.0, 16.0}}, identifier: '_XCUI:CloseWindow'
+      Button, 0x12b032270, {{58.0, 43.0}, {16.0, 16.0}}, identifier: '_XCUI:FullScreenWindow'
+        Group, 0x12b0323b0, {{59.0, 43.0}, {14.0, 16.0}}, Disabled
+          Group, 0x12b0324f0, {{59.0, 43.0}, {14.0, 16.0}}, Disabled
+      Button, 0x12b032630, {{38.0, 43.0}, {16.0, 16.0}}, identifier: '_XCUI:MinimizeWindow'
+      StaticText, 0x12b032770, {{269.0, 25.0}, {338.0, 52.0}}, value: Authored UI record...
+    Window, 0x12b0328b0, {{0.0, 25.0}, {1024.0, 681.0}}, identifier: 'library-AppWindow-1', title: 'Authored UI recording', Disabled
+      Group, 0x12b0329f0, {{0.0, 25.0}, {1024.0, 681.0}}, Disabled
+        SplitGroup, 0x12b032b30, {{0.0, 25.0}, {1024.0, 681.0}}, identifier: 'library-AppWindow-1, SidebarNavigationSplitView', Disabled
+          Group, 0x12b032c70, {{0.0, 25.0}, {260.0, 681.0}}, Disabled
+            ScrollView, 0x12b032db0, {{0.0, 77.0}, {260.0, 629.0}}, Disabled
+              Outline, 0x12b032ef0, {{-1.0, 76.0}, {262.0, 631.0}}, label: 'Sidebar'
+                OutlineRow, 0x12b033030, {{0.0, 77.0}, {260.0, 40.0}}, Selected, Disabled
+                  Cell, 0x12b033170, {{10.0, 77.0}, {240.0, 40.0}}, Keyboard Focused, Selected
+                    StaticText, 0x12b0332b0, {{44.0, 81.0}, {134.0, 16.0}}, value: Authored UI record...
+                    Image, 0x12b0333f0, {{18.0, 91.0}, {15.0, 12.0}}, identifier: 'film', label: 'Movie'
+                    StaticText, 0x12b033530, {{44.0, 100.0}, {60.0, 13.0}}, value: 0:01 · Ready
+                TableColumn, 0x12b033670, {{10.0, 77.0}, {240.0, 629.0}}, identifier: 'ListColumn', Disabled
+          Splitter, 0x12b0337b0, {{260.0, 77.0}, {1.0, 629.0}}, value: 260, Disabled
+          Group, 0x12b0338f0, {{261.0, 25.0}, {763.0, 681.0}}, Disabled
+            Group, 0x12b033a30, {{277.0, 93.0}, {731.0, 36.0}}
+              StaticText, 0x12b033b70, {{277.0, 93.0}, {103.0, 16.0}}, value: Ready to record
+              StaticText, 0x12b033cb0, {{277.0, 113.0}, {185.0, 16.0}}, value: No display or wind...
+              Button, 0x12b033df0, {{777.0, 97.0}, {146.0, 28.0}}, label: 'Choose Source…'
+              Button, 0x12b033f30, {{939.0, 97.0}, {69.0, 28.0}}, label: 'Start', Disabled
+            DisclosureTriangle, 0x12b034070, {{255.0, 145.0}, {144.5, 16.0}}, label: 'Recording options', value: 1
+            CheckBox, 0x12b0341b0, {{410.0, 173.0}, {101.0, 16.0}}, label: 'System audio', value: 0
+            CheckBox, 0x12b0342f0, {{576.0, 173.0}, {112.0, 16.0}}, label: 'Default camera', value: 0
+            StaticText, 0x12b034430, {{715.5, 175.0}, {70.0, 16.0}}, value: Countdown
+            PopUpButton, 0x12b034570, {{793.0, 172.0}, {84.0, 22.0}}, value: 3 sec
+            CheckBox, 0x12b0346b0, {{410.0, 198.0}, {138.0, 16.0}}, label: 'Default microphone', value: 0
+            CheckBox, 0x12b0347f0, {{576.0, 198.0}, {99.0, 16.0}}, label: 'Show pointer', value: 1
+            StaticText, 0x12b034930, {{277.0, 226.0}, {366.0, 13.0}}, value: Choose Source open...
+            ScrollView, 0x12b034a70, {{261.0, 256.0}, {763.0, 450.0}}, Disabled
+              StaticText, 0x12b034bb0, {{284.0, 279.0}, {183.0, 23.0}}, value: Authored UI record...
+              PopUpButton, 0x12b034cf0, {{835.0, 279.0}, {151.0, 18.0}}, identifier: 'ellipsis.circle', title: 'Recording Actions'
+              StaticText, 0x12b034e30, {{285.0, 306.0}, {225.0, 15.0}}, value: Nov 12, 2026 at 10...
+              StaticText, 0x12b034f70, {{285.0, 346.0}, {48.0, 16.0}}, value: Preview
+              RadioGroup, 0x12b0350b0, {{340.0, 342.0}, {646.0, 24.0}}, label: 'Preview scope'
+                RadioButton, 0x12b0351f0, {{339.0, 342.0}, {324.0, 24.0}}, label: 'Recording', value: 1
+                RadioButton, 0x12b035330, {{663.0, 342.0}, {323.0, 24.0}}, label: 'Selected Clip', value: 0
+              Button, 0x12b035470, {{285.0, 705.0}, {127.0, 20.0}}, label: 'Play Recording'
+              Slider, 0x12b0355b0, {{423.0, 704.0}, {497.0, 22.0}}, label: 'Recording playback position', value: 0
+                ValueIndicator, 0x12b0356f0, {{422.0, 703.0}, {24.0, 28.0}}, value: 0, Disabled
+              StaticText, 0x12b035830, {{931.0, 708.5}, {54.0, 13.0}}, value: 0:00 / 0:01
+              StaticText, 0x12b035970, {{285.0, 735.0}, {356.0, 13.0}}, value: Previewing the rec...
+              StaticText, 0x12b035ab0, {{285.0, 772.0}, {33.0, 16.0}}, value: Clips
+              StaticText, 0x12b035bf0, {{326.0, 772.5}, {42.0, 15.0}}, value: 2 · 0:01
+              PopUpButton, 0x12b035d30, {{375.0, 769.0}, {611.0, 22.0}}, title: 'Add Original Segment'
+              Button, 0x12b035e70, {{295.0, 812.0}, {515.0, 32.0}}, label: 'Select clip 1', value: 0.10–0.70 seconds;..., Selected
+              Button, 0x12b035fb0, {{820.0, 818.0}, {30.0, 20.0}}, label: 'Move clip 1 earlier', Disabled
+              Button, 0x12b0360f0, {{860.0, 818.0}, {30.0, 20.0}}, label: 'Move clip 1 later'
+              Button, 0x12b036230, {{900.0, 818.0}, {34.0, 20.0}}, label: 'Duplicate clip 1'
+              Button, 0x12b036370, {{944.0, 818.0}, {31.0, 20.0}}, label: 'Remove clip 1 from edit'
+              Button, 0x12b0364b0, {{295.0, 876.0}, {515.0, 32.0}}, label: 'Select clip 2', value: 0.20–1.00 seconds;...
+              Button, 0x12b0365f0, {{820.0, 882.0}, {30.0, 20.0}}, label: 'Move clip 2 earlier'
+              Button, 0x12b036730, {{860.0, 882.0}, {30.0, 20.0}}, label: 'Move clip 2 later', Disabled
+              Button, 0x12b036870, {{900.0, 882.0}, {34.0, 20.0}}, label: 'Duplicate clip 2'
+              Button, 0x12b0369b0, {{944.0, 882.0}, {31.0, 20.0}}, label: 'Remove clip 2 from edit'
+              StaticText, 0x12b036af0, {{285.0, 930.0}, {75.0, 13.0}}, value: Start (seconds)
+              StaticText, 0x12b036c30, {{397.0, 930.0}, {70.0, 13.0}}, value: End (seconds)
+              TextField, 0x12b036d70, {{284.0, 949.0}, {102.0, 23.0}}, placeholderValue: 'Start (seconds)', value: 0.1
+              TextField, 0x12b036eb0, {{396.0, 949.0}, {102.0, 23.0}}, placeholderValue: 'End (seconds)', value: 0.7
+              Button, 0x12b036ff0, {{509.0, 951.0}, {81.0, 20.0}}, label: 'Apply Trim'
+              Button, 0x12b037280, {{602.0, 951.0}, {90.0, 20.0}}, label: 'Reset Fields'
+              StaticText, 0x12b0373c0, {{285.0, 978.7}, {362.0, 13.0}}, value: Use a decimal poin...
+              StaticText, 0x12b037500, {{285.0, 1003.7}, {503.0, 13.0}}, value: Clips play and exp...
+              DisclosureTriangle, 0x12b037640, {{263.0, 1042.7}, {192.5, 16.0}}, label: 'Canvas and camera layout', value: 0
+              StaticText, 0x12b037780, {{285.0, 1107.7}, {116.0, 16.0}}, value: Export a new MP4
+              StaticText, 0x12b0378c0, {{285.0, 1127.7}, {393.0, 13.0}}, value: Joins the current ...
+              Button, 0x12b037a00, {{901.0, 1113.0}, {84.0, 22.0}}, label: 'Export…'
+              ScrollBar, 0x12b037b40, {{1008.0, 255.0}, {17.0, 452.0}}, value: 0
+                ValueIndicator, 0x12b037c80, {{1009.0, 258.0}, {15.0, 215.0}}, value: 0, Disabled
+                IncrementArrow, 0x12b037dc0, {{1009.0, 256.0}, {0.0, 0.0}}, Disabled
+                DecrementArrow, 0x12b037f00, {{1009.0, 256.0}, {0.0, 0.0}}, Disabled
+                Button, 0x12b038040, {{1009.0, 474.0}, {15.0, 232.0}}, Disabled
+                Button, 0x12b038180, {{1009.0, 256.0}, {15.0, 2.0}}, Disabled
+      Toolbar, 0x12b0384c0, {{0.0, 25.0}, {1024.0, 52.0}}, Disabled
+        Button, 0x12b038600, {{87.0, 25.0}, {42.0, 52.0}}, label: 'Hide Sidebar'
+          Button, 0x12b038740, {{91.0, 37.0}, {34.0, 28.0}}, label: 'Hide Sidebar'
+        Button, 0x12b038880, {{607.0, 25.0}, {35.0, 52.0}}, label: 'Refresh Library'
+          Button, 0x12b0389c0, {{611.0, 37.0}, {27.0, 28.0}}, label: 'Refresh Library'
+        Button, 0x12b038b00, {{642.0, 25.0}, {41.0, 52.0}}, label: 'Show Library Folder'
+          Button, 0x12b038c40, {{646.0, 37.0}, {33.0, 28.0}}, label: 'Show Library Folder'
+        Group, 0x12b038d80, {{683.0, 25.0}, {333.0, 52.0}}, Disabled
+          SearchField, 0x12b038ec0, {{686.0, 37.0}, {327.0, 30.0}}, placeholderValue: 'Find a recording'
+            Button, 0x129f30530, {{688.0, 41.0}, {25.0, 22.0}}, label: 'Search'
+      Button, 0x129f2fcd0, {{18.0, 43.0}, {16.0, 16.0}}, identifier: '_XCUI:CloseWindow'
+      Button, 0x129f30a20, {{58.0, 43.0}, {16.0, 16.0}}, identifier: '_XCUI:FullScreenWindow'
+        Group, 0x129f30b60, {{59.0, 43.0}, {14.0, 16.0}}, Disabled
+          Group, 0x129f30ca0, {{59.0, 43.0}, {14.0, 16.0}}, Disabled
+      Button, 0x129f30de0, {{38.0, 43.0}, {16.0, 16.0}}, identifier: '_XCUI:MinimizeWindow'
+      StaticText, 0x129f30f20, {{269.0, 25.0}, {338.0, 52.0}}, value: Authored UI record...
+    MenuBar, 0x129f31060, {{0.0, 0.0}, {1024.0, 24.0}}
+      MenuBarItem, 0x129f311a0, {{10.0, 0.0}, {34.0, 24.0}}, title: 'Apple'
+        Menu, 0x129f312e0, {{0.0, 768.0}, {0.0, 0.0}}
+          MenuItem, 0x129f31420, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_aboutThisMacRequested:', title: 'About This Mac'
+          MenuItem, 0x129f31560, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_systemInformationRequested:', title: 'System Information'
+          MenuItem, 0x129f316a0, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129f317e0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_systemSettingsRequested:', title: 'System Settings…'
+          MenuItem, 0x129f31920, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_appStoreRequested:', title: 'App Store'
+          MenuItem, 0x129f0f7d0, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129f0f910, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_recentsRequested:', title: 'Recent Items'
+            Menu, 0x129f0fa50, {{0.0, 768.0}, {0.0, 0.0}}
+              MenuItem, 0x129f0fb90, {{0.0, 768.0}, {0.0, 0.0}}, title: 'Applications', Disabled
+              MenuItem, 0x129f0fcd0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'Framelet'
+              MenuItem, 0x129f0fe10, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'Show “Framelet” in Finder'
+              MenuItem, 0x129f0ff50, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'Installer'
+              MenuItem, 0x129f10090, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'Show “Installer” in Finder'
+              MenuItem, 0x129f101d0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'System Settings'
+              MenuItem, 0x129f10310, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'Show “System Settings” in Finder'
+              MenuItem, 0x129f10450, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x129f10590, {{0.0, 768.0}, {0.0, 0.0}}, title: 'Documents', Disabled
+              MenuItem, 0x129f106d0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'AnkaGuestAddons.pkg'
+              MenuItem, 0x129f10810, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'Show “AnkaGuestAddons.pkg” in Finder'
+              MenuItem, 0x129f10950, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x129f10a90, {{0.0, 768.0}, {0.0, 0.0}}, title: 'Servers', Disabled
+              MenuItem, 0x129f10bd0, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x129f10d10, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_clearRecentItemsRequested:', title: 'Clear Menu'
+          MenuItem, 0x129f10e50, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e38f60, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_forceQuitPanelRequested:', title: 'Force Quit…'
+          MenuItem, 0x129e85030, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_forceQuitRequested:', title: 'Force Quit Framelet'
+          MenuItem, 0x129e85890, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e859d0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_sleepRequested:', title: 'Sleep'
+          MenuItem, 0x129e85b10, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_restartRequested:', title: 'Restart…'
+          MenuItem, 0x129e85c50, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_restartNowRequested:', title: 'Restart'
+          MenuItem, 0x129e85d90, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_shutDownRequested:', title: 'Shut Down…'
+          MenuItem, 0x129e85ed0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_shutDownNowRequested:', title: 'Shut Down'
+          MenuItem, 0x129e86010, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e861c0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_lockScreenRequested:', title: 'Lock Screen'
+          MenuItem, 0x129e86300, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_logOutRequested:', title: 'Log Out Anka…'
+          MenuItem, 0x129e86440, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_logOutNowRequested:', title: 'Log Out Anka'
+          MenuItem, 0x129e86580, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+      MenuBarItem, 0x129e866c0, {{44.0, 0.0}, {78.0, 24.0}}, title: 'Framelet'
+        Menu, 0x129e86800, {{0.0, 768.0}, {0.0, 0.0}}
+          MenuItem, 0x129e86940, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'orderFrontStandardAboutPanel:', title: 'About Framelet'
+          MenuItem, 0x129e86a80, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e86bc0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'menuAction:', title: 'Settings…'
+          MenuItem, 0x129e86d00, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e86e40, {{0.0, 768.0}, {0.0, 0.0}}, title: 'Services'
+            Menu, 0x129e86f80, {{0.0, 768.0}, {0.0, 0.0}}
+              MenuItem, 0x129e870c0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_processRequest:', title: 'Activity Monitor'
+              MenuItem, 0x129e87200, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_processRequest:', title: 'Allocations & Leaks'
+              MenuItem, 0x129e87340, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_processRequest:', title: 'File Activity'
+              MenuItem, 0x129e87480, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_processRequest:', title: 'System Trace'
+              MenuItem, 0x129e875c0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_processRequest:', title: 'Time Profile Active Application'
+              MenuItem, 0x129e87700, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_processRequest:', title: 'Time Profile App Under Mouse'
+              MenuItem, 0x129e87840, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_processRequest:', title: 'Time Profile Entire System'
+              MenuItem, 0x129e87980, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_processRequest:', title: 'Toggle Instruments Recording'
+              MenuItem, 0x129e87ac0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_configureServicesMenu:', title: 'Services Settings…'
+          MenuItem, 0x129e87c00, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e87d40, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'hide:', title: 'Hide Framelet'
+          MenuItem, 0x129e87e80, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'hideOtherApplications:', title: 'Hide Others'
+          MenuItem, 0x129e87fc0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'unhideAllApplications:', title: 'Show All', Disabled
+          MenuItem, 0x129e88100, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e88240, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'terminate:', title: 'Quit Framelet'
+      MenuBarItem, 0x129e88380, {{122.0, 0.0}, {42.0, 24.0}}, title: 'File'
+        Menu, 0x129e884c0, {{0.0, 768.0}, {0.0, 0.0}}
+          MenuItem, 0x129e88600, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'menuAction:', title: 'New Framelet Window'
+          MenuItem, 0x129e88740, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e88880, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'performClose:', title: 'Close'
+          MenuItem, 0x129e889c0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'closeAll:', title: 'Close All'
+      MenuBarItem, 0x129e88b00, {{164.0, 0.0}, {44.0, 24.0}}, title: 'Edit'
+        Menu, 0x129e88c40, {{0.0, 768.0}, {0.0, 0.0}}
+          MenuItem, 0x129e88d80, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'undo:', title: 'Undo', Disabled
+          MenuItem, 0x129e88ec0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'redo:', title: 'Redo', Disabled
+          MenuItem, 0x129e89000, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e89140, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'cut:', title: 'Cut', Disabled
+          MenuItem, 0x129e89280, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'copy:', title: 'Copy', Disabled
+          MenuItem, 0x129e893c0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'paste:', title: 'Paste', Disabled
+          MenuItem, 0x129e89500, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'delete:', title: 'Delete', Disabled
+          MenuItem, 0x129e89640, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'selectAll:', title: 'Select All', Disabled
+          MenuItem, 0x129e89780, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e898c0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_NSMenuItemAutoFillIdentifier', title: 'AutoFill'
+            Menu, 0x129e89a00, {{0.0, 768.0}, {0.0, 0.0}}
+              MenuItem, 0x129e89b40, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_handleInsertFromContactsCommand:', title: 'Contact…', Disabled
+              MenuItem, 0x129e89c80, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_handleInsertFromPasswordsCommand:', title: 'Passwords…', Disabled
+          MenuItem, 0x129e89dc0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'startDictation:', title: 'Start Dictation…'
+          MenuItem, 0x129e89f00, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'orderFrontCharacterPalette:', title: 'Emoji & Symbols'
+      MenuBarItem, 0x129e8a040, {{208.0, 0.0}, {50.0, 24.0}}, title: 'View'
+        Menu, 0x129e8a180, {{0.0, 768.0}, {0.0, 0.0}}
+          MenuItem, 0x129e8a2c0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'toggleTabBar:', title: 'Show Tab Bar'
+          MenuItem, 0x129e8a400, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'toggleTabOverview:', title: 'Show All Tabs'
+          MenuItem, 0x129e8a540, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e8a680, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'toggleFullScreen:', title: 'Enter Full Screen'
+      MenuBarItem, 0x129e8a7c0, {{258.0, 0.0}, {82.0, 24.0}}, title: 'Recording'
+        Menu, 0x129e8a900, {{0.0, 768.0}, {0.0, 0.0}}
+          MenuItem, 0x129e8aa40, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'menuAction:', title: 'Choose Display or Window…'
+          MenuItem, 0x129e8ab80, {{0.0, 768.0}, {0.0, 0.0}}, title: 'Start Recording', Disabled
+          MenuItem, 0x129e8acc0, {{0.0, 768.0}, {0.0, 0.0}}, title: 'Pause Recording', Disabled
+          MenuItem, 0x129e8ae00, {{0.0, 768.0}, {0.0, 0.0}}, title: 'Stop Recording', Disabled
+          MenuItem, 0x129e8af40, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e8b080, {{0.0, 768.0}, {0.0, 0.0}}, title: 'Shortcuts work while Framelet is active.', Disabled
+      MenuBarItem, 0x129e8b1c0, {{340.0, 0.0}, {69.0, 24.0}}, title: 'Window'
+        Menu, 0x129e8b300, {{0.0, 768.0}, {0.0, 0.0}}
+          MenuItem, 0x129e8b440, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'performMiniaturize:', title: 'Minimize'
+          MenuItem, 0x129e8b580, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'miniaturizeAll:', title: 'Minimize All'
+          MenuItem, 0x129e8b6c0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'performZoom:', title: 'Zoom'
+          MenuItem, 0x129e8b800, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'zoomAll:', title: 'Zoom All'
+          MenuItem, 0x129e8b940, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomFill:', title: 'Fill'
+          MenuItem, 0x129e8ba80, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomCenter:', title: 'Center'
+          MenuItem, 0x129e8bbc0, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e8bd00, {{0.0, 768.0}, {0.0, 0.0}}, title: 'Move & Resize'
+            Menu, 0x129e8be40, {{0.0, 768.0}, {0.0, 0.0}}
+              MenuItem, 0x129e8bf80, {{0.0, 768.0}, {0.0, 0.0}}, title: 'Halves', Disabled
+              MenuItem, 0x129e8c0c0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomLeft:', title: 'Left'
+              MenuItem, 0x129e8c200, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomRight:', title: 'Right'
+              MenuItem, 0x129e8c340, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomTop:', title: 'Top'
+              MenuItem, 0x129e8c480, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomBottom:', title: 'Bottom'
+              MenuItem, 0x129e8c5c0, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x129e8c700, {{0.0, 768.0}, {0.0, 0.0}}, title: 'Quarters', Disabled
+              MenuItem, 0x129e8c840, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomTopLeft:', title: 'Top Left'
+              MenuItem, 0x129e8c980, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomTopRight:', title: 'Top Right'
+              MenuItem, 0x129e8cac0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomBottomLeft:', title: 'Bottom Left'
+              MenuItem, 0x129e8cc00, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomBottomRight:', title: 'Bottom Right'
+              MenuItem, 0x129e8cd40, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x129e8ce80, {{0.0, 768.0}, {0.0, 0.0}}, title: 'Arrange', Disabled
+              MenuItem, 0x129e8cfc0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomLeftAndRight:', title: 'Left & Right'
+              MenuItem, 0x129e8d100, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomLeftThreeUp:', title: 'Left & Quarters'
+              MenuItem, 0x129e8d240, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomRightAndLeft:', title: 'Right & Left'
+              MenuItem, 0x129e8d380, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomRightThreeUp:', title: 'Right & Quarters'
+              MenuItem, 0x129e8d4c0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomTopAndBottom:', title: 'Top & Bottom'
+              MenuItem, 0x129e8d600, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomTopThreeUp:', title: 'Top & Quarters'
+              MenuItem, 0x129e8d740, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomBottomAndTop:', title: 'Bottom & Top'
+              MenuItem, 0x129e8d880, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomBottomThreeUp:', title: 'Bottom & Quarters'
+              MenuItem, 0x129e8d9c0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomQuarters:', title: 'Quarters'
+              MenuItem, 0x129e8db00, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x129e8dc40, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_zoomUntile:', title: 'Return to Previous Size', Disabled
+          MenuItem, 0x129e8dd80, {{0.0, 768.0}, {0.0, 0.0}}, title: 'Full Screen Tile'
+            Menu, 0x129e8dec0, {{0.0, 768.0}, {0.0, 0.0}}
+              MenuItem, 0x129e8e000, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_tileLeft:', title: 'Left of Screen'
+              MenuItem, 0x129e8e140, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_tileRight:', title: 'Right of Screen'
+          MenuItem, 0x129e8e280, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e8e3c0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: '_removeWindowFromStageManagerSet:', title: 'Remove Window from Set', Disabled
+          MenuItem, 0x129e8e500, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e8e640, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'arrangeInFront:', title: 'Bring All to Front'
+          MenuItem, 0x129e8e780, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'alternateArrangeInFront:', title: 'Arrange in Front'
+          MenuItem, 0x129e8e8c0, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e8ea00, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'selectPreviousTab:', title: 'Show Previous Tab', Disabled
+          MenuItem, 0x129e8eb40, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'selectNextTab:', title: 'Show Next Tab', Disabled
+          MenuItem, 0x129e8ec80, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'moveTabToNewWindow:', title: 'Move Tab to New Window', Disabled
+          MenuItem, 0x129e8edc0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'mergeAllWindows:', title: 'Merge All Windows'
+          MenuItem, 0x129e8ef00, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e8f040, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e8f180, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'makeKeyAndOrderFront:', title: 'Authored UI recording'
+          MenuItem, 0x129e8f2c0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'makeKeyAndOrderFront:', title: 'Authored UI recording'
+      MenuBarItem, 0x129e8f400, {{409.0, 0.0}, {48.0, 24.0}}, title: 'Help'
+        Menu, 0x129e8f540, {{0.0, 768.0}, {0.0, 0.0}}
+          MenuItem, 0x129e8f680, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'searchFieldAction:'
+            SearchField, 0x129e8f7c0, {{-1.0, 745.0}, {354.0, 24.0}}, identifier: '_SC_SEARCH_FIELD', placeholderValue: 'Search'
+              Other, 0x129e8f900, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+            Table, 0x129e8fa40, {{-1.0, 762.0}, {362.0, 7.0}}, identifier: '_SC_RESULTS_TABLE', label: 'search result'
+              TableColumn, 0x129e8fb80, {{0.0, 763.0}, {350.0, 5.0}}, identifier: 'Title', Disabled
+          MenuItem, 0x129e8fcc0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'showHelp:', title: 'Framelet Help'
+    TouchBar, 0x129e8fe00, {{80.0, 0.0}, {685.0, 30.0}}, Disabled
+    MenuBar, 0x129e8ff40, {{761.0, 0.0}, {37.0, 24.0}}
+      StatusItem, 0x129e90080, {{761.0, 0.0}, {37.0, 24.0}}, title: 'Framelet'
+        Menu, 0x129e901c0, {{0.0, 768.0}, {0.0, 0.0}}
+          MenuItem, 0x129e90300, {{0.0, 768.0}, {0.0, 0.0}}, title: 'Ready to record', Disabled
+          MenuItem, 0x129e90440, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'menuAction:', title: 'Choose Display or Window…'
+          MenuItem, 0x129e90580, {{0.0, 768.0}, {0.0, 0.0}}, title: 'Start Recording', Disabled
+          MenuItem, 0x129e906c0, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e90800, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'menuAction:', title: 'Open Library'
+          MenuItem, 0x129e90940, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'menuAction:', title: 'Settings…'
+          MenuItem, 0x129e90a80, {{0.0, 768.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x129e90bc0, {{0.0, 768.0}, {0.0, 0.0}}, identifier: 'menuAction:', title: 'Quit Framelet'
+Path to element:
+ →Application, 0x12b0285f0, pid: 3588, title: 'Framelet', Disabled
+Query chain:
+ →Find: Target Application 'com.alvarovillalbaa.Framelet'
+  Output: {
+    Application, 0x129e46b70, pid: 3588, title: 'Framelet', Disabled
+  }

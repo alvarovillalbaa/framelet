@@ -45,7 +45,8 @@ struct FrameletApp: App {
         }
         .defaultSize(width: 1180, height: 820)
         .defaultWindowPlacement { content, context in
-            let available = context.defaultDisplay.visibleRect.size
+            // Leave vertical room for native frame adjustments when another window opens.
+            let available = context.defaultDisplay.visibleRect.insetBy(dx: 0, dy: 12).size
             let preferred = content.sizeThatFits(ProposedViewSize(width: 1180, height: 820))
             return WindowPlacement(size: CGSize(
                 width: min(preferred.width, available.width),

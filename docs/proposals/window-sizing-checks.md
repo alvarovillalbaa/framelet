@@ -30,6 +30,12 @@ it gains no app-library file rights. Allow 600-point minimum content height
 so native chrome can fit the observed small usable area. Do not replay FUI01, the old
 thirty cases, old packaging or their retained-export pixel check.
 
+[Attempt 2](../results/2026/11-12/window-sizing-attempt-2.md) exposed a further
+three-point vertical overflow when opening an additional window. Candidate 3
+keeps twelve points of vertical room at each display edge before placement;
+horizontal sizing and strict checks remain unchanged. Preserve both failures
+and require the whole new FUI02 run to pass at one source.
+
 Verify native summary/identity, actual frame containment, unchanged fixture
 manifest/media, unchanged source, owned process/library/scratch cleanup,
 bounded complete logs/attachments and exact control retirement. Preserve any

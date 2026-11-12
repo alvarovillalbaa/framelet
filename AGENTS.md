@@ -99,3 +99,9 @@ at its initial height assertion. Preserve the original result. The changed
 candidate lowers the content minimum to 600 and observes live usable bounds
 per phase through public AppKit metadata. Keep strict containment, fixed
 resolution and the normal runner sandbox; no new filesystem rights or capture.
+
+[Attempt 2](docs/results/2026/11-12/window-sizing-attempt-2.md) passed first/
+reopened assertions but failed the complete case on three-point additional-
+window overflow. Keep it failed. The changed placement reserves twelve points
+vertically at each display edge; require all FUI02 phases at the same source
+with the existing strict tolerance. No old-scope replay is needed.
