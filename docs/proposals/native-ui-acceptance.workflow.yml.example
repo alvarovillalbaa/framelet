@@ -1,9 +1,9 @@
-# INACTIVE. Activate only on the exact QA branch with immutable SOURCE_COMMIT.
+# INACTIVE. Replace only REVIEWED_SOURCE_SHA with the immutable source commit.
 name: Temporary Framelet native editor acceptance
 on:
   push:
-    branches: [qa/framelet-ui-20261112-1]
-    paths: [.github/workflows/framelet-ui-20261112-1.yml]
+    branches: [qa/framelet-ui-20261112-2]
+    paths: [.github/workflows/framelet-ui-20261112-2.yml]
 permissions:
   contents: write
   actions: write
@@ -12,15 +12,15 @@ concurrency:
   cancel-in-progress: false
 jobs:
   acceptance:
-    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-ui-20261112-1'
+    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-ui-20261112-2'
     runs-on: macos-15
     timeout-minutes: 20
     env:
-      FRAMELET_SOURCE_COMMIT: SOURCE_COMMIT
+      FRAMELET_SOURCE_COMMIT: REVIEWED_SOURCE_SHA
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          ref: SOURCE_COMMIT
+          ref: REVIEWED_SOURCE_SHA
           persist-credentials: false
           clean: false
       - name: Run only the authored native editor journey

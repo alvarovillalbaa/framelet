@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "status": "failed",
+  "category": "workflow environment key rendering",
+  "run": 43154184954,
+  "job": 130970162322,
+  "source": "39d9b55785d60a9034f7297af6bebf6351ac9ee8",
+  "qaHead": "f9da9320382ba2f9253c0fde920eef3eb48329b3",
+  "nativeCase": "unrun",
+  "controllerResourcesCreated": false,
+  "evidenceAdmission": {
+    "files": 0,
+    "bytes": 0,
+    "admitted": false
+  },
+  "rawLog": {
+    "path": "native-ui-attempt-1.log.json",
+    "decodedBytes": 20505,
+    "decodedSHA256": "697ce173fa0cf7a0d3184406ccc8c0fe91618065b2b8c167fe1426c5783ffd81"
+  },
+  "retirement": {
+    "status": "passed",
+    "run": 43154184954,
+    "workflow": 415516695,
+    "path": ".github/workflows/framelet-ui-20261112-1.yml",
+    "disabledState": "disabled_manually",
+    "branch": "qa/framelet-ui-20261112-1",
+    "deletedHead": "f9da9320382ba2f9253c0fde920eef3eb48329b3",
+    "exactRefAbsent": true,
+    "uploadedEvidenceRemoved": false,
+    "artifactId": "",
+    "requests": [
+      {
+        "route": "actions/runs/43154184954",
+        "method": "GET",
+        "status": 200,
+        "responseSHA256": "37c7e0dbde9b21ee831e7bcf76ff35db77821193c471a5a40286ec8c7b81e905"
+      },
+      {
+        "route": "actions/workflows/415516695",
+        "method": "GET",
+        "status": 200,
+        "responseSHA256": "9c2c838fa04c801e872c4d25e9d90cfebd04c375955866f379c41a10cafb374d"
+      },
+      {
+        "route": "actions/workflows/415516695/disable",
+        "method": "PUT",
+        "status": 204,
+        "responseSHA256": "f06eccfc85e15c88e3235b645a576cb440e1952613f932c3ec75997f7c1c4ebc"
+      },
+      {
+        "route": "actions/workflows/415516695",
+        "method": "GET",
+        "status": 200,
+        "responseSHA256": "6dcc21bb5bd6d9711ce7cbaf43757a77837b1f52d4a45fc2737d812424d51412"
+      },
+      {
+        "route": "git/ref/heads/qa/framelet-ui-20261112-1",
+        "method": "GET",
+        "status": 200,
+        "responseSHA256": "a84d33ed155a76105f3f5001dc2d3ee007a70c6199c9d7404da60c60e7bbbdb4"
+      },
+      {
+        "route": "git/refs/heads/qa/framelet-ui-20261112-1",
+        "method": "DELETE",
+        "status": 204,
+        "responseSHA256": "97febb61e4f9977595abce556470bcfc882413d20e6e7053529d423682868b96"
+      },
+      {
+        "route": "git/matching-refs/heads/qa/framelet-ui-20261112-1",
+        "method": "GET",
+        "status": 200,
+        "responseSHA256": "3b216207048806360321a113af84a2db30b052073ad3f59920915c4cf3aaed67"
+      }
+    ]
+  }
+}
