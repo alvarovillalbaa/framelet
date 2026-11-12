@@ -367,3 +367,11 @@ cases. An inactive [full exact-Release draft](docs/proposals/compatible-playback
 may be prepared while queued; its missing receipt pin rejects execution. After
 the package passes, finalize the exact pin and reviewed profile before activation;
 do not publish a new binary from packaging or component images alone.
+
+[0.1.4 packaging passed](docs/results/2026/11-12/compatible-preview-attempt-1.md):
+both actual Release slices, integration build, fresh ZIP round-trip, exact source/
+index/owned cleanup and control retirement verified. This package scope is closed.
+Do not rebuild or replay old component/native scopes. Finalize the separate
+full unchanged FUI04 profile with the raw package receipt pin and run that exact
+new Release app; require all nine product colors, native/process/input/source/
+cleanup evidence together before new binary publication. Preserve public0.1.3.
