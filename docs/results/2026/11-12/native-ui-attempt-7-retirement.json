@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "run": 43190175402,
+  "workflow": 415790256,
+  "path": ".github/workflows/framelet-ui-20261112-7.yml",
+  "disabledState": "disabled_manually",
+  "branch": "qa/framelet-ui-20261112-7",
+  "deletedHead": "222ab8f0f5432cda212f361bde479ccc04d6ed75",
+  "exactRefAbsent": true,
+  "uploadedEvidenceRemoved": true,
+  "artifactId": "13929539805",
+  "requests": [
+    {
+      "route": "actions/runs/43190175402",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "4e03b6ce1840ac569ee88b10533b1d393d2fb03c92e2e28fe4b7ce30c9249944"
+    },
+    {
+      "route": "actions/workflows/415790256",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "d839712be841c4f01cba11d47410d34508eccbbbfd56cadb68bc9848e5d1f3c2"
+    },
+    {
+      "route": "actions/artifacts/13929539805",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "ac24af72abbcbc3e36b1101af0b984eaafcdfac1d7ed5952bf6ff988ad4eef4e"
+    },
+    {
+      "route": "actions/workflows/415790256/disable",
+      "method": "PUT",
+      "status": 204,
+      "responseSHA256": "9898ec991c9a4bf7728ae19f8eaea9ab8768d8763d52006b6d50e9c93cca0e65"
+    },
+    {
+      "route": "actions/workflows/415790256",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "0f88d1d4dcd6a1f34127336dd859a4dae312558c482e272f7473ccb8ccdde710"
+    },
+    {
+      "route": "git/ref/heads/qa/framelet-ui-20261112-7",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "593488eec38aeab6d27f4ae820082f969617a5cb844813b2c7f968e28670344f"
+    },
+    {
+      "route": "git/refs/heads/qa/framelet-ui-20261112-7",
+      "method": "DELETE",
+      "status": 204,
+      "responseSHA256": "1a76ebcf57c692177306bbc9ee019eae622d76705c55777f351797236241407e"
+    },
+    {
+      "route": "git/matching-refs/heads/qa/framelet-ui-20261112-7",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "605bdbeb7a55b19cf3cd165261b5d67e7b63eb18f71ab9600f25e215531875ed"
+    }
+  ]
+}

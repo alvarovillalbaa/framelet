@@ -23,13 +23,16 @@ struct CanvasSettingsView: View {
                     Picker("Canvas", selection: $draft.preset) {
                         ForEach(OutputPreset.allCases) { Text($0.title).tag($0) }
                     }
+                    .accessibilityLabel("Canvas")
                     Picker("Layout", selection: $draft.layout) {
                         ForEach(CanvasLayout.allCases) { Text($0.title).tag($0) }
                     }
+                    .accessibilityLabel("Layout")
                 }
                 Picker("Background", selection: $draft.background) {
                     ForEach(CanvasBackground.allCases) { Text($0.title).tag($0) }
                 }
+                .accessibilityLabel("Background")
                 HStack {
                     Text("Inset")
                     Slider(value: $draft.inset, in: 0...0.1, step: 0.01).accessibilityLabel("Canvas inset")

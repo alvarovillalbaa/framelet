@@ -80,6 +80,7 @@ final class FrameletAcceptance: XCTestCase {
         }
         let canvas = app.popUpButtons["Canvas"]
         show(canvas); canvas.click(); app.menuItems["Square"].click()
+        XCTAssertEqual(app.popUpButtons["Layout"].value as? String, "Screen")
         app.popUpButtons["Background"].click(); app.menuItems["Sand"].click()
         let applyCanvas = app.buttons["Apply Canvas"]
         show(applyCanvas); XCTAssertTrue(applyCanvas.isEnabled); applyCanvas.click()
