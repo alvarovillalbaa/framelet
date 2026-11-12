@@ -486,3 +486,11 @@ source/group/root/exact retirement checks passed. This diagnostic is closed.
 Before shipping edits, isolate the measured render size/rate/instruction/class/
 coverage differences in a separate bounded comparison, validating actual asset
 duration. Preserve all prior failures and do not replay old cases routinely.
+
+Standing approval covers the materialized [one-property/coverage comparison](docs/proposals/composition-properties-checks.md):
+one bounded Intel background run,8 variants/16 rows, contemporaneous raw/factory
+controls and individual measured property/coverage changes only. Validate actual
+asset and all-time coverage as well as the project range. Keep all98 protected
+product/closed-helper inputs and the delegated rendering body exact. No app/
+visible-window/capture/export/device action, shipping edit or binary publication.
+Preserve original rows/frames/source/input and exact owned cleanup/retirement.
