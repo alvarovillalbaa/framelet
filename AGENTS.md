@@ -113,3 +113,10 @@ one targeted rerun qualified the same source. Keep both native failures and
 the separate allocation failure. Do not replay this closed window case.
 Standing approval covers its [0.1.2 non-launching package/delivery](docs/proposals/window-preview-checks.md).
 Keep FUI01/pixel/old test scopes closed and import their evidence only.
+
+The [0.1.2 universal package passed](docs/results/2026/11-12/window-preview-attempt-1.md)
+at its exact source. Both Release slices and fresh ZIP/signature round trip are
+closed; publish only the three retained assets through the prepared bounded
+data-only helper. Preserve both older previews, their seven total assets with
+the failed-evidence archive, and original native/allocation failures. Verify
+anonymous byte/digest delivery and retire the exact publication control.

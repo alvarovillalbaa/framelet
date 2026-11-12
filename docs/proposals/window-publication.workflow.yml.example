@@ -1,0 +1,24 @@
+# INACTIVE. Publish only the three retained, hash-pinned 0.1.2 assets.
+name: Temporary Framelet window-repair preview publication
+on:
+  push:
+    branches: [qa/framelet-window-publish-20261112-1]
+    paths: [.github/workflows/framelet-window-publish-20261112-1.yml]
+permissions:
+  contents: write
+  actions: write
+jobs:
+  publish:
+    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-window-publish-20261112-1'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: REVIEWED_SOURCE_SHA
+          persist-credentials: false
+          clean: false
+      - name: Publish checked assets, verify anonymous delivery and retire control
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 -I -B -S Tests/ci/publish-window-preview.py

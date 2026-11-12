@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "run": 43208136816,
+  "workflow": 415903945,
+  "path": ".github/workflows/framelet-window-preview-20261112-1.yml",
+  "disabledState": "disabled_manually",
+  "branch": "qa/framelet-window-preview-20261112-1",
+  "deletedHead": "4a53387ab0885068c6c7227218b9dca2ea0ef675",
+  "exactRefAbsent": true,
+  "requests": [
+    {
+      "route": "actions/runs/43208136816",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "9ab2d92d0fa2c29aecefd1b4d9b001679ec378ab2bdd20cab75ad045ad6e7268"
+    },
+    {
+      "route": "actions/workflows/415903945",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "7907e5bd0b87f2f9251c3f0f3530ce160bd115987e4f1d0e18cf35916981485e"
+    },
+    {
+      "route": "actions/workflows/415903945/disable",
+      "method": "PUT",
+      "status": 204,
+      "responseSHA256": "2fc64695fe3c660bd8f9535964c3e63ba1661ead70416e389383c691295b08f8"
+    },
+    {
+      "route": "actions/workflows/415903945",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "e62663215dad189cd5efe08becbed7994d3f6c3e441ae724c67620c05c929020"
+    },
+    {
+      "route": "git/ref/heads/qa/framelet-window-preview-20261112-1",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "e8dc870c68a200168b8798294e187bb1985121e8679ec6ed63bab08d371b99a5"
+    },
+    {
+      "route": "git/refs/heads/qa/framelet-window-preview-20261112-1",
+      "method": "DELETE",
+      "status": 204,
+      "responseSHA256": "7bd716289cfa8ea9932806271ef4bb2f773f15c0c01afd8d3ea5dbb87dcecf4e"
+    },
+    {
+      "route": "git/matching-refs/heads/qa/framelet-window-preview-20261112-1",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "c3e98a153c4563714079f1990df3dc8cff6156d3b8589482e1103de958bf446e"
+    }
+  ]
+}
