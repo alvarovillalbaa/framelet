@@ -1,0 +1,8 @@
+{
+  "caseId" : "FUI04",
+  "normalQuitAtEnd" : false,
+  "phases" : [
+
+  ],
+  "status" : "partial-until-native-verdict"
+}
