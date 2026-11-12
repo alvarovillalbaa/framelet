@@ -94,3 +94,12 @@ Cleanup metadata may inspect a refused root without repeating work admission.
 Reap terminated children and refresh status just before signals; never signal
 a defunct child or retry denial. Keep compositor, model and six cases exact,
 with empty protected diff against `a9e7d6a6c123ca1e0abf782b5951265aa1349dc4`.
+
+[Candidate 3](../results/2026/11-12/software-preview-attempt-3.md) passed core
+compilation and all source/input/group/root controls, recording the actual
+eleven internal `.pcm.lock` aliases. Compositor compilation then found two
+incorrect Swift argument-label pairs and Sendable dictionary warnings. Candidate
+4 fixes only those SDK interface declarations, preserving the rendering algorithm,
+model and six-case verifier exactly. Protected diff against
+`9909bf8845d10c2965e6dd07549b6c5f38958bb6` admits only the compositor source.
+All existing caps, pixels, input guards, failed originals and retirement apply.

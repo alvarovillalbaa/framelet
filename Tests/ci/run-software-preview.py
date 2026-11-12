@@ -21,7 +21,7 @@ source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "x86_64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-software-preview-20261112-3"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-software-preview-20261112-4"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-software-preview-", dir=parent)).resolve()
@@ -236,11 +236,12 @@ try:
     assert not run("status", ["git", "status", "--porcelain", "--untracked-files=all", "--ignored"]).strip()
     run("toolchain", ["/usr/bin/xcodebuild", "-version"])
     baseline = source_guard(); index_before = sha((repo / ".git/index").read_bytes())
-    changed = run("protected-input-diff", ["git", "diff", "--name-only", "a9e7d6a6c123ca1e0abf782b5951265aa1349dc4", "HEAD",
+    changed = run("protected-input-diff", ["git", "diff", "--name-only", "9909bf8845d10c2965e6dd07549b6c5f38958bb6", "HEAD",
         "--", "Package.swift", "Sources", "Resources", "script", "Tests/FrameletCoreTests", "Tests/FrameletPlaybackTests",
         "Tests/FrameletAcceptance.xcodeproj", "Tests/e2e", "Tests/ci/ReleasePlaybackPixels.swift", "Tests/ci/SoftwarePreviewFiles.swift"])
-    assert not changed.strip()
-    report["softwareProductAndVerifierUnchangedFromAttempt2"] = True
+    assert set(changed.decode().splitlines()) == {"Sources/Framelet/Services/SoftwareRecordingCompositor.swift"}
+    report["previewModelAndCasesUnchangedFromAttempt3"] = True
+    report["compositorChanges"] = "Correct native crop/opacity argument labels and Sendable dictionary value types only"
     compile_paths = [row for row in baseline if row["path"].startswith("Sources/FrameletCore/") or row["path"] in (
         "Sources/Framelet/Services/RecordingComposition.swift", "Sources/Framelet/Services/ExportGeometry.swift",
         "Sources/Framelet/Services/ExportCoordinator.swift", "Sources/Framelet/Services/SoftwareRecordingCompositor.swift",

@@ -25,11 +25,11 @@ final class SoftwareRecordingCompositor: NSObject, AVVideoCompositing, @unchecke
         return result
     }
 
-    var sourcePixelBufferAttributes: [String: Any]? {
+    var sourcePixelBufferAttributes: [String: any Sendable]? {
         [kCVPixelBufferPixelFormatTypeKey as String: [kCVPixelFormatType_32BGRA]]
     }
 
-    var requiredPixelBufferAttributesForRenderContext: [String: Any] {
+    var requiredPixelBufferAttributesForRenderContext: [String: any Sendable] {
         [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
     }
 
@@ -81,11 +81,11 @@ final class SoftwareRecordingCompositor: NSObject, AVVideoCompositing, @unchecke
                 guard transform == transformEnd else { throw Self.failure() }
             }
             var crop = CGRect(x: 0, y: 0, width: width, height: height), cropEnd = CGRect.zero
-            if layer.getCropRectangleRamp(for: request.compositionTime, start: &crop, end: &cropEnd, timeRange: &timeRange) {
+            if layer.getCropRectangleRamp(for: request.compositionTime, startCropRectangle: &crop, endCropRectangle: &cropEnd, timeRange: &timeRange) {
                 guard crop == cropEnd else { throw Self.failure() }
             }
             var opacity: Float = 1, opacityEnd: Float = 1
-            if layer.getOpacityRamp(for: request.compositionTime, start: &opacity, end: &opacityEnd, timeRange: &timeRange) {
+            if layer.getOpacityRamp(for: request.compositionTime, startOpacity: &opacity, endOpacity: &opacityEnd, timeRange: &timeRange) {
                 guard opacity == 1, opacityEnd == 1 else { throw Self.failure() }
             }
             guard !crop.isNull, !crop.isEmpty,

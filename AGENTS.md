@@ -344,3 +344,9 @@ admission and source/root cleanup. Standing approval covers the proposal's
 bounded compiler-cache alias metadata policy, pre-refusal snapshots, independent
 cleanup observation and exited-child reaping. Preserve all missing proof; no
 denied signal retry, rights grant, sparse/size extension or product/verifier edit.
+
+[Software-preview attempt 3](docs/results/2026/11-12/software-preview-attempt-3.md)
+passed controls/cleanup and failed native compositor compilation. Standing
+approval covers only its corrected crop/opacity Swift labels and Sendable
+dictionary types, with unchanged model/algorithm/six pixel cases. Preserve all
+three failures; require the full six-case same-source result before Release work.

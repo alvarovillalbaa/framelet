@@ -2,8 +2,8 @@
 name: Temporary Framelet compatible recording pixels
 on:
   push:
-    branches: [qa/framelet-software-preview-20261112-3]
-    paths: [.github/workflows/framelet-software-preview-20261112-3.yml]
+    branches: [qa/framelet-software-preview-20261112-4]
+    paths: [.github/workflows/framelet-software-preview-20261112-4.yml]
 permissions:
   contents: write
   actions: write
@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   pixels:
-    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-software-preview-20261112-3'
+    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-software-preview-20261112-4'
     runs-on: macos-15-intel
     timeout-minutes: 12
     env:
