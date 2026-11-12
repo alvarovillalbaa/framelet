@@ -137,3 +137,7 @@ selection, Share, Start, permission/device acceptance or actual recording occurs
 Review the real picker evidence before materializing capture selectors. Its
 no-Start teardown is not suitable for live writers; actual capture still needs
 Stop/finalization acknowledgment before termination or library removal.
+If the first picker job never acquires an executor and becomes terminal, use
+only its [conditional diagnostic/retirement scope](docs/proposals/picker-allocation-checks.md).
+It must remain inactive while that native attempt is queued/running; no native
+acceptance follows from a data-only cleanup or a changed runner profile.
