@@ -1,0 +1,433 @@
+{
+  "captureOrExportRequested" : false,
+  "caseId" : "FUI04",
+  "continuousBoundaryWithoutSeek" : true,
+  "endedThenReplayFromBeginning" : true,
+  "fileAndPixelVerificationOwner" : "host controller",
+  "normalQuitAtEnd" : true,
+  "pauseFreezesPosition" : true,
+  "phases" : [
+    {
+      "buttonFrame" : {
+        "height" : 20,
+        "width" : 127,
+        "x" : 655,
+        "y" : 780
+      },
+      "clockFrame" : {
+        "height" : 13,
+        "width" : 54,
+        "x" : 1457,
+        "y" : 783.5
+      },
+      "displayBounds" : {
+        "height" : 1080,
+        "width" : 1920,
+        "x" : 0,
+        "y" : 0
+      },
+      "expectedColour" : "none",
+      "name" : "01-initial-paused",
+      "normalizedPosition" : 0,
+      "processID" : 3655,
+      "samplePoint" : {
+        "x" : 1083,
+        "y" : 610.5
+      },
+      "scopeFrame" : {
+        "height" : 24,
+        "width" : 802,
+        "x" : 710,
+        "y" : 417
+      },
+      "timeText" : "0:00 \/ 0:23",
+      "uptime" : 304.61843852800001,
+      "windowFrame" : {
+        "height" : 820,
+        "width" : 1180,
+        "x" : 370,
+        "y" : 100
+      }
+    },
+    {
+      "buttonFrame" : {
+        "height" : 20,
+        "width" : 127,
+        "x" : 655,
+        "y" : 780
+      },
+      "clockFrame" : {
+        "height" : 13,
+        "width" : 54,
+        "x" : 1457,
+        "y" : 783.5
+      },
+      "displayBounds" : {
+        "height" : 1080,
+        "width" : 1920,
+        "x" : 0,
+        "y" : 0
+      },
+      "expectedColour" : "red",
+      "name" : "02-recording-red",
+      "normalizedPosition" : 0.16656696740084975,
+      "processID" : 3655,
+      "samplePoint" : {
+        "x" : 1083,
+        "y" : 610.5
+      },
+      "scopeFrame" : {
+        "height" : 24,
+        "width" : 802,
+        "x" : 710,
+        "y" : 417
+      },
+      "timeText" : "0:03 \/ 0:23",
+      "uptime" : 318.13378224300004,
+      "windowFrame" : {
+        "height" : 820,
+        "width" : 1180,
+        "x" : 370,
+        "y" : 100
+      }
+    },
+    {
+      "buttonFrame" : {
+        "height" : 20,
+        "width" : 127,
+        "x" : 655,
+        "y" : 780
+      },
+      "clockFrame" : {
+        "height" : 13,
+        "width" : 54,
+        "x" : 1457,
+        "y" : 783.5
+      },
+      "displayBounds" : {
+        "height" : 1080,
+        "width" : 1920,
+        "x" : 0,
+        "y" : 0
+      },
+      "expectedColour" : "blue",
+      "name" : "03-boundary-blue",
+      "normalizedPosition" : 0.64373350086174908,
+      "processID" : 3655,
+      "samplePoint" : {
+        "x" : 1083,
+        "y" : 610.5
+      },
+      "scopeFrame" : {
+        "height" : 24,
+        "width" : 802,
+        "x" : 710,
+        "y" : 417
+      },
+      "timeText" : "0:14 \/ 0:23",
+      "uptime" : 342.52471682300001,
+      "windowFrame" : {
+        "height" : 820,
+        "width" : 1180,
+        "x" : 370,
+        "y" : 100
+      }
+    },
+    {
+      "buttonFrame" : {
+        "height" : 20,
+        "width" : 127,
+        "x" : 655,
+        "y" : 780
+      },
+      "clockFrame" : {
+        "height" : 13,
+        "width" : 54,
+        "x" : 1457,
+        "y" : 783.5
+      },
+      "displayBounds" : {
+        "height" : 1080,
+        "width" : 1920,
+        "x" : 0,
+        "y" : 0
+      },
+      "expectedColour" : "red",
+      "name" : "04-seek-red",
+      "normalizedPosition" : 0.20351613058515436,
+      "processID" : 3655,
+      "samplePoint" : {
+        "x" : 1083,
+        "y" : 610.5
+      },
+      "scopeFrame" : {
+        "height" : 24,
+        "width" : 802,
+        "x" : 710,
+        "y" : 417
+      },
+      "timeText" : "0:04 \/ 0:23",
+      "uptime" : 356.93174554500001,
+      "windowFrame" : {
+        "height" : 820,
+        "width" : 1180,
+        "x" : 370,
+        "y" : 100
+      }
+    },
+    {
+      "buttonFrame" : {
+        "height" : 20,
+        "width" : 127,
+        "x" : 655,
+        "y" : 780
+      },
+      "clockFrame" : {
+        "height" : 13,
+        "width" : 54,
+        "x" : 1457,
+        "y" : 783.5
+      },
+      "displayBounds" : {
+        "height" : 1080,
+        "width" : 1920,
+        "x" : 0,
+        "y" : 0
+      },
+      "expectedColour" : "blue",
+      "name" : "05-seek-blue",
+      "normalizedPosition" : 0.69606577896074862,
+      "processID" : 3655,
+      "samplePoint" : {
+        "x" : 1083,
+        "y" : 610.5
+      },
+      "scopeFrame" : {
+        "height" : 24,
+        "width" : 802,
+        "x" : 710,
+        "y" : 417
+      },
+      "timeText" : "0:16 \/ 0:23",
+      "uptime" : 371.89529056700002,
+      "windowFrame" : {
+        "height" : 820,
+        "width" : 1180,
+        "x" : 370,
+        "y" : 100
+      }
+    },
+    {
+      "buttonFrame" : {
+        "height" : 20,
+        "width" : 89,
+        "x" : 655,
+        "y" : 780
+      },
+      "clockFrame" : {
+        "height" : 13,
+        "width" : 54,
+        "x" : 1457,
+        "y" : 783.5
+      },
+      "displayBounds" : {
+        "height" : 1080,
+        "width" : 1920,
+        "x" : 0,
+        "y" : 0
+      },
+      "expectedColour" : "blue",
+      "name" : "06-selected-blue",
+      "normalizedPosition" : 0.46024050066657957,
+      "processID" : 3655,
+      "samplePoint" : {
+        "x" : 1083,
+        "y" : 610.5
+      },
+      "scopeFrame" : {
+        "height" : 24,
+        "width" : 802,
+        "x" : 710,
+        "y" : 417
+      },
+      "timeText" : "0:05 \/ 0:12",
+      "uptime" : 402.73371871900002,
+      "windowFrame" : {
+        "height" : 820,
+        "width" : 1180,
+        "x" : 370,
+        "y" : 100
+      }
+    },
+    {
+      "buttonFrame" : {
+        "height" : 20,
+        "width" : 89,
+        "x" : 655,
+        "y" : 780
+      },
+      "clockFrame" : {
+        "height" : 13,
+        "width" : 54,
+        "x" : 1457,
+        "y" : 783.5
+      },
+      "displayBounds" : {
+        "height" : 1080,
+        "width" : 1920,
+        "x" : 0,
+        "y" : 0
+      },
+      "expectedColour" : "red",
+      "name" : "07-selected-red",
+      "normalizedPosition" : 0.46031700048410523,
+      "processID" : 3655,
+      "samplePoint" : {
+        "x" : 1083,
+        "y" : 610.5
+      },
+      "scopeFrame" : {
+        "height" : 24,
+        "width" : 802,
+        "x" : 710,
+        "y" : 417
+      },
+      "timeText" : "0:04 \/ 0:10",
+      "uptime" : 426.63202831700005,
+      "windowFrame" : {
+        "height" : 820,
+        "width" : 1180,
+        "x" : 370,
+        "y" : 100
+      }
+    },
+    {
+      "buttonFrame" : {
+        "height" : 20,
+        "width" : 127,
+        "x" : 655,
+        "y" : 780
+      },
+      "clockFrame" : {
+        "height" : 13,
+        "width" : 54,
+        "x" : 1457,
+        "y" : 783.5
+      },
+      "displayBounds" : {
+        "height" : 1080,
+        "width" : 1920,
+        "x" : 0,
+        "y" : 0
+      },
+      "expectedColour" : "blue",
+      "name" : "08-ended-blue",
+      "normalizedPosition" : 1,
+      "processID" : 3655,
+      "samplePoint" : {
+        "x" : 1083,
+        "y" : 610.5
+      },
+      "scopeFrame" : {
+        "height" : 24,
+        "width" : 802,
+        "x" : 710,
+        "y" : 417
+      },
+      "timeText" : "0:23 \/ 0:23",
+      "uptime" : 452.95242780100006,
+      "windowFrame" : {
+        "height" : 820,
+        "width" : 1180,
+        "x" : 370,
+        "y" : 100
+      }
+    },
+    {
+      "buttonFrame" : {
+        "height" : 20,
+        "width" : 127,
+        "x" : 655,
+        "y" : 780
+      },
+      "clockFrame" : {
+        "height" : 13,
+        "width" : 54,
+        "x" : 1457,
+        "y" : 783.5
+      },
+      "displayBounds" : {
+        "height" : 1080,
+        "width" : 1920,
+        "x" : 0,
+        "y" : 0
+      },
+      "expectedColour" : "red",
+      "name" : "09-replayed-red",
+      "normalizedPosition" : 0.18516249114402739,
+      "processID" : 3655,
+      "samplePoint" : {
+        "x" : 1083,
+        "y" : 610.5
+      },
+      "scopeFrame" : {
+        "height" : 24,
+        "width" : 802,
+        "x" : 710,
+        "y" : 417
+      },
+      "timeText" : "0:04 \/ 0:23",
+      "uptime" : 465.69635722200002,
+      "windowFrame" : {
+        "height" : 820,
+        "width" : 1180,
+        "x" : 370,
+        "y" : 100
+      }
+    },
+    {
+      "buttonFrame" : {
+        "height" : 20,
+        "width" : 127,
+        "x" : 655,
+        "y" : 780
+      },
+      "clockFrame" : {
+        "height" : 13,
+        "width" : 54,
+        "x" : 1457,
+        "y" : 783.5
+      },
+      "displayBounds" : {
+        "height" : 1080,
+        "width" : 1920,
+        "x" : 0,
+        "y" : 0
+      },
+      "expectedColour" : "red",
+      "name" : "10-reopened-red",
+      "normalizedPosition" : 0.17686510250325699,
+      "processID" : 8402,
+      "samplePoint" : {
+        "x" : 1083,
+        "y" : 610.5
+      },
+      "scopeFrame" : {
+        "height" : 24,
+        "width" : 802,
+        "x" : 710,
+        "y" : 417
+      },
+      "timeText" : "0:04 \/ 0:23",
+      "uptime" : 495.40363392700004,
+      "windowFrame" : {
+        "height" : 820,
+        "width" : 1180,
+        "x" : 370,
+        "y" : 100
+      }
+    }
+  ],
+  "selectedClipChangesStopAndReload" : true,
+  "status" : "passed"
+}

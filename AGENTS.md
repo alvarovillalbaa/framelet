@@ -384,3 +384,14 @@ measured three-leaf sparse exception. No old diagnostic/component/capture replay
 Use the read-only current-UID group observer; never repeat the denied signal-zero
 query or signal native groups before acknowledgment. Preserve every failure and
 require same-source native/pixel/process/input/cleanup proof before publication.
+
+[0.1.4 runtime attempt 1](docs/results/2026/11-12/compatible-playback-attempt-1.md)
+passed all ten native phases and actual Release/source/input/group/root checks,
+but full qualification failed: Recording screenshots remain black. Selected
+Clip renders; ImageGenerator component proof does not qualify AVPlayer display.
+Retirement separately stopped at fresh artifact GET404 without retry, leaving
+its exact control/ref open. Preserve all originals and failed raw xcresult.
+Keep publication inactive. Standing approval covers a separate bounded data-
+only packet preservation/exact-control closeout using the current run-artifacts
+collection, then a new output-buffer/presentation diagnostic before product edits.
+No native rerun, rejected-endpoint retry, broader rights or GPU inference.
