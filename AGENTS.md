@@ -402,3 +402,12 @@ job, exact original raw packet preserved as a separate failed-evidence prereleas
 server/anonymous hashes and exact target/self retirement. No app binary release,
 native replay, old asset mutation, permission change or rejected metadata retry.
 Keep original pixel/retirement failures and ended-VM scratch gap explicit.
+
+[Failed-packet closeout attempt1](docs/results/2026/11-12/compatible-playback-closeout-attempt-1.md)
+preserved the exact raw packet/server digest publicly and disabled/deleted both
+target/self controls. It then failed a stale draft-asset URL assertion before
+anonymous delivery or final duplicate/source-after cleanup. Preserve that failure
+and both proof gaps. Standing approval covers only fresh public metadata/download
+verification of this existing asset in a bounded data-only job, with its own
+source/duplicate cleanup and exact self-retirement. No upload, native replay,
+old denied-endpoint retry, old control mutation or ended-VM cleanup claim.

@@ -1,0 +1,70 @@
+{
+  "release": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "content": "{\"url\":\"https://api.github.com/repos/alvarovillalbaa/framelet/releases/443326502\",\"assets_url\":\"https://api.github.com/repos/alvarovillalbaa/framelet/releases/443326502/assets\",\"upload_url\":\"https://uploads.github.com/repos/alvarovillalbaa/framelet/releases/443326502/assets{?name,label}\",\"html_url\":\"https://github.com/alvarovillalbaa/framelet/releases/tag/framelet-release-playback-evidence-20261112-attempt-1\",\"id\":443326502,\"author\":{\"login\":\"github-actions[bot]\",\"id\":41898282,\"node_id\":\"MDM6Qm90NDE4OTgyODI=\",\"avatar_url\":\"https://avatars.githubusercontent.com/in/15368?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/github-actions%5Bbot%5D\",\"html_url\":\"https://github.com/apps/github-actions\",\"followers_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/followers\",\"following_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/subscriptions\",\"organizations_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/orgs\",\"repos_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/repos\",\"events_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/received_events\",\"type\":\"Bot\",\"user_view_type\":\"public\",\"site_admin\":false},\"node_id\":\"RE_kwDOVZlSFc4abKAm\",\"tag_name\":\"framelet-release-playback-evidence-20261112-attempt-1\",\"target_commitish\":\"6f9995351e24bf9acd175794e2772441f537a1e3\",\"name\":\"Framelet 0.1.4 failed runtime evidence\",\"draft\":false,\"immutable\":false,\"prerelease\":true,\"created_at\":\"2026-11-12T17:40:56Z\",\"updated_at\":\"2026-11-12T18:03:05Z\",\"published_at\":\"2026-11-12T18:03:05Z\",\"assets\":[{\"url\":\"https://api.github.com/repos/alvarovillalbaa/framelet/releases/assets/740519926\",\"id\":740519926,\"node_id\":\"RA_kwDOVZlSFc4sI2_2\",\"name\":\"framelet-compatible-playback-43272020466.zip\",\"label\":\"\",\"uploader\":{\"login\":\"github-actions[bot]\",\"id\":41898282,\"node_id\":\"MDM6Qm90NDE4OTgyODI=\",\"avatar_url\":\"https://avatars.githubusercontent.com/in/15368?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/github-actions%5Bbot%5D\",\"html_url\":\"https://github.com/apps/github-actions\",\"followers_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/followers\",\"following_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/subscriptions\",\"organizations_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/orgs\",\"repos_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/repos\",\"events_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/received_events\",\"type\":\"Bot\",\"user_view_type\":\"public\",\"site_admin\":false},\"content_type\":\"application/zip\",\"state\":\"uploaded\",\"size\":7633128,\"digest\":\"sha256:e723317908e0b99fe7f5145f1f0ce53307e623badc11e71e232cde3726a99bbc\",\"download_count\":0,\"created_at\":\"2026-11-12T18:03:03Z\",\"updated_at\":\"2026-11-12T18:03:04Z\",\"browser_download_url\":\"https://github.com/alvarovillalbaa/framelet/releases/download/framelet-release-playback-evidence-20261112-attempt-1/framelet-compatible-playback-43272020466.zip\"}],\"tarball_url\":\"https://api.github.com/repos/alvarovillalbaa/framelet/tarball/framelet-release-playback-evidence-20261112-attempt-1\",\"zipball_url\":\"https://api.github.com/repos/alvarovillalbaa/framelet/zipball/framelet-release-playback-evidence-20261112-attempt-1\",\"body\":\"Original failed native packet for run43272020466. All ten native interactions passed, but Recording preview pixels stayed black. Includes the exact raw xcresult, original screenshots/AX/streams/receipt and authored fixture inputs. This evidence preserves the failed verdict; no application release is qualified. SHA-256: e723317908e0b99fe7f5145f1f0ce53307e623badc11e71e232cde3726a99bbc\"}",
+      "title": "443326502",
+      "modified_date": null,
+      "url": "https://api.github.com/repos/alvarovillalbaa/framelet/releases/443326502",
+      "display_url": "https://api.github.com/repos/alvarovillalbaa/framelet/releases/443326502",
+      "display_title": "443326502",
+      "structuredContent": {
+        "title": "443326502",
+        "content": "{\"url\":\"https://api.github.com/repos/alvarovillalbaa/framelet/releases/443326502\",\"assets_url\":\"https://api.github.com/repos/alvarovillalbaa/framelet/releases/443326502/assets\",\"upload_url\":\"https://uploads.github.com/repos/alvarovillalbaa/framelet/releases/443326502/assets{?name,label}\",\"html_url\":\"https://github.com/alvarovillalbaa/framelet/releases/tag/framelet-release-playback-evidence-20261112-attempt-1\",\"id\":443326502,\"author\":{\"login\":\"github-actions[bot]\",\"id\":41898282,\"node_id\":\"MDM6Qm90NDE4OTgyODI=\",\"avatar_url\":\"https://avatars.githubusercontent.com/in/15368?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/github-actions%5Bbot%5D\",\"html_url\":\"https://github.com/apps/github-actions\",\"followers_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/followers\",\"following_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/subscriptions\",\"organizations_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/orgs\",\"repos_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/repos\",\"events_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/received_events\",\"type\":\"Bot\",\"user_view_type\":\"public\",\"site_admin\":false},\"node_id\":\"RE_kwDOVZlSFc4abKAm\",\"tag_name\":\"framelet-release-playback-evidence-20261112-attempt-1\",\"target_commitish\":\"6f9995351e24bf9acd175794e2772441f537a1e3\",\"name\":\"Framelet 0.1.4 failed runtime evidence\",\"draft\":false,\"immutable\":false,\"prerelease\":true,\"created_at\":\"2026-11-12T17:40:56Z\",\"updated_at\":\"2026-11-12T18:03:05Z\",\"published_at\":\"2026-11-12T18:03:05Z\",\"assets\":[{\"url\":\"https://api.github.com/repos/alvarovillalbaa/framelet/releases/assets/740519926\",\"id\":740519926,\"node_id\":\"RA_kwDOVZlSFc4sI2_2\",\"name\":\"framelet-compatible-playback-43272020466.zip\",\"label\":\"\",\"uploader\":{\"login\":\"github-actions[bot]\",\"id\":41898282,\"node_id\":\"MDM6Qm90NDE4OTgyODI=\",\"avatar_url\":\"https://avatars.githubusercontent.com/in/15368?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/github-actions%5Bbot%5D\",\"html_url\":\"https://github.com/apps/github-actions\",\"followers_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/followers\",\"following_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/subscriptions\",\"organizations_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/orgs\",\"repos_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/repos\",\"events_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/github-actions%5Bbot%5D/received_events\",\"type\":\"Bot\",\"user_view_type\":\"public\",\"site_admin\":false},\"content_type\":\"application/zip\",\"state\":\"uploaded\",\"size\":7633128,\"digest\":\"sha256:e723317908e0b99fe7f5145f1f0ce53307e623badc11e71e232cde3726a99bbc\",\"download_count\":0,\"created_at\":\"2026-11-12T18:03:03Z\",\"updated_at\":\"2026-11-12T18:03:04Z\",\"browser_download_url\":\"https://github.com/alvarovillalbaa/framelet/releases/download/framelet-release-playback-evidence-20261112-attempt-1/framelet-compatible-playback-43272020466.zip\"}],\"tarball_url\":\"https://api.github.com/repos/alvarovillalbaa/framelet/tarball/framelet-release-playback-evidence-20261112-attempt-1\",\"zipball_url\":\"https://api.github.com/repos/alvarovillalbaa/framelet/zipball/framelet-release-playback-evidence-20261112-attempt-1\",\"body\":\"Original failed native packet for run43272020466. All ten native interactions passed, but Recording preview pixels stayed black. Includes the exact raw xcresult, original screenshots/AX/streams/receipt and authored fixture inputs. This evidence preserves the failed verdict; no application release is qualified. SHA-256: e723317908e0b99fe7f5145f1f0ce53307e623badc11e71e232cde3726a99bbc\"}",
+        "display_url": "https://api.github.com/repos/alvarovillalbaa/framelet/releases/443326502"
+      }
+    },
+    "isError": false
+  },
+  "refs": [
+    {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "content": "[]",
+        "title": "framelet-compatible-playback-20261112-1",
+        "modified_date": null,
+        "url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/matching-refs/heads/qa/framelet-compatible-playback-20261112-1",
+        "display_url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/matching-refs/heads/qa/framelet-compatible-playback-20261112-1",
+        "display_title": "framelet-compatible-playback-20261112-1",
+        "structuredContent": {
+          "title": "framelet-compatible-playback-20261112-1",
+          "content": "[]",
+          "display_url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/matching-refs/heads/qa/framelet-compatible-playback-20261112-1"
+        }
+      },
+      "isError": false
+    },
+    {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "content": "[]",
+        "title": "framelet-compatible-closeout-20261112-1",
+        "modified_date": null,
+        "url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/matching-refs/heads/qa/framelet-compatible-closeout-20261112-1",
+        "display_url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/matching-refs/heads/qa/framelet-compatible-closeout-20261112-1",
+        "display_title": "framelet-compatible-closeout-20261112-1",
+        "structuredContent": {
+          "title": "framelet-compatible-closeout-20261112-1",
+          "content": "[]",
+          "display_url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/matching-refs/heads/qa/framelet-compatible-closeout-20261112-1"
+        }
+      },
+      "isError": false
+    }
+  ]
+}
