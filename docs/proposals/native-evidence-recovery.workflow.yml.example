@@ -1,0 +1,23 @@
+# INACTIVE. Read the one retained failed-run artifact only.
+name: Temporary Framelet native evidence recovery
+on:
+  push:
+    branches: [qa/framelet-ui-evidence-20261112]
+    paths: [.github/workflows/framelet-ui-evidence-20261112.yml]
+permissions:
+  contents: write
+  actions: write
+jobs:
+  evidence:
+    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-ui-evidence-20261112'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: REVIEWED_SOURCE_SHA
+          persist-credentials: false
+      - name: Recover exact saved screenshots and hierarchy, then retire control
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 -I -B -S Tests/ci/recover-native-evidence.py

@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "run": 43184217179,
+  "workflow": 415747099,
+  "path": ".github/workflows/framelet-ui-20261112-5.yml",
+  "disabledState": "disabled_manually",
+  "branch": "qa/framelet-ui-20261112-5",
+  "deletedHead": "d899e6ba0708ff016030e9fe232205a2c30c2f61",
+  "exactRefAbsent": true,
+  "uploadedEvidenceRemoved": true,
+  "artifactId": "13927483704",
+  "requests": [
+    {
+      "route": "actions/runs/43184217179",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "dc31fd83ef20001011a80b20b7d791c3e3fa1b4a8f9e853f76fb14fab6fe85ed"
+    },
+    {
+      "route": "actions/workflows/415747099",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "fd813c1af11ccf18a0ff1f1b842dacc8a99bf8fd0e13954889cc4ecfc13f91b5"
+    },
+    {
+      "route": "actions/artifacts/13927483704",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "08b31ca6375454fed785716b5b9ef5cf7ece2d54077a750088bb7c45a4132203"
+    },
+    {
+      "route": "actions/workflows/415747099/disable",
+      "method": "PUT",
+      "status": 204,
+      "responseSHA256": "ab77efbbddc9e06600c450cbaa4f0960f438fed1505f06016d9283dde118a0a6"
+    },
+    {
+      "route": "actions/workflows/415747099",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "06ab4755b05078b959e69796109301474de9bea87e1ca63fd608224d9952d0ab"
+    },
+    {
+      "route": "git/ref/heads/qa/framelet-ui-20261112-5",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "18f6de840756ad8f356b256bf993227ce042d2ab2dd3573589c3bf0575724014"
+    },
+    {
+      "route": "git/refs/heads/qa/framelet-ui-20261112-5",
+      "method": "DELETE",
+      "status": 204,
+      "responseSHA256": "795cc4048a1b59330a2f0c3faa89441784dea44fcd02c109b6033fd0edb143c3"
+    },
+    {
+      "route": "git/matching-refs/heads/qa/framelet-ui-20261112-5",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "34660e9067e8619ca2ee7cd9301d4b33bcdcb92d6b033b772abf4e13a2ef5d79"
+    }
+  ]
+}
