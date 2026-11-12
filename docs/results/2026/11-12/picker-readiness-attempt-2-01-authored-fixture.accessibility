@@ -1,0 +1,59 @@
+Attributes: Application, 0x7fb727b10d00, pid: 2787, title: 'Framelet Authored Fixture', Disabled
+Element subtree:
+ →Application, 0x7fb727b10d00, pid: 2787, title: 'Framelet Authored Fixture', Disabled
+    Window (Main), 0x7fb727b122d0, {{100.0, 512.0}, {640.0, 428.0}}, identifier: 'FrameletAuthoredFixture-20fbcbb2e0774478aa870020e2d4eeec', title: 'Framelet authored capture 20fbcbb2e0774478aa870020e2d4eeec', Keyboard Focused, Disabled
+      Button, 0x7fb727b0f010, {{115.0, 569.0}, {105.0, 22.0}}, title: 'Authored Red'
+      Button, 0x7fb727b0f150, {{234.0, 569.0}, {108.0, 22.0}}, title: 'Authored Blue'
+      StaticText, 0x7fb727b10810, {{356.0, 571.0}, {103.0, 18.0}}, value: Authored tick 52
+      Button, 0x7fb727b10950, {{106.0, 518.0}, {16.0, 16.0}}, identifier: '_XCUI:CloseWindow'
+      Button, 0x7fb727b11b40, {{146.0, 518.0}, {16.0, 16.0}}, identifier: '_XCUI:ZoomWindow', Disabled
+        Group, 0x7fb727b106c0, {{147.0, 518.0}, {14.0, 16.0}}, Disabled
+          Group, 0x7fb727b0f290, {{147.0, 518.0}, {14.0, 16.0}}, Disabled
+      Button, 0x7fb727b12890, {{126.0, 518.0}, {16.0, 16.0}}, identifier: '_XCUI:MinimizeWindow'
+      StaticText, 0x7fb727b129d0, {{200.0, 517.0}, {440.0, 16.0}}, value: Framelet authored ...
+    MenuBar, 0x7fb727b12650, {{0.0, 0.0}, {1920.0, 24.0}}
+      MenuBarItem, 0x7fb727b11c80, {{10.0, 0.0}, {34.0, 24.0}}, title: 'Apple'
+        Menu, 0x7fb727b11dc0, {{0.0, 1080.0}, {0.0, 0.0}}
+          MenuItem, 0x7fb727b12b10, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_aboutThisMacRequested:', title: 'About This Mac'
+          MenuItem, 0x7fb727b12c50, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_systemInformationRequested:', title: 'System Information'
+          MenuItem, 0x7fb727b12d90, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fb727b12ed0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_systemSettingsRequested:', title: 'System Settings…, 1 update'
+          MenuItem, 0x7fb727b13010, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_appStoreRequested:', title: 'App Store'
+          MenuItem, 0x7fb727b13150, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fb727b13290, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_recentsRequested:', title: 'Recent Items'
+            Menu, 0x7fb727b133d0, {{0.0, 1080.0}, {0.0, 0.0}}
+              MenuItem, 0x7fb727b13510, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Applications', Disabled
+              MenuItem, 0x7fb727b13980, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'FrameletAuthoredFixture'
+              MenuItem, 0x7fb727b13ac0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'Show “FrameletAuthoredFixture” in Finder'
+              MenuItem, 0x7fb727b13c00, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x7fb727b13d40, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Documents', Disabled
+              MenuItem, 0x7fb727b13e80, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x7fb727b13fc0, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Servers', Disabled
+              MenuItem, 0x7fb727b14100, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x7fb727b14240, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_clearRecentItemsRequested:', title: 'Clear Menu'
+          MenuItem, 0x7fb727b14380, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fb727b144c0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_forceQuitPanelRequested:', title: 'Force Quit…'
+          MenuItem, 0x7fb727b14600, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_forceQuitRequested:', title: 'Force Quit Framelet Authored Fixture'
+          MenuItem, 0x7fb727b14740, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fb727b14880, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_sleepRequested:', title: 'Sleep'
+          MenuItem, 0x7fb727b149c0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_restartRequested:', title: 'Restart…'
+          MenuItem, 0x7fb727b14b00, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_restartNowRequested:', title: 'Restart'
+          MenuItem, 0x7fb727b14c40, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_shutDownRequested:', title: 'Shut Down…'
+          MenuItem, 0x7fb727b14d80, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_shutDownNowRequested:', title: 'Shut Down'
+          MenuItem, 0x7fb727b14ec0, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fb727b15110, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_lockScreenRequested:', title: 'Lock Screen'
+          MenuItem, 0x7fb727b15250, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_logOutRequested:', title: 'Log Out runner…'
+          MenuItem, 0x7fb727b15390, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_logOutNowRequested:', title: 'Log Out runner'
+          MenuItem, 0x7fb727b154d0, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+      MenuBarItem, 0x7fb727b15610, {{44.0, 0.0}, {190.0, 24.0}}, title: 'Framelet Authored Fixture'
+        Menu, 0x7fb727b15750, {{0.0, 1080.0}, {0.0, 0.0}}
+          MenuItem, 0x7fb727b15890, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'terminate:', title: 'Quit Authored Fixture'
+          MenuItem, 0x7fb727b159d0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'NSAlternateQuitMenuItem', title: 'Quit and Keep Windows'
+    TouchBar, 0x7fb727b15b10, {{80.0, 0.0}, {685.0, 30.0}}, Disabled
+Path to element:
+ →Application, 0x7fb727b10d00, pid: 2787, title: 'Framelet Authored Fixture', Disabled
+Query chain:
+ →Find: Application 'com.alvarovillalbaa.FrameletAuthoredFixture'
+  Output: {
+    Application, 0x7fb726f0eb70, pid: 2787, title: 'Framelet Authored Fixture', Disabled
+  }

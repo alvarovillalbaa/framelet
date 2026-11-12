@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "run": 43213699586,
+  "workflow": 415943086,
+  "path": ".github/workflows/framelet-picker-20261112-2.yml",
+  "disabledState": "disabled_manually",
+  "branch": "qa/framelet-picker-20261112-2",
+  "deletedHead": "adb86c96e35570cee293fd389a6451e157a9ce35",
+  "exactRefAbsent": true,
+  "uploadedEvidenceRemoved": true,
+  "artifactId": "13941699286",
+  "requests": [
+    {
+      "route": "actions/runs/43213699586",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "4b6836677463155cb3b65082dd9dbeea2f89bc71d8d7cd128e65fc312d4ea406"
+    },
+    {
+      "route": "actions/workflows/415943086",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "b1b6fffd97b321cade644d96389281e15591539ba32ea69a1072d5ac77073090"
+    },
+    {
+      "route": "actions/artifacts/13941699286",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "af908a468115c3f1f8c9ccc61fcee2d0234df1e9d92d93498da69736241c51a3"
+    },
+    {
+      "route": "actions/workflows/415943086/disable",
+      "method": "PUT",
+      "status": 204,
+      "responseSHA256": "c58bac2e728865d15bf2fdd0e51c3cbbc946b7c3b6f242f8aabafed8eef429b1"
+    },
+    {
+      "route": "actions/workflows/415943086",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "492f8dd42ebec0339a92335ca75b45f22ed6d37ce4d7d356a78238dc7ef98a7c"
+    },
+    {
+      "route": "git/ref/heads/qa/framelet-picker-20261112-2",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "a388db43c810f3f626ecb6c6db532ad27a0bf20190524929e8779d69a857fd4a"
+    },
+    {
+      "route": "git/refs/heads/qa/framelet-picker-20261112-2",
+      "method": "DELETE",
+      "status": 204,
+      "responseSHA256": "6ddcc4d4f143c9be8ce378372b1ad73114103d630ec2aac76b4420102c8a528a"
+    },
+    {
+      "route": "git/matching-refs/heads/qa/framelet-picker-20261112-2",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "97cb9edb0578f58687193d5691d570505923a6105e0f0d845065f005f687120b"
+    }
+  ]
+}
