@@ -462,3 +462,11 @@ compiled but failed raw controls; both retained original frames show red. Keep
 it failed. Standing approval covers attempt3's completed-seek/display-time
 guard, rejected-time records and per-row original stderr retention, with the
 same renderer, raw-color assertion and resource/source/cleanup bounds.
+
+[Instruction attempt3 passed](docs/results/2026/11-12/instruction-delivery-attempt-3.md)
+actual raw red/blue timestamps, all8 measurements/source/input/cleanup and exact
+retirement. Original/explicit/source-timed instructions all validate but record
+zero renderer calls. This diagnostic is closed; no instruction-only shipping
+fix is supported. Preserve both failures and keep product inputs exact. Next
+materialize a separate factory-properties/counted-CIFilter-output comparison;
+do not rerun closed cases or publish an unqualified app binary.

@@ -38,6 +38,13 @@ No usable0.1.4 archive has been released. The [original raw failed packet](resul
 is permanently preserved with exact server/anonymous delivery proof; related
 temporary controls are retired. Use the0.1.3 tag to reproduce the public app.
 
+The [instruction delivery diagnostic](results/2026/11-12/instruction-delivery-attempt-3.md)
+passed its measurement/input/cleanup scope: raw frames have both real colors;
+original, explicit and source-timed instructions validate but receive zero
+renderer requests. It supplies no shipping fix. Its controls are retired and
+both earlier diagnostic failures are preserved. Composition-factory properties
+and counted CIFilter output are the next distinct diagnostic boundary.
+
 ## Preview contents and trust
 
 The assets are `Framelet-0.1.3-macos-universal.zip`, its

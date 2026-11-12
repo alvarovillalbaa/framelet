@@ -96,8 +96,11 @@ independent pixel check. Selected Clip rendered correctly. A separate
 showed the same built-in composition failure while a software Core Image
 control rendered. A new software compositor passed eight decoded output frames,
 but the0.1.4 candidate still shows black Recording in the full Release app.
-Recording-preview acceptance remains open; actual AVPlayer output/presentation
-needs investigation before another shipping change or binary release.
+The [instruction delivery experiment](docs/results/2026/11-12/instruction-delivery-attempt-3.md)
+now measures valid original/explicit/source-timed instructions but zero renderer
+requests, while raw output returns both real colors. Those instruction variants
+do not repair playback. Recording-preview acceptance remains open before a
+shipping change or binary release; next isolate composition-factory properties.
 
 ## Verification and delivery
 
