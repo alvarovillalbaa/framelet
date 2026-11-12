@@ -113,3 +113,17 @@ changes. The entire unchanged FUI04 native case and pixel verifier are guarded
 against measured source `4afda39b954b8416127f1619e0d94e9285a7d243`; all original
 runtime/process/media assertions remain required together. Preserve both
 failed verdicts; neither compiled helpers nor storage cleanup closes playback.
+
+[Candidate 3](../results/2026/11-12/release-playback-attempt-3.md) passed storage,
+full harness compilation and actual released-app PID binding, then failed its
+RadioGroup-container hittability assertion before Play. Preserve that complete
+failed native case. Candidate 4 requires the actual play control to be hittable,
+the scoped Recording radio button to exist, and the read-only scope/time
+rectangles to be fully inside the actual viewport. Later native radio clicks
+still must change scope and playback exactly as specified. Keep all ten phases, nine rendered colors,
+pause/cursor/duration/seek/end/reopen semantics, independent pixel verifier and
+released-process/original/bundle/source/cleanup assertions intact. Add an
+original diagnostic PNG on failure. The guarded diff against
+`7edb06a7b5cd22a94856e300cb1d089be01259d6` admits only those native-case selector/
+diagnostic edits among product/closed-case/verifier inputs. No shipping or
+runner/permission/cache-setting change, cap extension or closed-case replay.

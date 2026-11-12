@@ -55,14 +55,19 @@ final class FrameletReleasePlaybackAcceptance: XCTestCase {
         func visible(_ element: XCUIElement) -> Bool { element.exists && element.isHittable }
         func showPreview() {
             let scroll = app.scrollViews.containing(.button, identifier: "Export…").firstMatch
+            let scope = app.radioGroups["Preview scope"]
+            let recordingControl = scope.radioButtons["Recording"]
             for _ in 0..<8 {
-                if visible(app.radioGroups["Preview scope"])
+                if recordingControl.exists
                     && (visible(app.buttons["Play Recording"]) || visible(app.buttons["Play Clip"])
                         || visible(app.buttons["Pause Playback"])) { break }
                 scroll.scroll(byDeltaX: 0, deltaY: 250)
             }
-            XCTAssertTrue(app.radioGroups["Preview scope"].isHittable)
-            XCTAssertTrue(timeElement().isHittable)
+            XCTAssertTrue(recordingControl.exists)
+            XCTAssertTrue(visible(app.buttons["Play Recording"]) || visible(app.buttons["Play Clip"])
+                || visible(app.buttons["Pause Playback"]))
+            XCTAssertTrue(scroll.frame.contains(scope.frame))
+            XCTAssertTrue(scroll.frame.contains(timeElement().frame))
         }
         func showClip(_ number: Int) -> XCUIElement {
             let element = app.buttons["Select clip \(number)"]
@@ -154,6 +159,8 @@ final class FrameletReleasePlaybackAcceptance: XCTestCase {
                 if app.state != .notRunning {
                     let attachment = XCTAttachment(string: app.debugDescription)
                     attachment.name = "diagnostic-final.accessibility"; attachment.lifetime = .keepAlways; self.add(attachment)
+                    let image = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+                    image.name = "diagnostic-final"; image.lifetime = .keepAlways; self.add(image)
                 }
                 let shutdown: [String: Any] = ["caseId": "FUI04", "safeToTerminate": safe,
                     "noSelectedSourceAndStartDisabled": safe, "captureOrExportRequested": false,

@@ -25,7 +25,7 @@ source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "x86_64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-release-playback-20261112-3"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-release-playback-20261112-4"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-release-playback-", dir=parent)).resolve()
@@ -275,13 +275,14 @@ try:
     baseline = source_guard()
     index_before = sha((repo / ".git/index").read_bytes())
     changes = run("qualified-input-diff", ["/usr/bin/git", "diff", "--name-only",
-        "4afda39b954b8416127f1619e0d94e9285a7d243", "HEAD", "--", "Package.swift", "Sources", "Resources", "script",
+        "7edb06a7b5cd22a94856e300cb1d089be01259d6", "HEAD", "--", "Package.swift", "Sources", "Resources", "script",
         "Tests/FrameletCoreTests", "Tests/FrameletPlaybackTests", "Tests/FrameletAcceptance.xcodeproj",
         "Tests/e2e/FrameletAcceptance.swift", "Tests/e2e/FrameletWindowAcceptance.swift",
         "Tests/e2e/FrameletPickerReadiness.swift", "Tests/e2e/FrameletCaptureAcceptance.swift",
         "Tests/e2e/FrameletReleasePlaybackAcceptance.swift", "Tests/ci/ReleasePlaybackPixels.swift"])
-    assert not changes.strip()
-    report["runtimeCaseAndVerifierUnchangedFromMeasuredCandidate2"] = True
+    assert set(changes.decode().splitlines()) == {"Tests/e2e/FrameletReleasePlaybackAcceptance.swift"}
+    report["runtimeProductAndPixelVerifierUnchangedFromNativeAttempt3"] = True
+    report["nativeCaseChanges"] = "Interactive play-control hit target, existing scoped radio button, viewport-contained read-only frames and original failure PNG only"
     raw = (repo / "docs/results/2026/11-12/capture-preview-attempt-1.json").read_bytes()
     assert sha(raw) == "b61e3306694747232570b93862d2d46154d3c32936c1c7a32c18ee2cbe940d07"
     package = json.loads(raw)

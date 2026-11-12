@@ -260,3 +260,11 @@ at 29 GiB namespace, 4 GiB all-other apparent bytes and 4 GiB unique allocated
 blocks. No local Guard exception, larger physical allowance, cache toggle,
 runtime-case/verifier/product change or relaxed behavioral assertion. Preserve
 both failures and require full native/pixel/process/unchanged-file/cleanup proof.
+
+[FUI04 candidate 3](docs/results/2026/11-12/release-playback-attempt-3.md) built
+the harness and launched the exact Release app, then failed on the RadioGroup
+container's hit check before Play. Preserve its failed verdict. Standing
+approval covers the changed native selector: actual play-control hit target,
+existing scoped radio button, viewport-contained scope/time frames and original failure PNG.
+All playback/pixel/process/file/cap/shutdown assertions and released bits remain
+mandatory. No product change or accepted-scope replay is inferred from launch.
