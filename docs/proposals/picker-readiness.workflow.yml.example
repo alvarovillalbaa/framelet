@@ -2,8 +2,8 @@
 name: Temporary Framelet authored picker readiness
 on:
   push:
-    branches: [qa/framelet-picker-20261112-1]
-    paths: [.github/workflows/framelet-picker-20261112-1.yml]
+    branches: [qa/framelet-picker-20261112-2]
+    paths: [.github/workflows/framelet-picker-20261112-2.yml]
 permissions:
   contents: write
   actions: write
@@ -12,8 +12,8 @@ concurrency:
   cancel-in-progress: false
 jobs:
   acceptance:
-    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-picker-20261112-1'
-    runs-on: macos-15
+    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-picker-20261112-2'
+    runs-on: macos-15-intel
     timeout-minutes: 20
     env:
       FRAMELET_SOURCE_COMMIT: REVIEWED_SOURCE_SHA

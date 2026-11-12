@@ -67,3 +67,28 @@ marker plus that empty nonsymlink directory. This is a file-check correction,
 not permission, app-source or capture expansion. Do not launch another native
 job merely to replay an already observed UI phase; inspect and preserve the
 first run's actual native/file/cleanup boundaries before choosing further work.
+
+## Conditional candidate 2: Intel VM
+
+Prepared while candidate 1 remains queued. **Do not activate concurrently.**
+Only after candidate 1 is terminal, never allocated, and its exact control is
+retired by the [conditional helper](picker-allocation-checks.md), candidate 2
+may execute the same unexecuted FUI03A body once on the standard public
+`macos-15-intel` runner. If candidate 1 does execute, review its originals first;
+this alternative stays inactive until there is an evidence-backed reason.
+
+The profile explicitly changes to x86_64/macOS 15 Debug, Xcode 16.4; it does not
+claim ARM64 execution or replay the closed ARM64 FUI01/FUI02 cases. GitHub's
+[standard runner labels](https://docs.github.com/en/actions/reference/runners/github-hosted-runners)
+and [Intel image/toolchain list](https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md)
+confirm this is an available public VM with Xcode 16.4. Availability/allocation
+and actual toolchain must still be observed. No larger/paid runner is selected.
+
+The updated fixed branch/template/controller select only candidate 2, include
+the corrected empty-Recordings postcheck, unambiguous fixture action selectors
+and before/after fixture inode binding. Its current-source guard compares
+unchanged shipping inputs and the exact FUI03A body to
+`7a0cd7f8e1dd338f3cf43f017a6fb1259d293c04` (reachable within the shallow source
+checkout). The original candidate remains immutable at `97036fc9864dafe183d3d2500a919512d08678df`.
+Same authored/no-Start scope, screenshots, file bounds, ordinary no-writer
+teardown, 20-minute job cap, failure retention and exact self-retirement apply.

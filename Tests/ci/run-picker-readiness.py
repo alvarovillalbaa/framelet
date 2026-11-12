@@ -20,9 +20,9 @@ import uuid
 
 source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
-assert platform.system() == "Darwin" and platform.machine() == "arm64"
+assert platform.system() == "Darwin" and platform.machine() == "x86_64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-picker-20261112-1"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-picker-20261112-2"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-picker-", dir=parent)).resolve()
@@ -48,6 +48,7 @@ runner = root / "derived/Build/Products/Debug/FrameletAcceptance-Runner.app"
 fixture = root / "FrameletAuthoredFixture.app"
 result = evidence / "ui.xcresult"
 report = {"schemaVersion": 1, "kind": "framelet-picker-readiness", "caseId": "FUI03A", "source": source,
+          "nativeProfile": {"architecture": platform.machine(), "macOS": platform.mac_ver()[0], "runnerLabel": "macos-15-intel"},
           "status": "failed", "commands": [], "errors": [], "cleanup": {}, "oldCasesReplayed": False,
           "captureCameraMicrophoneUsed": False, "simulatorUsed": False, "nonce": nonce}
 started = time.monotonic()
@@ -128,9 +129,10 @@ try:
     assert not run("status", ["/usr/bin/git", "status", "--porcelain"]).strip()
     run("toolchain", ["/usr/bin/xcodebuild", "-version"])
     baseline = source_guard()
-    changes = run("qualified-input-diff", ["/usr/bin/git", "diff", "--name-only", "fe0bdaf22417bc3751290c3e56cd0dddf62f3e7d",
+    changes = run("qualified-input-diff", ["/usr/bin/git", "diff", "--name-only", "7a0cd7f8e1dd338f3cf43f017a6fb1259d293c04",
         "HEAD", "--", "Package.swift", "Sources", "Resources", "script", "Tests/FrameletCoreTests",
-        "Tests/FrameletPlaybackTests", "Tests/e2e/FrameletAcceptance.swift", "Tests/ci/MediaFixture.swift"])
+        "Tests/FrameletPlaybackTests", "Tests/e2e/FrameletAcceptance.swift", "Tests/e2e/FrameletWindowAcceptance.swift",
+        "Tests/e2e/FrameletPickerReadiness.swift", "Tests/ci/MediaFixture.swift"])
     assert not changes.strip()
     report["qualifiedRuntimeInputsUnchanged"] = True
     for row in baseline:
@@ -169,7 +171,7 @@ try:
         "title": "Framelet authored capture " + nonce, "device": fixture_identity.st_dev, "inode": fixture_identity.st_ino,
         "entitlementsEmpty": True}
     common = ["/usr/bin/xcodebuild", "-project", "Tests/FrameletAcceptance.xcodeproj", "-scheme", "FrameletAcceptance",
-        "-configuration", "Debug", "-destination", "platform=macOS,arch=arm64", "-derivedDataPath", str(root / "derived")]
+        "-configuration", "Debug", "-destination", "platform=macOS,arch=x86_64", "-derivedDataPath", str(root / "derived")]
     run("build-for-testing", common + ["build-for-testing"], seconds=300, cwd=export)
     files = list((root / "derived/Build/Products").glob("*.xctestrun"))
     assert len(files) == 1
@@ -192,7 +194,7 @@ try:
     report["nativeTargetBinding"] = {"app": str(app), "bundleIdentifier": "com.alvarovillalbaa.Framelet", "runFileSHA256": sha(data), "productionEntitlementsEmpty": True}
     run("launch-fixture", ["/usr/bin/open", "-n", "-a", str(fixture), "--args", nonce])
     run("native-ui", ["/usr/bin/xcodebuild", "test-without-building", "-xctestrun", str(run_file),
-        "-destination", "platform=macOS,arch=arm64", "-resultBundlePath", str(result),
+        "-destination", "platform=macOS,arch=x86_64", "-resultBundlePath", str(result),
         "-only-testing:FrameletAcceptance/FrameletPickerReadiness/testFUI03APresentOwnedWindowPicker",
         "-parallel-testing-enabled", "NO", "-test-timeouts-enabled", "YES", "-default-test-execution-time-allowance", "240",
         "-maximum-test-execution-time-allowance", "300"], seconds=480, cwd=export)
