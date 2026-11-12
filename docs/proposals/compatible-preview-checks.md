@@ -34,9 +34,11 @@ remains in force. The new retirement controller preserves original API streams
 even on failure, observes disabled state with at most six successful bounded
 reads, and deletes only its unchanged exact QA head. No denied-request retry.
 
-Only after the package passes, materialize the separate full unchanged FUI04
-ten-phase/nine-color journey against this exact extracted Release bundle before
-execution or binary publication. Bind actual executable PIDs, retain originals
+An inactive full-FUI04 draft may be prepared while the package is queued; its
+unfilled package-receipt pin must reject execution. Only after the package
+passes, finalize that exact receipt pin and activate the separate unchanged
+ten-phase/nine-color journey against its extracted Release bundle before binary
+publication. Bind actual executable PIDs, retain originals
 and verify source/index/library/bundle/group/root cleanup. A package pass is not
 Release playback, ARM runtime, performance, physical-device, audio/camera,
 encoded-anchor, migration, accessibility or trusted/Gatekeeper launch proof.

@@ -363,5 +363,7 @@ Component images alone are not app/UI/Release acceptance or publication proof.
 The [0.1.4 non-launching package](docs/proposals/compatible-preview-checks.md)
 is materialized with inactive exact-source controls. Run only its new universal
 build/round-trip scope, preserving the accepted component source and all closed
-cases. After it passes, prepare full exact-Release playback before activation;
+cases. An inactive [full exact-Release draft](docs/proposals/compatible-playback-checks.md)
+may be prepared while queued; its missing receipt pin rejects execution. After
+the package passes, finalize the exact pin and reviewed profile before activation;
 do not publish a new binary from packaging or component images alone.
