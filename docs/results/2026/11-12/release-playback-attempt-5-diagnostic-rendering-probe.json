@@ -1,0 +1,113 @@
+{
+  "captureOrExportRequested" : false,
+  "coordinateSystem" : "AppKit screen points, origin bottom-left",
+  "elapsedSeconds" : 3.4025428540000462,
+  "kind" : "read-only-rendering-diagnostic",
+  "mediaModified" : false,
+  "panes" : [
+    {
+      "itemError" : "",
+      "itemStatus" : 1,
+      "name" : "Plain AppKit red",
+      "playerError" : "",
+      "playerStatus" : 1,
+      "screenFrame" : {
+        "height" : 285,
+        "width" : 570,
+        "x" : 120,
+        "y" : 490
+      },
+      "timeSeconds" : 3.0347453469999999,
+      "videoBounds" : {
+        "height" : 285,
+        "width" : 426.1682242990654,
+        "x" : 71.9158878504673,
+        "y" : 0
+      },
+      "viewBounds" : {
+        "height" : 285,
+        "width" : 570,
+        "x" : 0,
+        "y" : 0
+      }
+    },
+    {
+      "itemError" : "",
+      "itemStatus" : 1,
+      "name" : "Plain AppKit blue",
+      "playerError" : "",
+      "playerStatus" : 1,
+      "screenFrame" : {
+        "height" : 285,
+        "width" : 570,
+        "x" : 710,
+        "y" : 490
+      },
+      "timeSeconds" : 3.0470842170000001,
+      "videoBounds" : {
+        "height" : 285,
+        "width" : 426.1682242990654,
+        "x" : 71.9158878504673,
+        "y" : 0
+      },
+      "viewBounds" : {
+        "height" : 285,
+        "width" : 570,
+        "x" : 0,
+        "y" : 0
+      }
+    },
+    {
+      "itemError" : "",
+      "itemStatus" : 1,
+      "name" : "SwiftUI red",
+      "playerError" : "",
+      "playerStatus" : 1,
+      "screenFrame" : {
+        "height" : 285,
+        "width" : 570,
+        "x" : 120,
+        "y" : 160
+      },
+      "timeSeconds" : 3.0348986120000001,
+      "videoBounds" : {
+        "height" : 285,
+        "width" : 426.1682242990654,
+        "x" : 71.9158878504673,
+        "y" : 0
+      },
+      "viewBounds" : {
+        "height" : 285,
+        "width" : 570,
+        "x" : 0,
+        "y" : 0
+      }
+    },
+    {
+      "itemError" : "",
+      "itemStatus" : 1,
+      "name" : "Clipped SwiftUI red",
+      "playerError" : "",
+      "playerStatus" : 1,
+      "screenFrame" : {
+        "height" : 285,
+        "width" : 570,
+        "x" : 710,
+        "y" : 160
+      },
+      "timeSeconds" : 3.0364937900000002,
+      "videoBounds" : {
+        "height" : 285,
+        "width" : 426.1682242990654,
+        "x" : 71.9158878504673,
+        "y" : 0
+      },
+      "viewBounds" : {
+        "height" : 285,
+        "width" : 570,
+        "x" : 0,
+        "y" : 0
+      }
+    }
+  ]
+}
