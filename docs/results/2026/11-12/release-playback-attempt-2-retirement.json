@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "run": 43239027602,
+  "workflow": 416133365,
+  "path": ".github/workflows/framelet-release-playback-20261112-2.yml",
+  "disabledState": "disabled_manually",
+  "branch": "qa/framelet-release-playback-20261112-2",
+  "deletedHead": "a5519548ad1eeb7c8a84420fc58b897b9166b80f",
+  "exactRefAbsent": true,
+  "uploadedEvidenceRemoved": true,
+  "artifactId": "13953528294",
+  "requests": [
+    {
+      "route": "actions/runs/43239027602",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "8640104b15ad800af5b609d7d359ae9792f4cf880403c060141366c83de0d3c0"
+    },
+    {
+      "route": "actions/workflows/416133365",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "485554ab0a954f90920152536c117ea17d70cee9bcc0fd83a6c55deec50bce24"
+    },
+    {
+      "route": "actions/artifacts/13953528294",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "1e7082d58acb75e28c799191934c6bd492bed39c29081aa084ab1a5e58a5d8d2"
+    },
+    {
+      "route": "actions/workflows/416133365/disable",
+      "method": "PUT",
+      "status": 204,
+      "responseSHA256": "63b143f989a40d4b5095787ee74f55a40e63928f211d1681e0f1ef356beff16f"
+    },
+    {
+      "route": "actions/workflows/416133365",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "dbe52b0f7d7ae7fd06fe43d3ae4254a4469e67bbb047a7ab057356134eee143d"
+    },
+    {
+      "route": "git/ref/heads/qa/framelet-release-playback-20261112-2",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "9dfde53a1c213a8442d160ddb20fd88fc5fd9bb1c7228e15da2cc47be88f0587"
+    },
+    {
+      "route": "git/refs/heads/qa/framelet-release-playback-20261112-2",
+      "method": "DELETE",
+      "status": 204,
+      "responseSHA256": "9172e55f38693902a244ef9745e6bb0423f46540646d41955a112e3e40b58715"
+    },
+    {
+      "route": "git/matching-refs/heads/qa/framelet-release-playback-20261112-2",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "61257058a478d4256565077249ae59b9e283c7e2ee2f8bf3ab13056525a64e87"
+    }
+  ]
+}
