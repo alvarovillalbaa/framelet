@@ -53,6 +53,12 @@ published source. Complete command streams, native test summary/identity,
 attachments and decoded output evidence are bounded and retained, including
 failures. The controller terminates only owned app/runner processes, verifies
 source bytes, deletes only its nonce/inode-bound fresh library and scratch.
+Large automatic videos remain in the bounded uploaded packet; diagnostic
+PNGs/trees/JSON have a separate 8 MiB inline capsule. Failed raw xcresult bundles
+are retained. After a fully passing UI/file/cleanup verdict, the raw bundle
+intermediate may be removed because its exported original attachments, complete
+command streams and Apple summary/identity records are already retained; this
+does not claim preservation of that passing raw bundle's internal database.
 Evidence upload is bounded at 128 MiB and retained separately; its exact server
 digest/run identity is verified before removing the uploaded runner packet.
 The final control disables its own workflow and deletes its unchanged QA head.

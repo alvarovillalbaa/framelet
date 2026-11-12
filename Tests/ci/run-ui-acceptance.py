@@ -22,7 +22,7 @@ source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "arm64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-ui-20261112-5"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-ui-20261112-6"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-ui-", dir=parent)).resolve()
@@ -197,6 +197,7 @@ finally:
             run("attachments", ["/usr/bin/xcrun", "xcresulttool", "export", "attachments", "--path", str(result), "--output-path", str(evidence / "attachments")], seconds=60)
             manifest = json.loads((evidence / "attachments/manifest.json").read_text())
             entries = []; total = 0
+            report["attachments"] = entries
             for case in manifest:
                 assert case["testIdentifier"] == "FrameletAcceptance/testFUI01EditReopenAndExportNativeRecording()"
                 for item in case["attachments"]:
@@ -204,12 +205,20 @@ finally:
                     assert Path(name).name == name and name not in (".", "..")
                     path = evidence / "attachments" / name
                     assert path.is_file() and not path.is_symlink()
-                    raw = path.read_bytes(); total += len(raw)
-                    assert len(raw) <= 4 * 1024 ** 2 and total <= 8 * 1024 ** 2
+                    assert path.stat().st_size <= 128 * 1024 ** 2
+                    digest = hashlib.sha256()
+                    with path.open("rb") as stream:
+                        for chunk in iter(lambda: stream.read(65536), b""): digest.update(chunk)
                     human = item["suggestedHumanReadableName"]
                     match = re.fullmatch(r"(01-library-preview|02-edited-clips|03-native-export|04-reopened-library|diagnostic-final|ui-observations)_[0-9]+_([A-F0-9-]{36})\.(png|json|accessibility)", human)
-                    entries.append({"file": name, "name": human, "canonicalName": match[1] + "." + match[3] if match else None,
-                        "bytes": len(raw), "sha256": sha(raw), "gzipBase64": base64.b64encode(gzip.compress(raw, mtime=0)).decode()})
+                    entry = {"file": name, "name": human, "canonicalName": match[1] + "." + match[3] if match else None,
+                        "bytes": path.stat().st_size, "sha256": digest.hexdigest(), "retainedInArtifact": True}
+                    entries.append(entry)
+                    if match or human.startswith(("App UI hierarchy", "UI Snapshot", "Complete Issue Description")):
+                        raw = path.read_bytes(); total += len(raw)
+                        assert len(raw) <= 2 * 1024 ** 2 and total <= 8 * 1024 ** 2
+                        assert sha(raw) == entry["sha256"]
+                        entry["gzipBase64"] = base64.b64encode(gzip.compress(raw, mtime=0)).decode()
             report["attachments"] = entries
             if report.get("nativeTestCommandPassed"):
                 summary = report["testSummary"]
@@ -271,6 +280,19 @@ finally:
     report["elapsedSeconds"] = time.monotonic() - started
     if report.get("nativeTestCommandPassed") and report.get("uiObservations") and report.get("mediaVerification", {}).get("verified") and not report["errors"]:
         report["status"] = "passed"
+        # Keep exported originals and structured Apple results. A passing raw
+        # bundle duplicates large automatic videos already in attachments.
+        # Failed raw bundles remain intact for diagnosis/recovery.
+        try:
+            assert result.parent == evidence and result.is_dir() and not result.is_symlink()
+            assert not any(path.is_symlink() for path in result.rglob("*"))
+            shutil.rmtree(result)
+            assert not result.exists()
+            report["cleanup"]["passingRawResultIntermediateRemoved"] = True
+            report["nativeResultRetention"] = "Complete exported attachments, command streams, native summary and identities retained; passing raw xcresult intermediate removed."
+        except BaseException:
+            report["status"] = "failed"
+            report["errors"].append(traceback.format_exc())
     data = json.dumps(report, separators=(",", ":")).encode()
     assert len(data) <= 16 * 1024 ** 2
     (evidence / "receipt.json").write_bytes(data)

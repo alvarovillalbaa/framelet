@@ -1,3 +1,4 @@
+import CoreGraphics
 import Foundation
 import XCTest
 
@@ -32,9 +33,16 @@ final class FrameletAcceptance: XCTestCase {
             show(field); field.click(); app.typeKey("a", modifierFlags: .command); app.typeText(value)
         }
         func clip(_ index: Int) -> XCUIElement { app.buttons["Select clip \(index)"] }
-        defer {
-            if app.state == .runningForeground { record("diagnostic-final") }
-            app.terminate()
+        addTeardownBlock {
+            await MainActor.run {
+                if app.state == .runningForeground {
+                    let tree = XCTAttachment(string: app.debugDescription)
+                    tree.name = "diagnostic-final.accessibility"; tree.lifetime = .keepAlways; self.add(tree)
+                    let image = XCTAttachment(screenshot: app.screenshot())
+                    image.name = "diagnostic-final"; image.lifetime = .keepAlways; self.add(image)
+                }
+                app.terminate()
+            }
         }
         app.launch()
         XCTAssertTrue(app.windows.firstMatch.waitForExistence(timeout: 20))
@@ -64,7 +72,12 @@ final class FrameletAcceptance: XCTestCase {
         record("02-edited-clips")
 
         let disclosure = app.disclosureTriangles["Canvas and camera layout"]
-        show(disclosure); disclosure.click()
+        show(disclosure)
+        disclosure.coordinate(withNormalizedOffset: CGVector(dx: 0.03, dy: 0.5)).click()
+        wait {
+            if let number = disclosure.value as? NSNumber { return number.intValue == 1 }
+            return disclosure.value as? String == "1"
+        }
         let canvas = app.popUpButtons["Canvas"]
         show(canvas); canvas.click(); app.menuItems["Square"].click()
         app.popUpButtons["Background"].click(); app.menuItems["Sand"].click()
