@@ -170,6 +170,25 @@ against the reachable compiled candidate-2 source
 the missing capture proof. All identity, media, pause, shutdown and cleanup
 assertions remain mandatory, with the same single-job/deadline/scope bounds.
 
+[Candidate 3](../results/2026/11-12/capture-attempt-3.md) reached real window
+selection, two captured takes, pause/resume and acknowledged Stop with an
+unchanged-original snapshot, then failed scrolling to Export after forced
+XCTest termination/relaunch left the library minimized. Keep that complete
+case failed. Its actual MP4s/manifest, eight phase PNGs and original hashes
+are preserved; independent pixel/track/export and pause-timeline proof is open.
+
+Candidate 4 uses ordinary Command-Q after Stop and waits for not-running, then
+launches and explicitly restores the sole window via Window's observed
+`makeKeyAndOrderFront:` item. Its title changes from Library to the recording
+name, so no stale title or first duplicate is used. Require a hittable actual
+window before scrolling/export. Retain a partial-progress JSON attachment with
+uptimes and capture/stop/export/quit flags on failure; its partial status cannot
+replace the native/file verdict. No shipping lifecycle override is introduced
+from an inferred cause. Same complete capture/media/acknowledgment/deadline
+requirements and unchanged compiled runtime/verifier/fixture inputs, diff-guarded
+against `10837d5f93b74e0973ea8537f6b11c7ea43a8c4e`. The new UI profile must pass
+as a whole before any capture qualification or new preview release is claimed.
+
 This would prove the basic real screen-window path only. The correspondence of
 the first `.complete` screen callback to the first encoded sample remains a
 separate measured timing requirement; no camera/PiP synchronization inference

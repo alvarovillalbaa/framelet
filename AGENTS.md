@@ -188,3 +188,13 @@ no-Start/ordinary-cleanup boundary. Standing approval covers the changed menu
 scoping: use the foreground Recording menu's own children for capture commands
 and Window's own child for Library; no first global duplicate or relaxed
 capture/file/acknowledgment assertion. Shipping/verifier/fixture inputs stay exact.
+
+[FUI03 attempt 3](docs/results/2026/11-12/capture-attempt-3.md) produced two real
+sealed window takes and acknowledged Stop, but its complete case failed at the
+minimized reopened export UI. Retain all actual media/original hashes and the
+failed verdict. Standing approval covers the changed native reopen flow:
+ordinary Quit after Stop, explicit sole-window restoration via its scoped
+Window menu and actual hittability before Export, plus failure progress data.
+No inferred product lifecycle change, shipping/verifier/fixture modification,
+relaxed media/pause/identity assertion or closed-scope replay. Full same-source
+native+file/cleanup evidence remains required before capture/preview closure.

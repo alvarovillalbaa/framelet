@@ -22,7 +22,7 @@ source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "x86_64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-capture-20261112-3"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-capture-20261112-4"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-capture-", dir=parent)).resolve()
@@ -149,12 +149,12 @@ try:
     assert not run("status", ["/usr/bin/git", "status", "--porcelain"]).strip()
     run("toolchain", ["/usr/bin/xcodebuild", "-version"])
     baseline = source_guard()
-    changes = run("qualified-input-diff", ["/usr/bin/git", "diff", "--name-only", "02b244e570c42c5f40e1687e499d5944276e6761",
+    changes = run("qualified-input-diff", ["/usr/bin/git", "diff", "--name-only", "10837d5f93b74e0973ea8537f6b11c7ea43a8c4e",
         "HEAD", "--", "Package.swift", "Sources", "Resources", "script", "Tests/FrameletCoreTests",
         "Tests/FrameletPlaybackTests", "Tests/e2e/FrameletAcceptance.swift", "Tests/e2e/FrameletWindowAcceptance.swift", "Tests/e2e/FrameletPickerReadiness.swift",
         "Tests/ci/MediaFixture.swift"])
     assert not changes.strip()
-    report["runtimeInputsUnchangedFromCompiledAttempt2"] = True
+    report["runtimeInputsUnchangedFromCompiledAttempt3"] = True
     for row in baseline:
         name = row["path"]
         if name not in ("Package.swift", "Tests/ci/MediaFixture.swift", "Tests/ci/WindowDisplay.swift", "Tests/ci/PickerFixture.swift", "Tests/ci/CapturedWindowFiles.swift") and not name.startswith(("Sources/", "Resources/", "Tests/e2e/", "Tests/FrameletAcceptance.xcodeproj/", "Tests/FrameletCoreTests/", "Tests/FrameletPlaybackTests/")):
@@ -263,7 +263,7 @@ finally:
                     with path.open("rb") as stream:
                         for chunk in iter(lambda: stream.read(65536), b""): digest.update(chunk)
                     human = item["suggestedHumanReadableName"]
-                    match = re.fullmatch(r"(0[1-9]-[a-z0-9-]+|diagnostic-[a-z0-9-]+|capture-observations|capture-shutdown)_[0-9]+_([A-F0-9-]{36})\.(png|json|accessibility)", human)
+                    match = re.fullmatch(r"(0[1-9]-[a-z0-9-]+|diagnostic-[a-z0-9-]+|capture-observations|capture-shutdown|capture-progress)_[0-9]+_([A-F0-9-]{36})\.(png|json|accessibility)", human)
                     entry = {"file": name, "name": human, "canonicalName": match[1] + "." + match[3] if match else None,
                         "bytes": path.stat().st_size, "sha256": digest.hexdigest(), "retainedInArtifact": True}
                     entries.append(entry)

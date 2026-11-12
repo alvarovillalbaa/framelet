@@ -22,6 +22,8 @@ final class FrameletCaptureAcceptance: XCTestCase {
         var shutdownAcknowledged = false
         var exportRequested = false
         var exportAcknowledged = false
+        var quitRequested = false
+        var quitAcknowledged = false
         var times: [String: Double] = [:]
         func uptime() -> Double { ProcessInfo.processInfo.systemUptime }
         func interval(_ seconds: TimeInterval) {
@@ -68,6 +70,19 @@ final class FrameletCaptureAcceptance: XCTestCase {
             XCTAssertTrue(wait { menu.menuItems[name].exists && menu.menuItems[name].isEnabled })
             app.typeKey(.escape, modifierFlags: [])
         }
+        func restoreLibraryWindow() {
+            app.activate()
+            let item = app.menuBars.menuBarItems["Window"]
+            item.click()
+            // The window title becomes the recording's title after Stop.
+            let windows = item.menus.firstMatch.menuItems.matching(identifier: "makeKeyAndOrderFront:")
+            XCTAssertEqual(windows.count, 1)
+            windows.firstMatch.click()
+            XCTAssertTrue(wait {
+                app.windows.matching(NSPredicate(format: "identifier BEGINSWITH %@", "library-AppWindow-"))
+                    .firstMatch.isHittable
+            })
+        }
         func show(_ element: XCUIElement) {
             XCTAssertTrue(element.waitForExistence(timeout: 15))
             for _ in 0..<6 {
@@ -106,6 +121,15 @@ final class FrameletCaptureAcceptance: XCTestCase {
                 }
                 let safeToTerminate = (!captureRequested || shutdownAcknowledged) && exportSettled
                 record("diagnostic-final", picker: !captureRequested)
+                let progress: [String: Any] = ["caseId": "FUI03", "status": "partial-until-native-verdict",
+                    "fixtureTitle": title, "uptime": times, "captureRequested": captureRequested,
+                    "stopRequested": stopRequested, "shutdownAcknowledged": shutdownAcknowledged,
+                    "exportRequested": exportRequested, "exportAcknowledged": exportAcknowledged,
+                    "quitRequested": quitRequested, "quitAcknowledged": quitAcknowledged]
+                if let bytes = try? JSONSerialization.data(withJSONObject: progress, options: [.sortedKeys, .prettyPrinted]) {
+                    let attachment = XCTAttachment(data: bytes, uniformTypeIdentifier: "public.json")
+                    attachment.name = "capture-progress"; attachment.lifetime = .keepAlways; self.add(attachment)
+                }
                 let acknowledgment: [String: Any] = ["caseId": "FUI03", "captureRequested": captureRequested,
                     "stopRequested": stopRequested, "readyAndSourceControlsEnabled": shutdownAcknowledged,
                     "exportRequested": exportRequested, "exportSettled": exportSettled,
@@ -172,9 +196,7 @@ final class FrameletCaptureAcceptance: XCTestCase {
             shareWindow.firstMatch.click()
         }
         XCTAssertTrue(wait { !picker.exists })
-        app.activate()
-        let windowItem = app.menuBars.menuBarItems["Window"]
-        windowItem.click(); windowItem.menus.firstMatch.menuItems["Library"].click()
+        restoreLibraryWindow()
         // The callback's selected-filter metadata, not geometry alone, is the
         // final source guard. Never press Start for a generic/display source.
         XCTAssertTrue(app.staticTexts[sourceLabel].firstMatch.waitForExistence(timeout: 15))
@@ -210,7 +232,11 @@ final class FrameletCaptureAcceptance: XCTestCase {
         // The host-owned observer hashes originals during this interval. Its
         // actual timestamp before Export must independently pass verification.
         interval(5)
-        app.terminate(); app.launch()
+        app.activate(); quitRequested = true
+        app.typeKey("q", modifierFlags: .command)
+        XCTAssertTrue(wait { app.state == .notRunning })
+        quitAcknowledged = true
+        app.launch(); restoreLibraryWindow()
         XCTAssertTrue(app.buttons["Play Recording"].firstMatch.waitForExistence(timeout: 20))
         XCTAssertTrue(app.buttons["Play Recording"].firstMatch.isEnabled)
         XCTAssertTrue(app.buttons["Select clip 2"].exists)
