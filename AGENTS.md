@@ -214,3 +214,10 @@ claim follows from packaging. Preserve all older releases and original evidence.
 The [0.1.3 package/delivery scope](docs/proposals/capture-preview-checks.md)
 is materialized with inactive exact-source controls. Execute only that new
 non-launching package; publish only its retained assets after it passes.
+
+[0.1.3 packaging passed](docs/results/2026/11-12/capture-preview-attempt-1.md)
+with both Release slices and fresh ZIP/signature verification. The package
+control is retired. Do not replay the closed package/native scopes. Publish
+only its three retained hash-pinned assets using the new bounded data-only
+control; verify server/anonymous byte delivery, preserve all ten older assets
+and tags, and retire only that exact publication path.
