@@ -21,7 +21,7 @@ source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "x86_64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-software-preview-20261112-2"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-software-preview-20261112-3"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-software-preview-", dir=parent)).resolve()
@@ -51,19 +51,49 @@ cleanup_phase = False
 
 
 def storage(enforce=True):
-    paths = list(root.rglob("*")) + list(evidence.rglob("*"))
-    assert len(paths) <= 16384 and all(not p.is_symlink() for p in paths)
-    regular = [p for p in paths if p.is_file()]
-    apparent = sum(p.stat().st_size for p in regular)
-    allocated = sum(p.stat().st_blocks * 512 for p in regular)
+    paths = [root, evidence] + list(root.rglob("*")) + list(evidence.rglob("*"))
+    rows, links, invalid = [], [], []
+    developer = Path(env["DEVELOPER_DIR"]).resolve()
+    caches = (root / "cache", root / "tmp")
+    for path in paths:
+        try:
+            value = path.lstat()
+        except FileNotFoundError:
+            if any(path.is_relative_to(cache) for cache in caches):
+                continue
+            raise
+        row = {"path": str(path.relative_to(parent)), "bytes": value.st_size, "allocated": value.st_blocks * 512,
+            "device": value.st_dev, "inode": value.st_ino, "mode": value.st_mode}
+        if stat.S_ISLNK(value.st_mode):
+            row["target"] = os.readlink(path)
+            try:
+                target = path.resolve(strict=True)
+                row["resolvedTarget"] = str(target)
+                row["admittedCompilerCacheAlias"] = any(path.is_relative_to(cache) for cache in caches) and (
+                    any(target.is_relative_to(cache) for cache in caches) or target.is_relative_to(developer))
+                row["targetMode"] = target.stat().st_mode
+                row["admittedCompilerCacheAlias"] = row["admittedCompilerCacheAlias"] and (
+                    stat.S_ISREG(row["targetMode"]) or stat.S_ISDIR(row["targetMode"]))
+            except (OSError, RuntimeError):
+                row["admittedCompilerCacheAlias"] = False
+            links.append(row)
+            if not row["admittedCompilerCacheAlias"]: invalid.append(row)
+        elif not (stat.S_ISREG(value.st_mode) or stat.S_ISDIR(value.st_mode)):
+            invalid.append(row)
+        rows.append(row)
+    unique = {(row["device"], row["inode"]): row for row in rows}
+    apparent = sum(row["bytes"] for row in rows)
+    allocated = sum(row["allocated"] for row in unique.values())
+    snapshot = {"entries": len(paths), "apparent": apparent, "allocated": allocated,
+        "compilerCacheAliases": links, "invalidEntries": invalid,
+        "largest": sorted(rows, key=lambda row: row["bytes"], reverse=True)[:16]}
+    assert len(report["storageSnapshots"]) < 256
+    report["storageSnapshots"].append(snapshot)
     report["maximumApparentBytes"] = max(report.get("maximumApparentBytes", 0), apparent)
     report["maximumAllocatedBytes"] = max(report.get("maximumAllocatedBytes", 0), allocated)
-    if apparent > 4 * 1024 ** 3 or allocated > 4 * 1024 ** 3:
-        report["storageSnapshots"].append({"apparent": apparent, "allocated": allocated,
-            "largest": [{"path": str(p.relative_to(parent)), "bytes": p.stat().st_size}
-                for p in sorted(regular, key=lambda p: p.stat().st_size, reverse=True)[:16]]})
-        if enforce:
-            raise AssertionError("Owned storage exceeds 4 GiB; no sparse exception in this scope")
+    if enforce:
+        assert len(paths) <= 16384 and len(links) <= 64 and not invalid, "Owned topology refused; snapshot retained"
+        assert apparent <= 4 * 1024 ** 3 and allocated <= 4 * 1024 ** 3, "Owned storage exceeds 4 GiB; no sparse exception"
 
 
 def group_members(pid, command):
@@ -124,11 +154,15 @@ def run(name, args, seconds=120, cwd=None, enforce_storage=True):
         # Read metadata, never probe permission with killpg(..., 0). Signal only
         # while the original owned child is still live and every member has our UID.
         try:
+            if child.poll() is None and error is None:
+                try: child.wait(timeout=2)
+                except subprocess.TimeoutExpired: pass
             if child.poll() is None:
                 members = group_members(child.pid, name)
                 assert members and any(row["pid"] == child.pid for row in members)
                 assert all(row["uid"] == os.getuid() for row in members), "Group ownership unknown; no signal"
-                os.killpg(child.pid, signal.SIGTERM); signals.append("SIGTERM")
+                if child.poll() is None:
+                    os.killpg(child.pid, signal.SIGTERM); signals.append("SIGTERM")
                 until = time.monotonic() + 3
                 while child.poll() is None and time.monotonic() < until:
                     try: drain(0.1)
@@ -136,7 +170,8 @@ def run(name, args, seconds=120, cwd=None, enforce_storage=True):
                 if child.poll() is None:
                     members = group_members(child.pid, name)
                     assert members and all(row["uid"] == os.getuid() for row in members)
-                    os.killpg(child.pid, signal.SIGKILL); signals.append("SIGKILL")
+                    if child.poll() is None:
+                        os.killpg(child.pid, signal.SIGKILL); signals.append("SIGKILL")
                 child.wait(timeout=3)
             until = time.monotonic() + 3
             members = group_members(child.pid, name)
@@ -145,6 +180,7 @@ def run(name, args, seconds=120, cwd=None, enforce_storage=True):
             absent = not members
         except BaseException:
             inspection_errors.append(traceback.format_exc())
+        child.poll()
         try:
             until = time.monotonic() + 2
             while selector.get_map() and time.monotonic() < until:
@@ -152,6 +188,7 @@ def run(name, args, seconds=120, cwd=None, enforce_storage=True):
                 except BaseException: pass
         except BaseException:
             inspection_errors.append(traceback.format_exc())
+        child.poll()
         selector.close()
         for stream in (child.stdout, child.stderr): stream.close()
         if absent: live_groups.discard(child.pid)
@@ -199,11 +236,11 @@ try:
     assert not run("status", ["git", "status", "--porcelain", "--untracked-files=all", "--ignored"]).strip()
     run("toolchain", ["/usr/bin/xcodebuild", "-version"])
     baseline = source_guard(); index_before = sha((repo / ".git/index").read_bytes())
-    changed = run("protected-input-diff", ["git", "diff", "--name-only", "c3c13849e9fade70c0cb51a133ea88f045156882", "HEAD",
+    changed = run("protected-input-diff", ["git", "diff", "--name-only", "a9e7d6a6c123ca1e0abf782b5951265aa1349dc4", "HEAD",
         "--", "Package.swift", "Sources", "Resources", "script", "Tests/FrameletCoreTests", "Tests/FrameletPlaybackTests",
         "Tests/FrameletAcceptance.xcodeproj", "Tests/e2e", "Tests/ci/ReleasePlaybackPixels.swift", "Tests/ci/SoftwarePreviewFiles.swift"])
     assert not changed.strip()
-    report["softwareProductAndVerifierUnchangedFromAttempt1"] = True
+    report["softwareProductAndVerifierUnchangedFromAttempt2"] = True
     compile_paths = [row for row in baseline if row["path"].startswith("Sources/FrameletCore/") or row["path"] in (
         "Sources/Framelet/Services/RecordingComposition.swift", "Sources/Framelet/Services/ExportGeometry.swift",
         "Sources/Framelet/Services/ExportCoordinator.swift", "Sources/Framelet/Services/SoftwareRecordingCompositor.swift",

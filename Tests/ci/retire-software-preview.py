@@ -12,8 +12,8 @@ import time
 import traceback
 
 repository = "alvarovillalbaa/framelet"
-branch = "qa/framelet-software-preview-20261112-2"
-path = ".github/workflows/framelet-software-preview-20261112-2.yml"
+branch = "qa/framelet-software-preview-20261112-3"
+path = ".github/workflows/framelet-software-preview-20261112-3.yml"
 assert os.environ["GITHUB_REPOSITORY"] == repository and os.environ["GITHUB_REF"] == "refs/heads/" + branch
 head = os.environ["GITHUB_SHA"]
 assert re.fullmatch(r"[0-9a-f]{40}", head)

@@ -337,3 +337,10 @@ proposal's read-only process metadata replacement, guarded ownership, guaranteed
 stream retention and independent cleanup checks. Do not retry the denied query
 or grant rights. Compositor/model and all six verifier cases remain exact;
 full pixel/source/input/cleanup proof is still required before advancing.
+
+[Software-preview attempt 2](docs/results/2026/11-12/software-preview-attempt-2.md)
+retains complete streams and unchanged fixture bytes but failed topology
+admission and source/root cleanup. Standing approval covers the proposal's
+bounded compiler-cache alias metadata policy, pre-refusal snapshots, independent
+cleanup observation and exited-child reaping. Preserve all missing proof; no
+denied signal retry, rights grant, sparse/size extension or product/verifier edit.
