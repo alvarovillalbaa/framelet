@@ -552,3 +552,13 @@ the3 unchanged retained package assets plus the small derived playback record,
 fresh public server/anonymous-byte checks and exact temporary self-retirement.
 Preserve14 existing assets/6 tags and every failed original. No new app/build/
 test/capture/device/model/paid action or broader trust claim in this data-only job.
+
+[0.1.5 publication passed](docs/results/2026/11-12/coverage-preview-publication.md):
+4 exact server/anonymous payloads,14 old assets/6 tags preserved,92 complete
+command streams/39 API responses,727-file source/index and owned root cleanup,
+disabled exact workflow/ref absence plus fresh public readback. The public
+preview now includes the duration repair and separate full Release qualification.
+All package/component/native/publication scopes are closed; do not replay them
+routinely. Keep old releases/failures immutable, main without active workflows,
+and the remaining architecture/device/audio/migration/accessibility/trust gates
+explicit. No paid identity, enrollment or trust bypass is authorized here.

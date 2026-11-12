@@ -8,22 +8,22 @@ A local Mac screen recorder with a recording library and clip editor. Choose a d
 
 ## Download the preview
 
-[Download Framelet for Apple silicon and Intel Macs](https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.3-preview.1/Framelet-0.1.3-macos-universal.zip)
-(macOS 15+), with its [SHA-256 checksum](https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.3-preview.1/Framelet-0.1.3-macos-universal.zip.sha256)
-and [source/toolchain manifest](https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.3-preview.1/Framelet-preview-manifest.json).
-The [preview release](https://github.com/alvarovillalbaa/framelet/releases/tag/v0.1.3-preview.1)
-contains the exact ZIP that passed fresh extraction and both-slice signature/
-packaging checks. It is ad-hoc signed, without Developer ID or notarization;
-downloaded-app Gatekeeper acceptance is unverified. See [installation and trust
-limits](docs/distribution.md). Packaging and download checks do not grant recording permissions.
+[Download Framelet 0.1.5 for Apple silicon and Intel Macs](https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.5-preview.1/Framelet-0.1.5-macos-universal.zip)
+(macOS 15+), with its [SHA-256 checksum](https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.5-preview.1/Framelet-0.1.5-macos-universal.zip.sha256),
+[build manifest](https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.5-preview.1/Framelet-preview-manifest.json)
+and [later playback qualification](https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.5-preview.1/Framelet-playback-qualification.json).
 
-The public download is 0.1.3/build 4, with accessible clip ranges, named canvas
-controls, display-aware window placement and the chosen window's title on
-macOS 15.2+. The [actual capture journey](docs/results/2026/11-12/capture-attempt-4.md),
-[new universal package](docs/results/2026/11-12/capture-preview-attempt-1.md), and
-[anonymous delivery](docs/results/2026/11-12/capture-preview-publication.md) passed
-their separate scopes. The earlier [window check](docs/results/2026/11-12/window-sizing-attempt-3.md) covered first launch,
-relaunch and additional windows on a 1024×768 VM without clipped window edges.
+Version 0.1.5/build6 fixes the black Recording preview caused by a tiny final
+instruction gap. Both Release slices/ZIP/signatures passed; the exact archive
+also passed all ten native playback phases and nine rendered-color assertions
+on an Intel VM. [Public delivery](docs/results/2026/11-12/coverage-preview-publication.md)
+verified all four server digests and anonymous downloaded bytes.
+
+The [developer preview](https://github.com/alvarovillalbaa/framelet/releases/tag/v0.1.5-preview.1)
+is ad-hoc signed, without Developer ID or notarization. Apple silicon runtime
+and downloaded-app Gatekeeper acceptance remain unverified. See
+[installation and trust limits](docs/distribution.md). Downloading does not grant
+recording permissions.
 
 ## Local build
 
@@ -41,15 +41,13 @@ For a Release preview archive containing both Apple silicon and Intel slices:
 ```
 
 This mode never launches or quits Framelet. It refuses existing preview ZIP/
-checksum leaves and produces `dist/Framelet-0.1.4-macos-universal.zip` plus its
-`.zip.sha256` checksum. It uses the same icon, bundle metadata and ad-hoc signing
-flow. Main currently contains an unqualified0.1.4 renderer candidate. Its
-[six decoded-frame cases](docs/results/2026/11-12/software-preview-attempt-4.md)
-and [universal package](docs/results/2026/11-12/compatible-preview-attempt-1.md)
-passed, but its [full Release playback](docs/results/2026/11-12/compatible-playback-attempt-1.md)
-still failed Recording pixels on Intel. The public download above remains0.1.3;
-use that reviewed tag to reproduce its package. The earlier 30-case
-run retains its ARM64/debug source/profile. See [distribution notes](docs/distribution.md).
+checksum leaves and produces `dist/Framelet-0.1.5-macos-universal.zip` plus its
+`.zip.sha256` checksum. Use the reviewed `v0.1.5-preview.1` tag to reproduce
+the public package. It uses the same icon, bundle metadata and ad-hoc signing
+flow. The [universal package](docs/results/2026/11-12/coverage-preview-attempt-1.md)
+and [full Release playback](docs/results/2026/11-12/coverage-playback-attempt-1.md)
+passed their separate scopes. Earlier 30-case evidence retains its original
+ARM64/debug source/profile. See [distribution notes](docs/distribution.md).
 
 The [first packaging invocation](docs/results/2026/11-08/preview-package-attempt-1.md)
 stopped before build because the metadata observer used a Linux-only Python
@@ -88,38 +86,20 @@ Playback failures expose **Reload Preview** without changing original files.
 These native playback behaviors have
 [focused synthetic-media evidence](docs/results/2026/10-28/ordered-playback-checks.md).
 
-The exact 0.1.3 Release app completed the later
-[real-take playback interaction journey](docs/results/2026/11-12/release-playback-attempt-5.md)
-on an Intel VM, but its **Recording preview stayed black** and failed the
-independent pixel check. Selected Clip rendered correctly. A separate
-[read-only comparison](docs/results/2026/11-12/composition-probe-attempt-3.md)
-showed the same built-in composition failure while a software Core Image
-control rendered. A new software compositor passed eight decoded output frames,
-but the0.1.4 candidate still shows black Recording in the full Release app.
-The [instruction delivery experiment](docs/results/2026/11-12/instruction-delivery-attempt-3.md)
-now measures valid original/explicit/source-timed instructions but zero renderer
-requests, while raw output returns both real colors. Those instruction variants
-do not repair playback. Recording-preview acceptance remains open before a
-shipping change or binary release. A [factory comparison](docs/results/2026/11-12/composition-factory-attempt-1.md)
-now renders both colors through generated properties and a counted software
-CIFilter; applying product settings together removes output. The individual
-setting responsible was isolated by the [coverage experiment](docs/results/2026/11-12/composition-properties-attempt-2.md):
-the final instruction ended one project tick before the native asset. Matching
-that end restores frames and renderer callbacks. The builder now uses the exact
-asset duration. Its [direct product regression](docs/results/2026/11-12/exact-coverage-attempt-1.md)
-passed3 original/trimmed/reordered projects and6 actual1920x1080 frames, including
-order, upright header, matte and full-range validity. New Release qualification
-remains open before publishing a usable binary.
+Version 0.1.5 [passed full Release playback](docs/results/2026/11-12/coverage-playback-attempt-1.md):
+play/pause, continuous take boundary, global seeks, Selected Clip reset, end/
+replay and normal Quit/reopen. Original screenshots and independent colors,
+actual Release process/bundle/input hashes and acknowledged cleanup verify the
+result. The [direct product regression](docs/results/2026/11-12/exact-coverage-attempt-1.md)
+also covers original, fractional-trim and reordered projects.
 
-The [0.1.5/build6 universal package](docs/results/2026/11-12/coverage-preview-attempt-1.md)
-now passes both Release slices and fresh ZIP/signature checks. Its exact retained
-archive still needs the full Release app journey and rendered-pixel qualification
-before a new usable download; the public0.1.3 archive remains unchanged.
-
-The [full0.1.5 Release journey now passed](docs/results/2026/11-12/coverage-playback-attempt-1.md)
-all ten native phases and nine rendered-color assertions, with actual Release
-process/bundle/input/cleanup verification. The exact-asset publication is next;
-no further app rebuild or test replay is needed for that delivery step.
+The earlier [0.1.3](docs/results/2026/11-12/release-playback-attempt-5.md) and
+[0.1.4](docs/results/2026/11-12/compatible-playback-attempt-1.md) Recording-pixel
+failures remain preserved. The [causal experiment](docs/results/2026/11-12/composition-properties-attempt-2.md)
+isolated instructions ending one project tick before the native asset; the
+builder now covers the exact asset duration. The old 0.1.4
+[raw failed packet](docs/results/2026/11-12/compatible-packet-verification.md)
+remains publicly preserved. No old failed verdict was overwritten.
 
 ## Verification and delivery
 
@@ -150,14 +130,15 @@ passed on a macOS 15.7.9/x86_64 Debug VM: exact authored-window selection,
 two real takes, Pause/Resume/Stop, normal Quit/reopen and native export.
 Independent decoding verified red then blue in the 23.08-second 1920×1080 MP4,
 with the pause excluded and original media/manifest hashes unchanged.
-Camera, microphone and system audio were off. The public 0.1.3 archive contains
-the qualified source and selected-window title display, with an earlier-OS fallback.
-Camera/audio synchronization and encoded first-frame timing remain open.
+Camera, microphone and system audio were off. That capture qualification retains
+its original Debug source; 0.1.5 adds separately qualified Release playback.
+Selected-window titles have the earlier-OS fallback. Camera/audio synchronization
+and encoded first-frame timing remain open.
 
 The temporary playback/diagnostic controls are retired, including the
 [data-only retirement closeout](docs/results/2026/11-12/composition-control-closeout.md).
-All failed original attempts remain preserved. The universal download above
-has not been replaced by an unqualified renderer candidate.
+All failed original attempts remain preserved. The universal 0.1.5 download
+has separate package, full Release playback and anonymous-delivery evidence.
 The later0.1.4 native failure's [raw result packet is permanently retained and
 anonymous delivery verified](docs/results/2026/11-12/compatible-packet-verification.md).
 Its temporary controls are retired; original failure/cleanup gaps remain explicit.
