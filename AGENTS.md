@@ -268,3 +268,14 @@ approval covers the changed native selector: actual play-control hit target,
 existing scoped radio button, viewport-contained scope/time frames and original failure PNG.
 All playback/pixel/process/file/cap/shutdown assertions and released bits remain
 mandatory. No product change or accepted-scope replay is inferred from launch.
+
+[FUI04 candidate 4 failed](docs/results/2026/11-12/release-playback-attempt-4.md)
+after partial play/pause/boundary/seek behavior. Preserve its originals, including
+the black preview frames. Standing approval covers candidate 5 in the same
+proposal: require strict viewport containment before leaving the scroll loop,
+then run the complete unchanged playback/color semantics. Add only a separate
+muted read-only AppKit/SwiftUI rendering diagnostic after acknowledged product
+shutdown, using the same pinned authored files and original PNG/AX/status JSON.
+No product patch is inferred until the control distinguishes likely causes.
+Keep exact released bits, all independent pixel/process/file/cleanup assertions
+and existing limits. The diagnostic never substitutes for product acceptance.

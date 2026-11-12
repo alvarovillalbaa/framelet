@@ -127,3 +127,25 @@ original diagnostic PNG on failure. The guarded diff against
 `7edb06a7b5cd22a94856e300cb1d089be01259d6` admits only those native-case selector/
 diagnostic edits among product/closed-case/verifier inputs. No shipping or
 runner/permission/cache-setting change, cap extension or closed-case replay.
+
+[Candidate 4 failed](../results/2026/11-12/release-playback-attempt-4.md) after
+play/pause, boundary crossing and global seeks, when the scroll helper exited
+before checking viewport containment. Its original phase PNGs also show black
+video. Candidate 5 moves the same strict scope/time containment checks into the
+loop's exit condition and retains all ten product phases and nine color checks.
+The guarded diff against `690cd777cff80a2d9ef11065bd6f6dc83108d85c` still admits
+only this native-case file among shipping/closed-case/independent-pixel inputs.
+
+After actual no-source acknowledgment and product shutdown, the same sole
+native case's teardown opens a separate disposable first-party rendering probe.
+It reads only the pinned red/blue originals, mutes all players, and compares
+plain AppKit AVPlayerViews with unclipped/clipped SwiftUI wrappers in four
+labeled panes. It records actual player/item status, time, video/view bounds,
+original full-screen PNG/AX and JSON, then ordinarily quits. No Framelet code,
+capture/export/device permission, media modification, private API, product hook
+or replacement pixel assertion. The probe is diagnostic only; even a visible
+control cannot qualify the product. No forced writer termination: the probe
+owns no media writer. The existing root/file/process/budget guards and full
+native/pixel verdict remain mandatory. Released bits stay exact and unchanged
+until evidence establishes a shipping correction. This is one changed bounded
+candidate, not a retry of a closed scope or an inference from a black screenshot.

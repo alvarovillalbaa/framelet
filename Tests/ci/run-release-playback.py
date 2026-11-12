@@ -25,7 +25,7 @@ source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "x86_64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-release-playback-20261112-4"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-release-playback-20261112-5"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-release-playback-", dir=parent)).resolve()
@@ -275,14 +275,14 @@ try:
     baseline = source_guard()
     index_before = sha((repo / ".git/index").read_bytes())
     changes = run("qualified-input-diff", ["/usr/bin/git", "diff", "--name-only",
-        "7edb06a7b5cd22a94856e300cb1d089be01259d6", "HEAD", "--", "Package.swift", "Sources", "Resources", "script",
+        "690cd777cff80a2d9ef11065bd6f6dc83108d85c", "HEAD", "--", "Package.swift", "Sources", "Resources", "script",
         "Tests/FrameletCoreTests", "Tests/FrameletPlaybackTests", "Tests/FrameletAcceptance.xcodeproj",
         "Tests/e2e/FrameletAcceptance.swift", "Tests/e2e/FrameletWindowAcceptance.swift",
         "Tests/e2e/FrameletPickerReadiness.swift", "Tests/e2e/FrameletCaptureAcceptance.swift",
         "Tests/e2e/FrameletReleasePlaybackAcceptance.swift", "Tests/ci/ReleasePlaybackPixels.swift"])
     assert set(changes.decode().splitlines()) == {"Tests/e2e/FrameletReleasePlaybackAcceptance.swift"}
-    report["runtimeProductAndPixelVerifierUnchangedFromNativeAttempt3"] = True
-    report["nativeCaseChanges"] = "Interactive play-control hit target, existing scoped radio button, viewport-contained read-only frames and original failure PNG only"
+    report["runtimeProductAndPixelVerifierUnchangedFromNativeAttempt4"] = True
+    report["nativeCaseChanges"] = "Require viewport containment before scroll-loop exit; separate read-only rendering control only after product shutdown"
     raw = (repo / "docs/results/2026/11-12/capture-preview-attempt-1.json").read_bytes()
     assert sha(raw) == "b61e3306694747232570b93862d2d46154d3c32936c1c7a32c18ee2cbe940d07"
     package = json.loads(raw)
@@ -350,7 +350,22 @@ try:
             continue
         target = export / name; target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes((repo / name).read_bytes()); target.chmod(0o755 if row["mode"] == "100755" else 0o644)
+    probe = root / "RenderingProbe.app"
+    (probe / "Contents/MacOS").mkdir(parents=True)
+    (probe / "Contents/Info.plist").write_bytes(plistlib.dumps({"CFBundleIdentifier": "com.alvarovillalbaa.Framelet.RenderingProbe",
+        "CFBundleName": "RenderingProbe", "CFBundleExecutable": "RenderingProbe", "CFBundlePackageType": "APPL",
+        "LSMinimumSystemVersion": "15.0", "NSHighResolutionCapable": True}))
+    run("rendering-probe-compile", ["/usr/bin/xcrun", "swiftc", "-parse-as-library", "-swift-version", "5",
+        "-module-cache-path", str(root / "cache/probe-modules"), str(repo / "Tests/ci/PlaybackRenderingProbe.swift"),
+        "-o", str(probe / "Contents/MacOS/RenderingProbe")], seconds=120)
+    run("rendering-probe-adhoc-sign", ["/usr/bin/codesign", "--sign", "-", str(probe)])
+    probe_report = root / "rendering-probe.json"
+    probe_config = root / "rendering-probe-config.json"
+    probe_config.write_text(json.dumps({"red": str(target_package / next(name for name in pins if name.startswith("segments/C456"))),
+        "blue": str(target_package / next(name for name in pins if name.startswith("segments/1124"))),
+        "nonce": nonce, "output": str(probe_report)}))
     config = {"root": str(root), "nonce": nonce, "title": project["title"],
+        "renderingProbeApp": str(probe), "renderingProbeConfig": str(probe_config), "renderingProbeReport": str(probe_report),
         "firstDuration": str(project["segments"][0]["durationSeconds"]),
         "totalDuration": str(sum(row["durationSeconds"] for row in project["segments"]))}
     (export / "Tests/e2e/FixtureConfig.json").write_text(json.dumps(config))

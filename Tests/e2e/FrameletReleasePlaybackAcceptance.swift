@@ -60,7 +60,9 @@ final class FrameletReleasePlaybackAcceptance: XCTestCase {
             for _ in 0..<8 {
                 if recordingControl.exists
                     && (visible(app.buttons["Play Recording"]) || visible(app.buttons["Play Clip"])
-                        || visible(app.buttons["Pause Playback"])) { break }
+                        || visible(app.buttons["Pause Playback"]))
+                    && scroll.frame.contains(scope.frame)
+                    && scroll.frame.contains(timeElement().frame) { break }
                 scroll.scroll(byDeltaX: 0, deltaY: 250)
             }
             XCTAssertTrue(recordingControl.exists)
@@ -170,6 +172,26 @@ final class FrameletReleasePlaybackAcceptance: XCTestCase {
                     attachment.name = "playback-shutdown"; attachment.lifetime = .keepAlways; self.add(attachment)
                 }
                 if safe && app.state != .notRunning { app.terminate() }
+                // Independent diagnostic only, after the product has stopped.
+                // It never substitutes for the ten product phases or their pixels.
+                if safe, app.state == .notRunning, let path = config["renderingProbeApp"],
+                   let input = config["renderingProbeConfig"], let output = config["renderingProbeReport"] {
+                    let probe = XCUIApplication(url: URL(fileURLWithPath: path))
+                    probe.launchArguments = [input]
+                    probe.launch()
+                    let ready = probe.staticTexts["Read-only rendering probe ready"].firstMatch
+                    _ = ready.waitForExistence(timeout: 25)
+                    let tree = XCTAttachment(string: probe.debugDescription)
+                    tree.name = "diagnostic-rendering-probe.accessibility"; tree.lifetime = .keepAlways; self.add(tree)
+                    let image = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+                    image.name = "diagnostic-rendering-probe"; image.lifetime = .keepAlways; self.add(image)
+                    if let bytes = try? Data(contentsOf: URL(fileURLWithPath: output)) {
+                        let data = XCTAttachment(data: bytes, uniformTypeIdentifier: "public.json")
+                        data.name = "diagnostic-rendering-probe"; data.lifetime = .keepAlways; self.add(data)
+                    }
+                    probe.typeKey("q", modifierFlags: .command)
+                    if probe.state != .notRunning { probe.terminate() }
+                }
             }
         }
 
