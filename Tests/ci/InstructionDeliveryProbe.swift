@@ -187,7 +187,13 @@ private enum InstructionProbe {
             let pull = AVPlayerItemVideoOutput(pixelBufferAttributes: [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA])
             pull.suppressesPlayerRendering = false; item.add(pull)
             let player = AVPlayer(playerItem: item); player.isMuted = true; player.actionAtItemEnd = .pause
-            let valid = video?.isValid(for: built.asset, timeRange: CMTimeRange(start: .zero, duration: built.duration), validationDelegate: nil) ?? true
+            let valid: Bool
+            var validationError = ""
+            do {
+                valid = try await video?.isValid(for: built.asset, timeRange: CMTimeRange(start: .zero, duration: built.duration), validationDelegate: nil) ?? true
+            } catch {
+                valid = false; validationError = error.localizedDescription
+            }
             for (phase, target) in [("red", 3.0), ("blue", 15.0)] {
                 var seekFinished = false, seekSucceeded = false, playing = false
                 player.seek(to: CMTime(seconds: target, preferredTimescale: 600), toleranceBefore: .zero, toleranceAfter: .zero) { completed in
@@ -227,7 +233,7 @@ private enum InstructionProbe {
                 player.pause()
                 let requests = (item.customVideoCompositor as? CountingOriginalCompositor)?.requestCount
                     ?? (item.customVideoCompositor as? ProtocolExperimentCompositor)?.requestCount ?? -1
-                rows.append(["variant": name, "phase": phase, "requestedSeconds": target, "valid": valid,
+                rows.append(["variant": name, "phase": phase, "requestedSeconds": target, "valid": valid, "validationError": validationError,
                     "seekFinished": seekFinished, "seekSucceeded": seekSucceeded, "playerTime": finite(player.currentTime().seconds),
                     "playerStatus": player.status.rawValue, "itemStatus": item.status.rawValue,
                     "playerError": player.error?.localizedDescription ?? "", "itemError": item.error?.localizedDescription ?? "",

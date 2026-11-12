@@ -2,8 +2,8 @@
 name: Temporary Framelet instruction delivery diagnostic
 on:
   push:
-    branches: [qa/framelet-instruction-delivery-20261112-1]
-    paths: [.github/workflows/framelet-instruction-delivery-20261112-1.yml]
+    branches: [qa/framelet-instruction-delivery-20261112-2]
+    paths: [.github/workflows/framelet-instruction-delivery-20261112-2.yml]
 permissions:
   contents: write
   actions: write
@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   pixels:
-    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-instruction-delivery-20261112-1'
+    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-instruction-delivery-20261112-2'
     runs-on: macos-15-intel
     timeout-minutes: 12
     env:

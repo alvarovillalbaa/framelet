@@ -41,3 +41,9 @@ of experiment/evidence cleanup. Main keeps an inactive workflow example.
 Local verification is syntax parsing, source equivalence and diff only after
 Storage Guard refusal. Review measurements before editing shipping code; full
 new-source Release/native pixel qualification remains open.
+
+[Attempt 1](../results/2026/11-12/instruction-delivery-attempt-1.md) failed
+helper compilation before playback because validation needs `try await` in the
+native SDK. All inputs/cleanup/retirement passed. Attempt 2 changes only that
+diagnostic call and records validation errors; the source/renderer/raw-control/
+resource/retirement contract remains unchanged. Preserve the original failure.

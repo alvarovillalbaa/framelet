@@ -450,3 +450,9 @@ No visible window, Framelet launch, capture/export/device action, shipping edit,
 closed-case replay or new binary publication. Preserve exact product/old inputs,
 production drawing-body equality, partial evidence and owned cleanup/retirement.
 Choose a product fix only from the actual measurements.
+
+[Instruction attempt 1](docs/results/2026/11-12/instruction-delivery-attempt-1.md)
+failed helper compilation before playback; input/group/root cleanup and exact
+retirement passed. Standing approval covers the corrected async throwing
+validation call/error recording in attempt 2 with every original bound and
+raw-control assertion retained. No shipping edit or unchanged failed retry.
