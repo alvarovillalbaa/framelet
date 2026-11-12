@@ -47,3 +47,7 @@ system audio, personal media, account, paid service or model call was used.
 Physical capture/permissions/audio timing, trust/downloaded-app launch,
 Release runtime on both architectures and full recorder parity remain open.
 The public download remains the old 0.1.0 preview until fresh assets publish.
+
+Follow-up: the separate [0.1.1 refresh](preview-refresh-attempt-1.md) and
+[unchanged public asset delivery](preview-refresh-publication.md) passed.
+This preserves the original native result and its debug/arm64 proof limits.

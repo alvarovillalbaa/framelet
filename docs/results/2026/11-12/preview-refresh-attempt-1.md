@@ -48,6 +48,8 @@ Workflow 415824158 is disabled and the exact QA ref is independently absent.
 
 The checked ZIP/checksum/manifest are ready for unchanged publication as
 `v0.1.1-preview.1`; publication and anonymous delivery are separate proof.
+The subsequent [publication and anonymous downloads](preview-refresh-publication.md)
+passed for these exact retained assets.
 This does not establish Release runtime on either architecture, fresh downloaded
 app/Gatekeeper trust, live capture/permissions, physical camera/audio timing,
 human accessibility or narrow-window layout. Existing native screenshots show

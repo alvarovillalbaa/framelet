@@ -1,0 +1,208 @@
+{
+  "status": "passed",
+  "observedUTC": "2026-11-12 10:05:36 UTC",
+  "release": {
+    "url": "https://api.github.com/repos/alvarovillalbaa/framelet/releases/442765166",
+    "assets_url": "https://api.github.com/repos/alvarovillalbaa/framelet/releases/442765166/assets",
+    "upload_url": "https://uploads.github.com/repos/alvarovillalbaa/framelet/releases/442765166/assets{?name,label}",
+    "html_url": "https://github.com/alvarovillalbaa/framelet/releases/tag/v0.1.1-preview.1",
+    "id": 442765166,
+    "author": {
+      "login": "github-actions[bot]",
+      "id": 41898282,
+      "node_id": "MDM6Qm90NDE4OTgyODI=",
+      "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/github-actions%5Bbot%5D",
+      "html_url": "https://github.com/apps/github-actions",
+      "followers_url": "https://api.github.com/users/github-actions%5Bbot%5D/followers",
+      "following_url": "https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}",
+      "gists_url": "https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/github-actions%5Bbot%5D/subscriptions",
+      "organizations_url": "https://api.github.com/users/github-actions%5Bbot%5D/orgs",
+      "repos_url": "https://api.github.com/users/github-actions%5Bbot%5D/repos",
+      "events_url": "https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/github-actions%5Bbot%5D/received_events",
+      "type": "Bot",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "node_id": "RE_kwDOVZlSFc4aZA9u",
+    "tag_name": "v0.1.1-preview.1",
+    "target_commitish": "618cabda9b08b04604dbb7992e8c4f73ff9606a8",
+    "name": "Framelet 0.1.1 developer preview",
+    "draft": false,
+    "immutable": false,
+    "prerelease": true,
+    "created_at": "2026-11-12T09:52:06Z",
+    "updated_at": "2026-11-12T10:03:52Z",
+    "published_at": "2026-11-12T10:03:52Z",
+    "assets": [
+      {
+        "url": "https://api.github.com/repos/alvarovillalbaa/framelet/releases/assets/738972227",
+        "id": 738972227,
+        "node_id": "RA_kwDOVZlSFc4sC9JD",
+        "name": "Framelet-0.1.1-macos-universal.zip",
+        "label": "",
+        "uploader": {
+          "login": "github-actions[bot]",
+          "id": 41898282,
+          "node_id": "MDM6Qm90NDE4OTgyODI=",
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/github-actions%5Bbot%5D",
+          "html_url": "https://github.com/apps/github-actions",
+          "followers_url": "https://api.github.com/users/github-actions%5Bbot%5D/followers",
+          "following_url": "https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}",
+          "gists_url": "https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/github-actions%5Bbot%5D/subscriptions",
+          "organizations_url": "https://api.github.com/users/github-actions%5Bbot%5D/orgs",
+          "repos_url": "https://api.github.com/users/github-actions%5Bbot%5D/repos",
+          "events_url": "https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/github-actions%5Bbot%5D/received_events",
+          "type": "Bot",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "content_type": "application/zip",
+        "state": "uploaded",
+        "size": 1159292,
+        "digest": "sha256:0a02be066db9936c35decab2b32e4892cbf1c75b97ed3d2188c0abc420a78fce",
+        "download_count": 0,
+        "created_at": "2026-11-12T10:03:51Z",
+        "updated_at": "2026-11-12T10:03:51Z",
+        "browser_download_url": "https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.1-preview.1/Framelet-0.1.1-macos-universal.zip"
+      },
+      {
+        "url": "https://api.github.com/repos/alvarovillalbaa/framelet/releases/assets/738972230",
+        "id": 738972230,
+        "node_id": "RA_kwDOVZlSFc4sC9JG",
+        "name": "Framelet-0.1.1-macos-universal.zip.sha256",
+        "label": "",
+        "uploader": {
+          "login": "github-actions[bot]",
+          "id": 41898282,
+          "node_id": "MDM6Qm90NDE4OTgyODI=",
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/github-actions%5Bbot%5D",
+          "html_url": "https://github.com/apps/github-actions",
+          "followers_url": "https://api.github.com/users/github-actions%5Bbot%5D/followers",
+          "following_url": "https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}",
+          "gists_url": "https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/github-actions%5Bbot%5D/subscriptions",
+          "organizations_url": "https://api.github.com/users/github-actions%5Bbot%5D/orgs",
+          "repos_url": "https://api.github.com/users/github-actions%5Bbot%5D/repos",
+          "events_url": "https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/github-actions%5Bbot%5D/received_events",
+          "type": "Bot",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "content_type": "application/octet-stream",
+        "state": "uploaded",
+        "size": 101,
+        "digest": "sha256:f7631379c8b09a575a5016967254336237cc85c18a6e9716cbb4be378edd57dc",
+        "download_count": 0,
+        "created_at": "2026-11-12T10:03:51Z",
+        "updated_at": "2026-11-12T10:03:51Z",
+        "browser_download_url": "https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.1-preview.1/Framelet-0.1.1-macos-universal.zip.sha256"
+      },
+      {
+        "url": "https://api.github.com/repos/alvarovillalbaa/framelet/releases/assets/738972234",
+        "id": 738972234,
+        "node_id": "RA_kwDOVZlSFc4sC9JK",
+        "name": "Framelet-preview-manifest.json",
+        "label": "",
+        "uploader": {
+          "login": "github-actions[bot]",
+          "id": 41898282,
+          "node_id": "MDM6Qm90NDE4OTgyODI=",
+          "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/github-actions%5Bbot%5D",
+          "html_url": "https://github.com/apps/github-actions",
+          "followers_url": "https://api.github.com/users/github-actions%5Bbot%5D/followers",
+          "following_url": "https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}",
+          "gists_url": "https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/github-actions%5Bbot%5D/subscriptions",
+          "organizations_url": "https://api.github.com/users/github-actions%5Bbot%5D/orgs",
+          "repos_url": "https://api.github.com/users/github-actions%5Bbot%5D/repos",
+          "events_url": "https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/github-actions%5Bbot%5D/received_events",
+          "type": "Bot",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "content_type": "application/json",
+        "state": "uploaded",
+        "size": 2617,
+        "digest": "sha256:a05a21480e2df7852911a09b16f6f4fc378f1d4901de2c4022eff164e6158bd5",
+        "download_count": 0,
+        "created_at": "2026-11-12T10:03:51Z",
+        "updated_at": "2026-11-12T10:03:51Z",
+        "browser_download_url": "https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.1-preview.1/Framelet-preview-manifest.json"
+      }
+    ],
+    "tarball_url": "https://api.github.com/repos/alvarovillalbaa/framelet/tarball/v0.1.1-preview.1",
+    "zipball_url": "https://api.github.com/repos/alvarovillalbaa/framelet/zipball/v0.1.1-preview.1",
+    "body": "Local macOS recorder/editor preview with accessible clip ranges and named canvas controls. Native authored-media edit/reopen/export qualification passed separately on arm64/debug; the actual universal Release ZIP passed both-architecture packaging, signatures and fresh extraction. Requires macOS 15+. Ad-hoc signed; no Developer ID or notarization. Live capture, camera/audio timing, narrow-window layout, physical-device and downloaded-app trust acceptance remain open. See the repository distribution guide and exact source/toolchain manifest. No cloud account or paid service required."
+  },
+  "tag": {
+    "ref": "refs/tags/v0.1.1-preview.1",
+    "node_id": "REF_kwDOVZlSFbpyZWZzL3RhZ3MvdjAuMS4xLXByZXZpZXcuMQ",
+    "url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/refs/tags/v0.1.1-preview.1",
+    "object": {
+      "sha": "618cabda9b08b04604dbb7992e8c4f73ff9606a8",
+      "type": "commit",
+      "url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/commits/618cabda9b08b04604dbb7992e8c4f73ff9606a8"
+    }
+  },
+  "currentUIRefreshPublicationRefs": [],
+  "olderRetiredPreviewRefsPreserved": [
+    {
+      "ref": "refs/heads/qa/framelet-preview-20261108-1",
+      "node_id": "REF_kwDOVZlSFdoAKXJlZnMvaGVhZHMvcWEvZnJhbWVsZXQtcHJldmlldy0yMDI2MTEwOC0x",
+      "url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/refs/heads/qa/framelet-preview-20261108-1",
+      "object": {
+        "sha": "84eda588ae8ec532fa4bf7c9e8f6e0121ec3aa04",
+        "type": "commit",
+        "url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/commits/84eda588ae8ec532fa4bf7c9e8f6e0121ec3aa04"
+      }
+    },
+    {
+      "ref": "refs/heads/qa/framelet-preview-20261108-2",
+      "node_id": "REF_kwDOVZlSFdoAKXJlZnMvaGVhZHMvcWEvZnJhbWVsZXQtcHJldmlldy0yMDI2MTEwOC0y",
+      "url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/refs/heads/qa/framelet-preview-20261108-2",
+      "object": {
+        "sha": "81f118281086dad95ac4736cbd2d82cff18df166",
+        "type": "commit",
+        "url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/commits/81f118281086dad95ac4736cbd2d82cff18df166"
+      }
+    },
+    {
+      "ref": "refs/heads/qa/framelet-preview-20261108-3",
+      "node_id": "REF_kwDOVZlSFdoAKXJlZnMvaGVhZHMvcWEvZnJhbWVsZXQtcHJldmlldy0yMDI2MTEwOC0z",
+      "url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/refs/heads/qa/framelet-preview-20261108-3",
+      "object": {
+        "sha": "daf42621543c9ea8e71e5b2f6e14a62d1ee2735e",
+        "type": "commit",
+        "url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/commits/daf42621543c9ea8e71e5b2f6e14a62d1ee2735e"
+      }
+    }
+  ],
+  "mainAtPublicationReadback": {
+    "ref": "refs/heads/main",
+    "node_id": "REF_kwDOVZlSFa9yZWZzL2hlYWRzL21haW4",
+    "url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/refs/heads/main",
+    "object": {
+      "sha": "71c94a23405aaf7b8cc262e23f9b5ecada8f3910",
+      "type": "commit",
+      "url": "https://api.github.com/repos/alvarovillalbaa/framelet/git/commits/71c94a23405aaf7b8cc262e23f9b5ecada8f3910"
+    }
+  }
+}

@@ -78,3 +78,12 @@ the closed build/inspection scope. Publish its three unchanged, hash-pinned
 assets through the bounded data-only publication helper; retain exact public
 tag/server/anonymous-download evidence and retire only its temporary control.
 Keep capture, trust, physical devices and observed narrow-window clipping open.
+
+[0.1.1 publication passed](docs/results/2026/11-12/preview-refresh-publication.md):
+the three retained assets have exact server digests and anonymous downloaded
+bytes. All new task controls are disabled/removed. Three older retired 0.1.0
+QA refs remain preserved; do not interpret their existence as active execution.
+No routine check/publication rerun is needed. The next concrete app defect is
+the 1180-pixel default reopened window exceeding the 1024-pixel VM display;
+its correction needs a fresh bounded native window-sizing profile, preserving
+this release and the closed FUI01/packaging evidence.

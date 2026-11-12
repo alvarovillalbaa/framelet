@@ -50,8 +50,11 @@ It verifies real native rename/clip/canvas/save-panel actions, saved edits after
 relaunch, unchanged original hashes and an independently decoded 1.2-second
 1080×1080 blue/red MP4. It does not establish real capture, audio, camera timing,
 human accessibility or narrow-window layout. The 1024-pixel VM's reopened
-window clips edges. Rendered background pixels and new Release packaging have
-their own [preview-refresh scope](../proposals/preview-refresh-checks.md).
+window clips edges. The separate [preview refresh](../results/2026/11-12/preview-refresh-attempt-1.md)
+passed rendered Sand corner pixels on that retained export and new non-launching
+Release/universal packaging. Its [three public assets](../results/2026/11-12/preview-refresh-publication.md)
+passed anonymous byte/digest checks. These do not establish Release runtime,
+downloaded-app trust or actual capture/device timing.
 
 The approved [native check run](../results/2026/10-28/ordered-playback-checks.md)
 establishes compilation, packaging, a local ad-hoc signature and thirty exact

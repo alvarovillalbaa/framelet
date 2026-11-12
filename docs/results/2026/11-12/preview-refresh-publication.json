@@ -1,0 +1,340 @@
+{
+  "schemaVersion": 1,
+  "kind": "framelet-preview-publication",
+  "status": "passed",
+  "packageSource": "618cabda9b08b04604dbb7992e8c4f73ff9606a8",
+  "applicationOrTestsExecuted": false,
+  "requests": [
+    {
+      "method": "GET",
+      "route": "releases/438167998",
+      "status": 200,
+      "sha256": "259dc9991a92c289ba4ee25ecf68d00f1fe7814109dc2ec8166a60b22b75fdac"
+    },
+    {
+      "method": "GET",
+      "route": "git/ref/tags/v0.1.0-preview.1",
+      "status": 200,
+      "sha256": "71a599ca0ae51526f310608122766b44ac824b412305d02b00b118092d41dcff"
+    },
+    {
+      "method": "GET",
+      "route": "releases/442693072",
+      "status": 200,
+      "sha256": "0ad8ae2b9cafe281bd4f585746e8b6b01d06ad324e945447ed9a9042b183c4c6"
+    },
+    {
+      "method": "GET",
+      "route": "git/ref/tags/framelet-ui-evidence-20261112-attempt-5",
+      "status": 200,
+      "sha256": "3fd3efe5b20e3aa304eca914d1b218ca323d676c1387d508ede5d81fa03ebf62"
+    },
+    {
+      "method": "GET",
+      "route": "git/matching-refs/tags/v0.1.1-preview.1",
+      "status": 200,
+      "sha256": "997672738cecabab6c32f0b89fcf9ff5319cd8ff8ecfc6f43b44ce1e15a261ca"
+    },
+    {
+      "method": "POST",
+      "route": "releases",
+      "status": 201,
+      "sha256": "295edff6584c96af00b88e2eab916fd493697e6cdbfc9c7a018dcc164558c37f"
+    },
+    {
+      "method": "GET",
+      "route": "releases/442765166/assets",
+      "status": 200,
+      "sha256": "49b09ec5ef217f8a30dcae8e3f7750535401e46143c544e4ced8f67723c23210"
+    },
+    {
+      "method": "PATCH",
+      "route": "releases/442765166",
+      "status": 200,
+      "sha256": "6c65b4c60c84fa40daa1aafa078d7a7e4977acfbd7e952e126b994dc0b37f065"
+    },
+    {
+      "method": "GET",
+      "route": "git/ref/tags/v0.1.1-preview.1",
+      "status": 200,
+      "sha256": "c6b49a7d84f0212051e3e2b068257497d74cc278bb418b19aedb68ced5f1dcee"
+    },
+    {
+      "method": "GET",
+      "route": "releases/442765166",
+      "status": 200,
+      "sha256": "933b6089c0557849fe6ef2071879e83481aa881158cacdce41bd406bb6832516"
+    },
+    {
+      "method": "GET",
+      "route": "releases/438167998",
+      "status": 200,
+      "sha256": "b59ec241951b89b44b4fc7c31caacbaad6dbd88a3fa51c1e98e3bc34b63797cd"
+    },
+    {
+      "method": "GET",
+      "route": "git/ref/tags/v0.1.0-preview.1",
+      "status": 200,
+      "sha256": "c7cf390495bb1f837730b0ce1198fde5d5b830b2cb9f2bbbea5f7fe458846ba0"
+    },
+    {
+      "method": "GET",
+      "route": "releases/442693072",
+      "status": 200,
+      "sha256": "69be09eeda9bff38698b106d702eb432ba99f1a3ca11580da300e75d5170a56f"
+    },
+    {
+      "method": "GET",
+      "route": "git/ref/tags/framelet-ui-evidence-20261112-attempt-5",
+      "status": 200,
+      "sha256": "343cebca142dbbb04a476be2f209a99c702a1593d08e282df400fad5a9de40bd"
+    },
+    {
+      "method": "GET",
+      "route": "actions/runs/43196968069",
+      "status": 200,
+      "sha256": "44d6ed85948ac60170b4dffd0a1512f03c4805eb519247545a2f68ef145d77c1"
+    },
+    {
+      "method": "GET",
+      "route": "actions/workflows/415836143",
+      "status": 200,
+      "sha256": "44ee29bfbc9b58d1ec83b2862549dc48776e734d916e0235810f216403a11ab8"
+    },
+    {
+      "method": "PUT",
+      "route": "actions/workflows/415836143/disable",
+      "status": 204,
+      "sha256": "58379fba92e0f2a1b8aae10edc56232d73f9b5c807fea4ed163eb6c948e3e4c3"
+    },
+    {
+      "method": "GET",
+      "route": "actions/workflows/415836143",
+      "status": 200,
+      "sha256": "c0c00fb82b41d256ff243be604527aea60c0f8888f798286e4d9b49d2e7acbba"
+    },
+    {
+      "method": "GET",
+      "route": "git/ref/heads/qa/framelet-publish-20261112-1",
+      "status": 200,
+      "sha256": "ea27702d22ccf149841994c4c0607ffda8128e9b210219410aa6f51d71298df9"
+    },
+    {
+      "method": "DELETE",
+      "route": "git/refs/heads/qa/framelet-publish-20261112-1",
+      "status": 204,
+      "sha256": "b0bd5ed2f6d8593bfa6a99f05288f974ddeb917147b26a0667460118c2b99b8d"
+    },
+    {
+      "method": "GET",
+      "route": "git/matching-refs/heads/qa/framelet-publish-20261112-1",
+      "status": 200,
+      "sha256": "a0a0b3ba8773e427ff03120caa55c8262f29e33a0822ed031599fa95114b21e8"
+    }
+  ],
+  "oldAssetsBefore": [
+    {
+      "id": 723581535,
+      "size": 1157438,
+      "digest": "sha256:c84865b23c93113114f44d7cbff17f19ca661905f2a1ca0f8f18a2b02ef1e76a"
+    },
+    {
+      "id": 723581604,
+      "size": 101,
+      "digest": "sha256:1435dfc7a21632d75242cdc0a87c0ed226cafb40e0c0ac2907ad824e94fc6ffa"
+    },
+    {
+      "id": 723581621,
+      "size": 1735,
+      "digest": "sha256:3f899233af08cb19567100fa9a0cd5c47d7d652bf8f8f3ac957771a6b29750f2"
+    },
+    {
+      "id": 738757493,
+      "size": 98057941,
+      "digest": "sha256:c9e8a9831198623d7673ed096dc59c02eeae48859101211c0d1a928305d33496"
+    }
+  ],
+  "assets": {
+    "Framelet-0.1.1-macos-universal.zip": {
+      "bytes": 1159292,
+      "sha256": "0a02be066db9936c35decab2b32e4892cbf1c75b97ed3d2188c0abc420a78fce"
+    },
+    "Framelet-0.1.1-macos-universal.zip.sha256": {
+      "bytes": 101,
+      "sha256": "f7631379c8b09a575a5016967254336237cc85c18a6e9716cbb4be378edd57dc"
+    },
+    "Framelet-preview-manifest.json": {
+      "bytes": 2617,
+      "sha256": "a05a21480e2df7852911a09b16f6f4fc378f1d4901de2c4022eff164e6158bd5"
+    }
+  },
+  "releaseId": 442765166,
+  "tag": "v0.1.1-preview.1",
+  "url": "https://github.com/alvarovillalbaa/framelet/releases/tag/v0.1.1-preview.1",
+  "serverAssets": [
+    {
+      "url": "https://api.github.com/repos/alvarovillalbaa/framelet/releases/assets/738972227",
+      "id": 738972227,
+      "node_id": "RA_kwDOVZlSFc4sC9JD",
+      "name": "Framelet-0.1.1-macos-universal.zip",
+      "label": "",
+      "uploader": {
+        "login": "github-actions[bot]",
+        "id": 41898282,
+        "node_id": "MDM6Qm90NDE4OTgyODI=",
+        "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/github-actions%5Bbot%5D",
+        "html_url": "https://github.com/apps/github-actions",
+        "followers_url": "https://api.github.com/users/github-actions%5Bbot%5D/followers",
+        "following_url": "https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}",
+        "gists_url": "https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/github-actions%5Bbot%5D/subscriptions",
+        "organizations_url": "https://api.github.com/users/github-actions%5Bbot%5D/orgs",
+        "repos_url": "https://api.github.com/users/github-actions%5Bbot%5D/repos",
+        "events_url": "https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/github-actions%5Bbot%5D/received_events",
+        "type": "Bot",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "content_type": "application/zip",
+      "state": "uploaded",
+      "size": 1159292,
+      "digest": "sha256:0a02be066db9936c35decab2b32e4892cbf1c75b97ed3d2188c0abc420a78fce",
+      "download_count": 0,
+      "created_at": "2026-11-12T10:03:51Z",
+      "updated_at": "2026-11-12T10:03:51Z",
+      "browser_download_url": "https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.1-preview.1/Framelet-0.1.1-macos-universal.zip"
+    },
+    {
+      "url": "https://api.github.com/repos/alvarovillalbaa/framelet/releases/assets/738972230",
+      "id": 738972230,
+      "node_id": "RA_kwDOVZlSFc4sC9JG",
+      "name": "Framelet-0.1.1-macos-universal.zip.sha256",
+      "label": "",
+      "uploader": {
+        "login": "github-actions[bot]",
+        "id": 41898282,
+        "node_id": "MDM6Qm90NDE4OTgyODI=",
+        "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/github-actions%5Bbot%5D",
+        "html_url": "https://github.com/apps/github-actions",
+        "followers_url": "https://api.github.com/users/github-actions%5Bbot%5D/followers",
+        "following_url": "https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}",
+        "gists_url": "https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/github-actions%5Bbot%5D/subscriptions",
+        "organizations_url": "https://api.github.com/users/github-actions%5Bbot%5D/orgs",
+        "repos_url": "https://api.github.com/users/github-actions%5Bbot%5D/repos",
+        "events_url": "https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/github-actions%5Bbot%5D/received_events",
+        "type": "Bot",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "content_type": "application/octet-stream",
+      "state": "uploaded",
+      "size": 101,
+      "digest": "sha256:f7631379c8b09a575a5016967254336237cc85c18a6e9716cbb4be378edd57dc",
+      "download_count": 0,
+      "created_at": "2026-11-12T10:03:51Z",
+      "updated_at": "2026-11-12T10:03:51Z",
+      "browser_download_url": "https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.1-preview.1/Framelet-0.1.1-macos-universal.zip.sha256"
+    },
+    {
+      "url": "https://api.github.com/repos/alvarovillalbaa/framelet/releases/assets/738972234",
+      "id": 738972234,
+      "node_id": "RA_kwDOVZlSFc4sC9JK",
+      "name": "Framelet-preview-manifest.json",
+      "label": "",
+      "uploader": {
+        "login": "github-actions[bot]",
+        "id": 41898282,
+        "node_id": "MDM6Qm90NDE4OTgyODI=",
+        "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/github-actions%5Bbot%5D",
+        "html_url": "https://github.com/apps/github-actions",
+        "followers_url": "https://api.github.com/users/github-actions%5Bbot%5D/followers",
+        "following_url": "https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}",
+        "gists_url": "https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/github-actions%5Bbot%5D/subscriptions",
+        "organizations_url": "https://api.github.com/users/github-actions%5Bbot%5D/orgs",
+        "repos_url": "https://api.github.com/users/github-actions%5Bbot%5D/repos",
+        "events_url": "https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/github-actions%5Bbot%5D/received_events",
+        "type": "Bot",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "content_type": "application/json",
+      "state": "uploaded",
+      "size": 2617,
+      "digest": "sha256:a05a21480e2df7852911a09b16f6f4fc378f1d4901de2c4022eff164e6158bd5",
+      "download_count": 0,
+      "created_at": "2026-11-12T10:03:51Z",
+      "updated_at": "2026-11-12T10:03:51Z",
+      "browser_download_url": "https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.1-preview.1/Framelet-preview-manifest.json"
+    }
+  ],
+  "anonymousDownloads": [
+    {
+      "name": "Framelet-0.1.1-macos-universal.zip",
+      "url": "https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.1-preview.1/Framelet-0.1.1-macos-universal.zip",
+      "status": 200,
+      "bytes": 1159292,
+      "sha256": "0a02be066db9936c35decab2b32e4892cbf1c75b97ed3d2188c0abc420a78fce",
+      "authenticated": false
+    },
+    {
+      "name": "Framelet-0.1.1-macos-universal.zip.sha256",
+      "url": "https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.1-preview.1/Framelet-0.1.1-macos-universal.zip.sha256",
+      "status": 200,
+      "bytes": 101,
+      "sha256": "f7631379c8b09a575a5016967254336237cc85c18a6e9716cbb4be378edd57dc",
+      "authenticated": false
+    },
+    {
+      "name": "Framelet-preview-manifest.json",
+      "url": "https://github.com/alvarovillalbaa/framelet/releases/download/v0.1.1-preview.1/Framelet-preview-manifest.json",
+      "status": 200,
+      "bytes": 2617,
+      "sha256": "a05a21480e2df7852911a09b16f6f4fc378f1d4901de2c4022eff164e6158bd5",
+      "authenticated": false
+    }
+  ],
+  "oldAssetsAfter": [
+    {
+      "id": 723581535,
+      "size": 1157438,
+      "digest": "sha256:c84865b23c93113114f44d7cbff17f19ca661905f2a1ca0f8f18a2b02ef1e76a"
+    },
+    {
+      "id": 723581604,
+      "size": 101,
+      "digest": "sha256:1435dfc7a21632d75242cdc0a87c0ed226cafb40e0c0ac2907ad824e94fc6ffa"
+    },
+    {
+      "id": 723581621,
+      "size": 1735,
+      "digest": "sha256:3f899233af08cb19567100fa9a0cd5c47d7d652bf8f8f3ac957771a6b29750f2"
+    },
+    {
+      "id": 738757493,
+      "size": 98057941,
+      "digest": "sha256:c9e8a9831198623d7673ed096dc59c02eeae48859101211c0d1a928305d33496"
+    }
+  ],
+  "ownedRootAbsent": true,
+  "controlRetirement": {
+    "workflow": 415836143,
+    "disabledState": "disabled_manually",
+    "branch": "qa/framelet-publish-20261112-1",
+    "deletedHead": "310094ab00e5b32758197743ed569b830afcfc95",
+    "exactRefAbsent": true
+  }
+}
