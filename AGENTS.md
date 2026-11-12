@@ -416,3 +416,11 @@ The separate [fresh public packet verifier](docs/proposals/compatible-packet-che
 is materialized with inactive source-pinned controls. Verify only this existing
 public raw packet and the new duplicate/source/self-retirement boundary. Keep
 both prior closeout/runtime failures immutable; product qualification stays open.
+
+[Fresh public packet verification passed](docs/results/2026/11-12/compatible-packet-verification.md):
+exact anonymous bytes/raw xcresult, all26 API streams, unchanged source/index,
+new duplicate cleanup and exact self retirement verified. Both prior controls
+are disabled/absent. This data-only profile is closed. Preserve both original
+failures and ended-VM proof gaps; no native/app qualification follows. Next
+materialize the distinct output-buffer/presentation probe before execution,
+keeping shipping code and old cases exact until its actual measurements.

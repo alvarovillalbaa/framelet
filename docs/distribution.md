@@ -29,6 +29,15 @@ Keep this archive unchanged while a compatible renderer is implemented and
 qualified at a new source/version. ARM runtime and wider device/trust gates
 remain open.
 
+Main now contains an unqualified0.1.4 renderer candidate. Its
+[six file-compositor cases](results/2026/11-12/software-preview-attempt-4.md)
+and [universal build/ZIP](results/2026/11-12/compatible-preview-attempt-1.md)
+passed, but [exact Release playback](results/2026/11-12/compatible-playback-attempt-1.md)
+still failed Recording pixels despite all ten native interactions passing.
+No usable0.1.4 archive has been released. The [original raw failed packet](results/2026/11-12/compatible-packet-verification.md)
+is permanently preserved with exact server/anonymous delivery proof; related
+temporary controls are retired. Use the0.1.3 tag to reproduce the public app.
+
 ## Preview contents and trust
 
 The assets are `Framelet-0.1.3-macos-universal.zip`, its

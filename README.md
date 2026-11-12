@@ -41,11 +41,14 @@ For a Release preview archive containing both Apple silicon and Intel slices:
 ```
 
 This mode never launches or quits Framelet. It refuses existing preview ZIP/
-checksum leaves and produces `dist/Framelet-0.1.3-macos-universal.zip` plus its
+checksum leaves and produces `dist/Framelet-0.1.4-macos-universal.zip` plus its
 `.zip.sha256` checksum. It uses the same icon, bundle metadata and ad-hoc signing
-flow. The new profile has its own [packaging scope](docs/proposals/capture-preview-checks.md);
-actual universal [archive packaging passed](docs/results/2026/11-12/capture-preview-attempt-1.md),
-and the unchanged checked archive is published above. The earlier 30-case
+flow. Main currently contains an unqualified0.1.4 renderer candidate. Its
+[six decoded-frame cases](docs/results/2026/11-12/software-preview-attempt-4.md)
+and [universal package](docs/results/2026/11-12/compatible-preview-attempt-1.md)
+passed, but its [full Release playback](docs/results/2026/11-12/compatible-playback-attempt-1.md)
+still failed Recording pixels on Intel. The public download above remains0.1.3;
+use that reviewed tag to reproduce its package. The earlier 30-case
 run retains its ARM64/debug source/profile. See [distribution notes](docs/distribution.md).
 
 The [first packaging invocation](docs/results/2026/11-08/preview-package-attempt-1.md)
@@ -91,8 +94,10 @@ on an Intel VM, but its **Recording preview stayed black** and failed the
 independent pixel check. Selected Clip rendered correctly. A separate
 [read-only comparison](docs/results/2026/11-12/composition-probe-attempt-3.md)
 showed the same built-in composition failure while a software Core Image
-control rendered. Recording-preview acceptance remains open; a compatible
-renderer needs the same layout and full native/pixel checks before release.
+control rendered. A new software compositor passed eight decoded output frames,
+but the0.1.4 candidate still shows black Recording in the full Release app.
+Recording-preview acceptance remains open; actual AVPlayer output/presentation
+needs investigation before another shipping change or binary release.
 
 ## Verification and delivery
 
@@ -131,3 +136,6 @@ The temporary playback/diagnostic controls are retired, including the
 [data-only retirement closeout](docs/results/2026/11-12/composition-control-closeout.md).
 All failed original attempts remain preserved. The universal download above
 has not been replaced by an unqualified renderer candidate.
+The later0.1.4 native failure's [raw result packet is permanently retained and
+anonymous delivery verified](docs/results/2026/11-12/compatible-packet-verification.md).
+Its temporary controls are retired; original failure/cleanup gaps remain explicit.
