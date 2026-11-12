@@ -500,3 +500,15 @@ failed helper compilation before launch; input/group/root and exact retirement
 passed. Standing approval covers attempt2's `Self.instructions` qualification
 with all16 rows, both controls and original bounds/assertions unchanged. Keep
 shipping exact and preserve this failure; no unchanged failed retry.
+
+[Property attempt2 passed](docs/results/2026/11-12/composition-properties-attempt-2.md):
+original instructions fail actual-asset/all-time validity and produce no frames;
+extending only the final end restores real1920x1080 red/blue and8/16 renderer
+calls. Source/input/frames/streams/groups/root/exact retirement verified. This
+diagnostic is closed. Standing approval covers the evidenced builder correction
+and materialized [exact-source regression](docs/proposals/exact-coverage-checks.md):
+actual product class,3 in-memory original/trimmed/reordered projects,6 frames,
+full asset/all-time coverage, order/header/matte/seek checks. Preserve100 other
+protected product/closed-helper inputs and all failures. No test-time coverage
+mutation, old-case replay, app/capture/export/device action or new binary release.
+New-source Release/native pixel qualification remains separate and mandatory.

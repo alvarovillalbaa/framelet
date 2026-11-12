@@ -51,6 +51,13 @@ CIFilter requests. Applying product settings together loses output. Its input/
 frame/source/cleanup/retirement scope is closed; the cause among individual
 settings and the actual shipping repair remain open. No new app release.
 
+The [isolated coverage experiment](results/2026/11-12/composition-properties-attempt-2.md)
+now identifies the missing final native-media tick. Correcting only instruction
+coverage restores1920x1080 frames and renderer callbacks. The builder source
+now applies that correction; its exact-source regression and a fresh universal
+Release/full-native pixel qualification remain open. The public archive stays
+unchanged and the failed0.1.4 candidate remains unqualified.
+
 ## Preview contents and trust
 
 The assets are `Framelet-0.1.3-macos-universal.zip`, its

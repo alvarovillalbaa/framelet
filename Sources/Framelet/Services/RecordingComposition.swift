@@ -111,6 +111,14 @@ enum RecordingCompositionBuilder {
             await Task.yield()
             try Task.checkCancellation()
         }
+        // Native media timescales can round inserted tracks past the project clock.
+        // Playback instructions must cover the asset's exact duration.
+        let assetDuration = try await composition.load(.duration)
+        guard let last = instructions.last as? AVMutableVideoCompositionInstruction,
+              assetDuration.isNumeric, CMTimeCompare(assetDuration, last.timeRange.start) > 0 else {
+            throw ExportFailure.composition
+        }
+        last.timeRange = CMTimeRange(start: last.timeRange.start, end: assetDuration)
         let video = AVMutableVideoComposition()
         video.renderSize = canvas
         video.frameDuration = CMTime(value: 1, timescale: 30)

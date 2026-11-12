@@ -103,7 +103,10 @@ do not repair playback. Recording-preview acceptance remains open before a
 shipping change or binary release. A [factory comparison](docs/results/2026/11-12/composition-factory-attempt-1.md)
 now renders both colors through generated properties and a counted software
 CIFilter; applying product settings together removes output. The individual
-setting responsible remains unestablished.
+setting responsible was isolated by the [coverage experiment](docs/results/2026/11-12/composition-properties-attempt-2.md):
+the final instruction ended one project tick before the native asset. Matching
+that end restores frames and renderer callbacks. The builder now uses the exact
+asset duration; fixed-source regression and new Release qualification remain open.
 
 ## Verification and delivery
 

@@ -1,0 +1,63 @@
+# INACTIVE. Replace only REVIEWED_SOURCE_SHA.
+name: Temporary Framelet exact coverage regression
+on:
+  push:
+    branches: [qa/framelet-exact-coverage-20261112-1]
+    paths: [.github/workflows/framelet-exact-coverage-20261112-1.yml]
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: framelet-exact-coverage-20261112
+  cancel-in-progress: false
+jobs:
+  pixels:
+    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-exact-coverage-20261112-1'
+    runs-on: macos-15-intel
+    timeout-minutes: 12
+    env:
+      FRAMELET_SOURCE_COMMIT: REVIEWED_SOURCE_SHA
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: REVIEWED_SOURCE_SHA
+          fetch-depth: 1
+          persist-credentials: false
+          clean: false
+      - name: Compile and measure fixed-source coverage playback only
+        timeout-minutes: 10
+        run: python3 -I -B -S Tests/ci/run-exact-coverage.py
+      - name: Admit bounded evidence
+        if: always()
+        id: evidence
+        env:
+          PACKET: ${{ runner.temp }}/framelet-exact-coverage-evidence-${{ github.run_id }}
+        run: |
+          python3 -I -B -S - <<'PY'
+          import os
+          from pathlib import Path
+          root = Path(os.environ['PACKET'])
+          paths = list(root.rglob('*')) if root.is_dir() and not root.is_symlink() else []
+          files = [p for p in paths if p.is_file()]
+          size = sum(p.stat().st_size for p in files)
+          admitted = bool(files) and len(paths) <= 128 and size <= 64*1024**2 and all(not p.is_symlink() for p in paths)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output: output.write(f'admitted={str(admitted).lower()}\n')
+          print(f'{len(files)} files, {size} bytes, admitted={admitted}')
+          raise SystemExit(0 if admitted else 1)
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always() && steps.evidence.outputs.admitted == 'true'
+        id: upload
+        with:
+          name: framelet-exact-coverage-${{ github.run_id }}
+          path: ${{ runner.temp }}/framelet-exact-coverage-evidence-${{ github.run_id }}
+          retention-days: 2
+          if-no-files-found: error
+      - name: Retire exact control and uploaded evidence
+        if: always()
+        timeout-minutes: 2
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FRAMELET_ARTIFACT_ID: ${{ steps.upload.outputs.artifact-id }}
+          FRAMELET_ARTIFACT_DIGEST: ${{ steps.upload.outputs.artifact-digest }}
+        run: python3 -I -B -S Tests/ci/retire-exact-coverage.py
