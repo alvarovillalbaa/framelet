@@ -49,6 +49,25 @@ changed candidate, no local environment/build/app under the failed Storage
 Guard, no new dependency/service, paid enrollment, external message or model
 call. A VM limitation must not be hidden by swapping in generated input movies.
 
+`Tests/ci/CapturedWindowFiles.swift` now prepares the independent read-only file
+verifier; it has only been syntax parsed, not built or executed. Compile it with
+the existing core source files, like the earlier host-owned fixture helper.
+Its snapshot mode waits at most 120 seconds for one ready two-take package,
+then hashes original media/manifest with the same Swift system-uptime clock as
+the future UI case. The controller must start this owned observer before the
+native journey and retain its result before Export. The UI must wait five
+seconds after Ready before requesting Export; an actual baseline timestamp
+strictly before that action is required, not inferred from the delay. The
+verification mode requires that exact baseline and original UI uptime JSON,
+unchanged original/manifest hashes, two ordered full-take clips, audio/camera
+off, no extra files/tracks, original geometry/durations, red then blue decoded
+frames and a landscape export with the exact concatenated video duration.
+The paused interval must be at least four seconds and excluded from the outer
+capture-time bound. These are draft constraints; no native capture case or
+safe recording controller is activated by adding this helper. A failed snapshot
+or file check must stay failed, with its partial media retained. The first
+encoded-sample timing contract remains explicitly unmeasured by this verifier.
+
 This would prove the basic real screen-window path only. The correspondence of
 the first `.complete` screen callback to the first encoded sample remains a
 separate measured timing requirement; no camera/PiP synchronization inference
