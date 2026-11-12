@@ -87,10 +87,13 @@ final class FrameletAcceptance: XCTestCase {
         wait { !applyCanvas.isEnabled }
         let exportButton = app.buttons["Export…"]
         show(exportButton); XCTAssertTrue(exportButton.isEnabled); exportButton.click()
+        let savePanel = app.windows["save-panel"]
+        XCTAssertTrue(savePanel.textFields["saveAsNameTextField"].waitForExistence(timeout: 15))
         app.typeKey("g", modifierFlags: [.command, .shift]); app.typeText(destinationFolder); app.typeKey(.return, modifierFlags: [])
-        XCTAssertTrue(app.dialogs.buttons["Save"].waitForExistence(timeout: 15))
-        replace(app.dialogs.textFields.firstMatch, with: "authored-ui-export.mp4")
-        app.dialogs.buttons["Save"].click()
+        let save = savePanel.buttons["OKButton"]
+        XCTAssertTrue(save.waitForExistence(timeout: 15))
+        replace(savePanel.textFields["saveAsNameTextField"], with: "authored-ui-export.mp4")
+        save.click()
         XCTAssertTrue(app.staticTexts["Most recent export: authored-ui-export.mp4"].waitForExistence(timeout: 30))
         record("03-native-export")
 

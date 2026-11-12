@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "run": 43191582002,
+  "workflow": 415799662,
+  "path": ".github/workflows/framelet-ui-20261112-8.yml",
+  "disabledState": "disabled_manually",
+  "branch": "qa/framelet-ui-20261112-8",
+  "deletedHead": "8a851c47596e281a9eef04bbbf18d69e022acc2d",
+  "exactRefAbsent": true,
+  "uploadedEvidenceRemoved": true,
+  "artifactId": "13931217823",
+  "requests": [
+    {
+      "route": "actions/runs/43191582002",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "e0e1e5a94fd67e650162c7a5fb6ed70a85f988ab768d74a35adbe93d8e051e1b"
+    },
+    {
+      "route": "actions/workflows/415799662",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "7b66f5146c905cc44f2fe84b1f886193a4fb13f9a0d62a30f39189b7cc346eac"
+    },
+    {
+      "route": "actions/artifacts/13931217823",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "494538b8db9240cfec8e019e5e66e60f06e37b6df87dbb67a5f066db04108b64"
+    },
+    {
+      "route": "actions/workflows/415799662/disable",
+      "method": "PUT",
+      "status": 204,
+      "responseSHA256": "6d5911d7a165dd59edb47891f3b61d42497a0b147f01ca0a1f955ef27c510880"
+    },
+    {
+      "route": "actions/workflows/415799662",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "76717f89e924c59c4ad1dc1b74c32cccc9330024254228b821f6348a53961912"
+    },
+    {
+      "route": "git/ref/heads/qa/framelet-ui-20261112-8",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "30872ac2e9ba479352d0346c1eb22895794dfdc47ac5cec0958a3b335aedaa98"
+    },
+    {
+      "route": "git/refs/heads/qa/framelet-ui-20261112-8",
+      "method": "DELETE",
+      "status": 204,
+      "responseSHA256": "7984f28cfe276ae5569358ce4e8d6c24e8a1a40083bb975c200415bc63da6295"
+    },
+    {
+      "route": "git/matching-refs/heads/qa/framelet-ui-20261112-8",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "3fbd82bd2c5d2c08dc54e65be104a0b12452af27f1d639cc705011bae861f95f"
+    }
+  ]
+}

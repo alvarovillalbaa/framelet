@@ -2,8 +2,8 @@
 name: Temporary Framelet native editor acceptance
 on:
   push:
-    branches: [qa/framelet-ui-20261112-8]
-    paths: [.github/workflows/framelet-ui-20261112-8.yml]
+    branches: [qa/framelet-ui-20261112-9]
+    paths: [.github/workflows/framelet-ui-20261112-9.yml]
 permissions:
   contents: write
   actions: write
@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   acceptance:
-    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-ui-20261112-8'
+    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-ui-20261112-9'
     runs-on: macos-15
     timeout-minutes: 20
     env:
