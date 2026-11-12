@@ -1,0 +1,38 @@
+# INACTIVE. Render REVIEWED_SOURCE_SHA only after complete native acceptance.
+name: Temporary Framelet 0.1.3 universal preview
+on:
+  push:
+    branches: [qa/framelet-capture-preview-20261112-1]
+    paths: [.github/workflows/framelet-capture-preview-20261112-1.yml]
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: framelet-capture-preview-20261112
+  cancel-in-progress: false
+jobs:
+  package:
+    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-capture-preview-20261112-1'
+    runs-on: macos-15
+    timeout-minutes: 20
+    env:
+      CI: 'true'
+      SOURCE_COMMIT: REVIEWED_SOURCE_SHA
+      DEVELOPER_DIR: /Applications/Xcode_16.4.app/Contents/Developer
+    steps:
+      - name: Record earliest job time
+        run: echo "FRAMELET_JOB_STARTED_MS=$(date +%s)000" >> "$GITHUB_ENV"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: REVIEWED_SOURCE_SHA
+          fetch-depth: 3
+          persist-credentials: false
+          clean: false
+      - name: Package both Release slices of the qualified capture source
+        timeout-minutes: 18
+        run: python3 -I -B -S Tests/ci/run-capture-preview.py --source-commit "$SOURCE_COMMIT"
+      - name: Retire this exact temporary control
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 -I -B -S Tests/ci/retire-capture-preview.py

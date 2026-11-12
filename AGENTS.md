@@ -210,3 +210,7 @@ window naming change, with pinned FUI03/FUI02/FUI01 evidence, both Release
 slices, unchanged-asset publication/digests and exact temporary retirement.
 No old native/pixel/core replay, audio/device capture, paid identity or trust
 claim follows from packaging. Preserve all older releases and original evidence.
+
+The [0.1.3 package/delivery scope](docs/proposals/capture-preview-checks.md)
+is materialized with inactive exact-source controls. Execute only that new
+non-launching package; publish only its retained assets after it passes.
