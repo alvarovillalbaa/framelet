@@ -305,3 +305,11 @@ at an unavailable historical Git object before compilation. Preserve it.
 Standing approval covers the changed exact original-case byte/hash pin, with
 the same native/helper/product inputs and protected current-source diff. No
 deeper checkout, execution-scope expansion or weakened identity/pixel assertion.
+
+[FUI04D attempt 3](docs/results/2026/11-12/composition-probe-attempt-3.md) passed
+the exact diagnostic and owned cleanup. Built-in video-composition panes remain
+black while software/raw controls render. Do not replay this closed diagnostic
+or infer wider product acceptance. Original retirement failed state readback;
+standing approval covers the separate [data-only exact closeout](docs/proposals/composition-retirement-checks.md),
+with bounded state observation, artifact/head guards and no native/app rerun.
+Keep every failed original and the full FUI04 product-pixel requirement open.
