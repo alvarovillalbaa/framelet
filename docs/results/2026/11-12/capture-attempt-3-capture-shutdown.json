@@ -1,0 +1,11 @@
+{
+  "captureRequested" : true,
+  "caseId" : "FUI03",
+  "exportRequested" : false,
+  "exportSettled" : true,
+  "forcedWriterTermination" : false,
+  "observedUptime" : 363.07778610700001,
+  "readyAndSourceControlsEnabled" : true,
+  "safeToTerminate" : true,
+  "stopRequested" : true
+}

@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "run": 43225190964,
+  "workflow": 416036110,
+  "path": ".github/workflows/framelet-capture-20261112-3.yml",
+  "disabledState": "disabled_manually",
+  "branch": "qa/framelet-capture-20261112-3",
+  "deletedHead": "72019e9e48c46593b8b2c50595d893084303f362",
+  "exactRefAbsent": true,
+  "uploadedEvidenceRemoved": true,
+  "artifactId": "13947329198",
+  "requests": [
+    {
+      "route": "actions/runs/43225190964",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "55087f49b67c2ced14a3b7cd58a5d2a94ce5aef0f23501a7448f25c3c6a7bcf9"
+    },
+    {
+      "route": "actions/workflows/416036110",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "c17d2e3d23b47d7ead093ccebb5d25af213e00e02941dfc9b8fa59f878002168"
+    },
+    {
+      "route": "actions/artifacts/13947329198",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "50ff90f303ebfd86720595bd665d4eadea59a602be89608e71484dbf37aa479e"
+    },
+    {
+      "route": "actions/workflows/416036110/disable",
+      "method": "PUT",
+      "status": 204,
+      "responseSHA256": "afeebe0e3a4dcb252cd98ffe186daf547c112d1c4875b520258a40e2a708f369"
+    },
+    {
+      "route": "actions/workflows/416036110",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "3802f0b6bac0809953d4dc75827ab34e5ee034b5815f484e089761e9a49dc4e4"
+    },
+    {
+      "route": "git/ref/heads/qa/framelet-capture-20261112-3",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "4aa0572188dd40ca6e33d9f7b862714ce0b69670efd13df568da6668a5488143"
+    },
+    {
+      "route": "git/refs/heads/qa/framelet-capture-20261112-3",
+      "method": "DELETE",
+      "status": 204,
+      "responseSHA256": "30d3b1bdea0c6eef65a4a71028cffe51df5e3e3aa55cd3bddc3290e934cbcc75"
+    },
+    {
+      "route": "git/matching-refs/heads/qa/framelet-capture-20261112-3",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "b0d8cc5aad48bdc8fa2999cc9790c89bb21ed689d152841bc9d57c48a5b5fc6b"
+    }
+  ]
+}
