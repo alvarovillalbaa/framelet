@@ -433,3 +433,12 @@ Validate raw red/blue output controls, exact helper identity/viewport/original
 frames/source/input/cleanup. No Framelet launch, shipping edit, old-case replay,
 permission change or GPU inference. Its explicit sparse exception stays scoped.
 Require actual measurements before product edits or another full Release run.
+
+[FUI04O passed](docs/results/2026/11-12/player-output-attempt-1.md) with exact
+helper/source/input/viewport/group/root/retirement proof. Raw control buffers
+have real red/blue pixels; composed output has no copied buffers, and the
+instrumented pool wrapper recorded zero requests at both snapshots. Both normal
+and pool views remain black. This diagnostic is closed; presentation changes
+alone are unsupported. Keep shipping code exact until a separate bounded
+instruction-validation/source-track/callback experiment establishes the next fix.
+No old-case replay, pool assumption, GPU inference or new binary publication.

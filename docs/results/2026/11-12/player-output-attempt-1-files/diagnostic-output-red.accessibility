@@ -1,0 +1,63 @@
+Attributes: Application, 0x7fae10b14130, pid: 4229, title: 'PlayerOutputProbe', Disabled
+Element subtree:
+ →Application, 0x7fae10b14130, pid: 4229, title: 'PlayerOutputProbe', Disabled
+    Window (Main), 0x7fae10b0f9d0, {{100.0, 212.0}, {1500.0, 728.0}}, title: 'Framelet player output diagnostic b7c9ad686dcc406f981a5e6ae6e209f3', Keyboard Focused, Disabled
+      StaticText, 0x7fae10b11010, {{121.0, 247.0}, {1198.0, 24.0}}, value: Player output prob...
+      Button, 0x7fae10b10190, {{1406.0, 251.0}, {158.0, 20.0}}, title: 'Show blue'
+      StaticText, 0x7fae10b123c0, {{121.0, 273.0}, {718.0, 24.0}}, value: A · Production com...
+      StaticText, 0x7fae10b14950, {{861.0, 273.0}, {718.0, 24.0}}, value: B · Same composito...
+      StaticText, 0x7fae10b14a90, {{121.0, 603.0}, {718.0, 24.0}}, value: C · B's copied buf...
+      Image, 0x7fae10b146b0, {{119.0, 634.0}, {722.0, 287.0}}
+      StaticText, 0x7fae10b147f0, {{861.0, 603.0}, {718.0, 24.0}}, value: D · IOSurface / Me...
+      Button, 0x7fae10b15050, {{106.0, 218.0}, {16.0, 16.0}}, identifier: '_XCUI:CloseWindow'
+      Button, 0x7fae10b15190, {{146.0, 218.0}, {16.0, 16.0}}, identifier: '_XCUI:ZoomWindow', Disabled
+        Group, 0x7fae10b152d0, {{147.0, 218.0}, {14.0, 16.0}}, Disabled
+          Group, 0x7fae10b14bd0, {{147.0, 218.0}, {14.0, 16.0}}, Disabled
+      Button, 0x7fae10b14d10, {{126.0, 218.0}, {16.0, 16.0}}, identifier: '_XCUI:MinimizeWindow', Disabled
+      StaticText, 0x7fae10b14e50, {{608.0, 217.0}, {484.0, 16.0}}, value: Framelet player ou...
+    MenuBar, 0x7fae10b15410, {{0.0, 0.0}, {1920.0, 24.0}}
+      MenuBarItem, 0x7fae10b15550, {{10.0, 0.0}, {34.0, 24.0}}, title: 'Apple'
+        Menu, 0x7fae10b15690, {{0.0, 1080.0}, {0.0, 0.0}}
+          MenuItem, 0x7fae10b157d0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_aboutThisMacRequested:', title: 'About This Mac'
+          MenuItem, 0x7fae10b15910, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_systemInformationRequested:', title: 'System Information'
+          MenuItem, 0x7fae10b15a50, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fae10b15b90, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_systemSettingsRequested:', title: 'System Settings…, 1 update'
+          MenuItem, 0x7fae10b15cd0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_appStoreRequested:', title: 'App Store'
+          MenuItem, 0x7fae10b15e10, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fae10b15f50, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_recentsRequested:', title: 'Recent Items'
+            Menu, 0x7fae10b16090, {{0.0, 1080.0}, {0.0, 0.0}}
+              MenuItem, 0x7fae10b161d0, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Applications', Disabled
+              MenuItem, 0x7fae10b16310, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'PlayerOutputProbe'
+              MenuItem, 0x7fae10b16450, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'Show “PlayerOutputProbe” in Finder'
+              MenuItem, 0x7fae10b16590, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x7fae10b166d0, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Documents', Disabled
+              MenuItem, 0x7fae10b16810, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x7fae10b16950, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Servers', Disabled
+              MenuItem, 0x7fae10b16a90, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x7fae10b16bd0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_clearRecentItemsRequested:', title: 'Clear Menu'
+          MenuItem, 0x7fae10b16d10, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fae10b16e50, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_forceQuitPanelRequested:', title: 'Force Quit…'
+          MenuItem, 0x7fae10b16f90, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_forceQuitRequested:', title: 'Force Quit PlayerOutputProbe'
+          MenuItem, 0x7fae10b170d0, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fae10b17210, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_sleepRequested:', title: 'Sleep'
+          MenuItem, 0x7fae10b17350, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_restartRequested:', title: 'Restart…'
+          MenuItem, 0x7fae10b17490, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_restartNowRequested:', title: 'Restart'
+          MenuItem, 0x7fae10b175d0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_shutDownRequested:', title: 'Shut Down…'
+          MenuItem, 0x7fae10b17710, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_shutDownNowRequested:', title: 'Shut Down'
+          MenuItem, 0x7fae10b17850, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fae10b17990, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_lockScreenRequested:', title: 'Lock Screen'
+          MenuItem, 0x7fae10b17ad0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_logOutRequested:', title: 'Log Out runner…'
+          MenuItem, 0x7fae10b17c10, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_logOutNowRequested:', title: 'Log Out runner'
+          MenuItem, 0x7fae10b17d50, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+      MenuBarItem, 0x7fae10b17e90, {{44.0, 0.0}, {144.0, 24.0}}, title: 'PlayerOutputProbe'
+        Menu, 0x7fae10b17fd0, {{0.0, 1080.0}, {0.0, 0.0}}
+          MenuItem, 0x7fae10b18110, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'terminate:', title: 'Quit Player Output Probe'
+          MenuItem, 0x7fae10b18250, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'NSAlternateQuitMenuItem', title: 'Quit and Keep Windows'
+    TouchBar, 0x7fae10b18390, {{80.0, 0.0}, {685.0, 30.0}}, Disabled
+Path to element:
+ →Application, 0x7fae10b14130, pid: 4229, title: 'PlayerOutputProbe', Disabled
+Query chain:
+ →Find: Application 'com.alvarovillalbaa.Framelet.PlayerOutputProbe'
+  Output: {
+    Application, 0x7fae10921dc0, pid: 4229, title: 'PlayerOutputProbe', Disabled
+  }

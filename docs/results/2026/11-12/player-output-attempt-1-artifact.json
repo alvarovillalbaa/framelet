@@ -1,0 +1,19 @@
+{
+  "id": 13973622379,
+  "name": "framelet-player-output-43282504000",
+  "size_in_bytes": 1340742,
+  "url": "https://api.github.com/repos/alvarovillalbaa/framelet/actions/artifacts/13973622379",
+  "archive_download_url": "https://api.github.com/repos/alvarovillalbaa/framelet/actions/artifacts/13973622379/zip",
+  "expired": false,
+  "created_at": "2026-11-12T18:45:39Z",
+  "expires_at": "2026-11-14T18:45:37Z",
+  "updated_at": "2026-11-12T18:45:39Z",
+  "digest": "sha256:2843694f18045a242365fe22b20c869abdb6da147f2b52d22039d86b6a3e5173",
+  "workflow_run": {
+    "id": 43282504000,
+    "repository_id": 1436111381,
+    "head_repository_id": 1436111381,
+    "head_branch": "qa/framelet-player-output-20261112-1",
+    "head_sha": "503ac4f41d588407989ee8af171bf2c4eccecb0b"
+  }
+}

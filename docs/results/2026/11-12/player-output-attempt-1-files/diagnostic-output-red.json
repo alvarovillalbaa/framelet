@@ -1,0 +1,131 @@
+{
+  "applicationActive" : true,
+  "captureOrExportRequested" : false,
+  "displayBounds" : {
+    "height" : 1080,
+    "width" : 1920,
+    "x" : 0,
+    "y" : 0
+  },
+  "elapsedSeconds" : 2.3710202259999846,
+  "executablePath" : "\/Users\/runner\/work\/_temp\/framelet-player-output-p7lfdv9m\/PlayerOutputProbe.app\/Contents\/MacOS\/PlayerOutputProbe",
+  "frames" : [
+    {
+      "bytes" : 23484,
+      "name" : "red-raw.png",
+      "sha256" : "052c9078dac1d420f9555408510883216555cdab1bb247065974bc6041577bb6"
+    }
+  ],
+  "imageScreenFrame" : {
+    "height" : 285,
+    "width" : 720,
+    "x" : 120,
+    "y" : 160
+  },
+  "kind" : "read-only-player-output-diagnostic",
+  "mediaModified" : false,
+  "nonce" : "b7c9ad686dcc406f981a5e6ae6e209f3",
+  "phase" : "red",
+  "players" : [
+    {
+      "compatibleRequests" : -1,
+      "compositorType" : "SoftwareRecordingCompositor",
+      "copiedBuffer" : {
+
+      },
+      "index" : 0,
+      "itemError" : "",
+      "itemStatus" : 1,
+      "playerError" : "",
+      "playerStatus" : 1,
+      "timeSeconds" : 4.3192665520000002
+    },
+    {
+      "compatibleRequests" : -1,
+      "compositorType" : "SoftwareRecordingCompositor",
+      "copiedBuffer" : {
+
+      },
+      "index" : 1,
+      "itemError" : "",
+      "itemStatus" : 1,
+      "playerError" : "",
+      "playerStatus" : 1,
+      "timeSeconds" : 4.2834598460000004
+    },
+    {
+      "compatibleRequests" : 0,
+      "compositorType" : "SurfacePoolCompositor",
+      "copiedBuffer" : {
+
+      },
+      "index" : 2,
+      "itemError" : "",
+      "itemStatus" : 1,
+      "playerError" : "",
+      "playerStatus" : 1,
+      "timeSeconds" : 4.2241108159999996
+    },
+    {
+      "compatibleRequests" : -1,
+      "compositorType" : "nil",
+      "copiedBuffer" : {
+        "cgImageProduced" : true,
+        "currentSeconds" : 5.1965435129999999,
+        "displayedSeconds" : 4.8133333333333335,
+        "framesReceived" : 2,
+        "height" : 428,
+        "imageMedianRGB" : [
+          222,
+          40,
+          6
+        ],
+        "iosurfaceBacked" : true,
+        "medianRGB" : [
+          224,
+          21,
+          12
+        ],
+        "pixelFormat" : 1111970369,
+        "pixelReadStatus" : 0,
+        "width" : 640
+      },
+      "index" : 3,
+      "itemError" : "",
+      "itemStatus" : 1,
+      "playerError" : "",
+      "playerStatus" : 1,
+      "timeSeconds" : 5.1966746370000001
+    }
+  ],
+  "processID" : 4229,
+  "requestedSeconds" : 3,
+  "shippingCodeModified" : false,
+  "viewScreenFrames" : [
+    {
+      "height" : 285,
+      "width" : 720,
+      "x" : 120,
+      "y" : 490
+    },
+    {
+      "height" : 285,
+      "width" : 720,
+      "x" : 860,
+      "y" : 490
+    },
+    {
+      "height" : 285,
+      "width" : 720,
+      "x" : 860,
+      "y" : 160
+    }
+  ],
+  "windowFrame" : {
+    "height" : 728,
+    "width" : 1500,
+    "x" : 100,
+    "y" : 140
+  },
+  "windowVisible" : true
+}
