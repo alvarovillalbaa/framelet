@@ -116,6 +116,11 @@ now passes both Release slices and fresh ZIP/signature checks. Its exact retaine
 archive still needs the full Release app journey and rendered-pixel qualification
 before a new usable download; the public0.1.3 archive remains unchanged.
 
+The [full0.1.5 Release journey now passed](docs/results/2026/11-12/coverage-playback-attempt-1.md)
+all ten native phases and nine rendered-color assertions, with actual Release
+process/bundle/input/cleanup verification. The exact-asset publication is next;
+no further app rebuild or test replay is needed for that delivery step.
+
 ## Verification and delivery
 
 Eighteen core XCTest cases passed, covering timeline ordering, pause-gap omission, positive/negative camera offsets, trims, unsafe paths, identity integrity, canvas bounds, manifest round-tripping and asynchronous acknowledgement/cancellation recovery. See the [native results](docs/results/2026/10-28/ordered-playback-checks.md) and [initial source evidence](docs/results/2026/10-27/initial-source.md).

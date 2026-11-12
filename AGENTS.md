@@ -540,3 +540,15 @@ case and actual Release-only process/input proof. Its explicit three-leaf sparse
 exception is scoped to that runner only. Artifact collection replaces the old
 rejected metadata route; exact retirement is independent of scratch cleanup.
 Keep source/main workflow inactive; no app publication until full verdict passes.
+
+[Full0.1.5 Release qualification passed](docs/results/2026/11-12/coverage-playback-attempt-1.md):
+unchanged ten native phases/nine color assertions, actual Release-only phase
+PIDs,23 original attachments/30 complete streams, exact696-file source/index,
+bundle/media and acknowledged group/library/root cleanup. All10 PNGs viewed;
+exact artifact/control retirement passed. This scope is closed; no routine
+native/component/package rebuild or replay. Standing approval covers the
+materialized [exact-asset publication](docs/proposals/coverage-publication-checks.md):
+the3 unchanged retained package assets plus the small derived playback record,
+fresh public server/anonymous-byte checks and exact temporary self-retirement.
+Preserve14 existing assets/6 tags and every failed original. No new app/build/
+test/capture/device/model/paid action or broader trust claim in this data-only job.

@@ -71,6 +71,12 @@ three unchanged assets are retained inline. The complete FUI04 app/nine-color/
 process/input/cleanup scope must pass on that archive before binary publication.
 No routine package or old component/native replay is needed.
 
+The [full0.1.5 Release qualification passed](results/2026/11-12/coverage-playback-attempt-1.md)
+all ten native phases/nine color assertions and exact process/bundle/input/
+acknowledged cleanup/retirement checks on the Intel VM. Its3 unchanged package
+assets and separate later playback record are now ready for data-only public
+delivery. ARM runtime, physical devices, camera/audio and trust remain open.
+
 ## Preview contents and trust
 
 The assets are `Framelet-0.1.3-macos-universal.zip`, its

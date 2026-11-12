@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "kind": "framelet.release-playback-qualification",
+  "version": "0.1.5",
+  "build": "6",
+  "packageSource": "0b2a03c0ac3af3c8c5605a5b4858b1136b43ec4c",
+  "packageReceiptSHA256": "f5f2b70b3bd6976d307a772f05d6f918856c619bd379680ad7a6df8f93205bd5",
+  "archive": {
+    "bytes": 1182752,
+    "name": "Framelet-0.1.5-macos-universal.zip",
+    "sha256": "561920944dcaa50ccffb09daebb95ad9d3a5f2761982f65da6dc7ebfea5b3068"
+  },
+  "releasePlayback": {
+    "verified": true,
+    "source": "6c4cdfe4e993af852ed43a59c150e4f8c425e7cf",
+    "receiptSHA256": "24d39964807d36f7f6ac458af59ea10b35f0c97568ec637c77c1670b876b8f67",
+    "run": 43298428068,
+    "runURL": "https://github.com/alvarovillalbaa/framelet/actions/runs/43298428068",
+    "architecture": "x86_64",
+    "macOS": "15.7.9",
+    "nativeCaseCount": 1,
+    "nativePhaseCount": 10,
+    "pixelPhaseCount": 9,
+    "exactReleasedProcessVerified": true,
+    "originalInputsUnchanged": true,
+    "ownedCleanupVerified": true,
+    "controlRetired": true,
+    "retirementReceiptSHA256": "6a9116b9c6c71280abe87ac68d6b1dd166fc0a0bcd3274b1cb4ff5d4c9e8bbf8"
+  },
+  "distribution": {
+    "signature": "ad-hoc",
+    "notarized": false,
+    "ARMRuntimeVerified": false,
+    "physicalDevicesVerified": false,
+    "cameraAudioTimingVerified": false,
+    "trustedDownloadedAppLaunchVerified": false
+  }
+}
