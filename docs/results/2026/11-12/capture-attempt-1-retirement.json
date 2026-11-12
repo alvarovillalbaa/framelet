@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "run": 43220222375,
+  "workflow": 415993576,
+  "path": ".github/workflows/framelet-capture-20261112-1.yml",
+  "disabledState": "disabled_manually",
+  "branch": "qa/framelet-capture-20261112-1",
+  "deletedHead": "8ca1b632213fc8777bda318689d8e08aa95c1b71",
+  "exactRefAbsent": true,
+  "uploadedEvidenceRemoved": true,
+  "artifactId": "13945921847",
+  "requests": [
+    {
+      "route": "actions/runs/43220222375",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "c3467d87f7ff6edbe565f2666b288a7dab14acfbd4424aa5a4c3c39960ca29dd"
+    },
+    {
+      "route": "actions/workflows/415993576",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "a2b0ec5c142ac13902ff7b6b8979dc27d4af7055c5db17ea84a0ff94775c1f0b"
+    },
+    {
+      "route": "actions/artifacts/13945921847",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "5329f597b390e83104d7144c251fb20b11e02c74ed165a37946f13e72c7603d1"
+    },
+    {
+      "route": "actions/workflows/415993576/disable",
+      "method": "PUT",
+      "status": 204,
+      "responseSHA256": "f89dc05d4aa4f1413c3153d561f28c7078f619ef8be02c0fd2eddba06da253d2"
+    },
+    {
+      "route": "actions/workflows/415993576",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "75e8e315c4cd35ad29909f976c5ac8a8c46a1c0c41360f12445d650e163e2bde"
+    },
+    {
+      "route": "git/ref/heads/qa/framelet-capture-20261112-1",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "082b799bca57eff15c91fc4164e2a952d34d015f105acc049c8535362aa97b80"
+    },
+    {
+      "route": "git/refs/heads/qa/framelet-capture-20261112-1",
+      "method": "DELETE",
+      "status": 204,
+      "responseSHA256": "5b5964ea03ea94ddb3b25d22439d8cb28a619790bb353ca60f85491b49a1d024"
+    },
+    {
+      "route": "git/matching-refs/heads/qa/framelet-capture-20261112-1",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "315d7be5307a3a0ef098de79826aa9b109020d1e302f391da847586964f6fffd"
+    }
+  ]
+}

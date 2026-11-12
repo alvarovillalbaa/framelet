@@ -1,0 +1,23 @@
+{
+  "artifacts": [
+    {
+      "id": 13945921847,
+      "name": "framelet-actual-window-capture-43220222375",
+      "size_in_bytes": 54435996,
+      "url": "https://api.github.com/repos/alvarovillalbaa/framelet/actions/artifacts/13945921847",
+      "archive_download_url": "https://api.github.com/repos/alvarovillalbaa/framelet/actions/artifacts/13945921847/zip",
+      "expired": false,
+      "created_at": "2026-11-12T12:45:35Z",
+      "expires_at": "2026-11-14T12:45:28Z",
+      "updated_at": "2026-11-12T12:45:35Z",
+      "digest": "sha256:0fd3787d61ce13ce1f132c7345c0ec5e6b69cb6b46fae651e5b2212851f6ee43",
+      "workflow_run": {
+        "id": 43220222375,
+        "repository_id": 1436111381,
+        "head_repository_id": 1436111381,
+        "head_branch": "qa/framelet-capture-20261112-1",
+        "head_sha": "8ca1b632213fc8777bda318689d8e08aa95c1b71"
+      }
+    }
+  ]
+}
