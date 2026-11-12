@@ -470,3 +470,11 @@ zero renderer calls. This diagnostic is closed; no instruction-only shipping
 fix is supported. Preserve both failures and keep product inputs exact. Next
 materialize a separate factory-properties/counted-CIFilter-output comparison;
 do not rerun closed cases or publish an unqualified app binary.
+
+Standing approval covers the now materialized [composition-factory comparison](docs/proposals/composition-factory-checks.md):
+one bounded background Intel helper measuring generated composition properties,
+factory-derived production output and actual counted software-CIFilter frames.
+Keep all95 protected product/closed-helper inputs exact. Raw timestamp/color
+controls, full original rows/streams/source/input and owned retirement required.
+No visible window, Framelet/capture/export/device action, shipping edit, old-case
+replay or app publication. The CIFilter control only covers its first track.
