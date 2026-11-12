@@ -320,3 +320,12 @@ workflows observed disabled and exact heads absent. Do not replay the closed
 FUI04D/retirement scopes. The next product scope is compatible Recording
 rendering with the existing geometry/timing/audio contract and new full pixel
 acceptance; preserve the public 0.1.3 assets and all original failures.
+
+Standing approval covers the new [compatible-preview repair and six encoded-frame cases](docs/proposals/software-preview-checks.md).
+Only Recording's preview compositor/wiring changes among protected product
+inputs; retain the existing geometry/timeline/audio and all capture/export/
+Selected Clip paths. Run only its six new read-only image cases first on the
+bounded public Intel VM, preserving failed originals and exact cleanup/control
+retirement. No sparse exception, local build or old-scope replay. These checks
+cannot qualify a full app or new public asset; prepare a separate exact-source
+Release/native/nine-color profile after they pass. No new permission/provider.

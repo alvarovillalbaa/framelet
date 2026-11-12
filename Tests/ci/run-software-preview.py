@@ -1,0 +1,261 @@
+"""Six read-only encoded-frame checks; no app, capture, export or old-case replay."""
+import base64
+import gzip
+import hashlib
+import json
+import os
+from pathlib import Path
+import platform
+import re
+import selectors
+import shutil
+import signal
+import stat
+import subprocess
+import tempfile
+import time
+import traceback
+import uuid
+
+source = os.environ["FRAMELET_SOURCE_COMMIT"]
+assert re.fullmatch(r"[0-9a-f]{40}", source)
+assert platform.system() == "Darwin" and platform.machine() == "x86_64"
+assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-software-preview-20261112-1"
+repo = Path.cwd().resolve()
+parent = Path(os.environ["RUNNER_TEMP"]).resolve()
+root = Path(tempfile.mkdtemp(prefix="framelet-software-preview-", dir=parent)).resolve()
+identity = root.stat()
+nonce = uuid.uuid4().hex
+(root / "owner").write_text(nonce)
+evidence = parent / ("framelet-software-preview-evidence-" + os.environ["GITHUB_RUN_ID"])
+assert not evidence.exists()
+evidence.mkdir(mode=0o700)
+for folder in ("cache", "tmp", "source", "fixture"):
+    (root / folder).mkdir(mode=0o700)
+env = {key: os.environ[key] for key in ("PATH", "HOME", "LANG") if key in os.environ}
+env.update(DEVELOPER_DIR="/Applications/Xcode_16.4.app/Contents/Developer", CI="true", GIT_OPTIONAL_LOCKS="0",
+    TMPDIR=str(root / "tmp") + "/", CLANG_MODULE_CACHE_PATH=str(root / "cache/modules"),
+    SWIFTPM_MODULECACHE_OVERRIDE=str(root / "cache/swiftpm"))
+started = time.monotonic()
+report = {"kind": "framelet-compatible-preview-files", "source": source, "status": "failed",
+    "commands": [], "errors": [], "cleanup": {}, "storageSnapshots": [], "oldCasesReplayed": False,
+    "applicationLaunched": False, "captureOrExportRequested": False,
+    "nativeProfile": {"macOS": platform.mac_ver()[0], "architecture": platform.machine(), "Xcode": "16.4"}}
+sha = lambda data: hashlib.sha256(data).hexdigest()
+baseline = None
+fixture_before = None
+export = root / "source"
+live_groups = set()
+
+
+def storage(enforce=True):
+    paths = list(root.rglob("*")) + list(evidence.rglob("*"))
+    assert len(paths) <= 16384 and all(not p.is_symlink() for p in paths)
+    regular = [p for p in paths if p.is_file()]
+    apparent = sum(p.stat().st_size for p in regular)
+    allocated = sum(p.stat().st_blocks * 512 for p in regular)
+    report["maximumApparentBytes"] = max(report.get("maximumApparentBytes", 0), apparent)
+    report["maximumAllocatedBytes"] = max(report.get("maximumAllocatedBytes", 0), allocated)
+    if apparent > 4 * 1024 ** 3 or allocated > 4 * 1024 ** 3:
+        report["storageSnapshots"].append({"apparent": apparent, "allocated": allocated,
+            "largest": [{"path": str(p.relative_to(parent)), "bytes": p.stat().st_size}
+                for p in sorted(regular, key=lambda p: p.stat().st_size, reverse=True)[:16]]})
+        if enforce:
+            raise AssertionError("Owned storage exceeds 4 GiB; no sparse exception in this scope")
+
+
+def group_alive(pid):
+    try:
+        os.killpg(pid, 0)
+        return True
+    except ProcessLookupError:
+        return False
+
+
+def run(name, args, seconds=120, cwd=None, enforce_storage=True):
+    deadline = min(started + 540, time.monotonic() + seconds)
+    assert time.monotonic() + 1 < deadline
+    child = subprocess.Popen(args, cwd=cwd or repo, env=env, stdin=subprocess.DEVNULL,
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE, start_new_session=True)
+    live_groups.add(child.pid)
+    selector = selectors.DefaultSelector()
+    for label, stream in (("stdout", child.stdout), ("stderr", child.stderr)):
+        os.set_blocking(stream.fileno(), False); selector.register(stream, selectors.EVENT_READ, label)
+    streams = {key: bytearray() for key in ("stdout", "stderr")}
+    observed = {key: [0, hashlib.sha256()] for key in streams}
+    eof = set(); signals = []; error = None
+    sampled = 0
+
+    def drain(wait):
+        for event, _ in selector.select(wait):
+            data = os.read(event.fileobj.fileno(), 65536)
+            label = event.data
+            if not data:
+                eof.add(label); selector.unregister(event.fileobj)
+            else:
+                observed[label][0] += len(data); observed[label][1].update(data)
+                room = 2 * 1024 ** 2 - len(streams[label]); streams[label].extend(data[:room])
+                if len(data) > room:
+                    raise AssertionError("Command stream bound")
+
+    try:
+        while selector.get_map():
+            if time.monotonic() - sampled >= 5:
+                storage(enforce_storage); sampled = time.monotonic()
+            assert time.monotonic() < deadline, "Command deadline"
+            drain(0.1)
+        child.wait(timeout=5)
+    except BaseException as caught:
+        error = caught
+    finally:
+        # These groups only compile/read authored inputs or write disposable PNGs.
+        # They can never contain a product, capture or export process.
+        if error is not None or group_alive(child.pid):
+            if group_alive(child.pid):
+                os.killpg(child.pid, signal.SIGTERM); signals.append("SIGTERM")
+            until = time.monotonic() + 3
+            while selector.get_map() and time.monotonic() < until:
+                try: drain(0.1)
+                except BaseException: pass
+            if group_alive(child.pid):
+                os.killpg(child.pid, signal.SIGKILL); signals.append("SIGKILL")
+            try: child.wait(timeout=3)
+            except subprocess.TimeoutExpired: pass
+        until = time.monotonic() + 2
+        while selector.get_map() and time.monotonic() < until:
+            try: drain(0.1)
+            except BaseException: pass
+        selector.close()
+        for stream in (child.stdout, child.stderr): stream.close()
+        absent = not group_alive(child.pid)
+        if absent: live_groups.discard(child.pid)
+        row = {"name": name, "args": args, "exitCode": child.returncode, "signals": signals,
+            "error": str(error) if error else None, "ownedGroupAbsent": absent, "streams": {}}
+        for label, data in streams.items():
+            raw = bytes(data)
+            row["streams"][label] = {"bytes": len(raw), "sha256": sha(raw), "eof": label in eof,
+                "complete": label in eof and len(raw) == observed[label][0], "observedBytes": observed[label][0],
+                "observedSHA256": observed[label][1].hexdigest(),
+                "gzipBase64": base64.b64encode(gzip.compress(raw, mtime=0)).decode()}
+        report["commands"].append(row)
+    if error is not None: raise error
+    assert child.returncode == 0 and absent and all(s["complete"] for s in row["streams"].values()), name + " failed"
+    return bytes(streams["stdout"])
+
+
+def source_guard():
+    rows = []
+    raw = run("source-guard", ["git", "ls-tree", "-r", "--full-tree", "HEAD"], enforce_storage=False)
+    for line in raw.decode().splitlines():
+        meta, name = line.split("\t", 1)
+        mode, kind, blob = meta.split()
+        path = repo / name
+        assert kind == "blob" and mode in ("100644", "100755") and path.is_file() and not path.is_symlink()
+        assert path.stat().st_size <= 4 * 1024 ** 2 and bool(path.stat().st_mode & 0o111) == (mode == "100755")
+        data = path.read_bytes()
+        assert hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest() == blob
+        rows.append({"path": name, "mode": mode, "blob": blob, "bytes": len(data), "sha256": sha(data)})
+    report.setdefault("sourceGuards", []).append(rows)
+    return rows
+
+
+def fixture_snapshot(package):
+    paths = list(package.rglob("*"))
+    assert len(paths) == 4 and all(not p.is_symlink() for p in paths)
+    files = [p for p in paths if p.is_file()]
+    assert len(files) == 3 and sum(p.stat().st_size for p in files) < 65536
+    return {str(p.relative_to(package)): {"bytes": p.stat().st_size, "sha256": sha(p.read_bytes())} for p in files}
+
+
+try:
+    assert run("head", ["git", "rev-parse", "HEAD"]).decode().strip() == source
+    assert not run("status", ["git", "status", "--porcelain", "--untracked-files=all", "--ignored"]).strip()
+    run("toolchain", ["/usr/bin/xcodebuild", "-version"])
+    baseline = source_guard(); index_before = sha((repo / ".git/index").read_bytes())
+    changed = run("protected-input-diff", ["git", "diff", "--name-only", "419144ae3597f328581dfce32005434d8fb091a2", "HEAD",
+        "--", "Package.swift", "Sources", "Resources", "script", "Tests/FrameletCoreTests", "Tests/FrameletPlaybackTests",
+        "Tests/FrameletAcceptance.xcodeproj", "Tests/e2e", "Tests/ci/ReleasePlaybackPixels.swift"])
+    assert set(changed.decode().splitlines()) == {"Sources/Framelet/Models/UIPlaybackModel.swift",
+        "Sources/Framelet/Services/SoftwareRecordingCompositor.swift"}
+    compile_paths = [row for row in baseline if row["path"].startswith("Sources/FrameletCore/") or row["path"] in (
+        "Sources/Framelet/Services/RecordingComposition.swift", "Sources/Framelet/Services/ExportGeometry.swift",
+        "Sources/Framelet/Services/ExportCoordinator.swift", "Sources/Framelet/Services/SoftwareRecordingCompositor.swift",
+        "Tests/ci/SoftwarePreviewFiles.swift")]
+    assert len(compile_paths) == 8
+    for row in compile_paths:
+        path = export / row["path"]; path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes((repo / row["path"]).read_bytes())
+    seed = repo / "docs/results/2026/11-12/capture-attempt-4-files/library/Recordings/4A689114-5E06-43A3-AE28-BD9B9FDB524E.framelet"
+    pins = {"manifest.json": "618cc4de511ee689fa5725a789af4e2bc9601ba65a50eb0d6cd4974cf642e80c",
+        "segments/C456C486-F99C-498F-9ACE-7BBB746813A9-screen.mp4": "a255cd9c0d2fd723c28d1b48794ff47cf2b5b4d3a57de2eb7fd18c08b723f329",
+        "segments/112458AE-5A21-4B59-A225-6466A4AE91D3-screen.mp4": "eae605da7fa85a55ab5c5a5be0dc2eb1e67e04f15b556173079b47e0d9767c91"}
+    package = root / "fixture" / seed.name
+    for name, digest in pins.items():
+        path = seed / name
+        assert path.is_file() and not path.is_symlink() and path.stat().st_size < 65536
+        data = path.read_bytes(); assert sha(data) == digest
+        destination = package / name; destination.parent.mkdir(parents=True, exist_ok=True)
+        with destination.open("xb") as stream: stream.write(data)
+    fixture_before = fixture_snapshot(package); report["fixtureBefore"] = fixture_before
+    common = ["/usr/bin/xcrun", "swiftc", "-parse-as-library", "-swift-version", "5", "-target", "x86_64-apple-macos15.0",
+        "-module-cache-path", str(root / "cache/modules")]
+    core = sorted((export / "Sources/FrameletCore").glob("*.swift")); assert len(core) == 3
+    run("core-compile", common + ["-module-name", "FrameletCore", "-emit-module", "-emit-object", "-whole-module-optimization",
+        "-emit-module-path", str(root / "cache/FrameletCore.swiftmodule"), *map(str, core), "-o", str(root / "cache/FrameletCore.o")])
+    executable = root / "software-preview-files"
+    run("pixel-check-compile", common + ["-I", str(root / "cache"), str(root / "cache/FrameletCore.o"),
+        *[str(export / row["path"]) for row in compile_paths if not row["path"].startswith("Sources/FrameletCore/")],
+        "-o", str(executable)])
+    report["pixelChecks"] = json.loads(run("six-encoded-frame-cases", [str(executable), str(package), str(evidence / "frames")], seconds=180))
+    assert report["pixelChecks"]["verified"] is True and report["pixelChecks"]["caseCount"] == 6 and report["pixelChecks"]["frameCount"] == 8
+except BaseException:
+    report["errors"].append(traceback.format_exc())
+finally:
+    safe = False
+    try:
+        if baseline is not None:
+            assert source_guard() == baseline and sha((repo / ".git/index").read_bytes()) == index_before
+            report["cleanup"]["sourceAndIndexUnchanged"] = True
+        if fixture_before is not None:
+            report["fixtureAfter"] = fixture_snapshot(package)
+            assert report["fixtureAfter"] == fixture_before
+            report["cleanup"]["fixtureUnchanged"] = True
+        storage(False)
+        assert not live_groups and time.monotonic() - started < 580
+        report["cleanup"]["allOwnedGroupsAbsent"] = True
+        safe = True
+    except BaseException:
+        report["errors"].append(traceback.format_exc())
+    try:
+        images = []
+        if (evidence / "frames").exists():
+            paths = list((evidence / "frames").iterdir())
+            assert len(paths) <= 8 and all(p.is_file() and not p.is_symlink() and re.fullmatch(r"[0-9]{2}-[a-z-]+\.png", p.name) for p in paths)
+            total = 0
+            for path in sorted(paths):
+                raw = path.read_bytes(); total += len(raw)
+                assert len(raw) <= 2 * 1024 ** 2 and total <= 16 * 1024 ** 2
+                images.append({"name": path.name, "bytes": len(raw), "sha256": sha(raw),
+                    "gzipBase64": base64.b64encode(gzip.compress(raw, mtime=0)).decode()})
+        report["renderedImages"] = images
+        if report.get("pixelChecks"):
+            assert {p["name"]: p["sha256"] for p in images} == {p["name"] + ".png": p["sha256"] for p in report["pixelChecks"]["frames"]}
+    except BaseException:
+        safe = False; report["errors"].append(traceback.format_exc())
+    try:
+        assert safe and root.parent == parent and not root.is_symlink()
+        current = root.stat()
+        assert (current.st_dev, current.st_ino) == (identity.st_dev, identity.st_ino) and (root / "owner").read_text() == nonce
+        shutil.rmtree(root); assert not root.exists()
+        report["cleanup"]["ownedRootAbsent"] = True
+    except BaseException:
+        report["errors"].append(traceback.format_exc())
+    report["elapsedSeconds"] = time.monotonic() - started
+    if report.get("pixelChecks", {}).get("verified") and not report["errors"]:
+        report["status"] = "passed"
+    raw = json.dumps(report, separators=(",", ":")).encode()
+    assert len(raw) <= 48 * 1024 ** 2
+    (evidence / "receipt.json").write_bytes(raw)
+    print("FRAMELET_SOFTWARE_PREVIEW_RESULT=" + base64.b64encode(gzip.compress(raw, mtime=0)).decode(), flush=True)
+    raise SystemExit(0 if report["status"] == "passed" else 1)

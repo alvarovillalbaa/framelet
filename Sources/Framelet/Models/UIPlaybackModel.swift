@@ -123,7 +123,7 @@ final class UIPlaybackModel {
             recordingComposition = composition
             durationSeconds = duration
             let item = AVPlayerItem(asset: composition.asset)
-            item.videoComposition = composition.videoComposition
+            item.videoComposition = try SoftwareRecordingCompositor.videoComposition(from: composition.videoComposition)
             item.audioMix = composition.audioMix
             item.forwardPlaybackEndTime = composition.duration
             screenPlayer.actionAtItemEnd = .pause
