@@ -25,10 +25,11 @@ Play Recording, slider zero and `0:00 / 0:23` all present. No Play action ran.
 One native case failed; none passed, skipped or expected-failed. Rendered
 playback/pixel/end/reopen acceptance remains open.
 
-The changed case should require its actual interactive Recording radio button
-and play control to be hittable, and require scope/time anchors inside the
-observed viewport. Read-only container/text frames remain geometry inputs,
-not click targets. Add an original failure PNG to teardown for later diagnosis.
+The changed case requires the actual play control to be hittable, the scoped
+Recording radio button to exist, and scope/time anchors inside the observed
+viewport. Later native radio clicks still must change scope and playback.
+Read-only container/text frames remain geometry inputs. An original failure
+PNG is added to teardown for later diagnosis.
 Keep every playback phase, timing/color/process/original guard and independent
 pixel verifier intact. No product or entitlement change follows from this
 test-selector failure.
