@@ -45,6 +45,12 @@ renderer requests. It supplies no shipping fix. Its controls are retired and
 both earlier diagnostic failures are preserved. Composition-factory properties
 and counted CIFilter output are the next distinct diagnostic boundary.
 
+The [factory comparison](results/2026/11-12/composition-factory-attempt-1.md)
+now returns both colors through generated properties and counted software
+CIFilter requests. Applying product settings together loses output. Its input/
+frame/source/cleanup/retirement scope is closed; the cause among individual
+settings and the actual shipping repair remain open. No new app release.
+
 ## Preview contents and trust
 
 The assets are `Framelet-0.1.3-macos-universal.zip`, its

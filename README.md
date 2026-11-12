@@ -100,7 +100,10 @@ The [instruction delivery experiment](docs/results/2026/11-12/instruction-delive
 now measures valid original/explicit/source-timed instructions but zero renderer
 requests, while raw output returns both real colors. Those instruction variants
 do not repair playback. Recording-preview acceptance remains open before a
-shipping change or binary release; next isolate composition-factory properties.
+shipping change or binary release. A [factory comparison](docs/results/2026/11-12/composition-factory-attempt-1.md)
+now renders both colors through generated properties and a counted software
+CIFilter; applying product settings together removes output. The individual
+setting responsible remains unestablished.
 
 ## Verification and delivery
 

@@ -478,3 +478,11 @@ Keep all95 protected product/closed-helper inputs exact. Raw timestamp/color
 controls, full original rows/streams/source/input and owned retirement required.
 No visible window, Framelet/capture/export/device action, shipping edit, old-case
 replay or app publication. The CIFilter control only covers its first track.
+
+[Factory comparison passed](docs/results/2026/11-12/composition-factory-attempt-1.md):
+generated and counted software-CIFilter paths return both real colors; applying
+product settings together returns no frames/zero calls. All input/stream/frame/
+source/group/root/exact retirement checks passed. This diagnostic is closed.
+Before shipping edits, isolate the measured render size/rate/instruction/class/
+coverage differences in a separate bounded comparison, validating actual asset
+duration. Preserve all prior failures and do not replay old cases routinely.
