@@ -24,7 +24,7 @@ final class FrameletAcceptance: XCTestCase {
             XCTAssertTrue(element.waitForExistence(timeout: 15))
             for _ in 0..<6 {
                 if element.isHittable { break }
-                app.scrollViews.firstMatch.scroll(byDeltaX: 0, deltaY: -250)
+                app.scrollViews.containing(.button, identifier: "Export…").firstMatch.scroll(byDeltaX: 0, deltaY: -250)
             }
             XCTAssertTrue(element.isHittable)
         }
@@ -43,7 +43,7 @@ final class FrameletAcceptance: XCTestCase {
         XCTAssertFalse(app.staticTexts["Recording unavailable"].exists)
         record("01-library-preview")
 
-        app.menuButtons["Recording Actions"].click()
+        app.popUpButtons["Recording Actions"].click()
         app.menuItems["Rename…"].click()
         replace(app.textFields["Recording title"], with: "Authored edited recording")
         app.buttons["Save"].click()
@@ -51,16 +51,16 @@ final class FrameletAcceptance: XCTestCase {
         replace(app.textFields["Start (seconds)"], with: "0.2")
         replace(app.textFields["End (seconds)"], with: "0.6")
         app.buttons["Apply Trim"].click()
-        XCTAssertTrue(clip(1).staticTexts["0.20–0.60 sec · 0:00"].waitForExistence(timeout: 15))
+        wait { clip(1).value as? String == "0.20–0.60 seconds; duration 0:00" }
         app.buttons["Duplicate clip 1"].click()
         XCTAssertTrue(clip(3).waitForExistence(timeout: 15))
         app.buttons["Move clip 2 later"].click()
-        XCTAssertTrue(clip(2).staticTexts["0.20–1.00 sec · 0:00"].waitForExistence(timeout: 15))
+        wait { clip(2).value as? String == "0.20–1.00 seconds; duration 0:00" }
         app.buttons["Remove clip 3 from edit"].click()
         wait { !clip(3).exists }
         app.buttons["Move clip 2 earlier"].click()
-        XCTAssertTrue(clip(1).staticTexts["0.20–1.00 sec · 0:00"].waitForExistence(timeout: 15))
-        XCTAssertTrue(clip(2).staticTexts["0.20–0.60 sec · 0:00"].exists)
+        wait { clip(1).value as? String == "0.20–1.00 seconds; duration 0:00" }
+        XCTAssertEqual(clip(2).value as? String, "0.20–0.60 seconds; duration 0:00")
         record("02-edited-clips")
 
         let disclosure = app.disclosureTriangles["Canvas and camera layout"]
@@ -84,8 +84,8 @@ final class FrameletAcceptance: XCTestCase {
         XCTAssertTrue(app.staticTexts["Authored edited recording"].firstMatch.waitForExistence(timeout: 20))
         wait { app.buttons["Play Recording"].exists && app.buttons["Play Recording"].isEnabled }
         show(clip(1))
-        XCTAssertTrue(clip(1).staticTexts["0.20–1.00 sec · 0:00"].exists)
-        XCTAssertTrue(clip(2).staticTexts["0.20–0.60 sec · 0:00"].exists)
+        XCTAssertEqual(clip(1).value as? String, "0.20–1.00 seconds; duration 0:00")
+        XCTAssertEqual(clip(2).value as? String, "0.20–0.60 seconds; duration 0:00")
         XCTAssertFalse(clip(3).exists)
         record("04-reopened-library")
         let observation: [String: Any] = ["caseId": "FUI01", "status": "passed",

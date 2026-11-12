@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "run": 43182639018,
+  "workflow": 415736911,
+  "path": ".github/workflows/framelet-ui-20261112-4.yml",
+  "disabledState": "disabled_manually",
+  "branch": "qa/framelet-ui-20261112-4",
+  "deletedHead": "9a6308e0a4216bd6bf7bf08acd82dc1240e5e962",
+  "exactRefAbsent": true,
+  "uploadedEvidenceRemoved": true,
+  "artifactId": "13926483921",
+  "requests": [
+    {
+      "route": "actions/runs/43182639018",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "0eea561e73df5730511c3907b12b4a3184dd570ab5f400f9e7b6472c8ac396ac"
+    },
+    {
+      "route": "actions/workflows/415736911",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "688921125075a6b3909a23e4ea26de958901a64da4340a038ab48b2d63402810"
+    },
+    {
+      "route": "actions/artifacts/13926483921",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "8eb192492ed2ff2713cc6152bec0ebbb6d4cde89267c5664d12377cba64f21b0"
+    },
+    {
+      "route": "actions/workflows/415736911/disable",
+      "method": "PUT",
+      "status": 204,
+      "responseSHA256": "d3e6e53bb63565ae55630dc653a0931b5c42905cbea9947459ebfb63c3a42224"
+    },
+    {
+      "route": "actions/workflows/415736911",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "85bfd0074521a309eef0705e0b1f9ba52fd6eb4709553ebb96b3563091d38c13"
+    },
+    {
+      "route": "git/ref/heads/qa/framelet-ui-20261112-4",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "87dff359e47f88b173f9440d285c0a367d1f06232ad98469c209219e7fa24a83"
+    },
+    {
+      "route": "git/refs/heads/qa/framelet-ui-20261112-4",
+      "method": "DELETE",
+      "status": 204,
+      "responseSHA256": "710bd0d751961ea7d0c6dcf7d8716c717365399912d51494895b3547b20eeae7"
+    },
+    {
+      "route": "git/matching-refs/heads/qa/framelet-ui-20261112-4",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "f9562a619f5113856dd47f548644c1a3f49cb7563d1be9585cb3d8910aae6bba"
+    }
+  ]
+}

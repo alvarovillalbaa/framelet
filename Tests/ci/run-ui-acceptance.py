@@ -22,7 +22,7 @@ source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "arm64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-ui-20261112-4"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-ui-20261112-5"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-ui-", dir=parent)).resolve()

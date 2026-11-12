@@ -51,6 +51,8 @@ struct ClipListEditor: View {
                     }
                     .buttonStyle(.plain)
                     .accessibilityLabel("Select clip \(index + 1)")
+                    .accessibilityValue(UIFormatters.trimTime(clip.trimStartSeconds) + "–" +
+                        UIFormatters.trimTime(clip.trimEndSeconds) + " seconds; duration " + UIFormatters.duration(clip.durationSeconds))
                     .accessibilityAddTraits(selection == clip.id ? .isSelected : [])
                     Button { move(clip.id, delta: -1) } label: { Image(systemName: "arrow.up") }
                         .disabled(disabled || index == 0).help("Move clip earlier")
