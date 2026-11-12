@@ -52,3 +52,14 @@ at `v0.1.0-preview.1`, with all three unchanged asset server digests verified.
 Main has no active workflow files; both provider workflow records are disabled
 and all three QA controls retired. Do not turn public metadata into a fresh-Mac
 launch or Gatekeeper/capture acceptance claim.
+
+## Native editor qualification — 12 November 2026
+
+Alvaro's standing "I approve everything / Keep going / Do all the work" covers
+the separate [FUI01 native UI scope](docs/proposals/native-ui-acceptance.md).
+This is an explicit app-launch/edit/export journey with generated media in a
+fresh nonce-bound CI library, not an extension of the non-launching preview
+profile. Use only its bounded temporary public Mac runner and preserve actual
+failure/cleanup evidence. No source picker, screen recording, camera/microphone,
+personal media, paid identity or old accepted-scope rerun. All existing product
+inputs stay unchanged unless observed native evidence identifies a real defect.
