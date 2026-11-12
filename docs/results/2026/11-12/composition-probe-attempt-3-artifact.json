@@ -1,0 +1,32 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Action completed."
+    }
+  ],
+  "structuredContent": {
+    "artifacts": [
+      {
+        "id": 13959324008,
+        "name": "framelet-composition-probe-43253033480",
+        "size_in_bytes": 825196,
+        "url": "https://api.github.com/repos/alvarovillalbaa/framelet/actions/artifacts/13959324008",
+        "archive_download_url": "https://api.github.com/repos/alvarovillalbaa/framelet/actions/artifacts/13959324008/zip",
+        "expired": false,
+        "created_at": "2026-11-12T15:59:29Z",
+        "expires_at": "2026-11-14T15:59:27Z",
+        "updated_at": "2026-11-12T15:59:29Z",
+        "digest": "sha256:99fc4ed4b355621f6aa69dbc18e7c6e04186a27646248666ae69b721d3cb13ac",
+        "workflow_run": {
+          "id": 43253033480,
+          "repository_id": 1436111381,
+          "head_repository_id": 1436111381,
+          "head_branch": "qa/framelet-composition-probe-20261112-3",
+          "head_sha": "eaf30d07051525b2bbeb38ffbc7d1f3223893fab"
+        }
+      }
+    ]
+  },
+  "isError": false
+}

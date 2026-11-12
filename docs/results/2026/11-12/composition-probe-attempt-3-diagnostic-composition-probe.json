@@ -1,0 +1,216 @@
+{
+  "captureOrExportRequested" : false,
+  "coordinateSystem" : "AppKit screen points, origin bottom-left",
+  "elapsedSeconds" : 4.409122463000017,
+  "executablePath" : "\/Users\/runner\/work\/_temp\/framelet-composition-probe-nrbkbzwu\/CompositionProbe.app\/Contents\/MacOS\/CompositionProbe",
+  "kind" : "read-only-composition-diagnostic",
+  "mediaModified" : false,
+  "panes" : [
+    {
+      "frameDurationSeconds" : 0.033333333333333333,
+      "instructionCount" : 2,
+      "itemError" : "",
+      "itemStatus" : 1,
+      "name" : "Exact builder",
+      "playerError" : "",
+      "playerStatus" : 1,
+      "presentationSize" : {
+        "height" : 1080,
+        "width" : 1920
+      },
+      "renderScale" : 1,
+      "screenFrame" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 120,
+        "y" : 490
+      },
+      "sourceTrackIDForFrameTiming" : 0,
+      "timeSeconds" : 3.6157882300000002,
+      "videoBounds" : {
+        "height" : 264.375,
+        "width" : 470,
+        "x" : 0,
+        "y" : 10.3125
+      },
+      "viewBounds" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 0,
+        "y" : 0
+      }
+    },
+    {
+      "frameDurationSeconds" : 0.033333333333333333,
+      "instructionCount" : 2,
+      "itemError" : "",
+      "itemStatus" : 1,
+      "name" : "Explicit render scale 1",
+      "playerError" : "",
+      "playerStatus" : 1,
+      "presentationSize" : {
+        "height" : 1080,
+        "width" : 1920
+      },
+      "renderScale" : 1,
+      "screenFrame" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 610,
+        "y" : 490
+      },
+      "sourceTrackIDForFrameTiming" : 0,
+      "timeSeconds" : 3.6162293480000001,
+      "videoBounds" : {
+        "height" : 264.375,
+        "width" : 470,
+        "x" : 0,
+        "y" : 10.3125
+      },
+      "viewBounds" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 0,
+        "y" : 0
+      }
+    },
+    {
+      "frameDurationSeconds" : 0.033333333333333333,
+      "instructionCount" : 2,
+      "itemError" : "",
+      "itemStatus" : 1,
+      "name" : "Render scale 0.5",
+      "playerError" : "",
+      "playerStatus" : 1,
+      "presentationSize" : {
+        "height" : 540,
+        "width" : 960
+      },
+      "renderScale" : 0.5,
+      "screenFrame" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 1100,
+        "y" : 490
+      },
+      "sourceTrackIDForFrameTiming" : 0,
+      "timeSeconds" : 3.6171614559999998,
+      "videoBounds" : {
+        "height" : 264.375,
+        "width" : 470,
+        "x" : 0,
+        "y" : 10.3125
+      },
+      "viewBounds" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 0,
+        "y" : 0
+      }
+    },
+    {
+      "frameDurationSeconds" : 0.033333333333333333,
+      "instructionCount" : 2,
+      "itemError" : "",
+      "itemStatus" : 1,
+      "name" : "Postprocessing disabled",
+      "playerError" : "",
+      "playerStatus" : 1,
+      "presentationSize" : {
+        "height" : 1080,
+        "width" : 1920
+      },
+      "renderScale" : 1,
+      "screenFrame" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 120,
+        "y" : 160
+      },
+      "sourceTrackIDForFrameTiming" : 0,
+      "timeSeconds" : 3.6162933490000002,
+      "videoBounds" : {
+        "height" : 264.375,
+        "width" : 470,
+        "x" : 0,
+        "y" : 10.3125
+      },
+      "viewBounds" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 0,
+        "y" : 0
+      }
+    },
+    {
+      "frameDurationSeconds" : 0.2602888888888889,
+      "instructionCount" : 1,
+      "itemError" : "",
+      "itemStatus" : 1,
+      "name" : "Software Core Image",
+      "playerError" : "",
+      "playerStatus" : 1,
+      "presentationSize" : {
+        "height" : 428,
+        "width" : 640
+      },
+      "renderScale" : 1,
+      "screenFrame" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 610,
+        "y" : 160
+      },
+      "sourceTrackIDForFrameTiming" : 1,
+      "timeSeconds" : 3.011052888,
+      "videoBounds" : {
+        "height" : 285,
+        "width" : 426.1682242990654,
+        "x" : 21.9158878504673,
+        "y" : 0
+      },
+      "viewBounds" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 0,
+        "y" : 0
+      }
+    },
+    {
+      "frameDurationSeconds" : -1,
+      "instructionCount" : 0,
+      "itemError" : "",
+      "itemStatus" : 1,
+      "name" : "Raw assembled asset",
+      "playerError" : "",
+      "playerStatus" : 1,
+      "presentationSize" : {
+        "height" : 428,
+        "width" : 640
+      },
+      "renderScale" : -1,
+      "screenFrame" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 1100,
+        "y" : 160
+      },
+      "sourceTrackIDForFrameTiming" : -1,
+      "timeSeconds" : 3.5975935560000001,
+      "videoBounds" : {
+        "height" : 285,
+        "width" : 426.1682242990654,
+        "x" : 21.9158878504673,
+        "y" : 0
+      },
+      "viewBounds" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 0,
+        "y" : 0
+      }
+    }
+  ],
+  "processID" : 3986,
+  "shippingCodeModified" : false
+}

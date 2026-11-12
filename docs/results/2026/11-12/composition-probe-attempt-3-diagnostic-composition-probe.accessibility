@@ -1,0 +1,63 @@
+Attributes: Application, 0x7fbbf890caf0, pid: 3986, title: 'CompositionProbe', Disabled
+Element subtree:
+ →Application, 0x7fbbf890caf0, pid: 3986, title: 'CompositionProbe', Disabled
+    Window (Main), 0x7fbbf890dda0, {{100.0, 212.0}, {1500.0, 728.0}}, title: 'Framelet read-only composition diagnostic 3ed5eda1b9c648d2aae693521cdb6294', Keyboard Focused, Disabled
+      StaticText, 0x7fbbf890cf00, {{121.0, 247.0}, {1458.0, 24.0}}, value: Read-only composit...
+      StaticText, 0x7fbbf89090e0, {{121.0, 273.0}, {468.0, 24.0}}, value: Exact builder
+      StaticText, 0x7fbbf8909220, {{611.0, 273.0}, {468.0, 24.0}}, value: Explicit render sc...
+      StaticText, 0x7fbbf89152c0, {{1101.0, 273.0}, {468.0, 24.0}}, value: Render scale 0.5
+      StaticText, 0x7fbbf890f790, {{121.0, 603.0}, {468.0, 24.0}}, value: Postprocessing dis...
+      StaticText, 0x7fbbf8915020, {{611.0, 603.0}, {468.0, 24.0}}, value: Software Core Image
+      StaticText, 0x7fbbf8915160, {{1101.0, 603.0}, {468.0, 24.0}}, value: Raw assembled asset
+      Button, 0x7fbbf890fd50, {{106.0, 218.0}, {16.0, 16.0}}, identifier: '_XCUI:CloseWindow'
+      Button, 0x7fbbf890fe90, {{146.0, 218.0}, {16.0, 16.0}}, identifier: '_XCUI:ZoomWindow', Disabled
+        Group, 0x7fbbf890f8d0, {{147.0, 218.0}, {14.0, 16.0}}, Disabled
+          Group, 0x7fbbf890fa10, {{147.0, 218.0}, {14.0, 16.0}}, Disabled
+      Button, 0x7fbbf890fb50, {{126.0, 218.0}, {16.0, 16.0}}, identifier: '_XCUI:MinimizeWindow', Disabled
+      StaticText, 0x7fbbf890ffd0, {{576.0, 217.0}, {548.0, 16.0}}, value: Framelet read-only...
+    MenuBar, 0x7fbbf8910110, {{0.0, 0.0}, {1920.0, 24.0}}
+      MenuBarItem, 0x7fbbf8910250, {{10.0, 0.0}, {34.0, 24.0}}, title: 'Apple'
+        Menu, 0x7fbbf8910390, {{0.0, 1080.0}, {0.0, 0.0}}
+          MenuItem, 0x7fbbf89156b0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_aboutThisMacRequested:', title: 'About This Mac'
+          MenuItem, 0x7fbbf89157f0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_systemInformationRequested:', title: 'System Information'
+          MenuItem, 0x7fbbf8915930, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fbbf8915a70, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_systemSettingsRequested:', title: 'System Settings…, 1 update'
+          MenuItem, 0x7fbbf8915bb0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_appStoreRequested:', title: 'App Store'
+          MenuItem, 0x7fbbf8915cf0, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fbbf8915e30, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_recentsRequested:', title: 'Recent Items'
+            Menu, 0x7fbbf8915f70, {{0.0, 1080.0}, {0.0, 0.0}}
+              MenuItem, 0x7fbbf89160b0, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Applications', Disabled
+              MenuItem, 0x7fbbf89161f0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'CompositionProbe'
+              MenuItem, 0x7fbbf8916330, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'Show “CompositionProbe” in Finder'
+              MenuItem, 0x7fbbf8916470, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x7fbbf89165b0, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Documents', Disabled
+              MenuItem, 0x7fbbf89166f0, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x7fbbf8916830, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Servers', Disabled
+              MenuItem, 0x7fbbf8916970, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x7fbbf8916ab0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_clearRecentItemsRequested:', title: 'Clear Menu'
+          MenuItem, 0x7fbbf8916bf0, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fbbf8916d30, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_forceQuitPanelRequested:', title: 'Force Quit…'
+          MenuItem, 0x7fbbf8916e70, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_forceQuitRequested:', title: 'Force Quit CompositionProbe'
+          MenuItem, 0x7fbbf8916fb0, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fbbf89170f0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_sleepRequested:', title: 'Sleep'
+          MenuItem, 0x7fbbf8917230, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_restartRequested:', title: 'Restart…'
+          MenuItem, 0x7fbbf8917370, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_restartNowRequested:', title: 'Restart'
+          MenuItem, 0x7fbbf89174b0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_shutDownRequested:', title: 'Shut Down…'
+          MenuItem, 0x7fbbf89175f0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_shutDownNowRequested:', title: 'Shut Down'
+          MenuItem, 0x7fbbf8917730, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fbbf8917870, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_lockScreenRequested:', title: 'Lock Screen'
+          MenuItem, 0x7fbbf89179b0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_logOutRequested:', title: 'Log Out runner…'
+          MenuItem, 0x7fbbf8917af0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_logOutNowRequested:', title: 'Log Out runner'
+          MenuItem, 0x7fbbf8917c30, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+      MenuBarItem, 0x7fbbf8917d70, {{44.0, 0.0}, {141.0, 24.0}}, title: 'CompositionProbe'
+        Menu, 0x7fbbf8917eb0, {{0.0, 1080.0}, {0.0, 0.0}}
+          MenuItem, 0x7fbbf8917ff0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'terminate:', title: 'Quit Composition Probe'
+          MenuItem, 0x7fbbf8918130, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'NSAlternateQuitMenuItem', title: 'Quit and Keep Windows'
+    TouchBar, 0x7fbbf8918270, {{80.0, 30.0}, {685.0, 30.0}}, Disabled
+Path to element:
+ →Application, 0x7fbbf890caf0, pid: 3986, title: 'CompositionProbe', Disabled
+Query chain:
+ →Find: Application 'com.alvarovillalbaa.Framelet.CompositionProbe'
+  Output: {
+    Application, 0x7fbbf7f09250, pid: 3986, title: 'CompositionProbe', Disabled
+  }
