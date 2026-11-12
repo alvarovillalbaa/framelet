@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "run": 43215226111,
+  "workflow": 415955295,
+  "path": ".github/workflows/framelet-picker-20261112-3.yml",
+  "disabledState": "disabled_manually",
+  "branch": "qa/framelet-picker-20261112-3",
+  "deletedHead": "da9e5b82fbcb3859076859a354f9fe34c38b822c",
+  "exactRefAbsent": true,
+  "uploadedEvidenceRemoved": true,
+  "artifactId": "13943362303",
+  "requests": [
+    {
+      "route": "actions/runs/43215226111",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "7ee07205367dc5b1f8221129a2330eea4935ae5271c87f4e7192093b3f6d1972"
+    },
+    {
+      "route": "actions/workflows/415955295",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "dbadd2ee636e3420d672b9f6963d040238a439a48fb89a7aa7761542ae122149"
+    },
+    {
+      "route": "actions/artifacts/13943362303",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "b08c1f4651fcf69104015324cb454ab2d846d7d0778aa1c4b583113c709c8909"
+    },
+    {
+      "route": "actions/workflows/415955295/disable",
+      "method": "PUT",
+      "status": 204,
+      "responseSHA256": "6adc48e4d21c2a84044be6d5e95f5ecc4015eba5da87a4c894ae62407fa670a0"
+    },
+    {
+      "route": "actions/workflows/415955295",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "7f0184b5b9666458bf2c538258575e0f5688834a46bd5caed0c26551d5102631"
+    },
+    {
+      "route": "git/ref/heads/qa/framelet-picker-20261112-3",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "c7dc267d6d83446d58783794052cf06908077c868201badc4eabb3efd9cc9bb6"
+    },
+    {
+      "route": "git/refs/heads/qa/framelet-picker-20261112-3",
+      "method": "DELETE",
+      "status": 204,
+      "responseSHA256": "b411869b0a872f0eb2fc24200b419c8cdcae920c8bf23f943a3e7bfee14b2a34"
+    },
+    {
+      "route": "git/matching-refs/heads/qa/framelet-picker-20261112-3",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "3a57b14e8e05fd09eca8c0e6ad0a16a280107b1a34f14a2ea22565ff793de9c0"
+    }
+  ]
+}

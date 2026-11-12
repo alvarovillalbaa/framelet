@@ -1,0 +1,10 @@
+Attributes: Application, 0x7fde9d43b5a0, pid: 411, title: 'SystemUIServer', Disabled
+Element subtree:
+ →Application, 0x7fde9d43b5a0, pid: 411, title: 'SystemUIServer', Disabled
+Path to element:
+ →Application, 0x7fde9d43b5a0, pid: 411, title: 'SystemUIServer', Disabled
+Query chain:
+ →Find: Application 'com.apple.systemuiserver'
+  Output: {
+    Application, 0x7fde9d11dd40, pid: 411, title: 'SystemUIServer', Disabled
+  }

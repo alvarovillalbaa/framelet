@@ -51,3 +51,6 @@ the behavioral assertions, saves at most 64 process metadata entries first,
 then queries at most eight relevant system processes. It keeps the same
 authored/no-Start Intel scope and exact cleanup/retention limits. No shipping
 source, permission, device, dependency, paid service or model call changed.
+
+Follow-up: [changed candidate 3 passed completely](picker-readiness-attempt-3.md).
+This original remains failed; its unexecuted later assertions are not backfilled.

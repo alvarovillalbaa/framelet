@@ -7,6 +7,24 @@ it never selects a source or starts capture. The original [recorder contract](..
 requires actual capture/pause/resume/export proof; the existing authored-media
 edit/export, window and packaging profiles do not supply it.
 
+[FUI03A presentation/Escape passed](../results/2026/11-12/picker-readiness-attempt-3.md)
+on the Intel VM with actual picker pixels and Control Center AX. It is closed;
+do not rerun its case. The observed system application is `com.apple.controlcenter`,
+dialog `Shared Content Picker Controls`, with Show All Windows, Cancel and
+Share Built-in Display buttons. The display-share action is outside this
+window-only scope. Window choice itself has not been attempted; stop before
+Start unless the exact nonce-titled fixture is independently identified.
+
+The current recorder shows only generic Selected window. Before actual capture,
+prepare the small user-facing improvement that names the selected window from
+the chosen filter's metadata. Apple's [includedWindows](https://developer.apple.com/documentation/screencapturekit/sccontentfilter/includedwindows.md)
+and inspected SDK header mark it available from **macOS 15.2**. Preserve macOS
+15.0 compatibility with an availability guard/fallback; do not raise the app's
+minimum OS or enumerate unrelated shareable content to obtain a title. The
+new capture case must require the exact fixture title before Start. This source
+improvement, versioned preview refresh and native proof are not implemented by
+the current draft. The public 0.1.2 app and its closed source remain unchanged.
+
 The inspected owner is `CaptureCoordinator.chooseSource/start/pause/resume/stop`,
 with `ScreenRecording` in `Services/RecordingCompletion.swift`. Its public
 ScreenCaptureKit picker excludes Framelet itself. Camera/microphone/system
@@ -48,6 +66,18 @@ before execution. Use at most one fixed public Mac job capped at 20 minutes per
 changed candidate, no local environment/build/app under the failed Storage
 Guard, no new dependency/service, paid enrollment, external message or model
 call. A VM limitation must not be hidden by swapping in generated input movies.
+
+Use the observed standard public Intel VM/Xcode 16.4 profile initially, with its
+own exact source/architecture boundary. Foreground Recording-menu Pause/Resume/
+Stop commands have observed native labels and remain usable with the library
+minimized. The case must expose them through normal menus, acknowledge phase
+changes, preserve the deliberate pause and restore/reopen/export normally.
+Keep a teardown attachment even after an assertion: whether Start was requested,
+whether Stop was requested, whether ready plus enabled source controls were
+observed (the public no-unfinished-capture guard), and the corresponding uptime.
+The controller must require that actual acknowledgment before termination or
+library/scratch removal. If absent, preserve partial bytes and a failed/unverified
+cleanup result; never replace it with a process signal or manifest-only guess.
 
 `Tests/ci/CapturedWindowFiles.swift` now prepares the independent read-only file
 verifier; it has only been syntax parsed, not built or executed. Compile it with

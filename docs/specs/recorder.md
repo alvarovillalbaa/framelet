@@ -62,6 +62,13 @@ Release/universal packaging. Its [three public assets](../results/2026/11-12/pre
 passed anonymous byte/digest checks. These do not establish Release runtime,
 downloaded-app trust or actual capture/device timing.
 
+The separate [FUI03A native picker check](../results/2026/11-12/picker-readiness-attempt-3.md)
+passed on an Intel/macOS 15.7.9 Debug VM: authored fixture, options off, disabled
+Start, system picker and Escape back to unselected/ready, with no recording
+created. Source/fixture hashes and owned cleanup passed. Exact window selection
+and actual capture/pause/resume/stop/export still require the separate draft;
+do not replay the closed presentation-only case or call it capture proof.
+
 The approved [native check run](../results/2026/10-28/ordered-playback-checks.md)
 establishes compilation, packaging, a local ad-hoc signature and thirty exact
 core/synthetic-media cases. Its temporary workflow has been removed. It does

@@ -1,0 +1,178 @@
+{
+  "cameraMicrophoneSystemAudioOff" : true,
+  "capturePerformed" : false,
+  "caseId" : "FUI03A",
+  "fixtureTitle" : "Framelet authored capture f13316a02d6146738cc81db623ea3ebf",
+  "readyAfterCancel" : true,
+  "runningApplications" : [
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.loginwindow",
+      "name" : "loginwindow",
+      "pid" : 152
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.systemuiserver",
+      "name" : "SystemUIServer",
+      "pid" : 411
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.coreservices.uiagent",
+      "name" : "CoreServicesUIAgent",
+      "pid" : 404
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.WindowManager",
+      "name" : "WindowManager",
+      "pid" : 398
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.controlcenter",
+      "name" : "Control Center",
+      "pid" : 410
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.dock",
+      "name" : "Dock",
+      "pid" : 408
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.wallpaper.agent",
+      "name" : "Wallpaper",
+      "pid" : 441
+    },
+    {
+      "activationPolicy" : 0,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.finder",
+      "name" : "Finder",
+      "pid" : 412
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.talagent",
+      "name" : "talagentd",
+      "pid" : 406
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.CoreLocationAgent",
+      "name" : "CoreLocationAgent",
+      "pid" : 431
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.AirPlayUIAgent",
+      "name" : "AirPlay Screen Mirroring",
+      "pid" : 489
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.TextInputMenuAgent",
+      "name" : "TextInputMenuAgent",
+      "pid" : 494
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.dock.extra",
+      "name" : "Dock Extra",
+      "pid" : 504
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.TextInputSwitcher",
+      "name" : "TextInputSwitcher",
+      "pid" : 505
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.Spotlight",
+      "name" : "Spotlight",
+      "pid" : 532
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.AppSSOAgent",
+      "name" : "Single Sign-On",
+      "pid" : 533
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.SoftwareUpdateNotificationManager",
+      "name" : "SoftwareUpdateNotificationManager",
+      "pid" : 565
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.IOUIAgent",
+      "name" : "IOUIAgent",
+      "pid" : 584
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.wifi.WiFiAgent",
+      "name" : "Wi-Fi",
+      "pid" : 661
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : false,
+      "bundleIdentifier" : "com.apple.backgroundtaskmanagement.agent",
+      "name" : "BackgroundTaskManagementAgent",
+      "pid" : 971
+    },
+    {
+      "activationPolicy" : 0,
+      "active" : false,
+      "bundleIdentifier" : "com.alvarovillalbaa.FrameletAuthoredFixture",
+      "name" : "Framelet Authored Fixture",
+      "pid" : 3229
+    },
+    {
+      "activationPolicy" : 1,
+      "active" : true,
+      "bundleIdentifier" : "com.apple.dt.AutomationModeUI",
+      "name" : "AutomationModeUI",
+      "pid" : 3384
+    },
+    {
+      "activationPolicy" : 0,
+      "active" : false,
+      "bundleIdentifier" : "com.alvarovillalbaa.Framelet",
+      "name" : "Framelet",
+      "pid" : 3508
+    }
+  ],
+  "scope" : "Picker screenshots and AX originals require review; no source-selection or capture proof.",
+  "sourceSelected" : false,
+  "startClicked" : false,
+  "status" : "presentation-cancellation-observed",
+  "systemTreesQueried" : [
+    "com.apple.systemuiserver",
+    "com.apple.controlcenter"
+  ]
+}

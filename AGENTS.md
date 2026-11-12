@@ -150,3 +150,12 @@ covers the changed bounded diagnostic case in the same proposal: metadata
 first, at most eight relevant system AX snapshots, unchanged picker/Escape/
 ready behavior and no source/Share/Start or consent action. Do not weaken the
 behavioral assertions or turn these screenshots into actual capture proof.
+
+[FUI03A passed completely](docs/results/2026/11-12/picker-readiness-attempt-3.md)
+on the exact Intel source/profile, with original PNG/AX, fixture/source/file
+checks and owned cleanup verified. All picker controls are retired. Preserve
+the two different failures and do not replay this closed probe. The next scope
+is actual owned-window selection and capture, with exact source identity before
+Start and acknowledged Stop/no unfinished writer before termination/removal.
+Its file verifier remains syntax-only; materialize the full case/controller
+from the capture draft before activating another native job.
