@@ -512,3 +512,13 @@ full asset/all-time coverage, order/header/matte/seek checks. Preserve100 other
 protected product/closed-helper inputs and all failures. No test-time coverage
 mutation, old-case replay, app/capture/export/device action or new binary release.
 New-source Release/native pixel qualification remains separate and mandatory.
+
+[Exact-source regression passed](docs/results/2026/11-12/exact-coverage-attempt-1.md)
+3 original/trimmed/reordered projects and6 actual product-class1920x1080 frames,
+full asset/all-time validity, order/header/matte/seek and source/input/group/root/
+retirement. This scope is closed; do not repeat it routinely. Standing approval
+covers the next fresh0.1.5/build6 universal packaging and full new-source FUI04
+native/nine-color/process/input qualification, using the now-qualified builder
+with only version/builder-archive guard changes. Materialize inactive exact-source
+controls first. Keep all old cases/helpers and failed0.1.4/public0.1.3 assets
+immutable; no usable new binary publication until the entire Release scope passes.

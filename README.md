@@ -106,7 +106,10 @@ CIFilter; applying product settings together removes output. The individual
 setting responsible was isolated by the [coverage experiment](docs/results/2026/11-12/composition-properties-attempt-2.md):
 the final instruction ended one project tick before the native asset. Matching
 that end restores frames and renderer callbacks. The builder now uses the exact
-asset duration; fixed-source regression and new Release qualification remain open.
+asset duration. Its [direct product regression](docs/results/2026/11-12/exact-coverage-attempt-1.md)
+passed3 original/trimmed/reordered projects and6 actual1920x1080 frames, including
+order, upright header, matte and full-range validity. New Release qualification
+remains open before publishing a usable binary.
 
 ## Verification and delivery
 

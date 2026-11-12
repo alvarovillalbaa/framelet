@@ -58,6 +58,13 @@ now applies that correction; its exact-source regression and a fresh universal
 Release/full-native pixel qualification remain open. The public archive stays
 unchanged and the failed0.1.4 candidate remains unqualified.
 
+The [exact builder/product regression passed](results/2026/11-12/exact-coverage-attempt-1.md)
+all3 original/trimmed/reordered projects and6 real1920x1080 frames with full
+instruction coverage, correct order/header/matte and actual product compositor.
+Source/input/group/root/exact retirement passed. Do not rerun this closed
+background scope. Fresh0.1.5 universal packaging and full Release/native pixels
+remain required before a new usable binary; the earlier failed0.1.4 stays intact.
+
 ## Preview contents and trust
 
 The assets are `Framelet-0.1.3-macos-universal.zip`, its
