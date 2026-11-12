@@ -290,3 +290,12 @@ prefix; require helper PID/AX/source/file/ordinary shutdown proof, retain its
 raw native result and inspect actual frames before choosing a product fix.
 The same measured sparse exception is explicitly scoped in the new proposal;
 local Guard, physical caps, no-device/no-writer and exact-retirement gates remain.
+
+[FUI04D attempt 1](docs/results/2026/11-12/composition-probe-attempt-1.md) has
+original comparison frames but failed independent executable binding. Keep it
+failed. Standing approval covers the proposal's changed canonical-process-path
+observer, compiled-helper before/after hash and render-scale/postprocessing/
+software-control comparison. Same native case and shipping/full-FUI04/pixel
+inputs remain unchanged. Denied paths are retained without permission retry;
+unexpected product launch blocks cleanup. Require actual identities and original
+frames before choosing a shipping correction; no synthetic acceptance.

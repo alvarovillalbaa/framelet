@@ -1,5 +1,6 @@
 import AppKit
 import AVKit
+import CoreImage
 import FrameletCore
 
 // Read-only diagnostic variants, never replacement product acceptance.
@@ -13,7 +14,7 @@ private final class CompositionProbe: NSObject, NSApplicationDelegate {
     var composition: RecordingComposition?
     var config: [String: String] = [:]
     var started = ProcessInfo.processInfo.systemUptime
-    let names = ["Exact builder", "Immutable copies", "Explicit natural size", "No crop instruction", "Explicit source timing", "Raw assembled asset"]
+    let names = ["Exact builder", "Explicit render scale 1", "Render scale 0.5", "Postprocessing disabled", "Software Core Image", "Raw assembled asset"]
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         Task { @MainActor in
@@ -37,31 +38,25 @@ private final class CompositionProbe: NSObject, NSApplicationDelegate {
         composition = built
         let tracks = try await built.asset.loadTracks(withMediaType: .video)
         guard tracks.count == 1, let track = tracks.first else { throw CocoaError(.fileReadCorruptFile) }
-        let sized = built.asset.mutableCopy() as! AVMutableComposition
-        sized.naturalSize = built.videoComposition.renderSize
-        let uncropped = built.videoComposition.mutableCopy() as! AVMutableVideoComposition
-        uncropped.instructions = try built.videoComposition.instructions.map { value in
+        let unity = built.videoComposition.mutableCopy() as! AVMutableVideoComposition
+        unity.renderScale = 1
+        let half = built.videoComposition.mutableCopy() as! AVMutableVideoComposition
+        half.renderScale = 0.5
+        let noPost = built.videoComposition.mutableCopy() as! AVMutableVideoComposition
+        noPost.instructions = try built.videoComposition.instructions.map { value in
             guard let original = value as? AVVideoCompositionInstruction else { throw CocoaError(.fileReadCorruptFile) }
             let instruction = AVMutableVideoCompositionInstruction()
             instruction.timeRange = original.timeRange; instruction.backgroundColor = original.backgroundColor
-            instruction.layerInstructions = try original.layerInstructions.map { layer in
-                var start = CGAffineTransform.identity, end = CGAffineTransform.identity
-                var range = CMTimeRange.zero
-                guard layer.trackID == track.trackID,
-                      layer.getTransformRamp(for: original.timeRange.start, start: &start, end: &end, timeRange: &range),
-                      start == end else { throw CocoaError(.fileReadCorruptFile) }
-                let result = AVMutableVideoCompositionLayerInstruction(assetTrack: track)
-                result.setTransform(start, at: original.timeRange.start)
-                return result
-            }
+            instruction.layerInstructions = original.layerInstructions
+            instruction.enablePostProcessing = false
             return instruction
         }
-        let timed = built.videoComposition.mutableCopy() as! AVMutableVideoComposition
-        timed.sourceTrackIDForFrameTiming = track.trackID
-        let assets: [AVAsset] = [built.asset, built.asset.copy() as! AVComposition, sized,
-            built.asset, built.asset, built.asset]
-        let videos: [AVVideoComposition?] = [built.videoComposition,
-            built.videoComposition.copy() as? AVVideoComposition, built.videoComposition, uncropped, timed, nil]
+        let softwareContext = CIContext(options: [.useSoftwareRenderer: true])
+        let software = AVMutableVideoComposition(asset: built.asset, applyingCIFiltersWithHandler: { request in
+            request.finish(with: request.sourceImage, context: softwareContext)
+        })
+        let assets: [AVAsset] = Array(repeating: built.asset, count: 6)
+        let videos: [AVVideoComposition?] = [built.videoComposition, unity, half, noPost, software, nil]
         window = NSWindow(contentRect: NSRect(x: 100, y: 140, width: 1500, height: 700),
             styleMask: [.titled, .closable], backing: .buffered, defer: false)
         window.title = "Framelet read-only composition diagnostic " + (config["nonce"] ?? "")
@@ -101,12 +96,17 @@ private final class CompositionProbe: NSObject, NSApplicationDelegate {
             return ["name": names[index], "timeSeconds": player.currentTime().seconds,
                 "playerStatus": player.status.rawValue, "itemStatus": item.status.rawValue,
                 "playerError": player.error?.localizedDescription ?? "", "itemError": item.error?.localizedDescription ?? "",
+                "renderScale": Double(item.videoComposition?.renderScale ?? -1),
+                "frameDurationSeconds": item.videoComposition?.frameDuration.seconds ?? -1,
+                "sourceTrackIDForFrameTiming": item.videoComposition?.sourceTrackIDForFrameTiming ?? -1,
+                "instructionCount": item.videoComposition?.instructions.count ?? 0,
                 "presentationSize": ["width": item.presentationSize.width, "height": item.presentationSize.height],
                 "videoBounds": rect(view.videoBounds), "viewBounds": rect(view.bounds),
                 "screenFrame": rect(window.convertToScreen(view.convert(view.bounds, to: nil)))]
         }
         let report: [String: Any] = ["kind": "read-only-composition-diagnostic", "elapsedSeconds": elapsed,
             "processID": ProcessInfo.processInfo.processIdentifier,
+            "executablePath": Bundle.main.executableURL?.standardizedFileURL.path ?? "",
             "coordinateSystem": "AppKit screen points, origin bottom-left", "panes": rows,
             "captureOrExportRequested": false, "mediaModified": false, "shippingCodeModified": false]
         do {

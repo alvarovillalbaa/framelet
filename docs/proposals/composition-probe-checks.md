@@ -57,3 +57,26 @@ permission/device action, screen recording, source selection or media mutation.
 Local Guard remains failed at 2.8 GiB free/34.0 required. Only static syntax,
 bounded evidence handling and source publication occur locally. This is a
 diagnostic on one Intel VM; every wider qualification remains open.
+
+[Attempt 1](../results/2026/11-12/composition-probe-attempt-1.md) compiled and
+completed the native comparison but failed its host executable observer: every
+argument-string sample was empty. Preserve that failed verdict and original
+PNG/AX/JSON. The frame shows all video-composition variants black and only the
+raw assembled asset red; this is incomplete identity evidence, not a product fix.
+
+Candidate 2 uses wide process-name metadata and macOS `proc_pidpath` to read
+canonical executable paths for at most eight Framelet/CompositionProbe named
+candidates per sample. Retain unexpected/denied paths and never retry a denied
+PID or relax the exact owned executable/PID requirement. Match host path/PID to
+the original AX and helper Bundle path; hash the compiled executable before/
+after. Unexpected product launch prevents cleanup admission. Preserve the same
+native case, full FUI04 prefix, product and independent verifier, guarded against
+`fea98a8055f741f4177dda54ad1c076f834f8582` with no protected input changes.
+
+The changed six panes are exact builder, explicit render scale 1, scale 0.5,
+postprocessing disabled, software Core Image passthrough and raw assembled
+asset. Record actual render scale/frame duration/source timing/instruction count
+as well as existing statuses/sizes. The Core Image pane only diagnoses rendering;
+it does not reproduce presentation geometry or qualify a replacement compositor.
+No shipping change, full-case replay, new dependency/permission or wider limit.
+All first-run/native/source/media/retirement preservation gates still apply.

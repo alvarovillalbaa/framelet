@@ -1,6 +1,7 @@
 """FUI04D: read-only composition diagnosis; no product/capture/export launch."""
 import base64
 import copy
+import ctypes
 import gzip
 import hashlib
 import io
@@ -25,7 +26,7 @@ source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "x86_64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-composition-probe-20261112-1"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-composition-probe-20261112-2"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-composition-probe-", dir=parent)).resolve()
@@ -74,18 +75,38 @@ report["storagePolicy"] = {"allocatedBytesMaximum": 4 * 1024 ** 3,
     "localStorageGuardException": False}
 
 
+process_library = ctypes.CDLL("/usr/lib/libproc.dylib", use_errno=True)
+process_path = process_library.proc_pidpath
+process_path.argtypes = [ctypes.c_int, ctypes.c_void_p, ctypes.c_uint32]
+process_path.restype = ctypes.c_int
+denied_process_paths = set()
+
+
 def sample_runtime():
-    observation = subprocess.run(["/bin/ps", "-axo", "pid=,command="], capture_output=True, timeout=3)
+    observation = subprocess.run(["/bin/ps", "-axww", "-o", "pid=,comm="], capture_output=True, timeout=3)
     assert observation.returncode == 0 and len(observation.stdout) <= 2 * 1024 ** 2
     own = []
+    candidates = []
     for line in observation.stdout.decode().splitlines():
         pair = line.strip().split(None, 1)
-        if len(pair) == 2:
-            for binary in (app / "Contents/MacOS/Framelet", debug_app / "Contents/MacOS/Framelet",
-                           diagnostic_app / "Contents/MacOS/CompositionProbe"):
-                if pair[1] == str(binary) or pair[1].startswith(str(binary) + " "):
-                    assert len(pair[1]) <= 4096
-                    own.append({"pid": int(pair[0]), "executable": str(binary), "command": pair[1]})
+        if len(pair) == 2 and Path(pair[1]).name in ("Framelet", "CompositionProbe"):
+            candidates.append((int(pair[0]), pair[1]))
+    assert len(candidates) <= 8
+    for pid, command in candidates:
+        if pid in denied_process_paths:
+            continue
+        buffer = ctypes.create_string_buffer(4096)
+        length = process_path(pid, buffer, len(buffer))
+        if length <= 0:
+            denied_process_paths.add(pid)
+            report.setdefault("processPathReadFailures", []).append({"pid": pid, "errno": ctypes.get_errno(), "retried": False})
+            continue
+        executable = buffer.value.decode()
+        assert len(executable) < 4096
+        report.setdefault("runtimeCandidatePaths", {})[str(pid)] = executable
+        if executable in (str(app / "Contents/MacOS/Framelet"), str(debug_app / "Contents/MacOS/Framelet"),
+                          str(diagnostic_app / "Contents/MacOS/CompositionProbe")):
+            own.append({"pid": pid, "executable": executable, "command": command})
     assert len(report["runtimeObservations"]) < 900
     report["runtimeObservations"].append({"monotonic": time.monotonic(), "applications": own})
 
@@ -277,12 +298,12 @@ try:
     baseline = source_guard()
     index_before = sha((repo / ".git/index").read_bytes())
     changes = run("qualified-input-diff", ["/usr/bin/git", "diff", "--name-only",
-        "9c46e847b2a552cb00f507c1db27b2f994fa1407", "HEAD", "--", "Package.swift", "Sources", "Resources", "script",
+        "fea98a8055f741f4177dda54ad1c076f834f8582", "HEAD", "--", "Package.swift", "Sources", "Resources", "script",
         "Tests/FrameletCoreTests", "Tests/FrameletPlaybackTests", "Tests/FrameletAcceptance.xcodeproj",
         "Tests/e2e/FrameletAcceptance.swift", "Tests/e2e/FrameletWindowAcceptance.swift",
         "Tests/e2e/FrameletPickerReadiness.swift", "Tests/e2e/FrameletCaptureAcceptance.swift",
         "Tests/e2e/FrameletReleasePlaybackAcceptance.swift", "Tests/ci/ReleasePlaybackPixels.swift"])
-    assert set(changes.decode().splitlines()) == {"Tests/e2e/FrameletReleasePlaybackAcceptance.swift"}
+    assert not changes.strip()
     original_case = run("original-case-source", ["/usr/bin/git", "show",
         "9c46e847b2a552cb00f507c1db27b2f994fa1407:Tests/e2e/FrameletReleasePlaybackAcceptance.swift"])
     assert (repo / "Tests/e2e/FrameletReleasePlaybackAcceptance.swift").read_bytes().startswith(original_case + b"\n")
@@ -376,6 +397,9 @@ try:
         str(repo / "Tests/ci/CompositionRenderingProbe.swift"),
         "-o", str(probe / "Contents/MacOS/CompositionProbe")], seconds=120)
     run("rendering-probe-adhoc-sign", ["/usr/bin/codesign", "--sign", "-", str(probe)])
+    probe_binary = probe / "Contents/MacOS/CompositionProbe"
+    assert probe_binary.is_file() and not probe_binary.is_symlink() and probe_binary.stat().st_size <= 16 * 1024 ** 2
+    report["diagnosticExecutableBefore"] = {"bytes": probe_binary.stat().st_size, "sha256": sha(probe_binary.read_bytes())}
     probe_report = root / "rendering-probe.json"
     probe_config = root / "rendering-probe-config.json"
     probe_config.write_text(json.dumps({"package": str(target_package), "nonce": nonce, "output": str(probe_report)}))
@@ -480,8 +504,12 @@ finally:
                 assert observed["kind"] == "read-only-composition-diagnostic" and len(observed["panes"]) == 6
                 assert all(observed[key] is False for key in ("captureOrExportRequested", "mediaModified", "shippingCodeModified"))
                 runtime = [row for sample in report["runtimeObservations"] for row in sample["applications"]]
+                assert not report.get("processPathReadFailures")
+                assert all(path == str(diagnostic_app / "Contents/MacOS/CompositionProbe")
+                           for path in report.get("runtimeCandidatePaths", {}).values())
                 assert runtime and all(row["executable"] == str(diagnostic_app / "Contents/MacOS/CompositionProbe") for row in runtime)
                 assert any(row["pid"] == observed["processID"] for row in runtime)
+                assert observed["executablePath"] == str(diagnostic_app / "Contents/MacOS/CompositionProbe")
                 trees = [entry for entry in entries if entry["canonicalName"] == "diagnostic-composition-probe.accessibility"]
                 images = [entry for entry in entries if entry["canonicalName"] == "diagnostic-composition-probe.png"]
                 assert len(trees) == len(images) == 1
@@ -514,8 +542,18 @@ finally:
             safe = safe and acknowledgment["productNeverLaunched"] is True
             safe = safe and acknowledgment["captureOrExportRequested"] is False and acknowledgment["forcedWriterTermination"] is False
         report["cleanup"]["noCaptureAcknowledged"] = safe
+        assert not report.get("processPathReadFailures")
+        assert all(path == str(diagnostic_app / "Contents/MacOS/CompositionProbe")
+                   for path in report.get("runtimeCandidatePaths", {}).values())
+        assert not any(row["executable"] != str(diagnostic_app / "Contents/MacOS/CompositionProbe")
+                       for sample in report["runtimeObservations"] for row in sample["applications"])
+        if "diagnosticExecutableBefore" in report:
+            probe_binary = diagnostic_app / "Contents/MacOS/CompositionProbe"
+            report["diagnosticExecutableAfter"] = {"bytes": probe_binary.stat().st_size, "sha256": sha(probe_binary.read_bytes())}
+            assert report["diagnosticExecutableBefore"] == report["diagnosticExecutableAfter"]
     except BaseException:
         safe = False
+        report["cleanup"]["noCaptureAcknowledged"] = False
         report["errors"].append(traceback.format_exc())
     try:
         # Preserve only the four bounded authored fixture inputs on any failure.
@@ -539,17 +577,30 @@ finally:
         assert safe, "Unacknowledged native state/preservation: no app signals or library/root removal"
         assert time.monotonic() - started < 990, "Cleanup deadline: retain owned paths"
         def owned_processes():
-            observation = subprocess.run(["/bin/ps", "-axo", "pid=,command="], capture_output=True, timeout=10)
+            observation = subprocess.run(["/bin/ps", "-axww", "-o", "pid=,command="], capture_output=True, timeout=10)
             assert observation.returncode == 0 and len(observation.stdout) <= 4 * 1024 ** 2
             rows = []
             for line in observation.stdout.decode().splitlines():
                 pair = line.strip().split(None, 1)
                 if len(pair) == 2 and int(pair[0]) != os.getpid() and str(root) + "/" in pair[1]:
                     rows.append({"pid": int(pair[0]), "command": pair[1]})
+            for pid, executable in report.get("runtimeCandidatePaths", {}).items():
+                if executable != str(diagnostic_app / "Contents/MacOS/CompositionProbe"):
+                    continue
+                check = subprocess.run(["/bin/ps", "-p", pid, "-o", "comm="], capture_output=True, timeout=5)
+                if check.returncode != 0:
+                    continue
+                assert int(pid) not in denied_process_paths, "No retry of denied helper path; retain root"
+                buffer = ctypes.create_string_buffer(4096)
+                assert process_path(int(pid), buffer, len(buffer)) > 0, "Owned helper path unreadable; retain root"
+                if buffer.value.decode() == executable and not any(row["pid"] == int(pid) for row in rows):
+                    command = subprocess.run(["/bin/ps", "-ww", "-p", pid, "-o", "command="], capture_output=True, timeout=5)
+                    assert command.returncode == 0 and len(command.stdout) < 65536
+                    rows.append({"pid": int(pid), "command": command.stdout.decode().strip()})
             return rows
         owned = owned_processes(); report["cleanup"]["ownedProcessesBefore"] = owned
         for row in owned:
-            check = subprocess.run(["/bin/ps", "-p", str(row["pid"]), "-o", "command="], capture_output=True, timeout=5)
+            check = subprocess.run(["/bin/ps", "-ww", "-p", str(row["pid"]), "-o", "command="], capture_output=True, timeout=5)
             if check.returncode == 0 and check.stdout.decode().strip() == row["command"]: os.kill(row["pid"], signal.SIGTERM)
         until = min(started + 990, time.monotonic() + 5)
         remaining = owned_processes()
