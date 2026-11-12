@@ -411,3 +411,8 @@ and both proof gaps. Standing approval covers only fresh public metadata/downloa
 verification of this existing asset in a bounded data-only job, with its own
 source/duplicate cleanup and exact self-retirement. No upload, native replay,
 old denied-endpoint retry, old control mutation or ended-VM cleanup claim.
+
+The separate [fresh public packet verifier](docs/proposals/compatible-packet-checks.md)
+is materialized with inactive source-pinned controls. Verify only this existing
+public raw packet and the new duplicate/source/self-retirement boundary. Keep
+both prior closeout/runtime failures immutable; product qualification stays open.

@@ -1,0 +1,30 @@
+# INACTIVE. Render REVIEWED_SOURCE_SHA after exact data-only review.
+name: Temporary Framelet public failed-packet verification
+on:
+  push:
+    branches: [qa/framelet-compatible-packet-20261112-1]
+    paths: [.github/workflows/framelet-compatible-packet-20261112-1.yml]
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: framelet-compatible-packet-20261112
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-compatible-packet-20261112-1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    env:
+      FRAMELET_SOURCE_COMMIT: REVIEWED_SOURCE_SHA
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: REVIEWED_SOURCE_SHA
+          fetch-depth: 1
+          persist-credentials: false
+          clean: false
+      - name: Verify the existing public packet and retire only this control
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 -I -B -S Tests/ci/verify-compatible-packet.py
