@@ -23,7 +23,11 @@ single-display usable bounds; refuse a display that does not reproduce the
 observed width below 1180. Seed the existing authored silent media into an
 absent nonce/inode-owned library. Check complete window bounds after first
 launch, relaunch, opening a second library window, and relaunching again.
-Record original PNG/AX and frame observations. Do not replay FUI01, the old
+Record original PNG/AX and frame observations. Read usable bounds live at each
+phase, keeping the pre-launch host admission separately because the Dock's
+usable region may change. The UI runner reads public AppKit display metadata;
+it gains no app-library file rights. Allow 600-point minimum content height
+so native chrome can fit the observed small usable area. Do not replay FUI01, the old
 thirty cases, old packaging or their retained-export pixel check.
 
 Verify native summary/identity, actual frame containment, unchanged fixture

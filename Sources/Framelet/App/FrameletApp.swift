@@ -25,7 +25,7 @@ struct FrameletApp: App {
     var body: some Scene {
         WindowGroup("Framelet", id: "library") {
             LibraryView(library: library, capture: capture, exporter: exporter)
-                .frame(minWidth: 900, minHeight: 640)
+                .frame(minWidth: 900, minHeight: 600)
                 .background(WindowRegistrationView(registry: windows).frame(width: 0, height: 0))
                 .onAppear {
                     appDelegate.capture = capture

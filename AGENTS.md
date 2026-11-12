@@ -93,3 +93,9 @@ and FUI02 native profile in a bounded disposable Mac CI job. Preserve the
 existing FUI01/test bodies and 0.1.1 artifacts; native frames must prove the
 new placement rather than source inspection alone. No capture/device prompts,
 account, dependency, permission change or local execution is in this scope.
+
+[FUI02 attempt 1 failed](docs/results/2026/11-12/window-sizing-attempt-1.md)
+at its initial height assertion. Preserve the original result. The changed
+candidate lowers the content minimum to 600 and observes live usable bounds
+per phase through public AppKit metadata. Keep strict containment, fixed
+resolution and the normal runner sandbox; no new filesystem rights or capture.

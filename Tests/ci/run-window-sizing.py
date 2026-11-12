@@ -23,7 +23,7 @@ source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "arm64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-window-20261112-1"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-window-20261112-2"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-window-", dir=parent)).resolve()
@@ -229,7 +229,7 @@ finally:
                     with path.open("rb") as stream:
                         for chunk in iter(lambda: stream.read(65536), b""): digest.update(chunk)
                     human = item["suggestedHumanReadableName"]
-                    match = re.fullmatch(r"(01-first-window|02-reopened-window|03-additional-window|04-reopened-windows|diagnostic-final|window-observations)_[0-9]+_([A-F0-9-]{36})\.(png|json|accessibility)", human)
+                    match = re.fullmatch(r"(01-first-window|02-reopened-window|03-additional-window|04-reopened-windows|diagnostic-final|diagnostic-display|window-observations)_[0-9]+_([A-F0-9-]{36})\.(png|json|accessibility)", human)
                     entry = {"file": name, "name": human, "canonicalName": match[1] + "." + match[3] if match else None,
                         "bytes": path.stat().st_size, "sha256": digest.hexdigest(), "retainedInArtifact": True}
                     entries.append(entry)
@@ -251,12 +251,15 @@ finally:
                 assert len(observations) == 1
                 observed = json.loads(gzip.decompress(base64.b64decode(observations[0]["gzipBase64"])))
                 assert observed["caseId"] == "FUI02" and observed["status"] == "passed"
-                bounds = display["visibleRect"]
-                assert observed["visibleRect"] == bounds and observed["sourcePickerOpened"] is False
+                assert observed["initialVisibleRect"] == display["visibleRect"] and observed["sourcePickerOpened"] is False
                 assert observed["capturePerformed"] is False and observed["recordingEditsPerformed"] is False
                 phases = observed["phases"]
                 assert [p["name"] for p in phases] == ["01-first-window", "02-reopened-window", "03-additional-window", "04-reopened-windows"]
                 for index, phase in enumerate(phases):
+                    bounds = phase["visibleRect"]
+                    assert all(math.isfinite(bounds[k]) for k in ("x", "y", "width", "height"))
+                    assert bounds["x"] == display["visibleRect"]["x"] and bounds["y"] == display["visibleRect"]["y"]
+                    assert bounds["width"] == display["fullWidth"] and 640 <= bounds["height"] <= display["fullHeight"] - bounds["y"]
                     assert len(phase["frames"]) in ((1,), (1,), (2,), (1, 2))[index]
                     for frame in phase["frames"]:
                         assert all(math.isfinite(frame[k]) for k in ("x", "y", "width", "height"))
