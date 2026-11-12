@@ -17,6 +17,18 @@ actual preview playback of the capture, trusted distribution and fresh downloade
 The small-VM window-edge defect is fixed in this version. Old-install migration
 is unverified. All three older previews and the failure-evidence archive remain unchanged.
 
+The later [exact 0.1.3 Release playback journey](results/2026/11-12/release-playback-attempt-5.md)
+completed its native interactions on an Intel VM, but Recording pixels were
+black and failed qualification; Selected Clip pixels rendered correctly.
+The [separate composition diagnostic](results/2026/11-12/composition-probe-attempt-3.md)
+verified the actual helper executable and unchanged inputs, with software/raw
+controls visible and built-in composition panes black. This is a known preview
+qualification failure on that profile, not proof of physical-Mac behavior.
+The [exact remote controls are now retired](results/2026/11-12/composition-control-closeout.md).
+Keep this archive unchanged while a compatible renderer is implemented and
+qualified at a new source/version. ARM runtime and wider device/trust gates
+remain open.
+
 ## Preview contents and trust
 
 The assets are `Framelet-0.1.3-macos-universal.zip`, its

@@ -313,3 +313,10 @@ or infer wider product acceptance. Original retirement failed state readback;
 standing approval covers the separate [data-only exact closeout](docs/proposals/composition-retirement-checks.md),
 with bounded state observation, artifact/head guards and no native/app rerun.
 Keep every failed original and the full FUI04 product-pixel requirement open.
+
+The [data-only closeout passed](docs/results/2026/11-12/composition-control-closeout.md):
+exact artifact/receipt and 15 original API responses verified; both target/self
+workflows observed disabled and exact heads absent. Do not replay the closed
+FUI04D/retirement scopes. The next product scope is compatible Recording
+rendering with the existing geometry/timing/audio contract and new full pixel
+acceptance; preserve the public 0.1.3 assets and all original failures.

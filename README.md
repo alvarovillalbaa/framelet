@@ -85,6 +85,15 @@ Playback failures expose **Reload Preview** without changing original files.
 These native playback behaviors have
 [focused synthetic-media evidence](docs/results/2026/10-28/ordered-playback-checks.md).
 
+The exact 0.1.3 Release app completed the later
+[real-take playback interaction journey](docs/results/2026/11-12/release-playback-attempt-5.md)
+on an Intel VM, but its **Recording preview stayed black** and failed the
+independent pixel check. Selected Clip rendered correctly. A separate
+[read-only comparison](docs/results/2026/11-12/composition-probe-attempt-3.md)
+showed the same built-in composition failure while a software Core Image
+control rendered. Recording-preview acceptance remains open; a compatible
+renderer needs the same layout and full native/pixel checks before release.
+
 ## Verification and delivery
 
 Eighteen core XCTest cases passed, covering timeline ordering, pause-gap omission, positive/negative camera offsets, trims, unsafe paths, identity integrity, canvas bounds, manifest round-tripping and asynchronous acknowledgement/cancellation recovery. See the [native results](docs/results/2026/10-28/ordered-playback-checks.md) and [initial source evidence](docs/results/2026/10-27/initial-source.md).
@@ -117,3 +126,8 @@ with the pause excluded and original media/manifest hashes unchanged.
 Camera, microphone and system audio were off. The public 0.1.3 archive contains
 the qualified source and selected-window title display, with an earlier-OS fallback.
 Camera/audio synchronization and encoded first-frame timing remain open.
+
+The temporary playback/diagnostic controls are retired, including the
+[data-only retirement closeout](docs/results/2026/11-12/composition-control-closeout.md).
+All failed original attempts remain preserved. The universal download above
+has not been replaced by an unqualified renderer candidate.
