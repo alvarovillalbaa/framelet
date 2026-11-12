@@ -29,7 +29,7 @@ Keep this archive unchanged while a compatible renderer is implemented and
 qualified at a new source/version. ARM runtime and wider device/trust gates
 remain open.
 
-Main now contains an unqualified0.1.4 renderer candidate. Its
+The unqualified0.1.4 renderer candidate's
 [six file-compositor cases](results/2026/11-12/software-preview-attempt-4.md)
 and [universal build/ZIP](results/2026/11-12/compatible-preview-attempt-1.md)
 passed, but [exact Release playback](results/2026/11-12/compatible-playback-attempt-1.md)
@@ -64,6 +64,12 @@ instruction coverage, correct order/header/matte and actual product compositor.
 Source/input/group/root/exact retirement passed. Do not rerun this closed
 background scope. Fresh0.1.5 universal packaging and full Release/native pixels
 remain required before a new usable binary; the earlier failed0.1.4 stays intact.
+
+The [new0.1.5/build6 package passed](results/2026/11-12/coverage-preview-attempt-1.md)
+both Release architectures and exact fresh ZIP/signature verification. Its
+three unchanged assets are retained inline. The complete FUI04 app/nine-color/
+process/input/cleanup scope must pass on that archive before binary publication.
+No routine package or old component/native replay is needed.
 
 ## Preview contents and trust
 

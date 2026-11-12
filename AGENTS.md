@@ -529,3 +529,14 @@ and builder archive/version guard change among qualified product inputs. Run
 the bounded non-launching universal package, preserve its original payloads and
 retire that exact control. Then materialize full same-source Release FUI04 using
 the passing archive; no binary publication or closed component/native replay.
+
+[0.1.5 packaging passed](docs/results/2026/11-12/coverage-preview-attempt-1.md):
+both Release slices/fresh ZIP/signature,38 original command streams,688-file
+source/index/frozen payload and exact cleanup/retirement verified. This package
+scope is closed; do not rebuild routinely. Standing approval covers the now
+materialized [full0.1.5 FUI04 scope](docs/proposals/coverage-playback-checks.md),
+pinned to the retained archive/receipt with original ten-phase/nine-color native
+case and actual Release-only process/input proof. Its explicit three-leaf sparse
+exception is scoped to that runner only. Artifact collection replaces the old
+rejected metadata route; exact retirement is independent of scratch cleanup.
+Keep source/main workflow inactive; no app publication until full verdict passes.
