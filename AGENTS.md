@@ -424,3 +424,12 @@ are disabled/absent. This data-only profile is closed. Preserve both original
 failures and ended-VM proof gaps; no native/app qualification follows. Next
 materialize the distinct output-buffer/presentation probe before execution,
 keeping shipping code and old cases exact until its actual measurements.
+
+The distinct [FUI04O player-output probe](docs/proposals/player-output-checks.md)
+is materialized with inactive reviewed-source controls. Standing approval covers
+one bounded Intel helper/native run comparing original compositor, attached
+frame output, copied-buffer AppKit drawing and experimental pool requirements.
+Validate raw red/blue output controls, exact helper identity/viewport/original
+frames/source/input/cleanup. No Framelet launch, shipping edit, old-case replay,
+permission change or GPU inference. Its explicit sparse exception stays scoped.
+Require actual measurements before product edits or another full Release run.
