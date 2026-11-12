@@ -329,3 +329,11 @@ bounded public Intel VM, preserving failed originals and exact cleanup/control
 retirement. No sparse exception, local build or old-scope replay. These checks
 cannot qualify a full app or new public asset; prepare a separate exact-source
 Release/native/nine-color profile after they pass. No new permission/provider.
+
+[Software-preview attempt 1](docs/results/2026/11-12/software-preview-attempt-1.md)
+failed a signal-zero observer before pixel checks and lost two command/cleanup
+records. Keep the failure and proof gaps. Standing approval covers only the
+proposal's read-only process metadata replacement, guarded ownership, guaranteed
+stream retention and independent cleanup checks. Do not retry the denied query
+or grant rights. Compositor/model and all six verifier cases remain exact;
+full pixel/source/input/cleanup proof is still required before advancing.

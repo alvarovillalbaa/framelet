@@ -21,7 +21,7 @@ source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "x86_64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-software-preview-20261112-1"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-software-preview-20261112-2"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-software-preview-", dir=parent)).resolve()
@@ -47,6 +47,7 @@ baseline = None
 fixture_before = None
 export = root / "source"
 live_groups = set()
+cleanup_phase = False
 
 
 def storage(enforce=True):
@@ -65,16 +66,25 @@ def storage(enforce=True):
             raise AssertionError("Owned storage exceeds 4 GiB; no sparse exception in this scope")
 
 
-def group_alive(pid):
-    try:
-        os.killpg(pid, 0)
-        return True
-    except ProcessLookupError:
-        return False
+def group_members(pid, command):
+    observed = subprocess.run(["/bin/ps", "-axww", "-o", "pid=,pgid=,uid=,command="], capture_output=True, timeout=5)
+    assert observed.returncode == 0 and len(observed.stdout) <= 4 * 1024 ** 2 and len(observed.stderr) <= 65536
+    rows = []
+    for line in observed.stdout.decode().splitlines():
+        parts = line.strip().split(None, 3)
+        if len(parts) == 4 and all(value.isdecimal() for value in parts[:3]) and int(parts[1]) == pid:
+            assert len(parts[3]) <= 8192
+            rows.append({"pid": int(parts[0]), "group": int(parts[1]), "uid": int(parts[2]), "command": parts[3]})
+    assert len(rows) <= 64
+    snapshots = report.setdefault("processGroupObservations", [])
+    assert len(snapshots) < 256
+    snapshots.append({"command": command, "group": pid, "members": rows, "monotonic": time.monotonic(),
+        "psStdoutBytes": len(observed.stdout), "psStdoutSHA256": sha(observed.stdout)})
+    return rows
 
 
 def run(name, args, seconds=120, cwd=None, enforce_storage=True):
-    deadline = min(started + 540, time.monotonic() + seconds)
+    deadline = min(started + (580 if cleanup_phase else 540), time.monotonic() + seconds)
     assert time.monotonic() + 1 < deadline
     child = subprocess.Popen(args, cwd=cwd or repo, env=env, stdin=subprocess.DEVNULL,
         stdout=subprocess.PIPE, stderr=subprocess.PIPE, start_new_session=True)
@@ -86,6 +96,8 @@ def run(name, args, seconds=120, cwd=None, enforce_storage=True):
     observed = {key: [0, hashlib.sha256()] for key in streams}
     eof = set(); signals = []; error = None
     sampled = 0
+    inspection_errors = []
+    absent = False
 
     def drain(wait):
         for event, _ in selector.select(wait):
@@ -109,29 +121,43 @@ def run(name, args, seconds=120, cwd=None, enforce_storage=True):
     except BaseException as caught:
         error = caught
     finally:
-        # These groups only compile/read authored inputs or write disposable PNGs.
-        # They can never contain a product, capture or export process.
-        if error is not None or group_alive(child.pid):
-            if group_alive(child.pid):
+        # Read metadata, never probe permission with killpg(..., 0). Signal only
+        # while the original owned child is still live and every member has our UID.
+        try:
+            if child.poll() is None:
+                members = group_members(child.pid, name)
+                assert members and any(row["pid"] == child.pid for row in members)
+                assert all(row["uid"] == os.getuid() for row in members), "Group ownership unknown; no signal"
                 os.killpg(child.pid, signal.SIGTERM); signals.append("SIGTERM")
+                until = time.monotonic() + 3
+                while child.poll() is None and time.monotonic() < until:
+                    try: drain(0.1)
+                    except BaseException: pass
+                if child.poll() is None:
+                    members = group_members(child.pid, name)
+                    assert members and all(row["uid"] == os.getuid() for row in members)
+                    os.killpg(child.pid, signal.SIGKILL); signals.append("SIGKILL")
+                child.wait(timeout=3)
             until = time.monotonic() + 3
+            members = group_members(child.pid, name)
+            while members and time.monotonic() < until:
+                time.sleep(0.1); members = group_members(child.pid, name)
+            absent = not members
+        except BaseException:
+            inspection_errors.append(traceback.format_exc())
+        try:
+            until = time.monotonic() + 2
             while selector.get_map() and time.monotonic() < until:
                 try: drain(0.1)
                 except BaseException: pass
-            if group_alive(child.pid):
-                os.killpg(child.pid, signal.SIGKILL); signals.append("SIGKILL")
-            try: child.wait(timeout=3)
-            except subprocess.TimeoutExpired: pass
-        until = time.monotonic() + 2
-        while selector.get_map() and time.monotonic() < until:
-            try: drain(0.1)
-            except BaseException: pass
+        except BaseException:
+            inspection_errors.append(traceback.format_exc())
         selector.close()
         for stream in (child.stdout, child.stderr): stream.close()
-        absent = not group_alive(child.pid)
         if absent: live_groups.discard(child.pid)
         row = {"name": name, "args": args, "exitCode": child.returncode, "signals": signals,
-            "error": str(error) if error else None, "ownedGroupAbsent": absent, "streams": {}}
+            "error": str(error) if error else None, "ownershipInspectionErrors": inspection_errors,
+            "ownedGroupAbsent": absent, "streams": {}}
         for label, data in streams.items():
             raw = bytes(data)
             row["streams"][label] = {"bytes": len(raw), "sha256": sha(raw), "eof": label in eof,
@@ -140,7 +166,7 @@ def run(name, args, seconds=120, cwd=None, enforce_storage=True):
                 "gzipBase64": base64.b64encode(gzip.compress(raw, mtime=0)).decode()}
         report["commands"].append(row)
     if error is not None: raise error
-    assert child.returncode == 0 and absent and all(s["complete"] for s in row["streams"].values()), name + " failed"
+    assert child.returncode == 0 and absent and not inspection_errors and all(s["complete"] for s in row["streams"].values()), name + " failed"
     return bytes(streams["stdout"])
 
 
@@ -173,11 +199,11 @@ try:
     assert not run("status", ["git", "status", "--porcelain", "--untracked-files=all", "--ignored"]).strip()
     run("toolchain", ["/usr/bin/xcodebuild", "-version"])
     baseline = source_guard(); index_before = sha((repo / ".git/index").read_bytes())
-    changed = run("protected-input-diff", ["git", "diff", "--name-only", "419144ae3597f328581dfce32005434d8fb091a2", "HEAD",
+    changed = run("protected-input-diff", ["git", "diff", "--name-only", "c3c13849e9fade70c0cb51a133ea88f045156882", "HEAD",
         "--", "Package.swift", "Sources", "Resources", "script", "Tests/FrameletCoreTests", "Tests/FrameletPlaybackTests",
-        "Tests/FrameletAcceptance.xcodeproj", "Tests/e2e", "Tests/ci/ReleasePlaybackPixels.swift"])
-    assert set(changed.decode().splitlines()) == {"Sources/Framelet/Models/UIPlaybackModel.swift",
-        "Sources/Framelet/Services/SoftwareRecordingCompositor.swift"}
+        "Tests/FrameletAcceptance.xcodeproj", "Tests/e2e", "Tests/ci/ReleasePlaybackPixels.swift", "Tests/ci/SoftwarePreviewFiles.swift"])
+    assert not changed.strip()
+    report["softwareProductAndVerifierUnchangedFromAttempt1"] = True
     compile_paths = [row for row in baseline if row["path"].startswith("Sources/FrameletCore/") or row["path"] in (
         "Sources/Framelet/Services/RecordingComposition.swift", "Sources/Framelet/Services/ExportGeometry.swift",
         "Sources/Framelet/Services/ExportCoordinator.swift", "Sources/Framelet/Services/SoftwareRecordingCompositor.swift",
@@ -212,19 +238,37 @@ try:
 except BaseException:
     report["errors"].append(traceback.format_exc())
 finally:
+    cleanup_phase = True
     safe = False
+    source_ok = baseline is None
+    fixture_ok = fixture_before is None
     try:
         if baseline is not None:
             assert source_guard() == baseline and sha((repo / ".git/index").read_bytes()) == index_before
             report["cleanup"]["sourceAndIndexUnchanged"] = True
+            source_ok = True
+    except BaseException:
+        report["errors"].append(traceback.format_exc())
+    try:
         if fixture_before is not None:
             report["fixtureAfter"] = fixture_snapshot(package)
             assert report["fixtureAfter"] == fixture_before
             report["cleanup"]["fixtureUnchanged"] = True
+            fixture_ok = True
+            report["retainedFixtureInputs"] = [{"name": str(p.relative_to(package)), "bytes": p.stat().st_size,
+                "sha256": sha(p.read_bytes()), "gzipBase64": base64.b64encode(gzip.compress(p.read_bytes(), mtime=0)).decode()}
+                for p in sorted(package.rglob("*")) if p.is_file()]
+    except BaseException:
+        report["errors"].append(traceback.format_exc())
+    try:
         storage(False)
+        for pid in list(live_groups):
+            if not group_members(pid, "final-read-only-cleanup"):
+                live_groups.discard(pid)
+        report["cleanup"]["unsettledGroups"] = sorted(live_groups)
         assert not live_groups and time.monotonic() - started < 580
         report["cleanup"]["allOwnedGroupsAbsent"] = True
-        safe = True
+        safe = source_ok and fixture_ok
     except BaseException:
         report["errors"].append(traceback.format_exc())
     try:

@@ -59,3 +59,20 @@ app, native test, install or reserve override. Local checks are syntax parsing
 and diff/link inspection only. After these cases pass, materialize the separate
 new-version universal Release/full-FUI04 nine-color/native/process/input profile
 before execution and publication. No account, payment, dependency or model call.
+
+[Attempt 1](../results/2026/11-12/software-preview-attempt-1.md) failed its
+signal-zero process-group observer during core compilation and then cleanup.
+The two interrupted command records and after/cleanup proofs are missing;
+preserve those gaps. Candidate 2 changes only control/diagnostics: bounded
+read-only PID/PGID/UID/command observations replace signal-zero. Never retry
+the denied operation, assume absence from denial or request wider rights.
+Only a still-live original owned compile/read child with all observed group
+members at the current UID may receive ordinary bounded termination. Observe
+remaining groups without signalling after child exit; unknown ownership
+blocks cleanup. Retain streams and errors even when inspection fails.
+
+Use independent source/index, input-copy and group cleanup checks through the
+existing 580-second budget, retaining the exact three small copied inputs.
+The protected diff against `c3c13849e9fade70c0cb51a133ea88f045156882` must be empty
+for all shipping/old cases and the six-case verifier. No product/helper change,
+weaker pixel assertion, cap/sparse exception, local build or permission change.
