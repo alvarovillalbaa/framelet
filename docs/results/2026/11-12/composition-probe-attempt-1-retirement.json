@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "run": 43249951506,
+  "workflow": 416202746,
+  "path": ".github/workflows/framelet-composition-probe-20261112-1.yml",
+  "disabledState": "disabled_manually",
+  "branch": "qa/framelet-composition-probe-20261112-1",
+  "deletedHead": "8f511fc50c58afd508d3d30bad9b1a7f659e652f",
+  "exactRefAbsent": true,
+  "uploadedEvidenceRemoved": true,
+  "artifactId": "13958514315",
+  "requests": [
+    {
+      "route": "actions/runs/43249951506",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "9c3e7be0f1e52234f38f3b0660ace244cc71eabbd18c5559dd6c59afaa86caf2"
+    },
+    {
+      "route": "actions/workflows/416202746",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "773b715b32985e4c8755c827c8268e33d00861955ee1c254c98a004119d1d44f"
+    },
+    {
+      "route": "actions/artifacts/13958514315",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "9b9884158001d447c8f3bd65e58ba79d84dec20fdc732b863364393bdb40f027"
+    },
+    {
+      "route": "actions/workflows/416202746/disable",
+      "method": "PUT",
+      "status": 204,
+      "responseSHA256": "5a2ffe0788d5e3dfef4097c3887130081695bc0432a1a3784d6067f133871d2f"
+    },
+    {
+      "route": "actions/workflows/416202746",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "0f943aa12602bb1e9e1c739e6adb0ae832344824cc26defff228751e4520e3dd"
+    },
+    {
+      "route": "git/ref/heads/qa/framelet-composition-probe-20261112-1",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "97362ed636090823e6944b9bdead0519fc35a4394b2386643f84244cec9c69be"
+    },
+    {
+      "route": "git/refs/heads/qa/framelet-composition-probe-20261112-1",
+      "method": "DELETE",
+      "status": 204,
+      "responseSHA256": "8b8bcb9f8ae148869918433a3115e0ff56181b260cfd43577a37e4dbfcf71661"
+    },
+    {
+      "route": "git/matching-refs/heads/qa/framelet-composition-probe-20261112-1",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "bf3af1e56d36db4a0fffbbe545365d3ddbac7108815ea349bea2520bc5e3c214"
+    }
+  ]
+}

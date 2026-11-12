@@ -1,0 +1,191 @@
+{
+  "captureOrExportRequested" : false,
+  "coordinateSystem" : "AppKit screen points, origin bottom-left",
+  "elapsedSeconds" : 4.8057152779999797,
+  "kind" : "read-only-composition-diagnostic",
+  "mediaModified" : false,
+  "panes" : [
+    {
+      "itemError" : "",
+      "itemStatus" : 1,
+      "name" : "Exact builder",
+      "playerError" : "",
+      "playerStatus" : 1,
+      "presentationSize" : {
+        "height" : 1080,
+        "width" : 1920
+      },
+      "screenFrame" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 120,
+        "y" : 490
+      },
+      "timeSeconds" : 3.046708491,
+      "videoBounds" : {
+        "height" : 264.375,
+        "width" : 470,
+        "x" : 0,
+        "y" : 10.3125
+      },
+      "viewBounds" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 0,
+        "y" : 0
+      }
+    },
+    {
+      "itemError" : "",
+      "itemStatus" : 1,
+      "name" : "Immutable copies",
+      "playerError" : "",
+      "playerStatus" : 1,
+      "presentationSize" : {
+        "height" : 1080,
+        "width" : 1920
+      },
+      "screenFrame" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 610,
+        "y" : 490
+      },
+      "timeSeconds" : 3.0457986610000001,
+      "videoBounds" : {
+        "height" : 264.375,
+        "width" : 470,
+        "x" : 0,
+        "y" : 10.3125
+      },
+      "viewBounds" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 0,
+        "y" : 0
+      }
+    },
+    {
+      "itemError" : "",
+      "itemStatus" : 1,
+      "name" : "Explicit natural size",
+      "playerError" : "",
+      "playerStatus" : 1,
+      "presentationSize" : {
+        "height" : 1080,
+        "width" : 1920
+      },
+      "screenFrame" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 1100,
+        "y" : 490
+      },
+      "timeSeconds" : 3.0469881519999999,
+      "videoBounds" : {
+        "height" : 264.375,
+        "width" : 470,
+        "x" : 0,
+        "y" : 10.3125
+      },
+      "viewBounds" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 0,
+        "y" : 0
+      }
+    },
+    {
+      "itemError" : "",
+      "itemStatus" : 1,
+      "name" : "No crop instruction",
+      "playerError" : "",
+      "playerStatus" : 1,
+      "presentationSize" : {
+        "height" : 1080,
+        "width" : 1920
+      },
+      "screenFrame" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 120,
+        "y" : 160
+      },
+      "timeSeconds" : 3.048719857,
+      "videoBounds" : {
+        "height" : 264.375,
+        "width" : 470,
+        "x" : 0,
+        "y" : 10.3125
+      },
+      "viewBounds" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 0,
+        "y" : 0
+      }
+    },
+    {
+      "itemError" : "",
+      "itemStatus" : 1,
+      "name" : "Explicit source timing",
+      "playerError" : "",
+      "playerStatus" : 1,
+      "presentationSize" : {
+        "height" : 1080,
+        "width" : 1920
+      },
+      "screenFrame" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 610,
+        "y" : 160
+      },
+      "timeSeconds" : 3.0473535389999999,
+      "videoBounds" : {
+        "height" : 264.375,
+        "width" : 470,
+        "x" : 0,
+        "y" : 10.3125
+      },
+      "viewBounds" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 0,
+        "y" : 0
+      }
+    },
+    {
+      "itemError" : "",
+      "itemStatus" : 1,
+      "name" : "Raw assembled asset",
+      "playerError" : "",
+      "playerStatus" : 1,
+      "presentationSize" : {
+        "height" : 428,
+        "width" : 640
+      },
+      "screenFrame" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 1100,
+        "y" : 160
+      },
+      "timeSeconds" : 3.0488294200000001,
+      "videoBounds" : {
+        "height" : 285,
+        "width" : 426.1682242990654,
+        "x" : 21.9158878504673,
+        "y" : 0
+      },
+      "viewBounds" : {
+        "height" : 285,
+        "width" : 470,
+        "x" : 0,
+        "y" : 0
+      }
+    }
+  ],
+  "processID" : 4130,
+  "shippingCodeModified" : false
+}
