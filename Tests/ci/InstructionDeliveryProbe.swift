@@ -201,12 +201,18 @@ private enum InstructionProbe {
                 }
                 let started = ProcessInfo.processInfo.systemUptime
                 var sample: [String: Any] = [:]
+                var rejectedDisplayTimes: [Double] = []
                 while ProcessInfo.processInfo.systemUptime - started < 6 {
                     if seekFinished && seekSucceeded && !playing { player.play(); playing = true }
                     let current = player.currentTime()
-                    if current.seconds >= target - 0.25 && current.seconds <= target + 5, pull.hasNewPixelBuffer(forItemTime: current) {
+                    if seekFinished && seekSucceeded && current.seconds >= target - 0.25 && current.seconds <= target + 5, pull.hasNewPixelBuffer(forItemTime: current) {
                         var display = CMTime.invalid
                         if let buffer = pull.copyPixelBuffer(forItemTime: current, itemTimeForDisplay: &display) {
+                            guard display.seconds.isFinite, display.seconds >= target - 0.25, display.seconds <= target + 5 else {
+                                if rejectedDisplayTimes.count < 16 { rejectedDisplayTimes.append(finite(display.seconds)) }
+                                try await Task.sleep(nanoseconds: 20_000_000)
+                                continue
+                            }
                             let pixels = readPixels(buffer)
                             sample = ["currentSeconds": finite(current.seconds), "displayedSeconds": finite(display.seconds),
                                 "medianRGB": pixels.rgb, "pixelReadStatus": pixels.status, "width": CVPixelBufferGetWidth(buffer),
@@ -238,9 +244,11 @@ private enum InstructionProbe {
                     "playerStatus": player.status.rawValue, "itemStatus": item.status.rawValue,
                     "playerError": player.error?.localizedDescription ?? "", "itemError": item.error?.localizedDescription ?? "",
                     "compositorType": item.customVideoCompositor.map { String(describing: type(of: $0)) } ?? "nil",
-                    "requests": requests, "instructions": instructions(video), "frame": sample,
+                    "requests": requests, "instructions": instructions(video), "frame": sample, "rejectedDisplayTimes": rejectedDisplayTimes,
                     "sourceTrackIDForFrameTiming": video?.sourceTrackIDForFrameTiming ?? 0,
                     "elapsedSeconds": ProcessInfo.processInfo.systemUptime - started])
+                let progress = try JSONSerialization.data(withJSONObject: rows.last!, options: .sortedKeys)
+                FileHandle.standardError.write(Data("FRAMELET_INSTRUCTION_ROW=".utf8) + progress + Data([10]))
             }
             item.cancelPendingSeeks(); item.remove(pull); player.replaceCurrentItem(with: nil)
         }

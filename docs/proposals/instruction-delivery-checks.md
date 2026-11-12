@@ -47,3 +47,9 @@ helper compilation before playback because validation needs `try await` in the
 native SDK. All inputs/cleanup/retirement passed. Attempt 2 changes only that
 diagnostic call and records validation errors; the source/renderer/raw-control/
 resource/retirement contract remains unchanged. Preserve the original failure.
+
+[Attempt2](../results/2026/11-12/instruction-delivery-attempt-2.md) compiled
+but failed raw-color controls (both original frames red). Attempt3 requires
+seek completion and target-matching display time, records rejected timestamps,
+and emits each row before final assertions. Preserve the failure and exact
+originals; no relaxed color assertion, shipping edit or old-scope replay.

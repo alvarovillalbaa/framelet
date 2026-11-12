@@ -456,3 +456,9 @@ failed helper compilation before playback; input/group/root cleanup and exact
 retirement passed. Standing approval covers the corrected async throwing
 validation call/error recording in attempt 2 with every original bound and
 raw-control assertion retained. No shipping edit or unchanged failed retry.
+
+[Instruction attempt2](docs/results/2026/11-12/instruction-delivery-attempt-2.md)
+compiled but failed raw controls; both retained original frames show red. Keep
+it failed. Standing approval covers attempt3's completed-seek/display-time
+guard, rejected-time records and per-row original stderr retention, with the
+same renderer, raw-color assertion and resource/source/cleanup bounds.
