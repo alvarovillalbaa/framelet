@@ -71,3 +71,10 @@ Standing approval covers the separate [0.1.1 preview refresh](docs/proposals/pre
 including read-only analysis of the retained MP4 and a new non-launching
 universal Release package. Only version metadata/builder guard change among
 the qualified product inputs. Keep the old controller and release intact.
+
+The [0.1.1 refresh passed](docs/results/2026/11-12/preview-refresh-attempt-1.md),
+including retained-export Sand pixels and both Release slices. Do not repeat
+the closed build/inspection scope. Publish its three unchanged, hash-pinned
+assets through the bounded data-only publication helper; retain exact public
+tag/server/anonymous-download evidence and retire only its temporary control.
+Keep capture, trust, physical devices and observed narrow-window clipping open.

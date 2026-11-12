@@ -37,3 +37,14 @@ fresh downloaded-app/Gatekeeper acceptance, real capture and permissions,
 camera/audio synchronization, physical devices, Developer ID/notarization or
 full Tella parity. Those original requirements and owner gates stay open.
 No new hosting, database, dependency, payment or enrollment is needed.
+
+The reviewed new packaging control is `Tests/ci/run-preview-refresh.py`, with
+the inactive `preview-refresh.workflow.yml.example` and exact retirement helper.
+Its pinned FUI01 receipt is imported, never replayed. It preserves the archived
+0.1.0 controller and all qualified runtime sources. A separate data-only public
+Linux job, capped at five minutes, uses `Tests/ci/publish-preview-refresh.py` and
+`preview-publication.workflow.yml.example` to publish only the three retained,
+hash-pinned assets. This is needed because the connected GitHub tools cannot
+upload release binaries. No build, app or test runs in that publication job.
+It checks both older release/tag/asset sets before and after, verifies anonymous
+downloads, removes its owned temporary files and retires its exact control.
