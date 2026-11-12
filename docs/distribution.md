@@ -5,6 +5,13 @@ ZIP round-trip [passed](results/2026/11-08/preview-package-attempt-3.md); the
 [unchanged preview assets are public](https://github.com/alvarovillalbaa/framelet/releases/tag/v0.1.0-preview.1). App UI, live capture,
 camera/audio synchronization and real export acceptance remain open.
 
+12 November update: [native editing/reopen/export](results/2026/11-12/native-ui-attempt-9.md)
+passed using authored silent media on a disposable arm64/debug Mac. The public
+download is still the older 0.1.0/build 1 binary. Source prepares 0.1.1/build 2
+under a separate [universal refresh scope](proposals/preview-refresh-checks.md).
+Live capture, audio/camera timing, human accessibility, narrow-window layout,
+trusted distribution and fresh downloaded-app launch remain open.
+
 ## Preview contents and trust
 
 The intended assets are `Framelet-0.1.0-macos-universal.zip`, its

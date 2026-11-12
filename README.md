@@ -1,10 +1,10 @@
 # Framelet
 
-Last updated: 2026-11-08
+Last updated: 2026-11-12
 
 A local Mac screen recorder with a recording library and clip editor. Choose a display or window, optionally include camera and audio, pause between takes, edit the clips, and export an MP4 with your canvas layout. Recordings stay on your Mac.
 
-**A universal developer preview is available. App UI, live capture and export acceptance remain open.** This is a native macOS app, not a Vercel website or a Supabase service. The [product contract](docs/specs/recorder.md) records the owning brief, exact scope and open acceptance boundaries.
+**A universal developer preview is available. Native editing, reopening and an authored-media export passed on a disposable Mac; live capture remains unverified.** This is a native macOS app, not a Vercel website or a Supabase service. The [product contract](docs/specs/recorder.md) records the owning brief, exact scope and open acceptance boundaries.
 
 ## Download the preview
 
@@ -16,6 +16,10 @@ contains the exact ZIP that passed fresh extraction and both-slice signature/
 packaging checks. It is ad-hoc signed, without Developer ID or notarization;
 downloaded-app Gatekeeper acceptance is unverified. See [installation and trust
 limits](docs/distribution.md). No recording permissions were granted by these checks.
+
+The public download above is still 0.1.0/build 1. Source now prepares 0.1.1/build
+2 with accessible clip ranges and named canvas controls; its separate
+[refresh qualification](docs/proposals/preview-refresh-checks.md) is pending.
 
 ## Local build
 
@@ -33,7 +37,7 @@ For a Release preview archive containing both Apple silicon and Intel slices:
 ```
 
 This mode never launches or quits Framelet. It refuses existing preview ZIP/
-checksum leaves and produces `dist/Framelet-0.1.0-macos-universal.zip` plus its
+checksum leaves and produces `dist/Framelet-0.1.1-macos-universal.zip` plus its
 `.zip.sha256` checksum. It uses the same icon, bundle metadata and ad-hoc signing
 flow. The new profile has its own [packaging scope](docs/proposals/preview-package-checks.md);
 actual universal [archive packaging passed](docs/results/2026/11-08/preview-package-attempt-3.md),
@@ -89,3 +93,11 @@ cleanup. The temporary workflow was removed. The test target uses only this
 package's modules and system frameworks; it does not launch the app or capture.
 
 No account, cloud hosting, model call, paid plan or Apple enrollment is required for local source/build. Trusted external distribution requires its own Developer ID signing/notarization process and acceptance. This repository does not claim a notarized download or App Store release. Captioning, transcription, region selection, custom camera masks and cloud sharing are not implemented features.
+
+The [native edit/export journey](docs/results/2026/11-12/native-ui-attempt-9.md)
+passed in a disposable macOS 15.8.2/arm64 VM: rename, trim, duplicate, reorder,
+remove, Square/Sand canvas settings, real save-panel export, and saved edits
+after relaunch. Independent inspection verified the actual MP4 and unchanged
+originals. This uses authored silent media, not live capture or physical devices.
+The reopened window clips edges on the VM's 1024-pixel screen; narrow-window
+layout, human accessibility and trusted downloaded-app launch remain unverified.

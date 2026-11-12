@@ -1,0 +1,12 @@
+{
+  "caseId" : "FUI01",
+  "clipRanges" : [
+    "0.20–1.00",
+    "0.20–0.60"
+  ],
+  "fileVerificationOwner" : "CI fixture controller",
+  "nativeExportLabelObserved" : true,
+  "reopenedClipCount" : 2,
+  "reopenedTitleObserved" : true,
+  "status" : "passed"
+}

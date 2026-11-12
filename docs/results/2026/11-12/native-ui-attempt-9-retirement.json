@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "run": 43193361098,
+  "workflow": 415811372,
+  "path": ".github/workflows/framelet-ui-20261112-9.yml",
+  "disabledState": "disabled_manually",
+  "branch": "qa/framelet-ui-20261112-9",
+  "deletedHead": "0641574f8a0cd708441aa653f249ccd37a9300c8",
+  "exactRefAbsent": true,
+  "uploadedEvidenceRemoved": true,
+  "artifactId": "13932336668",
+  "requests": [
+    {
+      "route": "actions/runs/43193361098",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "25f9ed1ef1ad236a3f9f2b04a6f02efcd8d137f979e39a3becd1b2a21d3379de"
+    },
+    {
+      "route": "actions/workflows/415811372",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "6a4bce151f3467fcca10561a98b2c4de65b972b2ba30f86662d3f6a1f5997b23"
+    },
+    {
+      "route": "actions/artifacts/13932336668",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "e7ef988bf7f38ef78fec53d351e13a7b3cfcb5231b30026455fb08d07ffc3153"
+    },
+    {
+      "route": "actions/workflows/415811372/disable",
+      "method": "PUT",
+      "status": 204,
+      "responseSHA256": "dbf66c3cb0dd500e4b466f44c48c756a5949bdc6a88fedc70dc4cfec025bdfc6"
+    },
+    {
+      "route": "actions/workflows/415811372",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "cdd4f424e6f5e65c936f855a0b79059d05416bc9a5d8421ba29e63fd32ef5d1a"
+    },
+    {
+      "route": "git/ref/heads/qa/framelet-ui-20261112-9",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "32f0155a93ba074d73c7e781f4cc89fec5d195d75e9474ae570300debdffc549"
+    },
+    {
+      "route": "git/refs/heads/qa/framelet-ui-20261112-9",
+      "method": "DELETE",
+      "status": 204,
+      "responseSHA256": "73de278e5d7c0a3a816961b451d2c83b9d738ccc2fc8f7787f42f197d80ce9ec"
+    },
+    {
+      "route": "git/matching-refs/heads/qa/framelet-ui-20261112-9",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "911fdf57b08ae52afe82a118fe73b8ef8de082c8e8e46896edcf28fd5b73eaaa"
+    }
+  ]
+}

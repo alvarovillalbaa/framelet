@@ -1,6 +1,6 @@
 # Framelet recorder contract
 
-Last updated: 2026-10-29
+Last updated: 2026-11-12
 
 The [personal project queue](https://app.notion.com/p/311a1ee8bd06805caa21c5306dd315ac), fetched on 2026-10-27, explicitly requests “desktop app for screen recording (locally-hosted app for macbook that substitutes Tella and other most popular screen recording apps”. No prerequisite attaches to this New-list entry. Three unknown embeds elsewhere make the parent fetch globally truncated; this is a bounded entry interpretation, not an exhaustive queue audit. No separate child brief was found. Framelet is a working product name chosen for this implementation.
 
@@ -30,7 +30,7 @@ the item and invalidates pending loads. Load, status and seek callbacks must
 belong to the current generation/item; failed seeks or media expose an explicit
 Reload Preview action. Original media and the existing screen-anchor timing
 assumption are unaffected by this source change. Native playback/export proof
-is still required.
+is scoped below; live capture and device/audio proof remain required.
 
 ## Integration interfaces
 
@@ -43,6 +43,15 @@ is still required.
 UI lane owns `FrameletApp`, Views, Settings and menu commands. It uses the above exact models/interfaces. It prompts before moving a selected package to Trash, blocks editing/removal of an active capture, and does not add account, service, or implementation details to the product flow. Capture is stopped/finalized or termination is cancelled before the app quits; closing a window does not silently orphan recording.
 
 ## Acceptance still required
+
+The [FUI01 native journey](../results/2026/11-12/native-ui-attempt-9.md) passed
+at its exact source using authored silent red/blue media in a fresh CI library.
+It verifies real native rename/clip/canvas/save-panel actions, saved edits after
+relaunch, unchanged original hashes and an independently decoded 1.2-second
+1080×1080 blue/red MP4. It does not establish real capture, audio, camera timing,
+human accessibility or narrow-window layout. The 1024-pixel VM's reopened
+window clips edges. Rendered background pixels and new Release packaging have
+their own [preview-refresh scope](../proposals/preview-refresh-checks.md).
 
 The approved [native check run](../results/2026/10-28/ordered-playback-checks.md)
 establishes compilation, packaging, a local ad-hoc signature and thirty exact

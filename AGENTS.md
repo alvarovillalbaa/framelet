@@ -63,3 +63,11 @@ profile. Use only its bounded temporary public Mac runner and preserve actual
 failure/cleanup evidence. No source picker, screen recording, camera/microphone,
 personal media, paid identity or old accepted-scope rerun. All existing product
 inputs stay unchanged unless observed native evidence identifies a real defect.
+
+[FUI01 passed](docs/results/2026/11-12/native-ui-attempt-9.md) at its exact
+debug/arm64 source. Its native UI and independent file verifier are closed;
+do not replay them as routine follow-up. Preserve all eight failed originals.
+Standing approval covers the separate [0.1.1 preview refresh](docs/proposals/preview-refresh-checks.md),
+including read-only analysis of the retained MP4 and a new non-launching
+universal Release package. Only version metadata/builder guard change among
+the qualified product inputs. Keep the old controller and release intact.
