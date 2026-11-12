@@ -26,7 +26,7 @@ assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "x86_64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
 assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-compatible-playback-20261112-1"
-PACKAGE_RECEIPT_SHA256 = "PENDING_PASSED_PACKAGE_RECEIPT"
+PACKAGE_RECEIPT_SHA256 = "487ac04a02e4890b9147ac4e53d59389fd3a2d9b108cc1d9e78c3e510c689da0"
 assert re.fullmatch(r"[0-9a-f]{64}", PACKAGE_RECEIPT_SHA256), "Inactive until exact package evidence is reviewed"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()

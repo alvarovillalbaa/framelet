@@ -1,10 +1,15 @@
 # Full FUI04 playback in the exact 0.1.4 Release app
 
-12 November 2026. Inactive preparation under standing owner approval. The
-universal package job is queued; this profile must not activate until its raw
-receipt, retained archive/manifest and cleanup/retirement have passed independent
-review. `PACKAGE_RECEIPT_SHA256` deliberately rejects execution until then.
+12 November 2026. Prepared under standing owner approval. The
+[universal package](../results/2026/11-12/compatible-preview-attempt-1.md)
+passed, including independent review of all 38 command streams, 534 source
+entries, three retained assets/ZIP payload and 14 retirement streams. The raw
+receipt is pinned at SHA-256
+`487ac04a02e4890b9147ac4e53d59389fd3a2d9b108cc1d9e78c3e510c689da0`.
+Archive: 1,180,946 bytes/SHA-256
+`52462ea9ea26805063c8d87678a19f919f545b9f8c2c990f202b761e35add683`.
 No additional approval is needed within the already authorized bounded scope.
+The workflow stays inactive on main; instantiate only at this reviewed source.
 
 Only the exact 0.1.4/build5 universal Release ZIP from package source
 `460612a0787d081eb60bbc83fa7cc02c05387ddd` may run. Guard the pinned package

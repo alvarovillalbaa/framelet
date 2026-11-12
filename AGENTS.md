@@ -375,3 +375,12 @@ Do not rebuild or replay old component/native scopes. Finalize the separate
 full unchanged FUI04 profile with the raw package receipt pin and run that exact
 new Release app; require all nine product colors, native/process/input/source/
 cleanup evidence together before new binary publication. Preserve public0.1.3.
+
+The [full 0.1.4 FUI04 scope](docs/proposals/compatible-playback-checks.md) now
+pins the reviewed passing package receipt/archive. Standing approval covers its
+one bounded Intel execution of the original complete native case and independent
+nine-color verifier, with exact Release binding and the explicitly scoped same-
+measured three-leaf sparse exception. No old diagnostic/component/capture replay.
+Use the read-only current-UID group observer; never repeat the denied signal-zero
+query or signal native groups before acknowledgment. Preserve every failure and
+require same-source native/pixel/process/input/cleanup proof before publication.
