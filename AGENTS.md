@@ -279,3 +279,14 @@ shutdown, using the same pinned authored files and original PNG/AX/status JSON.
 No product patch is inferred until the control distinguishes likely causes.
 Keep exact released bits, all independent pixel/process/file/cleanup assertions
 and existing limits. The diagnostic never substitutes for product acceptance.
+
+[FUI04 attempt 5](docs/results/2026/11-12/release-playback-attempt-5.md) passed
+all native interactions but failed the required Recording pixels. Selected Clip
+and plain/clipped controls render correctly. Preserve the failed full verdict.
+Standing approval covers only the new [FUI04D composition diagnostic](docs/proposals/composition-probe-checks.md):
+six read-only muted variants, same real originals and unchanged shipping code,
+no Framelet launch or full-case replay. Preserve that case as an exact file
+prefix; require helper PID/AX/source/file/ordinary shutdown proof, retain its
+raw native result and inspect actual frames before choosing a product fix.
+The same measured sparse exception is explicitly scoped in the new proposal;
+local Guard, physical caps, no-device/no-writer and exact-retirement gates remain.

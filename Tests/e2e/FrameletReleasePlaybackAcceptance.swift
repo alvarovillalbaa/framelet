@@ -247,3 +247,40 @@ final class FrameletReleasePlaybackAcceptance: XCTestCase {
         attachment.name = "playback-observations"; attachment.lifetime = .keepAlways; add(attachment)
     }
 }
+
+// A separate diagnostic case; the complete FUI04 body above remains unchanged.
+final class FrameletCompositionProbeAcceptance: XCTestCase {
+    @MainActor
+    func testFUI04DInspectAssembledRecording() throws {
+        continueAfterFailure = false
+        let url = try XCTUnwrap(Bundle(for: Self.self).url(forResource: "FixtureConfig", withExtension: "json"))
+        let config = try JSONDecoder().decode([String: String].self, from: Data(contentsOf: url))
+        let probe = XCUIApplication(url: URL(fileURLWithPath: try XCTUnwrap(config["renderingProbeApp"])))
+        var normalQuit = false
+        addTeardownBlock {
+            await MainActor.run {
+                if probe.state != .notRunning { probe.terminate() }
+                let data: [String: Any] = ["caseId": "FUI04D", "safeToTerminate": true,
+                    "productNeverLaunched": true, "readOnlyProbeNormalQuit": normalQuit,
+                    "captureOrExportRequested": false, "forcedWriterTermination": false]
+                if let bytes = try? JSONSerialization.data(withJSONObject: data, options: [.sortedKeys]) {
+                    let attachment = XCTAttachment(data: bytes, uniformTypeIdentifier: "public.json")
+                    attachment.name = "playback-shutdown"; attachment.lifetime = .keepAlways; self.add(attachment)
+                }
+            }
+        }
+        probe.launchArguments = [try XCTUnwrap(config["renderingProbeConfig"])]; probe.launch()
+        XCTAssertTrue(probe.staticTexts["Read-only composition probe ready"].firstMatch.waitForExistence(timeout: 35))
+        let tree = XCTAttachment(string: probe.debugDescription)
+        tree.name = "diagnostic-composition-probe.accessibility"; tree.lifetime = .keepAlways; add(tree)
+        let image = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        image.name = "diagnostic-composition-probe"; image.lifetime = .keepAlways; add(image)
+        let bytes = try Data(contentsOf: URL(fileURLWithPath: try XCTUnwrap(config["renderingProbeReport"])))
+        let data = XCTAttachment(data: bytes, uniformTypeIdentifier: "public.json")
+        data.name = "diagnostic-composition-probe"; data.lifetime = .keepAlways; add(data)
+        probe.typeKey("q", modifierFlags: .command)
+        XCTAssertEqual(XCTWaiter.wait(for: [XCTNSPredicateExpectation(
+            predicate: NSPredicate { _, _ in probe.state == .notRunning }, object: nil)], timeout: 10), .completed)
+        normalQuit = true
+    }
+}
