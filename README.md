@@ -20,8 +20,10 @@ limits](docs/distribution.md). No recording permissions were granted by these ch
 The public download is 0.1.1/build 2, with accessible clip ranges and named
 canvas controls. Its [refresh qualification](docs/results/2026/11-12/preview-refresh-attempt-1.md)
 and [anonymous asset delivery](docs/results/2026/11-12/preview-refresh-publication.md)
-passed. On the 1024-pixel CI display, the reopened window extends beyond screen
-edges; that sizing defect remains open.
+passed. The 0.1.1 binary has a reopened-window sizing defect on the 1024-pixel
+CI display. Source now prepares 0.1.2/build 3 with a
+[qualified native placement repair](docs/results/2026/11-12/window-sizing-attempt-3.md);
+its new universal package and public delivery remain pending.
 
 ## Local build
 
@@ -39,7 +41,7 @@ For a Release preview archive containing both Apple silicon and Intel slices:
 ```
 
 This mode never launches or quits Framelet. It refuses existing preview ZIP/
-checksum leaves and produces `dist/Framelet-0.1.1-macos-universal.zip` plus its
+checksum leaves and produces `dist/Framelet-0.1.2-macos-universal.zip` plus its
 `.zip.sha256` checksum. It uses the same icon, bundle metadata and ad-hoc signing
 flow. The new profile has its own [packaging scope](docs/proposals/preview-refresh-checks.md);
 actual universal [archive packaging passed](docs/results/2026/11-12/preview-refresh-attempt-1.md),
@@ -101,5 +103,8 @@ passed in a disposable macOS 15.8.2/arm64 VM: rename, trim, duplicate, reorder,
 remove, Square/Sand canvas settings, real save-panel export, and saved edits
 after relaunch. Independent inspection verified the actual MP4 and unchanged
 originals. This uses authored silent media, not live capture or physical devices.
-The reopened window clips edges on the VM's 1024-pixel screen; narrow-window
-layout, human accessibility and trusted downloaded-app launch remain unverified.
+That original profile showed clipped edges after relaunch. The separate
+[FUI02 window check](docs/results/2026/11-12/window-sizing-attempt-3.md) passed
+first launch, relaunch, an additional window and relaunch again on that display,
+with unchanged authored media. Physical multi-display/rotated layouts, old-install
+migration, human accessibility and trusted downloaded-app launch remain open.

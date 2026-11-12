@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "kind": "framelet-window-allocation-diagnostic",
+  "status": "passed",
+  "nativeRun": 43202901167,
+  "cancelledJob": 131130604433,
+  "applicationBuildOrTestsExecuted": false,
+  "requests": [
+    {
+      "method": "GET",
+      "route": "actions/jobs/131130604433",
+      "status": 200,
+      "sha256": "9ccee232ce78d65e0e747008a85e491ecf70341a55422d55d0103896352e2781"
+    },
+    {
+      "method": "GET",
+      "route": "check-runs/131130604433",
+      "status": 200,
+      "sha256": "d1d326224b2f8ff778a9d115795c310c04a093a78e50b2c48f1c8ca412335244"
+    },
+    {
+      "method": "GET",
+      "route": "check-runs/131130604433/annotations?per_page=100",
+      "status": 200,
+      "sha256": "2d4c96e12674df5235d043983f4fb8b9f4eb398aa47e4171c469233b84db83aa"
+    },
+    {
+      "method": "GET",
+      "route": "actions/runs/43202901167",
+      "status": 200,
+      "sha256": "efd5f01416c3131821eac28da8187972efd4be3a4ab54f9f639fe9edff8dff20"
+    },
+    {
+      "method": "GET",
+      "route": "actions/runs/43206671295",
+      "status": 200,
+      "sha256": "f543d09b9fd0e6e528c31ab188cbfcccc0010f1748d2b723be4ac6cddc2a11da"
+    },
+    {
+      "method": "GET",
+      "route": "actions/workflows/415895713",
+      "status": 200,
+      "sha256": "9a4b383b3037af163d5c81dd3020a0265aa0ed2adf210a75747e0c1c6c1b9a22"
+    },
+    {
+      "method": "PUT",
+      "route": "actions/workflows/415895713/disable",
+      "status": 204,
+      "sha256": "b7073fc0f4ec61457789c4d9de776e3ae4931759a33719d810a40470f3e76799"
+    },
+    {
+      "method": "GET",
+      "route": "actions/workflows/415895713",
+      "status": 200,
+      "sha256": "c259611bf2d52f0404b1d3f0378819f31d88086c4f63f400c5b09b628a1049a6"
+    },
+    {
+      "method": "GET",
+      "route": "git/ref/heads/qa/framelet-window-allocation-20261112",
+      "status": 200,
+      "sha256": "468f0eebc2dad5b54e072d9024acf0d9a36d5a2fff24f9643334cc78f587ad87"
+    },
+    {
+      "method": "DELETE",
+      "route": "git/refs/heads/qa/framelet-window-allocation-20261112",
+      "status": 204,
+      "sha256": "c5e9f8ce2ea4d0bbfd057bda07f35a91ab543cfb4d9a945e580525eeccab9a0a"
+    },
+    {
+      "method": "GET",
+      "route": "git/matching-refs/heads/qa/framelet-window-allocation-20261112",
+      "status": 200,
+      "sha256": "00349e2a72c2746bcc78550cbfd027b9c7d7347d8bd76221cab92a9731f2e0eb"
+    }
+  ],
+  "cancelledJobMetadata": {
+    "id": 131130604433,
+    "run_id": 43202901167,
+    "workflow_name": "Temporary Framelet small-display window acceptance",
+    "head_branch": "qa/framelet-window-20261112-3",
+    "run_url": "https://api.github.com/repos/alvarovillalbaa/framelet/actions/runs/43202901167",
+    "run_attempt": 1,
+    "node_id": "CR_kwDOVZlSFc8AAAAeh_47kQ",
+    "head_sha": "1b631c87cb4da85fffbfb2ef0166cc84596452b5",
+    "url": "https://api.github.com/repos/alvarovillalbaa/framelet/actions/jobs/131130604433",
+    "html_url": "https://github.com/alvarovillalbaa/framelet/actions/runs/43202901167/job/131130604433",
+    "status": "completed",
+    "conclusion": "cancelled",
+    "created_at": "2026-11-12T10:43:41Z",
+    "started_at": "2026-11-12T10:43:41Z",
+    "completed_at": "2026-11-12T10:58:42Z",
+    "name": "acceptance",
+    "steps": [],
+    "check_run_url": "https://api.github.com/repos/alvarovillalbaa/framelet/check-runs/131130604433",
+    "labels": [
+      "macos-15"
+    ],
+    "runner_id": 0,
+    "runner_name": "",
+    "runner_group_id": 0,
+    "runner_group_name": ""
+  },
+  "checkOutput": {
+    "title": null,
+    "summary": null,
+    "text": null,
+    "annotations_count": 4,
+    "annotations_url": "https://api.github.com/repos/alvarovillalbaa/framelet/check-runs/131130604433/annotations"
+  },
+  "annotations": [
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/alvarovillalbaa/framelet/blob/1b631c87cb4da85fffbfb2ef0166cc84596452b5/.github",
+      "start_line": 1,
+      "start_column": null,
+      "end_line": 1,
+      "end_column": null,
+      "annotation_level": "failure",
+      "title": "",
+      "message": "The job was not acquired by Runner of type hosted even after multiple attempts",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/alvarovillalbaa/framelet/blob/1b631c87cb4da85fffbfb2ef0166cc84596452b5/.github",
+      "start_line": 1,
+      "start_column": null,
+      "end_line": 1,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "",
+      "message": "Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times.",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/alvarovillalbaa/framelet/blob/1b631c87cb4da85fffbfb2ef0166cc84596452b5/.github",
+      "start_line": 1,
+      "start_column": null,
+      "end_line": 1,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "",
+      "message": "Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times.",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/alvarovillalbaa/framelet/blob/1b631c87cb4da85fffbfb2ef0166cc84596452b5/.github",
+      "start_line": 1,
+      "start_column": null,
+      "end_line": 1,
+      "end_column": null,
+      "annotation_level": "notice",
+      "title": "",
+      "message": "Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times.",
+      "raw_details": ""
+    }
+  ],
+  "currentNativeRun": {
+    "id": 43202901167,
+    "status": "in_progress",
+    "conclusion": null,
+    "run_attempt": 2,
+    "head_sha": "1b631c87cb4da85fffbfb2ef0166cc84596452b5"
+  },
+  "controlRetirement": {
+    "workflow": 415895713,
+    "disabledState": "disabled_manually",
+    "deletedHead": "5b94e4cde710cc0193b363cbb029d592db009a95",
+    "branch": "qa/framelet-window-allocation-20261112",
+    "exactRefAbsent": true
+  }
+}

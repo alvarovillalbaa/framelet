@@ -1,0 +1,94 @@
+{
+  "capturePerformed" : false,
+  "caseId" : "FUI02",
+  "initialVisibleRect" : {
+    "height" : 681,
+    "width" : 1024,
+    "x" : 0,
+    "y" : 25
+  },
+  "phases" : [
+    {
+      "frames" : [
+        {
+          "height" : 657,
+          "identifier" : "library-AppWindow-1",
+          "width" : 1024,
+          "x" : 0,
+          "y" : 37
+        }
+      ],
+      "name" : "01-first-window",
+      "visibleRect" : {
+        "height" : 681,
+        "width" : 1024,
+        "x" : 0,
+        "y" : 25
+      }
+    },
+    {
+      "frames" : [
+        {
+          "height" : 657,
+          "identifier" : "library-AppWindow-1",
+          "width" : 1024,
+          "x" : 0,
+          "y" : 37
+        }
+      ],
+      "name" : "02-reopened-window",
+      "visibleRect" : {
+        "height" : 681,
+        "width" : 1024,
+        "x" : 0,
+        "y" : 25
+      }
+    },
+    {
+      "frames" : [
+        {
+          "height" : 660,
+          "identifier" : "library-AppWindow-2",
+          "width" : 1024,
+          "x" : 0,
+          "y" : 39
+        },
+        {
+          "height" : 657,
+          "identifier" : "library-AppWindow-1",
+          "width" : 1024,
+          "x" : 0,
+          "y" : 37
+        }
+      ],
+      "name" : "03-additional-window",
+      "visibleRect" : {
+        "height" : 681,
+        "width" : 1024,
+        "x" : 0,
+        "y" : 25
+      }
+    },
+    {
+      "frames" : [
+        {
+          "height" : 660,
+          "identifier" : "library-AppWindow-1",
+          "width" : 1024,
+          "x" : 0,
+          "y" : 39
+        }
+      ],
+      "name" : "04-reopened-windows",
+      "visibleRect" : {
+        "height" : 681,
+        "width" : 1024,
+        "x" : 0,
+        "y" : 25
+      }
+    }
+  ],
+  "recordingEditsPerformed" : false,
+  "sourcePickerOpened" : false,
+  "status" : "passed"
+}

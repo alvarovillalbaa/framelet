@@ -105,3 +105,11 @@ reopened assertions but failed the complete case on three-point additional-
 window overflow. Keep it failed. The changed placement reserves twelve points
 vertically at each display edge; require all FUI02 phases at the same source
 with the existing strict tolerance. No old-scope replay is needed.
+
+[FUI02 passed](docs/results/2026/11-12/window-sizing-attempt-3.md) completely
+at source `2fb903989ac82bacfff6c96b72d18f6e24934db3`. Its first executor attempt
+never started because of [provider capacity](docs/results/2026/11-12/window-allocation-diagnostic.md);
+one targeted rerun qualified the same source. Keep both native failures and
+the separate allocation failure. Do not replay this closed window case.
+Standing approval covers its [0.1.2 non-launching package/delivery](docs/proposals/window-preview-checks.md).
+Keep FUI01/pixel/old test scopes closed and import their evidence only.
