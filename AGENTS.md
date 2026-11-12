@@ -87,3 +87,9 @@ No routine check/publication rerun is needed. The next concrete app defect is
 the 1180-pixel default reopened window exceeding the 1024-pixel VM display;
 its correction needs a fresh bounded native window-sizing profile, preserving
 this release and the closed FUI01/packaging evidence.
+
+Standing approval covers the [focused window-sizing repair](docs/proposals/window-sizing-checks.md)
+and FUI02 native profile in a bounded disposable Mac CI job. Preserve the
+existing FUI01/test bodies and 0.1.1 artifacts; native frames must prove the
+new placement rather than source inspection alone. No capture/device prompts,
+account, dependency, permission change or local execution is in this scope.

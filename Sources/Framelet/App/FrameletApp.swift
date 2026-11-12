@@ -44,6 +44,14 @@ struct FrameletApp: App {
                 }
         }
         .defaultSize(width: 1180, height: 820)
+        .defaultWindowPlacement { content, context in
+            let available = context.defaultDisplay.visibleRect.size
+            let preferred = content.sizeThatFits(ProposedViewSize(width: 1180, height: 820))
+            return WindowPlacement(size: CGSize(
+                width: min(preferred.width, available.width),
+                height: min(preferred.height, available.height)
+            ))
+        }
         .commands { RecordingCommands(capture: capture) }
 
         MenuBarExtra {
