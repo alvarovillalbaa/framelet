@@ -159,3 +159,15 @@ is actual owned-window selection and capture, with exact source identity before
 Start and acknowledged Stop/no unfinished writer before termination/removal.
 Its file verifier remains syntax-only; materialize the full case/controller
 from the capture draft before activating another native job.
+
+Standing approval covers the now [materialized FUI03 authored-window capture](docs/proposals/authored-window-capture.md)
+case/controller: only the exact nonce-titled AppKit window, camera/microphone/
+system audio off, two real ScreenCaptureKit takes, native Pause/Resume/Stop,
+reopen/export and independent media/original-hash verification on one bounded
+public Intel VM. Working source names the chosen window via macOS 15.2 filter
+metadata, retaining its 15.0 fallback. No personal content, full-display fallback,
+TCC/settings changes, denied-permission retry, dependency, paid identity/service
+or model call. Exact selected-window identity is mandatory before Start.
+Require actual capture shutdown and export settlement before app signals or
+library/root removal; otherwise retain partial files and unverified cleanup.
+The read-only hash observer owns no writer. Keep all closed scopes untouched.

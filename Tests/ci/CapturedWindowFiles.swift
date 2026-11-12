@@ -170,7 +170,8 @@ struct CapturedWindowFiles {
         var decoded: [[String: Any]] = []
         for (seconds, blue) in samples {
             let frame = try await generator.image(at: CMTime(seconds: range.start.seconds + seconds, preferredTimescale: 600)).image
-            guard let crop = frame.cropping(to: CGRect(x: frame.width / 2 - 16, y: frame.height / 2 - 16, width: 32, height: 32)) else {
+            guard let crop = frame.cropping(to: CGRect(x: CGFloat(frame.width) / 2 - 16,
+                y: CGFloat(frame.height) / 2 - 16, width: 32, height: 32)) else {
                 throw NSError(domain: "FrameletCapturedWindowFiles", code: 7)
             }
             var pixel = [UInt8](repeating: 0, count: 4)

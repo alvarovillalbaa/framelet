@@ -105,6 +105,12 @@ final class CaptureCoordinator {
         guard phase == .choosing else { return }
         self.filter = filter
         selectedSourceName = filter.style == .display ? "Selected display" : "Selected window"
+        if #available(macOS 15.2, *), filter.style == .window,
+           filter.includedWindows.count == 1,
+           let title = filter.includedWindows.first?.title?.trimmingCharacters(in: .whitespacesAndNewlines),
+           !title.isEmpty {
+            selectedSourceName = "Window: " + title
+        }
         phase = .idle
     }
 

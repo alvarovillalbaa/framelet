@@ -1,6 +1,8 @@
-# Next recorder requirement: actual authored-window capture
+# Actual authored-window capture — prepared FUI03 scope
 
-Draft dependency scope, 12 November 2026. FUI02 and its downloadable 0.1.2
+Prepared execution scope, 12 November 2026; not yet executed. Alvaro's standing
+“I approve everything / Keep going / Do all the work” covers this concrete
+source, native recording/check and temporary public CI scope. FUI02 and its downloadable 0.1.2
 preview have closed. The separate [picker readiness probe](picker-readiness-checks.md)
 first materializes the authored fixture and observes native presentation/cancel;
 it never selects a source or starts capture. The original [recorder contract](../specs/recorder.md)
@@ -15,15 +17,14 @@ Share Built-in Display buttons. The display-share action is outside this
 window-only scope. Window choice itself has not been attempted; stop before
 Start unless the exact nonce-titled fixture is independently identified.
 
-The current recorder shows only generic Selected window. Before actual capture,
-prepare the small user-facing improvement that names the selected window from
+Working source now names a selected window from
 the chosen filter's metadata. Apple's [includedWindows](https://developer.apple.com/documentation/screencapturekit/sccontentfilter/includedwindows.md)
 and inspected SDK header mark it available from **macOS 15.2**. Preserve macOS
 15.0 compatibility with an availability guard/fallback; do not raise the app's
 minimum OS or enumerate unrelated shareable content to obtain a title. The
-new capture case must require the exact fixture title before Start. This source
-improvement, versioned preview refresh and native proof are not implemented by
-the current draft. The public 0.1.2 app and its closed source remain unchanged.
+new capture case requires the exact fixture title before Start. This source
+improvement has only been syntax parsed; native compilation/runtime and a
+versioned preview refresh remain pending. The public 0.1.2 assets remain unchanged.
 
 The inspected owner is `CaptureCoordinator.chooseSource/start/pause/resume/stop`,
 with `ScreenRecording` in `Services/RecordingCompletion.swift`. Its public
@@ -31,7 +32,7 @@ ScreenCaptureKit picker excludes Framelet itself. Camera/microphone/system
 audio default off. The default UI hides the library while recording, so the
 native menu-bar controls are part of the intended user path.
 
-Prepare a separate bounded native FUI03 scope after the current release closes:
+The separate bounded native FUI03 scope:
 
 1. In a fresh disposable public Mac VM, launch a task-owned AppKit fixture app
    showing only authored red/blue content and a non-sensitive timing marker in
@@ -61,8 +62,10 @@ Prepare a separate bounded native FUI03 scope after the current release closes:
    partial media and report cleanup unverified; do not erase a live recording
    to obtain a passing teardown. Retire only the task's exact temporary control.
 
-Materialize the fixture, native case, limits and failure/retention controller
-before execution. Use at most one fixed public Mac job capped at 20 minutes per
+The authored fixture, `Tests/e2e/FrameletCaptureAcceptance.swift`,
+`Tests/ci/run-authored-window-capture.py`, file verifier and inactive workflow
+now materialize this scope. Source-only preparation is not native acceptance.
+Use at most one fixed public Mac job capped at 20 minutes per
 changed candidate, no local environment/build/app under the failed Storage
 Guard, no new dependency/service, paid enrollment, external message or model
 call. A VM limitation must not be hidden by swapping in generated input movies.
@@ -78,6 +81,9 @@ observed (the public no-unfinished-capture guard), and the corresponding uptime.
 The controller must require that actual acknowledgment before termination or
 library/scratch removal. If absent, preserve partial bytes and a failed/unverified
 cleanup result; never replace it with a process signal or manifest-only guess.
+If an export was requested but not acknowledged, cancel through its native
+Cancel Export control and require enabled Export with no pending cancellation
+before termination/removal. Missing export settlement also retains the root.
 
 `Tests/ci/CapturedWindowFiles.swift` now prepares the independent read-only file
 verifier; it has only been syntax parsed, not built or executed. Compile it with
@@ -93,10 +99,47 @@ unchanged original/manifest hashes, two ordered full-take clips, audio/camera
 off, no extra files/tracks, original geometry/durations, red then blue decoded
 frames and a landscape export with the exact concatenated video duration.
 The paused interval must be at least four seconds and excluded from the outer
-capture-time bound. These are draft constraints; no native capture case or
-safe recording controller is activated by adding this helper. A failed snapshot
+capture-time bound. These constraints are enforced by the prepared case/controller.
+Nothing is activated by source or the inactive template. A failed snapshot
 or file check must stay failed, with its partial media retained. The first
 encoded-sample timing contract remains explicitly unmeasured by this verifier.
+
+The case opens the observed Control Center picker, shows all windows and
+requires one button identifying the fixture's exact nonce title. It never
+presses a display-share button or substitutes coordinate guesses for missing
+identity. An optional single Share Window confirmation is followed by the
+chosen-filter metadata guard in Framelet itself. Missing/incompatible UI stays
+failed before Start. Then two three-second minimum recording intervals,
+at least four seconds deliberately paused, a red-to-blue change during pause,
+normal menu commands with the library hidden, acknowledged Stop, reopening
+and a real save-panel MP4 export are required. Failure attachments preserve
+what actually executed, including a shutdown/settlement acknowledgment.
+
+The host starts an independent read-only original-hash observer before the UI
+journey, directly retaining stdout in its owned scratch. It reads only a ready
+two-take manifest/media. Its actual Swift uptime must precede Export; missing
+or late snapshots fail independently. Source/video/manifest and output checks
+never seed synthetic movies into this new library. Only the generated AppKit
+window supplies pixels through the actual ScreenCaptureKit path.
+
+Per-command streams are bounded at 2 MiB, inline UI exports at 16 MiB, retained
+authored files at 32 MiB each/128 MiB total (at most 32 files), and the uploaded
+failure/success packet at 256 MiB, retained for two days. Small authored files
+also get a separately hash-checked inline capsule, at most 4 MiB each/8 MiB total.
+Failed raw xcresult stays in that bounded packet. Preserve any unfinalized-file
+snapshot explicitly as such; do not call it sealed or remove its live root.
+Source, nonce, fixture bytes/inode, library inode and exact process paths are
+guarded. Cleanup sends no app/fixture signals and deletes no library/root unless
+the actual UI acknowledgment proves it safe and authored file retention passed.
+The native-UI command's timeout/output/group path never signals that process
+group: it can contain possible writers. Retain an unfinished native session
+through partial-evidence preservation, label incomplete streams/unverified
+cleanup, and do not turn eventual external VM expiry into a cleanup claim.
+The owned read-only observer can be cancelled independently; it owns no writer.
+The exact workflow/QA ref retires after uploaded artifact identity/digest checks.
+Main keeps no active workflow. Local Storage Guard is **5.1 GiB / 34.0 GiB**;
+no local build, app, test, capture or installation is authorized or performed.
+The compact original receipt has a separate 48 MiB upper bound.
 
 This would prove the basic real screen-window path only. The correspondence of
 the first `.complete` screen callback to the first encoded sample remains a
