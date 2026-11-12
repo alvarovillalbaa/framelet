@@ -4,7 +4,7 @@ Last updated: 2026-11-12
 
 A local Mac screen recorder with a recording library and clip editor. Choose a display or window, optionally include camera and audio, pause between takes, edit the clips, and export an MP4 with your canvas layout. Recordings stay on your Mac.
 
-**A universal developer preview is available. Native editing, reopening and an authored-media export passed on a disposable Mac; live capture remains unverified.** This is a native macOS app, not a Vercel website or a Supabase service. The [product contract](docs/specs/recorder.md) records the owning brief, exact scope and open acceptance boundaries.
+**A universal developer preview is available. Native editing and actual silent-window capture through pause, reopen and export passed on disposable Macs at their recorded sources.** This is a native macOS app, not a Vercel website or a Supabase service. The [product contract](docs/specs/recorder.md) records the owning brief, exact scope and open acceptance boundaries.
 
 ## Download the preview
 
@@ -108,3 +108,12 @@ That original profile showed clipped edges after relaunch. The separate
 first launch, relaunch, an additional window and relaunch again on that display,
 with unchanged authored media. Physical multi-display/rotated layouts, old-install
 migration, human accessibility and trusted downloaded-app launch remain open.
+
+The separate [actual window-capture journey](docs/results/2026/11-12/capture-attempt-4.md)
+passed on a macOS 15.7.9/x86_64 Debug VM: exact authored-window selection,
+two real takes, Pause/Resume/Stop, normal Quit/reopen and native export.
+Independent decoding verified red then blue in the 23.08-second 1920×1080 MP4,
+with the pause excluded and original media/manifest hashes unchanged.
+Camera, microphone and system audio were off. The working source displays the
+chosen window's title; the current public 0.1.2 archive predates that change.
+Camera/audio synchronization and encoded first-frame timing remain open.

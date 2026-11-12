@@ -198,3 +198,15 @@ Window menu and actual hittability before Export, plus failure progress data.
 No inferred product lifecycle change, shipping/verifier/fixture modification,
 relaxed media/pause/identity assertion or closed-scope replay. Full same-source
 native+file/cleanup evidence remains required before capture/preview closure.
+
+[FUI03 passed completely](docs/results/2026/11-12/capture-attempt-4.md) at
+`e1c3b5ea9013630375a9d5b29b7749784255d504`: exact authored-window selection,
+real silent takes, Pause/Resume/Stop, normal Quit/window restoration/export,
+independent decoded media/original hashes and acknowledged owned cleanup.
+All three failures remain preserved and the capture control is retired. Do
+not replay this closed native case. Standing owner approval covers a separate
+0.1.3/build 4 non-launching universal preview refresh for the qualified selected-
+window naming change, with pinned FUI03/FUI02/FUI01 evidence, both Release
+slices, unchanged-asset publication/digests and exact temporary retirement.
+No old native/pixel/core replay, audio/device capture, paid identity or trust
+claim follows from packaging. Preserve all older releases and original evidence.

@@ -30,7 +30,7 @@ the item and invalidates pending loads. Load, status and seek callbacks must
 belong to the current generation/item; failed seeks or media expose an explicit
 Reload Preview action. Original media and the existing screen-anchor timing
 assumption are unaffected by this source change. Native playback/export proof
-is scoped below; live capture and device/audio proof remain required.
+is scoped below; device/audio and encoded-anchor timing proof remain required.
 
 ## Integration interfaces
 
@@ -65,9 +65,20 @@ downloaded-app trust or actual capture/device timing.
 The separate [FUI03A native picker check](../results/2026/11-12/picker-readiness-attempt-3.md)
 passed on an Intel/macOS 15.7.9 Debug VM: authored fixture, options off, disabled
 Start, system picker and Escape back to unselected/ready, with no recording
-created. Source/fixture hashes and owned cleanup passed. Exact window selection
-and actual capture/pause/resume/stop/export still require the separate draft;
-do not replay the closed presentation-only case or call it capture proof.
+created. Source/fixture hashes and owned cleanup passed. It remains a separate
+presentation-only case and must not be replayed as routine follow-up.
+
+The complete [FUI03 actual-window case](../results/2026/11-12/capture-attempt-4.md)
+passed at `e1c3b5ea9013630375a9d5b29b7749784255d504`, macOS 15.7.9/x86_64 Debug.
+Only the exact nonce-titled authored window was selected before Start. Two
+real silent takes, Pause/Resume/Stop, hidden library, normal Quit/reopen and
+native save-panel export passed together with independent file verification.
+The 640×428 red/blue originals concatenate to a decoded 23.08-second 1920×1080
+export, excluding the observed pause. Before-export original/manifest hashes,
+source guards, acknowledged shutdown and owned cleanup passed. Preserve all
+three failed attempts; do not replay this closed scope. Camera/audio, encoded
+screen-anchor correspondence, this capture's actual preview playback and
+physical/device/trusted-download boundaries remain open.
 
 The approved [native check run](../results/2026/10-28/ordered-playback-checks.md)
 establishes compilation, packaging, a local ad-hoc signature and thirty exact

@@ -1,0 +1,207 @@
+Attributes: Application, 0x7fdb1cf19510, pid: 6531, title: 'Framelet', Disabled
+Element subtree:
+ →Application, 0x7fdb1cf19510, pid: 6531, title: 'Framelet', Disabled
+    Dialog, 0x7fdb1cf19650, {{370.0, 100.0}, {1180.0, 820.0}}, identifier: 'library-AppWindow-1', title: 'Library', Disabled
+      Group, 0x7fdb1cf19790, {{370.0, 100.0}, {1180.0, 820.0}}, Disabled
+        SplitGroup, 0x7fdb1cf198d0, {{370.0, 100.0}, {1180.0, 820.0}}, identifier: 'library-AppWindow-1, SidebarNavigationSplitView', Disabled
+          Group, 0x7fdb1cf19a10, {{370.0, 100.0}, {260.0, 820.0}}, Disabled
+            StaticText, 0x7fdb1cf19b50, {{438.0, 445.0}, {124.0, 128.5}}, value: Your local library
+            StaticText, 0x7fdb1cf19f30, {{418.5, 585.5}, {163.0, 32.0}}, value: Choose a source an...
+            ScrollView, 0x7fdb1cf1a070, {{370.0, 152.0}, {260.0, 768.0}}, Disabled
+              Outline, 0x7fdb1cf1a1b0, {{369.0, 151.0}, {262.0, 770.0}}, label: 'Sidebar'
+                TableColumn, 0x7fdb1cf19c90, {{380.0, 152.0}, {240.0, 768.0}}, identifier: 'ListColumn', Disabled
+          Splitter, 0x7fdb1cf19dd0, {{630.0, 152.0}, {1.0, 768.0}}, value: 260, Disabled
+          Group, 0x7fdb1cf1a770, {{631.0, 100.0}, {919.0, 820.0}}, Disabled
+            Group, 0x7fdb1cf1a2f0, {{647.0, 168.0}, {887.0, 36.0}}
+              StaticText, 0x7fdb1cf1a430, {{647.0, 168.0}, {180.0, 16.0}}, value: Choose a display o...
+              StaticText, 0x7fdb1cf1a570, {{647.0, 188.0}, {185.0, 16.0}}, value: No display or wind...
+              Button, 0x7fdb1cf1a8b0, {{1303.0, 172.0}, {146.0, 28.0}}, label: 'Choose Source…', Disabled
+              Button, 0x7fdb1cf1a9f0, {{1465.0, 172.0}, {69.0, 28.0}}, label: 'Start', Disabled
+            DisclosureTriangle, 0x7fdb1cf1ab30, {{625.0, 220.0}, {144.5, 16.0}}, label: 'Recording options', value: 1
+            CheckBox, 0x7fdb1cf1ac70, {{858.0, 248.0}, {101.0, 16.0}}, label: 'System audio', value: 0, Disabled
+            CheckBox, 0x7fdb1cf1adb0, {{1024.0, 248.0}, {112.0, 16.0}}, label: 'Default camera', value: 0, Disabled
+            StaticText, 0x7fdb1cf1aef0, {{1163.5, 250.0}, {70.0, 16.0}}, value: Countdown, Disabled
+            PopUpButton, 0x7fdb1cf1b030, {{1241.0, 247.0}, {84.0, 22.0}}, value: 3 sec, Disabled
+            CheckBox, 0x7fdb1cf1b190, {{858.0, 273.0}, {138.0, 16.0}}, label: 'Default microphone', value: 0, Disabled
+            CheckBox, 0x7fdb1cf1b2d0, {{1024.0, 273.0}, {99.0, 16.0}}, label: 'Show pointer', value: 1, Disabled
+            StaticText, 0x7fdb1cf1b410, {{647.0, 301.0}, {366.0, 13.0}}, value: Choose Source open...
+            StaticText, 0x7fdb1cf1b550, {{912.5, 554.0}, {356.0, 89.5}}, value: Make room for your...
+            StaticText, 0x7fdb1cf1b690, {{913.5, 655.5}, {354.0, 32.0}}, value: Choose a display o...
+      Toolbar, 0x7fdb1cf1b7d0, {{370.0, 100.0}, {1180.0, 52.0}}, Disabled
+        Button, 0x7fdb1cf1b910, {{457.0, 100.0}, {42.0, 52.0}}, label: 'Hide Sidebar'
+          Button, 0x7fdb1cf1ba50, {{461.0, 112.0}, {34.0, 28.0}}, label: 'Hide Sidebar'
+        Button, 0x7fdb1cf1bb90, {{1133.0, 100.0}, {35.0, 52.0}}, label: 'Refresh Library'
+          Button, 0x7fdb1cf1bcd0, {{1137.0, 112.0}, {27.0, 28.0}}, label: 'Refresh Library'
+        Button, 0x7fdb1cf1be10, {{1168.0, 100.0}, {41.0, 52.0}}, label: 'Show Library Folder'
+          Button, 0x7fdb1cf1bf50, {{1172.0, 112.0}, {33.0, 28.0}}, label: 'Show Library Folder'
+        Group, 0x7fdb1cf1c090, {{1209.0, 100.0}, {333.0, 52.0}}, Disabled
+          SearchField, 0x7fdb1cf1c1d0, {{1212.0, 112.0}, {327.0, 30.0}}, placeholderValue: 'Find a recording'
+            Button, 0x7fdb1cf1c310, {{1214.0, 116.0}, {25.0, 22.0}}, label: 'Search'
+      Button, 0x7fdb1cf1c450, {{388.0, 118.0}, {16.0, 16.0}}, identifier: '_XCUI:CloseWindow'
+      Button, 0x7fdb1cf1c590, {{428.0, 118.0}, {16.0, 16.0}}, identifier: '_XCUI:FullScreenWindow'
+        Group, 0x7fdb1cf1c6d0, {{429.0, 118.0}, {14.0, 16.0}}, Disabled
+      Button, 0x7fdb1cf1c810, {{408.0, 118.0}, {16.0, 16.0}}, identifier: '_XCUI:MinimizeWindow'
+      StaticText, 0x7fdb1cf1c950, {{639.0, 100.0}, {494.0, 52.0}}, value: Library
+    MenuBar, 0x7fdb1cf1ca90, {{0.0, 0.0}, {1920.0, 24.0}}
+      MenuBarItem, 0x7fdb1cf1cbd0, {{10.0, 0.0}, {34.0, 24.0}}, title: 'Apple'
+        Menu, 0x7fdb1cf1cd10, {{0.0, 1080.0}, {0.0, 0.0}}
+          MenuItem, 0x7fdb1cf1ce50, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_aboutThisMacRequested:', title: 'About This Mac'
+          MenuItem, 0x7fdb1cf1cf90, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_systemInformationRequested:', title: 'System Information'
+          MenuItem, 0x7fdb1cf1d0d0, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf1d210, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_systemSettingsRequested:', title: 'System Settings…, 1 update'
+          MenuItem, 0x7fdb1cf1d350, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_appStoreRequested:', title: 'App Store'
+          MenuItem, 0x7fdb1cf1d490, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf1d5d0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_recentsRequested:', title: 'Recent Items'
+            Menu, 0x7fdb1cf1d710, {{0.0, 1080.0}, {0.0, 0.0}}
+              MenuItem, 0x7fdb1cf1d850, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Applications', Disabled
+              MenuItem, 0x7fdb1cf1d990, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'Framelet'
+              MenuItem, 0x7fdb1cf1dad0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'Show “Framelet” in Finder'
+              MenuItem, 0x7fdb1cf1dc10, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'FrameletAuthoredFixture'
+              MenuItem, 0x7fdb1cf1dd50, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_recentItemRequested:', title: 'Show “FrameletAuthoredFixture” in Finder'
+              MenuItem, 0x7fdb1cf1de90, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x7fdb1cf1dfd0, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Documents', Disabled
+              MenuItem, 0x7fdb1cf1e110, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x7fdb1cf1e250, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Servers', Disabled
+              MenuItem, 0x7fdb1cf1e390, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x7fdb1cf1e4d0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_clearRecentItemsRequested:', title: 'Clear Menu'
+          MenuItem, 0x7fdb1cf1e610, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf1e750, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_forceQuitPanelRequested:', title: 'Force Quit…'
+          MenuItem, 0x7fdb1cf1e890, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_forceQuitRequested:', title: 'Force Quit Framelet'
+          MenuItem, 0x7fdb1cf1e9d0, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf1eb10, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_sleepRequested:', title: 'Sleep'
+          MenuItem, 0x7fdb1cf1ec50, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_restartRequested:', title: 'Restart…'
+          MenuItem, 0x7fdb1cf1ed90, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_restartNowRequested:', title: 'Restart'
+          MenuItem, 0x7fdb1cf1eed0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_shutDownRequested:', title: 'Shut Down…'
+          MenuItem, 0x7fdb1cf1f010, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_shutDownNowRequested:', title: 'Shut Down'
+          MenuItem, 0x7fdb1cf1f150, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf1f290, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_lockScreenRequested:', title: 'Lock Screen'
+          MenuItem, 0x7fdb1cf1f3d0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_logOutRequested:', title: 'Log Out runner…'
+          MenuItem, 0x7fdb1cf1f510, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_logOutNowRequested:', title: 'Log Out runner'
+          MenuItem, 0x7fdb1cf1f650, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+      MenuBarItem, 0x7fdb1cf1f790, {{44.0, 0.0}, {78.0, 24.0}}, title: 'Framelet'
+        Menu, 0x7fdb1cf1f8d0, {{0.0, 1080.0}, {0.0, 0.0}}
+          MenuItem, 0x7fdb1cf1fa10, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'orderFrontStandardAboutPanel:', title: 'About Framelet'
+          MenuItem, 0x7fdb1cf1fb50, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf1fc90, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'menuAction:', title: 'Settings…'
+          MenuItem, 0x7fdb1cf1fdd0, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf1ff10, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Services'
+            Menu, 0x7fdb1cf20050, {{0.0, 1080.0}, {0.0, 0.0}}
+              MenuItem, 0x7fdb1cf20190, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_processRequest:', title: 'Activity Monitor'
+              MenuItem, 0x7fdb1cf202d0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_processRequest:', title: 'Allocations & Leaks'
+              MenuItem, 0x7fdb1cf20410, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_processRequest:', title: 'File Activity'
+              MenuItem, 0x7fdb1cf20550, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_processRequest:', title: 'System Trace'
+              MenuItem, 0x7fdb1cf20690, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_processRequest:', title: 'Time Profile Active Application'
+              MenuItem, 0x7fdb1cf207d0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_processRequest:', title: 'Time Profile App Under Mouse'
+              MenuItem, 0x7fdb1cf20910, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_processRequest:', title: 'Time Profile Entire System'
+              MenuItem, 0x7fdb1cf20a50, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_processRequest:', title: 'Toggle Instruments Recording'
+              MenuItem, 0x7fdb1cf20b90, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_configureServicesMenu:', title: 'Services Settings…'
+          MenuItem, 0x7fdb1cf20cd0, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf20e10, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'hide:', title: 'Hide Framelet'
+          MenuItem, 0x7fdb1cf20f50, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'hideOtherApplications:', title: 'Hide Others'
+          MenuItem, 0x7fdb1cf21090, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'unhideAllApplications:', title: 'Show All', Disabled
+          MenuItem, 0x7fdb1cf211d0, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf21310, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'terminate:', title: 'Quit Framelet'
+      MenuBarItem, 0x7fdb1cf21450, {{122.0, 0.0}, {42.0, 24.0}}, title: 'File'
+        Menu, 0x7fdb1cf21590, {{0.0, 1080.0}, {0.0, 0.0}}
+          MenuItem, 0x7fdb1cf216d0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'menuAction:', title: 'New Framelet Window'
+          MenuItem, 0x7fdb1cf21810, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf21950, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'performClose:', title: 'Close', Disabled
+          MenuItem, 0x7fdb1cf21a90, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'closeAll:', title: 'Close All'
+      MenuBarItem, 0x7fdb1cf21bd0, {{164.0, 0.0}, {44.0, 24.0}}, title: 'Edit'
+        Menu, 0x7fdb1cf21d10, {{0.0, 1080.0}, {0.0, 0.0}}
+          MenuItem, 0x7fdb1cf21e50, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'undo:', title: 'Undo', Disabled
+          MenuItem, 0x7fdb1cf21f90, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'redo:', title: 'Redo', Disabled
+          MenuItem, 0x7fdb1cf220d0, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf22210, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'cut:', title: 'Cut', Disabled
+          MenuItem, 0x7fdb1cf22350, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'copy:', title: 'Copy', Disabled
+          MenuItem, 0x7fdb1cf22490, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'paste:', title: 'Paste', Disabled
+          MenuItem, 0x7fdb1cf225d0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'delete:', title: 'Delete', Disabled
+          MenuItem, 0x7fdb1cf22710, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'selectAll:', title: 'Select All', Disabled
+          MenuItem, 0x7fdb1cf22850, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf22990, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_NSMenuItemAutoFillIdentifier', title: 'AutoFill'
+            Menu, 0x7fdb1cf22ad0, {{0.0, 1080.0}, {0.0, 0.0}}
+              MenuItem, 0x7fdb1cf22c10, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_handleInsertFromContactsCommand:', title: 'Contact…', Disabled
+              MenuItem, 0x7fdb1cf22d50, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_handleInsertFromPasswordsCommand:', title: 'Passwords…', Disabled
+          MenuItem, 0x7fdb1cf22e90, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'startDictation:', title: 'Start Dictation…'
+          MenuItem, 0x7fdb1cf22fd0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'orderFrontCharacterPalette:', title: 'Emoji & Symbols'
+      MenuBarItem, 0x7fdb1cf23110, {{208.0, 0.0}, {50.0, 24.0}}, title: 'View'
+        Menu, 0x7fdb1cf23250, {{0.0, 1080.0}, {0.0, 0.0}}
+          MenuItem, 0x7fdb1cf23390, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'toggleFullScreen:', title: 'Enter Full Screen', Disabled
+      MenuBarItem, 0x7fdb1cf234d0, {{258.0, 0.0}, {82.0, 24.0}}, title: 'Recording'
+        Menu, 0x7fdb1cf23610, {{0.0, 1080.0}, {0.0, 0.0}}
+          MenuItem, 0x7fdb1cf23750, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Choose Display or Window…', Disabled
+          MenuItem, 0x7fdb1cf23890, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Start Recording', Disabled
+          MenuItem, 0x7fdb1cf239d0, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Pause Recording', Disabled
+          MenuItem, 0x7fdb1cf23b10, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Stop Recording', Disabled
+          MenuItem, 0x7fdb1cf23c50, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf23d90, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Shortcuts work while Framelet is active.', Disabled
+      MenuBarItem, 0x7fdb1cf23ed0, {{340.0, 0.0}, {69.0, 24.0}}, title: 'Window'
+        Menu, 0x7fdb1cf24010, {{0.0, 1080.0}, {0.0, 0.0}}
+          MenuItem, 0x7fdb1cf24150, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'performMiniaturize:', title: 'Minimize', Disabled
+          MenuItem, 0x7fdb1cf24290, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'miniaturizeAll:', title: 'Minimize All'
+          MenuItem, 0x7fdb1cf243d0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'performZoom:', title: 'Zoom', Disabled
+          MenuItem, 0x7fdb1cf24510, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'zoomAll:', title: 'Zoom All'
+          MenuItem, 0x7fdb1cf24650, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomFill:', title: 'Fill', Disabled
+          MenuItem, 0x7fdb1cf24790, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomCenter:', title: 'Center', Disabled
+          MenuItem, 0x7fdb1cf248d0, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf24a10, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Move & Resize'
+            Menu, 0x7fdb1cf24b50, {{0.0, 1080.0}, {0.0, 0.0}}
+              MenuItem, 0x7fdb1cf24c90, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Halves', Disabled
+              MenuItem, 0x7fdb1cf24dd0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomLeft:', title: 'Left', Disabled
+              MenuItem, 0x7fdb1cf24f10, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomRight:', title: 'Right', Disabled
+              MenuItem, 0x7fdb1cf25050, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomTop:', title: 'Top', Disabled
+              MenuItem, 0x7fdb1cf25190, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomBottom:', title: 'Bottom', Disabled
+              MenuItem, 0x7fdb1cf252d0, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x7fdb1cf25410, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Quarters', Disabled
+              MenuItem, 0x7fdb1cf25550, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomTopLeft:', title: 'Top Left', Disabled
+              MenuItem, 0x7fdb1cf25690, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomTopRight:', title: 'Top Right', Disabled
+              MenuItem, 0x7fdb1cf257d0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomBottomLeft:', title: 'Bottom Left', Disabled
+              MenuItem, 0x7fdb1cf25910, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomBottomRight:', title: 'Bottom Right', Disabled
+              MenuItem, 0x7fdb1cf25a50, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x7fdb1cf25b90, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Arrange', Disabled
+              MenuItem, 0x7fdb1cf25cd0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomLeftAndRight:', title: 'Left & Right', Disabled
+              MenuItem, 0x7fdb1cf25e10, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomLeftThreeUp:', title: 'Left & Quarters', Disabled
+              MenuItem, 0x7fdb1cf25f50, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomRightAndLeft:', title: 'Right & Left', Disabled
+              MenuItem, 0x7fdb1cf26090, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomRightThreeUp:', title: 'Right & Quarters', Disabled
+              MenuItem, 0x7fdb1cf261d0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomTopAndBottom:', title: 'Top & Bottom', Disabled
+              MenuItem, 0x7fdb1cf26310, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomTopThreeUp:', title: 'Top & Quarters', Disabled
+              MenuItem, 0x7fdb1cf26450, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomBottomAndTop:', title: 'Bottom & Top', Disabled
+              MenuItem, 0x7fdb1cf26590, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomBottomThreeUp:', title: 'Bottom & Quarters', Disabled
+              MenuItem, 0x7fdb1cf266d0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomQuarters:', title: 'Quarters', Disabled
+              MenuItem, 0x7fdb1cf26810, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+              MenuItem, 0x7fdb1cf26950, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_zoomUntile:', title: 'Return to Previous Size', Disabled
+          MenuItem, 0x7fdb1cf26a90, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Full Screen Tile', Disabled
+          MenuItem, 0x7fdb1cf26bd0, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf26d10, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: '_removeWindowFromStageManagerSet:', title: 'Remove Window from Set', Disabled
+          MenuItem, 0x7fdb1cf26e50, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf26f90, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'arrangeInFront:', title: 'Bring All to Front'
+          MenuItem, 0x7fdb1cf270d0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'alternateArrangeInFront:', title: 'Arrange in Front'
+          MenuItem, 0x7fdb1cf27210, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf27350, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'makeKeyAndOrderFront:', title: 'Library'
+      MenuBarItem, 0x7fdb1cf27490, {{409.0, 0.0}, {48.0, 24.0}}, title: 'Help'
+        Menu, 0x7fdb1cf275d0, {{0.0, 1080.0}, {0.0, 0.0}}
+          MenuItem, 0x7fdb1cf27710, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'searchFieldAction:'
+            SearchField, 0x7fdb1cf27850, {{-1.0, 1057.0}, {354.0, 24.0}}, identifier: '_SC_SEARCH_FIELD', placeholderValue: 'Search'
+              Other, 0x7fdb1cf27990, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+            Table, 0x7fdb1cf27ad0, {{-1.0, 1074.0}, {362.0, 7.0}}, identifier: '_SC_RESULTS_TABLE', label: 'search result'
+              TableColumn, 0x7fdb1cf27c10, {{0.0, 1075.0}, {350.0, 5.0}}, identifier: 'Title', Disabled
+          MenuItem, 0x7fdb1cf27d50, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'showHelp:', title: 'Framelet Help'
+    TouchBar, 0x7fdb1cf27e90, {{80.0, 0.0}, {685.0, 30.0}}, Disabled
+    MenuBar, 0x7fdb1cf27fd0, {{1665.0, 0.0}, {37.0, 24.0}}
+      StatusItem, 0x7fdb1cf28110, {{1665.0, 0.0}, {37.0, 24.0}}, title: 'Framelet'
+        Menu, 0x7fdb1cf28250, {{0.0, 1080.0}, {0.0, 0.0}}
+          MenuItem, 0x7fdb1cf28390, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Choose a display or window', Disabled
+          MenuItem, 0x7fdb1cf284d0, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Choose Display or Window…', Disabled
+          MenuItem, 0x7fdb1cf28610, {{0.0, 1080.0}, {0.0, 0.0}}, title: 'Start Recording', Disabled
+          MenuItem, 0x7fdb1cf28750, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf28890, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'menuAction:', title: 'Open Library'
+          MenuItem, 0x7fdb1cf289d0, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'menuAction:', title: 'Settings…'
+          MenuItem, 0x7fdb1cf28b10, {{0.0, 1080.0}, {0.0, 0.0}}, Disabled
+          MenuItem, 0x7fdb1cf28c50, {{0.0, 1080.0}, {0.0, 0.0}}, identifier: 'menuAction:', title: 'Quit Framelet'
+Path to element:
+ →Application, 0x7fdb1cf19510, pid: 6531, title: 'Framelet', Disabled
+Query chain:
+ →Find: Target Application 'com.alvarovillalbaa.Framelet'
+  Output: {
+    Application, 0x7fdb1db238b0, pid: 6531, title: 'Framelet', Disabled
+  }

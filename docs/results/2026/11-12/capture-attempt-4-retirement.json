@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "run": 43229159530,
+  "workflow": 416066672,
+  "path": ".github/workflows/framelet-capture-20261112-4.yml",
+  "disabledState": "disabled_manually",
+  "branch": "qa/framelet-capture-20261112-4",
+  "deletedHead": "9c332147c24dd374f2c431b6667b0d9e652b70db",
+  "exactRefAbsent": true,
+  "uploadedEvidenceRemoved": true,
+  "artifactId": "13949337922",
+  "requests": [
+    {
+      "route": "actions/runs/43229159530",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "b7e03e5d4735fcfca09ea9b2e0c79e673eff678f28b4e2e3926e8c7b148380b0"
+    },
+    {
+      "route": "actions/workflows/416066672",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "6dd48492b7218a94ba3a7e027726fc5a210f48be9cf1a5c6c791dceeecad016c"
+    },
+    {
+      "route": "actions/artifacts/13949337922",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "80868bd72f7908ce13645a865b3c2200d786d5f9cfd993108cbae8fae82fe0f0"
+    },
+    {
+      "route": "actions/workflows/416066672/disable",
+      "method": "PUT",
+      "status": 204,
+      "responseSHA256": "54810b07d0d600817252178735d791432f5c35a54d535245e25ea44f23a96759"
+    },
+    {
+      "route": "actions/workflows/416066672",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "a9f74a40ed4fb5591aec7b42b6e6b723358e720e19d0ebd9935ef59c399cd54a"
+    },
+    {
+      "route": "git/ref/heads/qa/framelet-capture-20261112-4",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "a9f77fe7fa4a20627a2bf25e62b01a194e352427b9dafdb890a22a0956f91014"
+    },
+    {
+      "route": "git/refs/heads/qa/framelet-capture-20261112-4",
+      "method": "DELETE",
+      "status": 204,
+      "responseSHA256": "d4057f3510ce81cfc8613f6270e1a18c4b70f3ea3cdba2318c48637a0f071030"
+    },
+    {
+      "route": "git/matching-refs/heads/qa/framelet-capture-20261112-4",
+      "method": "GET",
+      "status": 200,
+      "responseSHA256": "3bb1f8b8419851f291858bf56a9cf2416d552aeaa36108ee15dd6bcb157a9144"
+    }
+  ]
+}

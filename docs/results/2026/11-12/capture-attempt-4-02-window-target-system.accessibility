@@ -1,0 +1,21 @@
+Attributes: Application, 0x7fdb1da15a80, pid: 357, title: 'Control Center', Disabled
+Element subtree:
+ →Application, 0x7fdb1da15a80, pid: 357, title: 'Control Center', Disabled
+    Dialog (Main), 0x7fdb1da1d5a0, {{0.0, 0.0}, {1920.0, 60.0}}, label: 'Shared Content Picker Controls', Keyboard Focused, Disabled
+      Group, 0x7fdb1da1de00, {{0.0, 0.0}, {1920.0, 60.0}}, Disabled
+        Button, 0x7fdb1da1e660, {{1570.0, 22.0}, {26.0, 17.0}}, identifier: 'rectangle.3.group', label: 'Show All Windows'
+        Button, 0x7fdb1da20910, {{1632.0, 16.0}, {110.0, 28.0}}, label: 'Cancel'
+        Button, 0x7fdb1da20cf0, {{1750.0, 16.0}, {150.0, 28.0}}, label: 'Share Built-in Display'
+      Group, 0x7fdb1da20e30, {{100.0, 512.0}, {640.0, 428.0}}, Disabled
+        Button, 0x7fdb1da20f70, {{317.0, 712.0}, {206.0, 28.0}}, label: 'Share "Framelet authored capture 2bbd232544244d189ac00115d06a8f97" Window'
+    MenuBar, 0x7fdb1da20a50, {{1622.0, 0.0}, {138.0, 24.0}}
+      StatusItem, 0x7fdb1da20b90, {{1774.0, 1.0}, {138.0, 22.0}}, identifier: 'com.apple.menuextra.clock', label: 'Clock', value: Thu Nov 12  1:42 PM
+      StatusItem, 0x7fdb1da21530, {{1736.0, 1.0}, {26.0, 22.0}}, identifier: 'com.apple.menuextra.controlcenter', label: 'Control Center'
+      StatusItem, 0x7fdb1da210b0, {{1622.0, 0.0}, {40.0, 24.0}}, identifier: 'com.apple.menuextra.audiovideo', label: 'Audio and Video Controls'
+Path to element:
+ →Application, 0x7fdb1da15a80, pid: 357, title: 'Control Center', Disabled
+Query chain:
+ →Find: Application 'com.apple.controlcenter'
+  Output: {
+    Application, 0x7fdb1da21ab0, pid: 357, title: 'Control Center', Disabled
+  }

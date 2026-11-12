@@ -1,0 +1,23 @@
+{
+  "cameraMicrophoneSystemAudioOff" : true,
+  "caseId" : "FUI03",
+  "fileVerificationOwner" : "host controller",
+  "fixtureTitle" : "Framelet authored capture 2bbd232544244d189ac00115d06a8f97",
+  "libraryHiddenForBothTakes" : true,
+  "nativeExportLabelObserved" : true,
+  "reopenedClipCount" : 2,
+  "selectedSourceBeforeStart" : true,
+  "selectedSourceLabel" : "Window: Framelet authored capture 2bbd232544244d189ac00115d06a8f97",
+  "status" : "passed",
+  "uptime" : {
+    "exportRequested" : 547.71682345900001,
+    "finalReady" : 521.93853960900003,
+    "firstRecordingObserved" : 484.53414444500004,
+    "pauseReady" : 495.26534756700005,
+    "pauseRequested" : 488.18571566900005,
+    "resumeRequested" : 502.45553418600002,
+    "secondRecordingObserved" : 511.86441679700005,
+    "startRequested" : 477.15248903700001,
+    "stopRequested" : 515.422500367
+  }
+}

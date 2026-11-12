@@ -1,0 +1,15 @@
+{
+  "fixtureFrame" : {
+    "height" : 428,
+    "width" : 640,
+    "x" : 100,
+    "y" : 512
+  },
+  "fixtureTitle" : "Framelet authored capture 2bbd232544244d189ac00115d06a8f97",
+  "libraryHidden" : true,
+  "matchedPickerGroups" : 1,
+  "point" : {
+    "x" : 420,
+    "y" : 726
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "clips" : [
+    {
+      "id" : "FC422675-4658-4485-85EB-EB30381B403A",
+      "segmentID" : "C456C486-F99C-498F-9ACE-7BBB746813A9",
+      "trimEndSeconds" : 10.328333333333333,
+      "trimStartSeconds" : 0
+    },
+    {
+      "id" : "45F11274-3DDD-4C5D-946E-87A8BED97855",
+      "segmentID" : "112458AE-5A21-4B59-A225-6466A4AE91D3",
+      "trimEndSeconds" : 12.751666666666667,
+      "trimStartSeconds" : 0
+    }
+  ],
+  "createdAt" : "2026-11-12T13:42:16Z",
+  "id" : "4A689114-5E06-43A3-AE28-BD9B9FDB524E",
+  "options" : {
+    "cameraEnabled" : false,
+    "capturesMicrophone" : false,
+    "capturesSystemAudio" : false,
+    "countdownSeconds" : 3,
+    "showsCursor" : true
+  },
+  "presentation" : {
+    "background" : "midnight",
+    "cameraCorner" : "bottomRight",
+    "cameraMirrored" : true,
+    "cameraScale" : 0.25,
+    "inset" : 0.04,
+    "layout" : "screenOnly",
+    "preset" : "landscape"
+  },
+  "schemaVersion" : 1,
+  "segments" : [
+    {
+      "durationSeconds" : 10.328333333333333,
+      "id" : "C456C486-F99C-498F-9ACE-7BBB746813A9",
+      "screenPath" : "segments\/C456C486-F99C-498F-9ACE-7BBB746813A9-screen.mp4"
+    },
+    {
+      "durationSeconds" : 12.751666666666667,
+      "id" : "112458AE-5A21-4B59-A225-6466A4AE91D3",
+      "screenPath" : "segments\/112458AE-5A21-4B59-A225-6466A4AE91D3-screen.mp4"
+    }
+  ],
+  "status" : "ready",
+  "title" : "Recording Nov 12, 2026 at 1:42 PM",
+  "updatedAt" : "2026-11-12T13:42:55Z"
+}

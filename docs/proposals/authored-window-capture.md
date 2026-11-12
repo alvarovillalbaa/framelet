@@ -189,6 +189,12 @@ requirements and unchanged compiled runtime/verifier/fixture inputs, diff-guarde
 against `10837d5f93b74e0973ea8537f6b11c7ea43a8c4e`. The new UI profile must pass
 as a whole before any capture qualification or new preview release is claimed.
 
+[Candidate 4 passed that entire scope](../results/2026/11-12/capture-attempt-4.md)
+at `e1c3b5ea9013630375a9d5b29b7749784255d504`: one native case, independent
+media/original verification, actual Stop/export acknowledgment and owned
+cleanup/retirement all passed together. FUI03 is closed at this exact Debug/
+Intel profile; preserve all three failed originals and do not replay the case.
+
 This would prove the basic real screen-window path only. The correspondence of
 the first `.complete` screen callback to the first encoded sample remains a
 separate measured timing requirement; no camera/PiP synchronization inference
