@@ -80,6 +80,13 @@ three failed attempts; do not replay this closed scope. Camera/audio, encoded
 screen-anchor correspondence, this capture's actual preview playback and
 physical/device/trusted-download boundaries remain open.
 
+The qualified selected-window title source is delivered as
+[0.1.3/build 4](../results/2026/11-12/capture-preview-publication.md), with new
+non-launching universal Release packaging and three exact server/CI anonymous
+download checks. All ten older assets/tags remain unchanged. This publication
+does not extend the original native Debug/Intel scope to Release runtime or
+close the device/timing/trust requirements above.
+
 The approved [native check run](../results/2026/10-28/ordered-playback-checks.md)
 establishes compilation, packaging, a local ad-hoc signature and thirty exact
 core/synthetic-media cases. Its temporary workflow has been removed. It does

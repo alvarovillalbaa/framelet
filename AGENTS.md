@@ -221,3 +221,13 @@ control is retired. Do not replay the closed package/native scopes. Publish
 only its three retained hash-pinned assets using the new bounded data-only
 control; verify server/anonymous byte delivery, preserve all ten older assets
 and tags, and retire only that exact publication path.
+
+[0.1.3 publication passed](docs/results/2026/11-12/capture-preview-publication.md):
+three exact server digests/CI anonymous downloads, tag/source, ten older assets
+and tags unchanged, owned scratch cleanup and exact control retirement. Fresh
+connected metadata readback passed; an additional local anonymous fetch failed
+and provides no download proof. Do not retry or replay closed capture/package/
+publication scopes. Preserve all failures and older retired refs. First encoded
+screen-anchor timing, camera/audio, real preview playback of these takes,
+physical displays/devices, migration, human accessibility, Release runtime and
+trusted downloaded-app launch remain open; continue with one bounded ready scope.
