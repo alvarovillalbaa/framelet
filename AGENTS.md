@@ -231,3 +231,13 @@ publication scopes. Preserve all failures and older retired refs. First encoded
 screen-anchor timing, camera/audio, real preview playback of these takes,
 physical displays/devices, migration, human accessibility, Release runtime and
 trusted downloaded-app launch remain open; continue with one bounded ready scope.
+
+Standing owner approval covers the materialized [FUI04 Release playback scope](docs/proposals/release-playback-checks.md):
+one bounded Intel VM, exact retained 0.1.3 Release bundle, already-authored real
+capture originals, native playback/pause/seek/scope/end/reopen and independent
+rendered pixels plus actual executable-PID/file/source/cleanup proof. No new
+capture/source/export/device action, permission/entitlement/dependency change,
+Debug-product substitution or closed-case replay. Local Guard now refuses at
+2.8 GiB/34.0 GiB; source parsing and bounded evidence only locally. Keep the
+full same-source native/pixel/process/unchanged-input verdict mandatory, retain
+failures and retire only the exact prepared playback control.
