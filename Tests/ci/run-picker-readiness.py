@@ -160,6 +160,8 @@ try:
     assert not entitlements.strip() or plistlib.loads(entitlements) == {}
     fixture_identity = fixture.stat()
     def fixture_snapshot():
+        current = fixture.lstat()
+        assert stat.S_ISDIR(current.st_mode) and (current.st_dev, current.st_ino) == (fixture_identity.st_dev, fixture_identity.st_ino)
         assert not any(p.is_symlink() for p in fixture.rglob("*"))
         return {str(p.relative_to(fixture)): sha(p.read_bytes()) for p in sorted(fixture.rglob("*")) if p.is_file()}
     report["fixtureHashesBefore"] = fixture_snapshot()
