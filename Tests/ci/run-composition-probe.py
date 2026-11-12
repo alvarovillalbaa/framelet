@@ -26,7 +26,7 @@ source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "x86_64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-composition-probe-20261112-2"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-composition-probe-20261112-3"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-composition-probe-", dir=parent)).resolve()
@@ -298,15 +298,18 @@ try:
     baseline = source_guard()
     index_before = sha((repo / ".git/index").read_bytes())
     changes = run("qualified-input-diff", ["/usr/bin/git", "diff", "--name-only",
-        "fea98a8055f741f4177dda54ad1c076f834f8582", "HEAD", "--", "Package.swift", "Sources", "Resources", "script",
+        "50d70b855ed6febfb3e8de80dc6c3b5dc8a10728", "HEAD", "--", "Package.swift", "Sources", "Resources", "script",
         "Tests/FrameletCoreTests", "Tests/FrameletPlaybackTests", "Tests/FrameletAcceptance.xcodeproj",
         "Tests/e2e/FrameletAcceptance.swift", "Tests/e2e/FrameletWindowAcceptance.swift",
         "Tests/e2e/FrameletPickerReadiness.swift", "Tests/e2e/FrameletCaptureAcceptance.swift",
         "Tests/e2e/FrameletReleasePlaybackAcceptance.swift", "Tests/ci/ReleasePlaybackPixels.swift"])
     assert not changes.strip()
-    original_case = run("original-case-source", ["/usr/bin/git", "show",
-        "9c46e847b2a552cb00f507c1db27b2f994fa1407:Tests/e2e/FrameletReleasePlaybackAcceptance.swift"])
-    assert (repo / "Tests/e2e/FrameletReleasePlaybackAcceptance.swift").read_bytes().startswith(original_case + b"\n")
+    case_bytes = (repo / "Tests/e2e/FrameletReleasePlaybackAcceptance.swift").read_bytes()
+    prefix_pin = {"source": "9c46e847b2a552cb00f507c1db27b2f994fa1407", "bytes": 15300,
+        "sha256": "941ed334c6987cdc2991070bcfbda568f15da9abedffcf71fd8cf0e3065c6f1d"}
+    assert sha(case_bytes[:prefix_pin["bytes"]]) == prefix_pin["sha256"]
+    assert case_bytes[prefix_pin["bytes"]:prefix_pin["bytes"] + 1] == b"\n"
+    report["originalFullCasePrefixPin"] = prefix_pin
     report["productPixelVerifierAndFullNativeCaseUnchangedFromAttempt5"] = True
     report["diagnosticOnly"] = True
     raw = (repo / "docs/results/2026/11-12/capture-preview-attempt-1.json").read_bytes()

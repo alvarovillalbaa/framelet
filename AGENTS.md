@@ -299,3 +299,9 @@ software-control comparison. Same native case and shipping/full-FUI04/pixel
 inputs remain unchanged. Denied paths are retained without permission retry;
 unexpected product launch blocks cleanup. Require actual identities and original
 frames before choosing a shipping correction; no synthetic acceptance.
+
+[FUI04D attempt 2](docs/results/2026/11-12/composition-probe-attempt-2.md) stopped
+at an unavailable historical Git object before compilation. Preserve it.
+Standing approval covers the changed exact original-case byte/hash pin, with
+the same native/helper/product inputs and protected current-source diff. No
+deeper checkout, execution-scope expansion or weakened identity/pixel assertion.

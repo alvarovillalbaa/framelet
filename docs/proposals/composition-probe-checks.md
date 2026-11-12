@@ -80,3 +80,11 @@ as well as existing statuses/sizes. The Core Image pane only diagnoses rendering
 it does not reproduce presentation geometry or qualify a replacement compositor.
 No shipping change, full-case replay, new dependency/permission or wider limit.
 All first-run/native/source/media/retirement preservation gates still apply.
+
+[Attempt 2](../results/2026/11-12/composition-probe-attempt-2.md) stopped before
+compilation because the original-case Git object fell outside the shallow
+checkout. Candidate 3 replaces only that history read with its exact 15,300-byte
+SHA-256 prefix pin and required newline boundary, retaining the original source
+identity in the receipt. Guard protected inputs against `50d70b855ed6febfb3e8de80dc6c3b5dc8a10728`;
+all remain unchanged, including the native case and six-pane helper. Keep the
+same four-commit checkout, limits and complete identity/source/cleanup contract.
