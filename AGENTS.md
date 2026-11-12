@@ -241,3 +241,12 @@ Debug-product substitution or closed-case replay. Local Guard now refuses at
 2.8 GiB/34.0 GiB; source parsing and bounded evidence only locally. Keep the
 full same-source native/pixel/process/unchanged-input verdict mandatory, retain
 failures and retire only the exact prepared playback control.
+
+[FUI04 attempt 1](docs/results/2026/11-12/release-playback-attempt-1.md) failed
+its apparent-storage sampler during harness build, before app/native launch.
+Keep it failed with its missing command/cleanup proof. The changed candidate
+records failing size/topology and retains command streams on exceptions while
+allowing read-only source/ownership cleanup inspection after refusal. Preserve
+the same 4 GiB cap, released product, native case, all pixel/runtime/file
+assertions and no-capture boundaries; diagnose actual storage before choosing
+any further correction. No unchanged retry or closed-scope replay.

@@ -25,7 +25,7 @@ source = os.environ["FRAMELET_SOURCE_COMMIT"]
 assert re.fullmatch(r"[0-9a-f]{40}", source)
 assert platform.system() == "Darwin" and platform.machine() == "x86_64"
 assert os.environ["GITHUB_REPOSITORY"] == "alvarovillalbaa/framelet"
-assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-release-playback-20261112-1"
+assert os.environ["GITHUB_REF"] == "refs/heads/qa/framelet-release-playback-20261112-2"
 repo = Path.cwd().resolve()
 parent = Path(os.environ["RUNNER_TEMP"]).resolve()
 root = Path(tempfile.mkdtemp(prefix="framelet-release-playback-", dir=parent)).resolve()
@@ -117,6 +117,33 @@ def fixture_snapshot():
     return rows
 
 
+def sample_storage(enforce):
+    paths = list(root.rglob("*"))
+    rows = []
+    for path in paths:
+        try: value = path.lstat()
+        except FileNotFoundError: continue  # A compiler may atomically replace a temporary.
+        if stat.S_ISREG(value.st_mode):
+            rows.append({"path": str(path.relative_to(root)), "logicalBytes": value.st_size,
+                "allocatedBytes": value.st_blocks * 512, "device": value.st_dev,
+                "inode": value.st_ino, "links": value.st_nlink})
+    unique = {(row["device"], row["inode"]): row for row in rows}
+    snapshot = {"monotonic": time.monotonic(), "entries": len(paths),
+        "logicalBytes": sum(row["logicalBytes"] for row in rows),
+        "allocatedBytes": sum(row["allocatedBytes"] for row in unique.values()),
+        "uniqueLogicalBytes": sum(row["logicalBytes"] for row in unique.values()),
+        "uniqueRegularFiles": len(unique),
+        "largest": sorted(rows, key=lambda row: row["logicalBytes"], reverse=True)[:16]}
+    snapshots = report.setdefault("storageSnapshots", [])
+    assert len(snapshots) < 210
+    snapshots.append(snapshot)
+    report["maximumOwnedBytes"] = max(report.get("maximumOwnedBytes", 0), snapshot["logicalBytes"])
+    if enforce and (len(paths) > 32768 or snapshot["logicalBytes"] > 4 * 1024 ** 3):
+        (evidence / "storage-bound-state.json").write_text(json.dumps(snapshot, indent=2))
+        raise RuntimeError("owned storage bound: apparent=" + str(snapshot["logicalBytes"])
+            + ", allocated=" + str(snapshot["allocatedBytes"]) + ", entries=" + str(len(paths)))
+
+
 def run(name, args, seconds=30, cwd=None):
     protects_possible_writer = name == "native-ui"
     remaining = (990 if cleanup_phase else 900) - (time.monotonic() - started)
@@ -125,75 +152,78 @@ def run(name, args, seconds=30, cwd=None):
     child = subprocess.Popen(args, cwd=cwd or repo, env=environment, stdin=subprocess.DEVNULL,
         stdout=subprocess.PIPE, stderr=subprocess.PIPE, start_new_session=True)
     streams = {"stdout": bytearray(), "stderr": bytearray()}
+    observed = {key: [0, hashlib.sha256()] for key in streams}
+    eof = set()
     selector = selectors.DefaultSelector()
     for key in streams:
         pipe = getattr(child, key)
         os.set_blocking(pipe.fileno(), False)
         selector.register(pipe, selectors.EVENT_READ, key)
     stopped = None
-    sampled = 0.0
-    storage_sampled = 0.0
+    failure = None
+    signalled = False
+    sampled = storage_sampled = 0.0
+    def drain(wait, enforce=True):
+        for event, _ in selector.select(wait):
+            data = os.read(event.fd, 65536)
+            if not data:
+                eof.add(event.data); selector.unregister(event.fileobj)
+            else:
+                observed[event.data][0] += len(data); observed[event.data][1].update(data)
+                room = 2 * 1024 ** 2 - len(streams[event.data])
+                streams[event.data].extend(data[:room])
+                if enforce: assert len(data) <= room, "command stream bound"
     try:
         while selector.get_map():
             if time.monotonic() - storage_sampled >= 5:
-                paths = list(root.rglob("*"))
-                assert len(paths) <= 32768
-                size = sum(path.stat().st_size for path in paths if path.is_file() and not path.is_symlink())
-                assert size <= 4 * 1024 ** 3
-                report["maximumOwnedBytes"] = max(report.get("maximumOwnedBytes", 0), size)
+                # Cleanup metadata is read-only and must not rethrow the same
+                # storage admission failure before source/ownership inspection.
+                sample_storage(enforce=not cleanup_phase)
                 storage_sampled = time.monotonic()
             if name == "native-ui" and time.monotonic() - sampled >= 1:
-                sample_runtime()
-                sampled = time.monotonic()
-            if time.monotonic() > deadline or any(len(data) > 2 * 1024 ** 2 for data in streams.values()):
-                stopped = "timeout_or_stream_bound"
-                if not protects_possible_writer:
-                    try: os.killpg(child.pid, signal.SIGKILL)
-                    except ProcessLookupError: pass
-                break
-            for event, _ in selector.select(0.1):
-                data = os.read(event.fd, 65536)
-                if data: streams[event.data].extend(data)
-                else: selector.unregister(event.fileobj)
-        if not (protects_possible_writer and stopped):
-            try: child.wait(timeout=5)
-            except subprocess.TimeoutExpired:
-                if not protects_possible_writer: raise
-                stopped = "native_process_retained_without_writer_signal"
+                sample_runtime(); sampled = time.monotonic()
+            assert time.monotonic() <= deadline, "command deadline"
+            drain(0.1)
+        child.wait(timeout=5)
+    except BaseException as error:
+        failure = error
+        stopped = type(error).__name__ + ": " + str(error)[:512]
     finally:
         if child.poll() is None and not protects_possible_writer:
-            try: os.killpg(child.pid, signal.SIGKILL)
+            try: os.killpg(child.pid, signal.SIGKILL); signalled = True
             except ProcessLookupError: pass
             child.wait(timeout=5)
-        selector.close()
-        if child.poll() is None and protects_possible_writer:
-            # Keep pipes/session alive through partial-evidence preservation.
-            # No parent/group signal may force an unfinished app writer down.
-            retained_native_children.append(child)
-        else:
+        if child.poll() is not None:
+            until = min(started + 990, time.monotonic() + 3)
+            while selector.get_map() and time.monotonic() < until: drain(0.05, False)
             child.stdout.close(); child.stderr.close()
-    try:
-        os.killpg(child.pid, 0)
-    except ProcessLookupError:
-        group_absent = True
-    else:
-        if protects_possible_writer:
-            group_absent = False
         else:
-            os.killpg(child.pid, signal.SIGKILL)
+            # Never force a possible app writer down after an observation
+            # failure. Preserve its session/pipes through acknowledgment handling.
+            retained_native_children.append(child)
+        selector.close()
+    try: os.killpg(child.pid, 0)
+    except ProcessLookupError: group_absent = True
+    else:
+        group_absent = False
+        if not protects_possible_writer:
+            try: os.killpg(child.pid, signal.SIGKILL); signalled = True
+            except ProcessLookupError: group_absent = True
             time.sleep(0.2)
             try: os.killpg(child.pid, 0)
             except ProcessLookupError: group_absent = True
-            else: group_absent = False
     row = {"name": name, "args": args, "exitCode": child.returncode, "stopReason": stopped,
-           "ownedGroupAbsent": group_absent, "possibleWriterGroupNeverSignalled": protects_possible_writer,
-           "streams": {}}
+        "ownedGroupAbsent": group_absent, "possibleWriterGroupNeverSignalled": protects_possible_writer,
+        "nonWriterBuildOrReadGroupSignalled": signalled, "streams": {}}
     for key, data in streams.items():
         raw = bytes(data)
         (evidence / (name + "." + key + ".txt")).write_bytes(raw)
-        row["streams"][key] = {"bytes": len(raw), "sha256": sha(raw), "complete": stopped is None,
+        row["streams"][key] = {"bytes": len(raw), "sha256": sha(raw),
+            "complete": key in eof and observed[key][0] == len(raw), "eof": key in eof,
+            "observedBytes": observed[key][0], "observedSHA256": observed[key][1].hexdigest(),
             "gzipBase64": base64.b64encode(gzip.compress(raw, mtime=0)).decode()}
     report["commands"].append(row)
+    if failure is not None: raise failure
     assert child.returncode == 0 and stopped is None and group_absent, name + " failed"
     return bytes(streams["stdout"])
 
@@ -468,15 +498,18 @@ finally:
             rows = []
             for line in observation.stdout.decode().splitlines():
                 pair = line.strip().split(None, 1)
-                if len(pair) == 2 and any(str(path) + "/" in pair[1] for path in (app, debug_app, runner)):
+                if len(pair) == 2 and int(pair[0]) != os.getpid() and str(root) + "/" in pair[1]:
                     rows.append({"pid": int(pair[0]), "command": pair[1]})
             return rows
         owned = owned_processes(); report["cleanup"]["ownedProcessesBefore"] = owned
         for row in owned:
             check = subprocess.run(["/bin/ps", "-p", str(row["pid"]), "-o", "command="], capture_output=True, timeout=5)
             if check.returncode == 0 and check.stdout.decode().strip() == row["command"]: os.kill(row["pid"], signal.SIGTERM)
-        if owned: time.sleep(1)
-        remaining = owned_processes(); report["cleanup"]["ownedProcessesAfter"] = remaining
+        until = min(started + 990, time.monotonic() + 5)
+        remaining = owned_processes()
+        while remaining and time.monotonic() < until:
+            time.sleep(0.2); remaining = owned_processes()
+        report["cleanup"]["ownedProcessesAfter"] = remaining
         assert not remaining
         report["cleanup"]["ownedAppAndRunnerAbsent"] = True
         if library_identity is not None:

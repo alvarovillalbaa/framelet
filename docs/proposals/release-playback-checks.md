@@ -83,3 +83,15 @@ profile, even if successful, proves only the exact Release/x86_64 VM playback
 path. ARM Release runtime, first encoded-screen-anchor correspondence,
 camera/audio timing, physical displays/devices, migration, human accessibility
 and trusted downloaded-app/Gatekeeper launch remain separate open requirements.
+
+[Attempt 1](../results/2026/11-12/release-playback-attempt-1.md) stopped at the
+4 GiB apparent-storage assertion during harness build, before app/native
+execution. Preserve its missing build streams and unverified root cleanup as
+gaps. Candidate 2 keeps that same cap and all runtime/pixel/fixture assertions;
+the changed controller records failing logical/allocated sizes, unique inode
+counts and largest paths before rejecting. It retains observed command bytes,
+EOF/truncation/stop/signal metadata on exceptions. Cleanup source/index guards
+are read-only and may run after a storage refusal; only verified task-root
+compiler/app/runner processes may receive ordinary termination after safe
+no-native/actual shutdown admission. No inferred cache setting, larger cap,
+product change, reduced playback scope or old-case replay is introduced.
