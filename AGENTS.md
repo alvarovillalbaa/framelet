@@ -442,3 +442,11 @@ and pool views remain black. This diagnostic is closed; presentation changes
 alone are unsupported. Keep shipping code exact until a separate bounded
 instruction-validation/source-track/callback experiment establishes the next fix.
 No old-case replay, pool assumption, GPU inference or new binary publication.
+
+Standing approval covers the materialized [instruction-delivery diagnostic](docs/proposals/instruction-delivery-checks.md):
+one bounded background Intel helper, raw controls plus original/explicit/source-
+timed instruction variants, actual validity/track/callback/frame measurements.
+No visible window, Framelet launch, capture/export/device action, shipping edit,
+closed-case replay or new binary publication. Preserve exact product/old inputs,
+production drawing-body equality, partial evidence and owned cleanup/retirement.
+Choose a product fix only from the actual measurements.
