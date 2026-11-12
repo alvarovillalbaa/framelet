@@ -522,3 +522,10 @@ native/nine-color/process/input qualification, using the now-qualified builder
 with only version/builder-archive guard changes. Materialize inactive exact-source
 controls first. Keep all old cases/helpers and failed0.1.4/public0.1.3 assets
 immutable; no usable new binary publication until the entire Release scope passes.
+
+The new [0.1.5 exact-duration package scope](docs/proposals/coverage-preview-checks.md)
+is materialized with inactive source-pinned controls. Only plist version fields
+and builder archive/version guard change among qualified product inputs. Run
+the bounded non-launching universal package, preserve its original payloads and
+retire that exact control. Then materialize full same-source Release FUI04 using
+the passing archive; no binary publication or closed component/native replay.
