@@ -1,4 +1,5 @@
 import AppKit
+import CoreGraphics
 import Foundation
 import XCTest
 
@@ -129,24 +130,47 @@ final class FrameletCaptureAcceptance: XCTestCase {
             XCTAssertTrue(toggle.exists)
             XCTAssertEqual((toggle.value as? NSNumber)?.intValue ?? Int(toggle.value as? String ?? ""), 0)
         }
-        app.buttons["Choose Source…"].click()
+        let library = app.windows.matching(NSPredicate(format: "identifier BEGINSWITH %@", "library-AppWindow-")).firstMatch
+        library.buttons["_XCUI:MinimizeWindow"].click()
+        XCTAssertTrue(wait { libraryHidden() })
+        // Keep the fixture unobscured and avoid Expose's transformed thumbnails.
+        // This foreground command opens the picker without restoring the library.
+        app.menuBars.menuBarItems["Recording"].click()
+        app.menuItems["Choose Display or Window…"].click()
         let picker = system.dialogs["Shared Content Picker Controls"]
         XCTAssertTrue(picker.buttons["Show All Windows"].waitForExistence(timeout: 15))
+        XCTAssertTrue(libraryHidden())
         record("01-picker-open", picker: true)
-        picker.buttons["Show All Windows"].click()
-        record("02-window-choices", picker: true)
-        let ownedChoice = system.buttons.matching(NSPredicate(format: "label CONTAINS %@", title))
-        XCTAssertTrue(ownedChoice.firstMatch.waitForExistence(timeout: 15))
+        let frame = fixture.windows[title].frame
+        XCTAssertGreaterThan(frame.width, 0); XCTAssertGreaterThan(frame.height, 0)
+        let groups = picker.groups.allElementsBoundByIndex
+        XCTAssertLessThanOrEqual(groups.count, 8)
+        let ownedChoice = groups.filter { element in
+            let actual = element.frame
+            return abs(actual.minX - frame.minX) <= 0.5 && abs(actual.minY - frame.minY) <= 0.5
+                && abs(actual.width - frame.width) <= 0.5 && abs(actual.height - frame.height) <= 0.5
+        }
         XCTAssertEqual(ownedChoice.count, 1)
-        ownedChoice.firstMatch.click()
-        if !app.staticTexts[sourceLabel].firstMatch.waitForExistence(timeout: 5) {
+        let center = ownedChoice[0].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+        center.hover(); interval(1)
+        let geometry: [String: Any] = ["fixtureTitle": title, "libraryHidden": true,
+            "fixtureFrame": ["x": frame.minX, "y": frame.minY, "width": frame.width, "height": frame.height],
+            "matchedPickerGroups": ownedChoice.count, "point": ["x": center.screenPoint.x, "y": center.screenPoint.y]]
+        let geometryAttachment = XCTAttachment(data: try JSONSerialization.data(withJSONObject: geometry,
+            options: [.sortedKeys, .prettyPrinted]), uniformTypeIdentifier: "public.json")
+        geometryAttachment.name = "02-source-geometry"; geometryAttachment.lifetime = .keepAlways; add(geometryAttachment)
+        record("02-window-target", picker: true)
+        center.click()
+        if !wait({ !picker.exists }, seconds: 5) {
             record("03-window-confirmation", picker: true)
             let shareWindow = system.buttons.matching(NSPredicate(format:
                 "label BEGINSWITH[c] %@ AND label CONTAINS[c] %@", "Share", "Window"))
             XCTAssertEqual(shareWindow.count, 1)
             shareWindow.firstMatch.click()
         }
-        // The callback's selected-filter metadata, not a guessed tile, is the
+        XCTAssertTrue(wait { !picker.exists })
+        app.activate(); app.menuBars.menuBarItems["Window"].click(); app.menuItems["Library"].click()
+        // The callback's selected-filter metadata, not geometry alone, is the
         // final source guard. Never press Start for a generic/display source.
         XCTAssertTrue(app.staticTexts[sourceLabel].firstMatch.waitForExistence(timeout: 15))
         XCTAssertFalse(app.staticTexts["Selected display"].exists)

@@ -104,12 +104,20 @@ Nothing is activated by source or the inactive template. A failed snapshot
 or file check must stay failed, with its partial media retained. The first
 encoded-sample timing contract remains explicitly unmeasured by this verifier.
 
-The case opens the observed Control Center picker, shows all windows and
-requires one button identifying the fixture's exact nonce title. It never
-presses a display-share button or substitutes coordinate guesses for missing
-identity. An optional single Share Window confirmation is followed by the
+Candidate 1's title-button assumption failed before Start. The changed case
+minimizes the library through its observed native control, opens the picker
+through Recording → Choose Display or Window, and keeps the fixture unobscured.
+It avoids Expose/Show All Windows because those thumbnails transform geometry.
+It requires exactly one actual picker window group whose finite native frame
+matches the nonce-titled fixture window's live frame within half a point, among
+at most eight groups. It records title/frame/point metadata and actual PNG/AX,
+then hovers/clicks that group's center through public
+[XCUICoordinate](https://developer.apple.com/documentation/xcuiautomation/xcuicoordinate/hover%28%29).
+No raw screen coordinates or full-display action are substituted. An optional
+single Share Window confirmation is followed by the
 chosen-filter metadata guard in Framelet itself. Missing/incompatible UI stays
-failed before Start. Then two three-second minimum recording intervals,
+failed before Start. After picker dismissal, Window → Library restores the
+normal controls and the exact source title is required. Then two three-second minimum recording intervals,
 at least four seconds deliberately paused, a red-to-blue change during pause,
 normal menu commands with the library hidden, acknowledged Stop, reopening
 and a real save-panel MP4 export are required. Failure attachments preserve
@@ -140,6 +148,15 @@ The exact workflow/QA ref retires after uploaded artifact identity/digest checks
 Main keeps no active workflow. Local Storage Guard is **5.1 GiB / 34.0 GiB**;
 no local build, app, test, capture or installation is authorized or performed.
 The compact original receipt has a separate 48 MiB upper bound.
+
+[Attempt 1](../results/2026/11-12/capture-attempt-1.md) remains failed with all
+originals and verified ordinary cleanup; no writer had started. Candidate 2
+keeps its compiled shipping/fixture/verifier inputs unchanged and changes only
+the selector/controller/control pins and this proposal. The runtime diff guard
+uses the reachable immutable attempt-1 source
+`f74a28bbbc74d6cfb123bbb4834cc7b6d886995c`. That compilation is not capture proof.
+The full actual two-take/media/stop/export case and independent verifier still
+have to pass together; no narrower substitute closes FUI03.
 
 This would prove the basic real screen-window path only. The correspondence of
 the first `.complete` screen callback to the first encoded sample remains a

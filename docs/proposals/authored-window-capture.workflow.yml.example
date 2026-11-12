@@ -2,8 +2,8 @@
 name: Temporary Framelet actual authored-window capture
 on:
   push:
-    branches: [qa/framelet-capture-20261112-1]
-    paths: [.github/workflows/framelet-capture-20261112-1.yml]
+    branches: [qa/framelet-capture-20261112-2]
+    paths: [.github/workflows/framelet-capture-20261112-2.yml]
 permissions:
   contents: write
   actions: write
@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   acceptance:
-    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-capture-20261112-1'
+    if: github.repository == 'alvarovillalbaa/framelet' && github.event.repository.private == false && github.ref == 'refs/heads/qa/framelet-capture-20261112-2'
     runs-on: macos-15-intel
     timeout-minutes: 20
     env:

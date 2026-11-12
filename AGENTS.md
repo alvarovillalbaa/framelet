@@ -171,3 +171,13 @@ or model call. Exact selected-window identity is mandatory before Start.
 Require actual capture shutdown and export settlement before app signals or
 library/root removal; otherwise retain partial files and unverified cleanup.
 The read-only hash observer owns no writer. Keep all closed scopes untouched.
+
+[FUI03 attempt 1](docs/results/2026/11-12/capture-attempt-1.md) compiled all
+inputs but failed its title-button selector before Start. Preserve that failed
+original and its no-writer/ordinary-cleanup boundary. Standing approval covers
+the changed selector in the same full scope: native library minimize, matching
+the exact nonce-titled fixture frame to one actual picker group, group-relative
+hover/click, and unchanged selected-filter nonce guard before Start. No Expose
+geometry, raw coordinate guesses, display fallback, permission change or
+capture/file/assertion relaxation. All later Stop/export acknowledgments and
+retention limits remain mandatory; do not claim actual recording from a build.
