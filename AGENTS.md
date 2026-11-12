@@ -494,3 +494,9 @@ asset and all-time coverage as well as the project range. Keep all98 protected
 product/closed-helper inputs and the delegated rendering body exact. No app/
 visible-window/capture/export/device action, shipping edit or binary publication.
 Preserve original rows/frames/source/input and exact owned cleanup/retirement.
+
+[Property attempt1](docs/results/2026/11-12/composition-properties-attempt-1.md)
+failed helper compilation before launch; input/group/root and exact retirement
+passed. Standing approval covers attempt2's `Self.instructions` qualification
+with all16 rows, both controls and original bounds/assertions unchanged. Keep
+shipping exact and preserve this failure; no unchanged failed retry.

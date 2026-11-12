@@ -38,3 +38,8 @@ uploaded scratch removal and independently attempted self-disable/exact-ref
 deletion required. <=6 successful artifact visibility reads; no failed-HTTP
 retry. Only inactive workflow example on main. Local syntax/static/diff only.
 Choose the next product change from actual evidence; full Release pixels stay open.
+
+[Attempt1](../results/2026/11-12/composition-properties-attempt-1.md) failed
+before launch because a local variable shadows the reporting function. Attempt2
+qualifies only that call with `Self`; preserve every variant/assertion/bound,
+the exact production inputs and the original failed receipt/retirement.

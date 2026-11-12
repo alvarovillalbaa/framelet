@@ -158,7 +158,7 @@ private enum PropertiesProbe {
                     "playerStatus": player.status.rawValue, "itemStatus": item.status.rawValue,
                     "playerError": player.error?.localizedDescription ?? "", "itemError": item.error?.localizedDescription ?? "",
                     "compositorType": item.customVideoCompositor.map { String(describing: type(of: $0)) } ?? "nil",
-                    "requests": requests, "instructions": instructions(video), "frame": sample, "rejectedDisplayTimes": rejectedDisplayTimes,
+                    "requests": requests, "instructions": Self.instructions(video), "frame": sample, "rejectedDisplayTimes": rejectedDisplayTimes,
                     "sourceTrackIDForFrameTiming": video?.sourceTrackIDForFrameTiming ?? 0,
                     "compositionProperties": properties(video),
                     "elapsedSeconds": ProcessInfo.processInfo.systemUptime - started])
