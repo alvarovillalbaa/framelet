@@ -1,5 +1,9 @@
 # Framelet
 
+<!-- project-family:start -->
+> **Project family:** [OS Apps](https://github.com/alvarovillalbaa#os-apps) · **Area:** macOS
+<!-- project-family:end -->
+
 Last updated: 2026-11-12
 
 A local Mac screen recorder with a recording library and clip editor. Choose a display or window, optionally include camera and audio, pause between takes, edit the clips, and export an MP4 with your canvas layout. Recordings stay on your Mac.
